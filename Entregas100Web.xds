@@ -1,0 +1,112 @@
+{
+    "name": "Entregas100Web",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "6.5.1.240",
+            "frameworkVersion": "6.5.0.775"
+        },
+        "urlPrefixTemplate": "http://localhost:{port}/{path}",
+        "urlPrefix": "http://localhost:60401/",
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Large",
+                "builtIn": true,
+                "height": 1024,
+                "width": 1280
+            }
+        },
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": false,
+        "installStatus": "Not Installed"
+    },
+    "xdsVersion": "4.2.2",
+    "xdsBuild": 282,
+    "schemaVersion": 1,
+    "upgradeVersion": 310000000001,
+    "framework": "ext65",
+    "viewOrderMap": {
+        "view": [
+            "ccb3a004-46df-4533-afae-03018f6fb245",
+            "4c577587-787a-419d-bcc2-ab636fdddac8",
+            "df1e4ec6-e6d2-4972-bf0d-906d41b5be4c",
+            "6a13ddce-c323-49d0-8f8c-3ac350680336",
+            "c29aad38-1603-4dd6-b0e4-df1bf249d0a9",
+            "b5d10817-630a-4fc7-996c-fa03c82a65f4",
+            "19945a1c-e85f-47e0-bc68-8db8b04eeb7b",
+            "91d8042d-4bd5-4663-a317-28fe481649ff",
+            "921e189d-2733-4d81-a2ca-be7895629d90",
+            "a62dbb9b-3991-4978-9416-8d87d7a1fa08",
+            "8acfd0e2-00b2-4bac-be55-116fdf9ef10b",
+            "4f21aed0-c67e-48ca-addf-b997d71e5c11",
+            "83c09874-a7d5-4bee-8e34-3fadba45a207",
+            "fb8ebc54-b414-4e3e-a526-54be6a9f96c1",
+            "e758ef30-b41b-4fdf-bec4-fd899911db9e",
+            "111ef4c5-ba0c-4ccd-bcf1-eb0023d98331",
+            "a95535af-29d1-46ed-bdf5-4a8486fe81e3",
+            "0a7d1758-6801-44e0-bca5-b49c56db8b0c",
+            "69cd34fe-08b3-453f-bb83-ed6f740c228d",
+            "338b4542-9c5e-4077-8181-d9aa912fb1c7",
+            "39be33db-81df-4fd8-97f8-b14d2611e1bf",
+            "0a8abb82-73b9-421d-ad36-3c3012ed2014",
+            "0d7a31be-d3af-4476-a918-d8f57299ef59",
+            "4ddd265e-e863-4b58-8626-9ecf726f4ab6",
+            "59aa6dfa-7794-4ad0-b591-87c1d4ecf7b0",
+            "80d4214b-da0a-42b4-86bd-d847931098e2",
+            "26fb9d42-c495-4697-a8c5-78307078f548",
+            "f9c2892d-0e44-4e8b-9d12-818a642629a3",
+            "bad0bf59-1ec6-4ce1-b98a-f739d3d7bf9e",
+            "1bda6ba9-3b87-4dbc-899d-25e70f573cd2",
+            "d5aa1a90-282b-4309-8964-fc9cc2cb8514",
+            "22cdba27-e307-4db3-b1ad-fd994934c609",
+            "39b26867-64ed-4e5b-b40a-17fce7c0e1c4",
+            "325fffc8-44fe-451e-b755-7672465773df",
+            "65b51223-ca74-4d6b-85b8-15c4fcd080df",
+            "b20e0974-89be-4552-83cf-c37f3636af83",
+            "cbf9f2e0-b8aa-44b2-bf04-cc9838109674",
+            "f77d90cd-6f77-4604-bffd-9d4d3126fd1b",
+            "28be9016-f4a2-47ec-813a-6c737eb8c9f7",
+            "6fd62ffb-db5f-436a-8c34-c02a206028e9",
+            "ab4f8830-2f31-4b95-922b-c7f60ee5b0a8",
+            "b3ed4618-b236-4894-97e2-9570482c898b",
+            "462ce020-1cff-40e2-9516-d5344ed69946",
+            "d308e9fb-564f-4415-8e7f-37a0e8839085",
+            "0fc20786-9802-44ac-871e-89c3eeb1da59",
+            "7ef9fb9e-435c-4c04-ad9d-5b26d072c5db",
+            "f05fa05a-da74-45c1-aaf9-d9cc5113fae0",
+            "57235571-c814-45d2-9799-5fbb02e2ccb9"
+        ],
+        "store": [
+            "5f235546-7ed6-4ca3-99cc-f4c65cc9edd8",
+            "8469546a-2755-470a-a414-461319a2b51d",
+            "f3c75a54-d675-488d-88b0-d9e98606dac4",
+            "be553a38-11ce-4586-bca0-e8c088f5ffc3",
+            "c31b5538-b18e-4d18-a964-708d3134e7e7",
+            "0d92b6c4-4d96-4cec-afa6-7285476dfa01"
+        ],
+        "controller": [
+            "3b6108d4-cbd0-43e9-bc6c-90cc0cc78b67"
+        ],
+        "model": [
+            "9c79983b-31bf-4996-bce2-2758dd113d53",
+            "9a945399-4d27-4ca7-bb19-ea0b7027c25b",
+            "67b57e79-71d6-46f6-a840-69d5df8f04fe",
+            "bf929501-f9c6-4a0f-a3c7-b78dad0c759d",
+            "72ca0ef4-c5c1-4d15-852b-1c590826e96b",
+            "bcd3b6e4-f676-4cc7-bea6-bc5cdc970587"
+        ],
+        "resource": [
+            "eeea5342-405b-4cc3-b300-0364ab6fff3b",
+            "bededc52-2f39-44f8-9a11-4d8f26eca495"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

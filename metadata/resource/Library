@@ -1,0 +1,24 @@
+{
+    "type": "libraryresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "basePath": "ext/build/",
+        "designer|userClassName": "Library",
+        "libraryRequires": [
+            "exporter"
+        ],
+        "theme": "MyTritonTheme"
+    },
+    "configAlternates": {
+        "basePath": "uri",
+        "designer|userClassName": "string",
+        "theme": "string",
+        "libraryRequires": "typedarray"
+    },
+    "name": "Library",
+    "designerId": "eeea5342-405b-4cc3-b300-0364ab6fff3b"
+}

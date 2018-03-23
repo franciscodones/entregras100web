@@ -1,0 +1,64 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreController"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyController",
+    "designerId": "3b6108d4-cbd0-43e9-bc6c-90cc0cc78b67",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "proxy",
+                    "response",
+                    "operation",
+                    "eOpts",
+                    "store"
+                ],
+                "fn": "onStoreAjaxException",
+                "implHandler": [
+                    "var me = this,",
+                    "    message;",
+                    "",
+                    "// mensaje de error",
+                    "if (typeof operation.error === \"string\") {",
+                    "    message = operation.error;",
+                    "} else {",
+                    "    message = operation.error.status + \" \" + operation.error.statusText + \". \" + operation.error.response.responseText;",
+                    "}",
+                    "",
+                    "console.log(store.isSyncing);",
+                    "",
+                    "// muestra el mensaje de error",
+                    "Ext.Msg.show({",
+                    "    title: 'Mensaje del Sistema',",
+                    "    message: message,",
+                    "    icon: Ext.Msg.ERROR,",
+                    "    buttons: Ext.Msg.OK",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onStoreAjaxException",
+            "designerId": "4b5f4a8d-0da4-4cd1-88bc-bb793677d1c1"
+        }
+    ]
+}

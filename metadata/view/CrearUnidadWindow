@@ -1,0 +1,487 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crearunidadwindow",
+        "designer|userClassName": "CrearUnidadWindow",
+        "glyph": "f0d1@FontAwesome",
+        "modal": true,
+        "title": "Nueva Unidad",
+        "viewModel": [
+            "{",
+            "    type: 'crearunidadwindow',",
+            "    stores: {",
+            "        PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {",
+            "            filters: [",
+            "                {",
+            "                    id: \"permiso-plazas\",",
+            "                    filterFn: function(record) {",
+            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
+            "                    }",
+            "                }",
+            "            ]",
+            "        }),",
+            "        ZonasLocalStore: Ext.create('Entregas100Web.store.ZonasStore', {",
+            "            filters: [",
+            "                {",
+            "                    id: \"permiso-plazas\",",
+            "                    filterFn: function(record) {",
+            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
+            "                    }",
+            "                }",
+            "            ]",
+            "        })",
+            "    }",
+            "}"
+        ],
+        "width": 400
+    },
+    "configAlternates": {
+        "viewModel": "object",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "CrearZonaWindow2",
+    "designerId": "bad0bf59-1ec6-4ce1-b98a-f739d3d7bf9e",
+    "viewControllerInstanceId": "ab4f8830-2f31-4b95-922b-c7f60ee5b0a8",
+    "viewModelInstanceId": "65b51223-ca74-4d6b-85b8-15c4fcd080df",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "crearUnidadForm",
+                "trimValues": true
+            },
+            "configAlternates": {
+                "trimValues": "boolean",
+                "bodyPadding": "auto",
+                "itemId": "string"
+            },
+            "name": "MyForm2",
+            "designerId": "a1f17980-bee2-472e-8eb3-03b80d490b63",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "trimValues",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowDecimals": false,
+                        "allowExponential": false,
+                        "fieldLabel": "Unidad",
+                        "hideTrigger": true,
+                        "layout|anchor": "100%",
+                        "maxValue": 999,
+                        "minValue": 1,
+                        "name": "unidad"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "allowDecimals": "boolean",
+                        "allowExponential": "boolean",
+                        "fieldLabel": "string",
+                        "hideTrigger": "boolean",
+                        "layout|anchor": "string",
+                        "maxValue": "number",
+                        "minValue": "number",
+                        "name": "string"
+                    },
+                    "name": "MyNumberField4",
+                    "designerId": "19599e02-67e3-4e32-8eb8-d5fb461efa29"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Tipo",
+                        "layout|anchor": "100%",
+                        "maskRe": "/[A-Za-z]/",
+                        "maxLength": 1,
+                        "minLength": 1,
+                        "name": "letra",
+                        "transformToUpper": true
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string"
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "11061ec2-2eb5-4921-8e6e-01ada76caf86",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "transformToUpper",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "ciudad",
+                        "editable": false,
+                        "fieldLabel": "Plaza",
+                        "forceSelection": true,
+                        "itemId": "cmbPlaza",
+                        "layout|anchor": "100%",
+                        "name": "plaza_id",
+                        "store": [
+                            "{PlazasLocalStore}"
+                        ],
+                        "valueField": "id"
+                    },
+                    "configAlternates": {
+                        "store": "binding",
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "6f57bede-e546-4546-b755-aeac1966c872",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbPlazaSelect",
+                                "implHandler": [
+                                    "var me = this,",
+                                    "    cmbZona = me.view.down(\"#cmbZona\"),",
+                                    "    zonasLocalStore = me.getStore(\"ZonasLocalStore\");",
+                                    "",
+                                    "if (record) {",
+                                    "    this.view.down(\"#cmbZona\").enable();",
+                                    "",
+                                    "    // refresca el filtro de la plaza en el store de zonas",
+                                    "    zonasLocalStore.removeFilter(\"plazaFilter\");",
+                                    "    zonasLocalStore.addFilter([{",
+                                    "        id: \"plazaFilter\",",
+                                    "        property: \"plaza_id\",",
+                                    "        value: record.get(\"id\"),",
+                                    "        exactMatch: true",
+                                    "    }]);",
+                                    "}"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbPlazaSelect",
+                            "designerId": "c5fe01c1-cd85-4422-9267-949fa12303cd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "disabled": true,
+                        "displayField": "zona",
+                        "editable": false,
+                        "fieldLabel": "Zona",
+                        "forceSelection": true,
+                        "itemId": "cmbZona",
+                        "layout|anchor": "100%",
+                        "name": "zona_id",
+                        "store": [
+                            "{ZonasLocalStore}"
+                        ],
+                        "valueField": "id"
+                    },
+                    "configAlternates": {
+                        "store": "binding",
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "valueField": "datafield",
+                        "disabled": "boolean"
+                    },
+                    "name": "MyComboBox2",
+                    "designerId": "a57bc6b6-4a1c-4808-b46d-e7fe63576b43"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Contiene AD+",
+                        "checked": true,
+                        "hideEmptyLabel": false,
+                        "inputValue": "true",
+                        "layout|anchor": "100%",
+                        "name": "cobro_aditivo",
+                        "uncheckedValue": "false"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "checked": "boolean",
+                        "hideEmptyLabel": "boolean",
+                        "inputValue": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
+                    "name": "MyCheckbox1",
+                    "designerId": "c5aae3c4-2dd8-40fc-82a8-db8570437314"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Modo Online",
+                        "hideEmptyLabel": false,
+                        "inputValue": "true",
+                        "layout|anchor": "100%",
+                        "name": "online",
+                        "uncheckedValue": "false"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "checked": "boolean",
+                        "hideEmptyLabel": "boolean",
+                        "inputValue": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "uncheckedValue": "string"
+                    },
+                    "name": "MyCheckbox2",
+                    "designerId": "919d06d0-aff3-4f7f-b96c-489558937c02"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "20 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer9",
+                    "designerId": "59d2b989-f7d0-4fd5-8b55-3e081e02b202",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnCancelar",
+                                "text": "Cancelar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "8d7c8c52-9af9-474a-81e0-e4d969d84a2f",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCancelarClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnCancelarClick",
+                                    "designerId": "186da0b7-985f-4b1c-a0e9-9bde6852506b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer8",
+                            "designerId": "7f7d5ec9-7e75-449c-b436-d6ddc99b9c63"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "text": "Guardar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "f2689604-bd24-4c09-bd87-c838eb5b98ca",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    crearUnidadForm = me.view.down(\"form\").getForm(),",
+                                            "    nombrePlaza = me.view.down(\"#cmbPlaza\").getDisplayValue(),",
+                                            "    zona = me.view.down(\"#cmbZona\").getDisplayValue(),",
+                                            "    unidadesPanel = Ext.ComponentManager.get(\"unidadesPanel\"),",
+                                            "    unidadesLocalStore = unidadesPanel.getController().getStore(\"UnidadesLocalStore\"),",
+                                            "    record, waitWindow;",
+                                            "",
+                                            "if (crearUnidadForm.isValid()) {",
+                                            "    waitWindow = Ext.MessageBox.wait(\"Agregando unidad...\");",
+                                            "    record = Ext.create(",
+                                            "        \"Entregas100Web.model.ZonaModel\",",
+                                            "        Ext.apply(crearUnidadForm.getFieldValues(), {nombre_plaza: nombrePlaza, zona: zona})",
+                                            "    );",
+                                            "    unidadesLocalStore.add(record);",
+                                            "    unidadesLocalStore.sync({",
+                                            "        success: onSyncSuccess",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSuccess() {",
+                                            "    waitWindow.close();",
+                                            "    me.view.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "d3a0f804-cbb5-4118-ab5b-aa935cf388ee"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

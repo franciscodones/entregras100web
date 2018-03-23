@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tarifaspanel",
+        "designer|userClassName": "TarifasPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ZonasPanelViewModel1",
+    "designerId": "fb8ebc54-b414-4e3e-a526-54be6a9f96c1"
+}

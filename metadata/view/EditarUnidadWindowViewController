@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarunidadwindow",
+        "designer|userClassName": "EditarUnidadWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearUnidadWindowViewController1",
+    "designerId": "d308e9fb-564f-4415-8e7f-37a0e8839085"
+}

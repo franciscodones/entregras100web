@@ -1,0 +1,30 @@
+bootstrap.*
+classic.json*
+modern.json*
+.sencha
+/build
+/ext
+/bootstrap.json
+/bootstrap.jsonp
+/.architect
+/sass/example/bootstrap.json
+/sass/example/bootstrap.jsonp
+/resources/.arch-internal-preview.css
+/api/app/webroot/files
+
+# IDE and editor specific files #
+#################################
+/nbproject
+.idea
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+/api/app/Controller/Classes/jpgraph.zip

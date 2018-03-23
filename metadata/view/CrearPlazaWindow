@@ -1,0 +1,941 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crearplazawindow",
+        "designer|userClassName": "CrearPlazaWindow",
+        "draggable": false,
+        "glyph": "f055@FontAwesome",
+        "id": "crearPlazaWindow",
+        "maxHeight": 460,
+        "modal": true,
+        "resizable": false,
+        "scrollable": "both",
+        "title": "Nueva Plaza",
+        "viewModel": [
+            "{",
+            "    type: 'crearplazawindow',",
+            "    stores: {",
+            "        EmpresasLocalStore: Ext.create('Entregas100Web.store.EmpresasStore')",
+            "    }",
+            "}"
+        ],
+        "width": 600
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "title": "string",
+        "width": "auto",
+        "draggable": "boolean",
+        "glyph": "auto",
+        "maxHeight": "number",
+        "modal": "boolean",
+        "resizable": "boolean",
+        "scrollable": "auto",
+        "id": "string",
+        "viewModel": "object"
+    },
+    "name": "MyWindow",
+    "designerId": "0a8abb82-73b9-421d-ad36-3c3012ed2014",
+    "viewControllerInstanceId": "80d4214b-da0a-42b4-86bd-d847931098e2",
+    "viewModelInstanceId": "4ddd265e-e863-4b58-8626-9ecf726f4ab6",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "crearPlazaForm",
+                "trimValues": true
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "itemId": "string",
+                "trimValues": "boolean"
+            },
+            "name": "MyForm1",
+            "designerId": "1370e73d-622e-404e-a52f-f5a150354e7a",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "trimValues",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer1",
+                    "designerId": "8e141960-b732-49dd-87ee-edc12b8e5f64",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Clave (3 Digitos)",
+                                "layout|flex": 1,
+                                "maxLength": 3,
+                                "minLength": 3,
+                                "name": "plaza",
+                                "transformToUpper": true
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "maxLength": "number",
+                                "minLength": "number",
+                                "transformToUpper": "boolean",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "9ca3043c-4670-4e79-9ca6-6a028393ca3b",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "transformToUpper",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer",
+                            "designerId": "3a248944-c14b-4037-8f1e-ef0e3aa8ba41"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Clave (2 Digitos)",
+                                "layout|flex": 1,
+                                "maxLength": 2,
+                                "minLength": 2,
+                                "name": "plaza2",
+                                "transformToUpper": true
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "maxLength": "number",
+                                "minLength": "number",
+                                "transformToUpper": "boolean",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "f6dbe263-0c72-429e-afd1-9e6a48e287ed",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "transformToUpper",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer2",
+                    "designerId": "14b2a3d3-d498-4449-857d-a68ec86771bd",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Plaza",
+                                "layout|flex": 1,
+                                "name": "ciudad",
+                                "transformToUpper": true
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "transformToUpper": "boolean",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField5",
+                            "designerId": "6a770c05-613b-45dc-a467-c401346de3c6",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "transformToUpper",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer1",
+                            "designerId": "159b861b-6738-4007-9b4a-f51bf3534bb8"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Estado",
+                                "layout|flex": 1,
+                                "name": "estado",
+                                "transformToUpper": true
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "transformToUpper": "boolean",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField6",
+                            "designerId": "98cf7204-6c51-4baa-af37-58014f66398d",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "transformToUpper",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer3",
+                    "designerId": "2432879b-941e-4d6d-9e58-e05c1b6ba7eb",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "displayField": "razon_social",
+                                "editable": false,
+                                "fieldLabel": "Empresa",
+                                "forceSelection": true,
+                                "layout|flex": 1,
+                                "matchFieldWidth": false,
+                                "name": "empresa_id",
+                                "store": [
+                                    "{EmpresasLocalStore}"
+                                ],
+                                "valueField": "id"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "forceSelection": "boolean",
+                                "store": "binding",
+                                "displayField": "datafield",
+                                "editable": "boolean",
+                                "matchFieldWidth": "boolean",
+                                "valueField": "datafield"
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "77ec0a93-bc25-4edb-80e5-c9efdc81f6a2"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer2",
+                            "designerId": "e723e5ae-e531-4461-bce9-cb398c810752"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Permiso",
+                                "layout|flex": 1,
+                                "name": "permiso",
+                                "transformToUpper": true
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "transformToUpper": "boolean",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField11",
+                            "designerId": "a4dd1bd4-8e40-4c10-b23f-2865f2599043",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "transformToUpper",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Dirección",
+                        "layout|anchor": "100%",
+                        "name": "direccion_sucursal",
+                        "transformToUpper": true
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "allowBlank": "boolean",
+                        "transformToUpper": "boolean",
+                        "trimValue": "boolean"
+                    },
+                    "name": "MyTextField7",
+                    "designerId": "8f9b1504-e6ed-4884-9989-314b645989b8",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "transformToUpper",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer4",
+                    "designerId": "57df9c2f-506e-433c-ad65-bacd54705ba9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Tel. Pedidos",
+                                "inputType": "tel",
+                                "layout|flex": 1,
+                                "name": "telefono_pedido"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "inputType": "string",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "057baa74-26e4-4d75-8c49-bf079b3dff2c"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer3",
+                            "designerId": "e82f0398-53c8-454d-9262-a0e8125ae6e0"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Aplica SUMA PUNTOS",
+                                "inputValue": "true",
+                                "layout|flex": 1,
+                                "name": "otorga_puntos",
+                                "uncheckedValue": "false"
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "inputValue": "string",
+                                "uncheckedValue": "string"
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "d46423ff-d221-4f3e-b7e2-82122c159bde"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer5",
+                    "designerId": "9ab8d5fe-7cb8-4a5a-8ccc-0e97e504a247",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Tel. Quejas 1",
+                                "inputType": "tel",
+                                "layout|flex": 1,
+                                "name": "telefono_queja"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "inputType": "string",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "7637caad-fc6c-4d2a-ae52-efed79b62589"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer4",
+                            "designerId": "2fa0d489-ea6c-498e-9dad-ef34d3970c56"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Tel. Quejas 2",
+                                "inputType": "tel",
+                                "layout|flex": 1,
+                                "name": "telefono_queja2"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "inputType": "string",
+                                "trimValue": "boolean"
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "c207747e-aef7-42f7-a60a-3018e8c6604e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer6",
+                    "designerId": "dece4042-5e7a-41f6-ae89-7b60f583f033",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Factor Control",
+                                "hideTrigger": true,
+                                "layout|flex": 1,
+                                "name": "factor_control"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean"
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "4530378b-a64a-423e-b2a5-d4fbbf317075"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer5",
+                            "designerId": "760fcdc0-d18d-4470-8812-17bf5ba2c7cb"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Factor Space",
+                                "hideTrigger": true,
+                                "layout|flex": 1,
+                                "name": "factor_space"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean"
+                            },
+                            "name": "MyNumberField1",
+                            "designerId": "870275e3-8708-4170-9ea2-9996fc8c8a96"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer7",
+                    "designerId": "86718b77-ea27-483e-a202-48a958d1d92c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "fieldLabel": "Total de Clientes",
+                                "hideTrigger": true,
+                                "labelWidth": 120,
+                                "layout|flex": 1,
+                                "minValue": 500,
+                                "name": "clientes_estacionario"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "minValue": "number",
+                                "allowDecimals": "boolean"
+                            },
+                            "name": "MyNumberField2",
+                            "designerId": "75a238f2-6568-4cbc-84b3-ec9150c4fbc6"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer6",
+                            "designerId": "d9e51d4d-3f69-4d0e-a119-0337ae53e342"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "fieldLabel": "Clientes por partes",
+                                "hideTrigger": true,
+                                "labelWidth": 120,
+                                "layout|flex": 1,
+                                "maxValue": 3000,
+                                "minValue": 500,
+                                "name": "limite_descarga"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "allowBlank": "boolean",
+                                "maxValue": "number",
+                                "minValue": "number",
+                                "allowDecimals": "boolean"
+                            },
+                            "name": "MyNumberField3",
+                            "designerId": "28e8506d-524d-427f-9d69-1ebf8ba72dbe"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "20 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer8",
+                    "designerId": "9a505c9b-2c84-42cd-8bf1-369e23c1ae09",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnCancelar",
+                                "scale": "medium",
+                                "text": "Cancelar",
+                                "ui": "default-medium",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "itemId": "string",
+                                "text": "string",
+                                "designer|uiInterfaceName": "string",
+                                "glyph": "auto",
+                                "scale": "string",
+                                "ui": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "aa0357b0-53d9-45b0-8484-25690c8252cc",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCancelarClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnCancelarClick",
+                                    "designerId": "6c60d4f3-e82f-4619-aeb9-977b166cd047"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer7",
+                            "designerId": "c1d14e60-c342-46b1-9dd4-eef2951b1c7c"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "scale": "medium",
+                                "text": "Guardar",
+                                "ui": "default-medium",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "itemId": "string",
+                                "text": "string",
+                                "designer|uiInterfaceName": "string",
+                                "glyph": "auto",
+                                "scale": "string",
+                                "ui": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "22c4c5ff-d552-40fb-81c5-49df4ff315ec",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    crearPlazaForm = me.view.down(\"form\").getForm(),",
+                                            "    plazasPanel = Ext.ComponentManager.get(\"plazasPanel\"),",
+                                            "    plazasLocalStore = plazasPanel.getController().getStore(\"PlazasLocalStore\"),",
+                                            "    record, waitWindow;",
+                                            "",
+                                            "if (crearPlazaForm.isValid()) {",
+                                            "    waitWindow = Ext.MessageBox.wait(\"Agregando plaza...\");",
+                                            "    record = Ext.create(\"Entregas100Web.model.PlazaModel\", crearPlazaForm.getFieldValues());",
+                                            "    plazasLocalStore.add(record);",
+                                            "    plazasLocalStore.sync({",
+                                            "        success: onSyncSuccess",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSuccess() {",
+                                            "    waitWindow.close();",
+                                            "    me.view.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "64fb3bc0-082c-40eb-8bc7-8c4df486a182"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

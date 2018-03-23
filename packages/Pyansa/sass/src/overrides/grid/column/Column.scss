@@ -1,0 +1,39 @@
+// Muestra siempre el menu trigger
+.#{$prefix}column-header-show-trigger {
+    .#{$prefix}column-header-trigger {
+        display: block;
+        background-color: $grid-header-background-color;
+    }
+}
+
+.#{$prefix}column-header-show-trigger.#{$prefix}column-header-over {
+    .#{$prefix}column-header-trigger {
+        background-color: $grid-header-over-background-color;
+    }
+}
+
+.#{$prefix}column-header-show-trigger.#{$prefix}column-header-open {
+    .#{$prefix}column-header-trigger {
+        background-color: $grid-header-trigger-background-color-open;
+    }
+}
+
+.#{$prefix}column-header-show-trigger .#{$prefix}column-header-trigger {
+    width: $grid-header-trigger-width;
+    cursor: $grid-header-trigger-cursor;
+    @if $enable-font-icons and ($grid-header-trigger-glyph != null) {
+        @include font-icon($grid-header-trigger-glyph);
+        color: $grid-header-trigger-glyph-color;
+
+        &:before {
+            // vertically center the glyph
+            top: 50%;
+            margin-top: -($grid-header-trigger-glyph-font-size / 2);
+            text-align: center;
+            position: relative;
+            display: block;
+        }
+    } @else {
+        background: $grid-header-trigger-background-color theme-background-image($grid-header-trigger-background-image) no-repeat $grid-header-trigger-background-position;
+    }
+}

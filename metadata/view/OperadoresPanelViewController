@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "operadorespanel",
+        "designer|userClassName": "OperadoresPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ZonasPanelViewController2",
+    "designerId": "39be33db-81df-4fd8-97f8-b14d2611e1bf"
+}

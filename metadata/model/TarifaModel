@@ -1,0 +1,114 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TarifaModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "bcd3b6e4-f676-4cc7-bea6-bc5cdc970587",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cvetar"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger16",
+            "designerId": "173ea1e7-3976-4b34-af4a-32b1c7bd253e"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "precio2"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber7",
+            "designerId": "b8c4fabb-6675-4a90-b1b2-4411f1e07720"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "aditivo2"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber8",
+            "designerId": "1def14e7-f446-42ca-817f-cc829e83c60f"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "es_base"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyBoolean8",
+            "designerId": "50366cca-0ca4-49b5-89b6-6c9113cc853e"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger17",
+            "designerId": "6dc229f5-f470-427c-bbd3-955ecc07a17b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombre_plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString23",
+            "designerId": "b78e0b72-4dea-4a5e-bd6f-42dac1a3aa31"
+        }
+    ]
+}

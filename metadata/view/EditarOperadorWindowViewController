@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editaroperadorwindow",
+        "designer|userClassName": "EditarOperadorWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearUnidadWindowViewController2",
+    "designerId": "462ce020-1cff-40e2-9516-d5344ed69946"
+}

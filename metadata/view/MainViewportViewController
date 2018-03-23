@@ -1,0 +1,53 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mainviewport",
+        "designer|userClassName": "MainViewportViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "df1e4ec6-e6d2-4972-bf0d-906d41b5be4c",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "panelAlias",
+                    "panelConfig"
+                ],
+                "fn": "abrirPanel",
+                "implHandler": [
+                    "var me = this,",
+                    "    tabContainer = me.view.down(\"#tabContainer\"),",
+                    "    panel = tabContainer.down(\"> panel[alias=\" + panelAlias + \"]\");",
+                    "",
+                    "if (!panel) {",
+                    "    panel = Ext.create(panelAlias, panelConfig);",
+                    "    tabContainer.add(panel);",
+                    "}",
+                    "",
+                    "tabContainer.setActiveTab(panel);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "designer|params": "typedarray"
+            },
+            "name": "abrirPanel",
+            "designerId": "42777e9f-43b3-4db1-a57a-74b6a9a25085"
+        }
+    ]
+}

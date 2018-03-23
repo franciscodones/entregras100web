@@ -1,0 +1,23 @@
+/* Iconos de flechas en los menus colapsables */
+.menu-flechas .x-accordion-hd .x-tool-collapse-top:before,
+.menu-flechas .x-accordion-hd .x-tool-collapse-bottom:before {
+    content: "\f078";
+}
+
+.menu-flechas .x-accordion-hd .x-tool-expand-top:before,
+.menu-flechas .x-accordion-hd .x-tool-expand-bottom:before {
+    content: "\f054";
+}
+
+/* Transicion en hover */
+.menu-flechas .x-menu-item-default,
+.menu-flechas.x-accordion-item .x-accordion-hd {
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+}
+
+.tab-panel .x-tab-bar-default .x-tab-default {
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}

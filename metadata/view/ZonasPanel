@@ -1,0 +1,455 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "container|align": "stretch",
+        "designer|userAlias": "zonaspanel",
+        "designer|userClassName": "ZonasPanel",
+        "glyph": "f041@FontAwesome",
+        "id": "zonasPanel",
+        "layout": "vbox",
+        "title": "Zonas",
+        "viewModel": [
+            "{",
+            "    type: \"zonaspanel\",",
+            "    stores: {",
+            "        ZonasLocalStore: Ext.create(\"Entregas100Web.store.ZonasStore\", {",
+            "            filters: [",
+            "                {",
+            "                    id: 'permiso-plazas', ",
+            "                    filterFn: function(record) {",
+            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
+            "                    }",
+            "                }",
+            "            ]",
+            "        })",
+            "    }",
+            "}"
+        ]
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "title": "string",
+        "viewModel": "object",
+        "container|align": "string",
+        "layout": "string"
+    },
+    "name": "PlazasPanel2",
+    "designerId": "91d8042d-4bd5-4663-a317-28fe481649ff",
+    "viewControllerInstanceId": "0a7d1758-6801-44e0-bca5-b49c56db8b0c",
+    "viewModelInstanceId": "83c09874-a7d5-4bee-8e34-3fadba45a207",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "footer",
+                "dock": "top",
+                "ui": "footer"
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "dock": "string",
+                "ui": "string"
+            },
+            "name": "MyToolbar",
+            "designerId": "75c236b9-b73b-4188-981c-818ddd35db82",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-small",
+                        "glyph": "f021@FontAwesome",
+                        "itemId": "btnRefrescar",
+                        "layout|flex": null,
+                        "text": "Refrescar",
+                        "ui": "default-small"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "itemId": "string",
+                        "designer|uiInterfaceName": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "8f73946f-e601-4e86-a52b-5331f17935e6",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnRefrescarClick",
+                                "implHandler": [
+                                    "this.getStore(\"ZonasLocalStore\").load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnRefrescarClick",
+                            "designerId": "848e3da3-f1d1-4a47-b00d-1759596553d3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f055 @FontAwesome",
+                        "itemId": "btnAgregar",
+                        "layout|flex": null,
+                        "text": "Agregar"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "c11dad15-3749-4074-9905-58b518f5f30c",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnAgregarClick",
+                                "implHandler": [
+                                    "var crearZonaWindow = new Entregas100Web.view.CrearZonaWindow();",
+                                    "",
+                                    "crearZonaWindow.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnAgregarClick",
+                            "designerId": "86af8ccc-2fc8-44a1-b4db-df33c87f5e19"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "itemId": "zonasGrid",
+                "layout|flex": 1,
+                "scrollable": true,
+                "showMenuHint": true,
+                "showMenuTriggers": true,
+                "store": [
+                    "{ZonasLocalStore}"
+                ]
+            },
+            "configAlternates": {
+                "columnLines": "boolean",
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "itemId": "string",
+                "scrollable": "auto",
+                "store": "binding",
+                "autoLoad": "boolean",
+                "layout|flex": "number",
+                "showMenuTriggers": "boolean",
+                "showMenuHint": "boolean"
+            },
+            "name": "MyGridPanel",
+            "designerId": "eb2e4157-95c5-4869-b674-b816fcb05c37",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuTriggers",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuHint",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "zona",
+                        "format": "0,000",
+                        "text": "Zona",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "format": "string"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "f8cf7bf1-b20e-4ca0-be5f-43ecda2e8cc8",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter6",
+                            "designerId": "5bcc4144-d4d7-4a9e-b986-9d7beabb8a2f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "descripcion",
+                        "text": "Descripción",
+                        "width": 300
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "c5af1a18-7d1a-4e00-8242-515d7e62d1c4",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter7",
+                            "designerId": "6b1aabe9-d36d-4181-ad90-44993882c239"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombre_plaza",
+                        "text": "Plaza",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "a960a6cc-c2be-4537-8601-41e50a775881",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter4",
+                            "designerId": "75f58852-8fff-486a-98c1-9cae3aa37a6e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ayudante",
+                        "falseText": "NO",
+                        "text": "Requiere ayudante",
+                        "trueText": "SI",
+                        "undefinedText": "DESCONOCIDO",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "falseText": "string",
+                        "trueText": "string",
+                        "undefinedText": "string"
+                    },
+                    "name": "MyBooleanColumn",
+                    "designerId": "e8860b5d-f0c8-4508-a538-a3515c87074b",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyBooleanFilter4",
+                            "designerId": "882185dc-6c9d-4ab8-9af3-243da6f70279"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "No se encontraron resultados"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string"
+                    },
+                    "name": "MyTable",
+                    "designerId": "b4394cf5-673c-458e-b793-4cfcb1ef8069"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyActionColumn",
+                    "designerId": "6f27ea87-5f9b-4f2d-8f64-7557346a6bf1",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/editar.png",
+                                "tooltip": "Editar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "7bdded3f-c575-48f4-86d4-8634c8f289ff",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var editarZonaWindow = Ext.create(\"Entregas100Web.view.EditarZonaWindow\");",
+                                            "",
+                                            "editarZonaWindow.down(\"form\").loadRecord(record);",
+                                            "editarZonaWindow.show();"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "c72a349f-e144-4eec-ba5e-e91b094e4fcb"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "7852133c-856b-42ed-8c55-55c888e25a1d"
+                }
+            ]
+        }
+    ]
+}

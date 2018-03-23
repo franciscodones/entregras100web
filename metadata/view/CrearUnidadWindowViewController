@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crearunidadwindow",
+        "designer|userClassName": "CrearUnidadWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearZonaWindowViewController2",
+    "designerId": "ab4f8830-2f31-4b95-922b-c7f60ee5b0a8"
+}

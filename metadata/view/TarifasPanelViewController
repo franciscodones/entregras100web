@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tarifaspanel",
+        "designer|userClassName": "TarifasPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ZonasPanelViewController1",
+    "designerId": "69cd34fe-08b3-453f-bb83-ed6f740c228d"
+}

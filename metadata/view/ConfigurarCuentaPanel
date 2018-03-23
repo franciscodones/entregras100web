@@ -1,0 +1,360 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "designer|userAlias": "configurarcuentapanel",
+        "designer|userClassName": "ConfigurarCuentaPanel",
+        "glyph": "f013@FontAwesome",
+        "id": "configurarCuentaPanel",
+        "title": "Configurar Cuenta"
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "title": "string"
+    },
+    "name": "MyPanel1",
+    "designerId": "7ef9fb9e-435c-4c04-ad9d-5b26d072c5db",
+    "viewControllerInstanceId": "57235571-c814-45d2-9799-5fbb02e2ccb9",
+    "viewModelInstanceId": "f05fa05a-da74-45c1-aaf9-d9cc5113fae0",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "footer",
+                "dock": "top",
+                "height": 45,
+                "ui": "footer"
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "dock": "string",
+                "height": "auto",
+                "ui": "string"
+            },
+            "name": "MyToolbar1",
+            "designerId": "b93aedec-e7df-4a6f-8534-623c1e3e25c8"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "designer|uiInterfaceName": "default-framed",
+                "frame": true,
+                "itemId": "cambiarContrasenaForm",
+                "title": "Cambiar contraseña",
+                "url": "api/login/cambiarContrasena",
+                "width": 450
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "designer|uiInterfaceName": "string",
+                "frame": "boolean",
+                "itemId": "string",
+                "title": "string",
+                "url": "string",
+                "width": "auto"
+            },
+            "name": "MyForm3",
+            "designerId": "c8b62c6b-d1c7-4b15-9903-d0acf3e64ca7",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "configAlternates": {
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField3",
+                    "designerId": "4c6b3939-511d-419c-8491-c0ed0ca3efbb"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Contraseña Actual",
+                        "inputType": "password",
+                        "itemId": "txtContrasenaActual",
+                        "labelWidth": 180,
+                        "layout|anchor": "100%",
+                        "maxLength": 30,
+                        "minLength": 5,
+                        "name": "contrasena_actual",
+                        "vtype": "alphanum"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "inputType": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "vtype": "string"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "5581074a-329b-445d-9dd5-8625fc4c94a7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Nueva Contraseña",
+                        "inputType": "password",
+                        "itemId": "txtNuevaContrasena",
+                        "labelWidth": 180,
+                        "layout|anchor": "100%",
+                        "maxLength": 30,
+                        "minLength": 5,
+                        "name": "contrasena",
+                        "vtype": "alphanum"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "inputType": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "vtype": "string"
+                    },
+                    "name": "MyTextField12",
+                    "designerId": "42583788-c22a-4428-85aa-081e261c217a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Confirmar Nueva Contraseña",
+                        "inputType": "password",
+                        "itemId": "txtConfirmacionContrasena",
+                        "labelWidth": 180,
+                        "layout|anchor": "100%",
+                        "maxLength": 30,
+                        "minLength": 5,
+                        "name": "confirmacion_contrasena",
+                        "vtype": "alphanum"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "inputType": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "vtype": "string"
+                    },
+                    "name": "MyTextField15",
+                    "designerId": "337a96ba-aa0f-4a06-8c68-540ef85d073a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "validator",
+                                "implHandler": [
+                                    "var nuevaContrasena = this.up(\"form\").down(\"#txtNuevaContrasena\").getValue();",
+                                    "",
+                                    "if (value != nuevaContrasena) {",
+                                    "    return \"La confirmacion de la contrasena es incorrecta\";",
+                                    "}",
+                                    "",
+                                    "return true;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "validator",
+                            "designerId": "0d4d857d-96ad-4db8-8be0-f26e829943ff"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "30 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer10",
+                    "designerId": "43bc91c9-2018-46f2-a423-c2577946a4a3",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "text": "Guardar",
+                                "width": 100
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "e053d234-bf48-4627-b3dd-aa38c0ad32da",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    cambiarContrasenaForm = me.view.down(\"#cambiarContrasenaForm\");",
+                                            "",
+                                            "if (cambiarContrasenaForm.isValid()) {",
+                                            "    cambiarContrasenaForm.submit({",
+                                            "        headers: {",
+                                            "            \"Accept\": \"application/json, */*\"",
+                                            "        },",
+                                            "        success: function(form, action) {",
+                                            "            Ext.Msg.show({",
+                                            "                title: 'Mensaje del Sistema',",
+                                            "                message: action.result.message,",
+                                            "                buttons: Ext.Msg.OK,",
+                                            "                icon: Ext.Msg.INFO",
+                                            "            });",
+                                            "        },",
+                                            "        failure: function(form, action) {",
+                                            "            Ext.Msg.show({",
+                                            "                title: 'Mensaje del Sistema',",
+                                            "                message: (action.result && action.result.message) || \"Error al cambiar la contraseña\",",
+                                            "                buttons: Ext.Msg.OK,",
+                                            "                icon: Ext.Msg.ERROR",
+                                            "            });",
+                                            "        },",
+                                            "        waitMsg: \"Guardando contraseña...\",",
+                                            "        waitTitle: \"Mensaje del Sistema\"",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "fd96a537-ea47-4b37-acf4-e20ac69fc05c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onConfigurarCuentaPanelAfterRender",
+                "implHandler": [
+                    "var me = this,",
+                    "    cambiarContrasenaForm = me.view.down(\"#cambiarContrasenaForm\");",
+                    "",
+                    "cambiarContrasenaForm.getForm().setValues({id: Ext._.usuario.id});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onConfigurarCuentaPanelAfterRender",
+            "designerId": "c598da46-9acd-4b98-84b3-7eaeca4d2562"
+        }
+    ]
+}

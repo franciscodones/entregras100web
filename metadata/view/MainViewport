@@ -1,0 +1,559 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mainviewport",
+        "designer|userClassName": "MainViewport",
+        "height": 250,
+        "layout": "border",
+        "requires": [
+            "Pyansa.window.dialog.ComboBox"
+        ],
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto",
+        "requires": "typedarray"
+    },
+    "name": "MyViewport",
+    "designerId": "ccb3a004-46df-4533-afae-03018f6fb245",
+    "viewControllerInstanceId": "df1e4ec6-e6d2-4972-bf0d-906d41b5be4c",
+    "viewModelInstanceId": "4c577587-787a-419d-bcc2-ab636fdddac8",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 0,
+                "collapseDirection": "left",
+                "collapsible": true,
+                "container|align": "stretch",
+                "layout": "vbox",
+                "layout|region": "west",
+                "title": "Menu",
+                "width": 170
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "collapseDirection": "string",
+                "collapseToolText": "string",
+                "collapsible": "boolean",
+                "expandToolText": "string",
+                "layout": "string",
+                "layout|region": "string",
+                "title": "string",
+                "width": "auto",
+                "container|align": "string"
+            },
+            "name": "MyPanel",
+            "designerId": "82e3aef1-1524-48fa-8dba-b3b99cc9a2e0",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "accordion",
+                        "layout|flex": 1,
+                        "padding": 0
+                    },
+                    "configAlternates": {
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "padding": "auto"
+                    },
+                    "name": "MyContainer",
+                    "designerId": "7b150d40-38a9-405c-95b0-37af6ba301ba",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "menu-flechas"
+                                ],
+                                "floating": false,
+                                "margin": 0,
+                                "title": "Catalogos"
+                            },
+                            "configAlternates": {
+                                "cls": "typedarray",
+                                "floating": "boolean",
+                                "margin": "auto",
+                                "title": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyMenu",
+                            "designerId": "669e728d-eed5-456e-b140-b661c37cc61b",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f279@FontAwesome",
+                                        "itemId": "mItemPlazas",
+                                        "text": "Plazas"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "8b1bf2c3-005f-4701-86d3-22aa878485be",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPlazasClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.plazaspanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPlazasClick",
+                                            "designerId": "ebfd92db-c6c9-4697-abb0-cc02aa5022d2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f041@FontAwesome",
+                                        "itemId": "mItemZonas",
+                                        "text": "Zonas"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem1",
+                                    "designerId": "890243b8-4311-4483-bbef-dafd36cafb5a",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemZonasClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.zonaspanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemZonasClick",
+                                            "designerId": "6677ec77-5e32-4ee4-85ee-f86a0e6c4b8f"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0d1@FontAwesome",
+                                        "itemId": "mItemUnidades",
+                                        "text": "Unidades"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem2",
+                                    "designerId": "d7f8bb4b-9689-4faa-b486-eaf6f9bfb9ac",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemUnidadesClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.unidadespanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemUnidadesClick",
+                                            "designerId": "b70ed67f-5f91-48c5-9ba7-00250cf3de55"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0c0@FontAwesome",
+                                        "itemId": "mItemOperadores",
+                                        "text": "Operadores"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem6",
+                                    "designerId": "8ccd7f7c-14dd-4b59-a127-be281ac32ec9",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemOperadoresClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.operadorespanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemOperadoresClick",
+                                            "designerId": "ff64526e-0afa-4180-b812-6ba6f5decc9a"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f155@FontAwesome",
+                                        "itemId": "mItemTarifas",
+                                        "text": "Tarifas"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "413d4e9f-2806-4680-83d7-894af6c4f166",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemTarifasClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    tabContainer = me.view.down(\"#tabContainer\"),",
+                                                    "    panel = tabContainer.down(\"> panel[alias=widget.tarifaspanel]\"),",
+                                                    "    plazaDialog;",
+                                                    "",
+                                                    "if (panel) {",
+                                                    "    me.abrirPanel(\"widget.tarifaspanel\");",
+                                                    "} else {",
+                                                    "    plazaDialog = Ext.create(\"Pyansa.window.dialog.ComboBox\", {",
+                                                    "        title: \"Seleccione una plaza\",",
+                                                    "        field: {",
+                                                    "            fieldLabel: \"Plaza\",",
+                                                    "            store: Ext.create(\"Entregas100Web.store.PlazasStore\", {",
+                                                    "                filters: [",
+                                                    "                {",
+                                                    "                    id: \"permiso-plazas\",",
+                                                    "                    filterFn: function(record) {",
+                                                    "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+                                                    "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
+                                                    "                    }",
+                                                    "                }",
+                                                    "            ]",
+                                                    "            }),",
+                                                    "            valueField: \"id\",",
+                                                    "            displayField: \"ciudad\"",
+                                                    "        },",
+                                                    "        listeners: {",
+                                                    "            accept: onPlazaSeleccionada",
+                                                    "        }",
+                                                    "    });",
+                                                    "}",
+                                                    "",
+                                                    "function onPlazaSeleccionada(value) {",
+                                                    "    this.close();",
+                                                    "    me.abrirPanel(\"widget.tarifaspanel\", {",
+                                                    "        viewModel: {",
+                                                    "            data: {",
+                                                    "                plazaId: value",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemTarifasClick",
+                                            "designerId": "a9f443e7-f14e-4d0a-b9b0-a34e4906a623"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "menu-flechas"
+                                ],
+                                "floating": false,
+                                "margin": 0,
+                                "title": "Mi Cuenta"
+                            },
+                            "configAlternates": {
+                                "cls": "typedarray",
+                                "floating": "boolean",
+                                "margin": "auto",
+                                "title": "string"
+                            },
+                            "name": "MyMenu1",
+                            "designerId": "7deb8fbb-cadb-44b1-8bb3-7dfc8be55f84",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f013@FontAwesome",
+                                        "itemId": "mItemConfigurarCuenta",
+                                        "text": "Configurar cuenta"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "text": "string",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "8657a7f4-3ea7-47a1-9d54-2ea3aa7050a5",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemConfigurarCuentaClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.configurarcuentapanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemConfigurarCuentaClick",
+                                            "designerId": "5ad0382c-6739-4edc-bbd8-a80289de01d3"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f08b@FontAwesome",
+                                        "itemId": "mItemCerrarSesion",
+                                        "text": "Cerrar sesion"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "text": "string",
+                                        "itemId": "string"
+                                    },
+                                    "name": "MyMenuItem5",
+                                    "designerId": "2c2e7ee6-5109-41ab-9030-7f9e78a429df",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemCerrarSesionClick",
+                                                "implHandler": [
+                                                    "var me = this;",
+                                                    "",
+                                                    "Ext.Msg.confirm(",
+                                                    "    \"Mensaje del sistema\",",
+                                                    "    \"¿Desea cerrar sesión?\",",
+                                                    "    function(result) {",
+                                                    "        if (result == \"yes\") {",
+                                                    "            me.view.destroy();",
+                                                    "            Ext.create(\"Entregas100Web.view.LoginWindow\", {});",
+                                                    "        }",
+                                                    "    }",
+                                                    ");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemCerrarSesionClick",
+                                            "designerId": "241525ac-bb5f-48d0-a621-840e9bf7121c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Version",
+                        "fieldStyle": "color: #fff;",
+                        "height": 20,
+                        "labelStyle": "color: #fff; padding-left: 10px;",
+                        "style": "background: #007888; color: #fff;",
+                        "value": "2.0"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "height": "auto",
+                        "labelStyle": "string",
+                        "style": "string",
+                        "value": "string"
+                    },
+                    "name": "MyDisplayField",
+                    "designerId": "0030317e-5a1e-4e64-939d-0f1818e8789a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "tabContainer",
+                "layout|region": "center"
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "layout|region": "string"
+            },
+            "name": "MyTabPanel1",
+            "designerId": "1001fc87-d225-49fa-924c-972a1f8498d3"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarplazawindow",
+        "designer|userClassName": "EditarPlazaWindowViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearPlazaWindowViewModel1",
+    "designerId": "59aa6dfa-7794-4ad0-b591-87c1d4ecf7b0"
+}

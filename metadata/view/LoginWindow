@@ -1,0 +1,237 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoShow": true,
+        "closable": false,
+        "designer|initialView": true,
+        "designer|userAlias": "loginwindow",
+        "designer|userClassName": "LoginWindow",
+        "draggable": false,
+        "height": 250,
+        "layout": "fit",
+        "requires": [
+            "Pyansa.overrides.form.field.Text"
+        ],
+        "resizable": false,
+        "title": "Iniciar sesión",
+        "titleAlign": "center",
+        "width": 350
+    },
+    "configAlternates": {
+        "autoShow": "boolean",
+        "closable": "boolean",
+        "designer|initialView": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "draggable": "boolean",
+        "height": "auto",
+        "layout": "string",
+        "resizable": "boolean",
+        "title": "string",
+        "titleAlign": "string",
+        "width": "auto",
+        "requires": "typedarray"
+    },
+    "name": "MyWindow",
+    "designerId": "6a13ddce-c323-49d0-8f8c-3ac350680336",
+    "viewControllerInstanceId": "b5d10817-630a-4fc7-996c-fa03c82a65f4",
+    "viewModelInstanceId": "c29aad38-1603-4dd6-b0e4-df1bf249d0a9",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "loginForm",
+                "method": "POST",
+                "url": "api/login/login"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "itemId": "string",
+                "method": "string",
+                "url": "string"
+            },
+            "name": "MyForm",
+            "designerId": "be919f80-32a5-45dc-b91a-bd476e57cbd8",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Usuario",
+                        "layout|anchor": "100%",
+                        "name": "usuario",
+                        "trimValue": true,
+                        "validateOnBlur": false,
+                        "validateOnChange": false
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "validateOnBlur": "boolean",
+                        "validateOnChange": "boolean",
+                        "trimValue": "boolean"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "68ee32bf-0fa6-4486-807e-882a7c122b03",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "trimValue",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Contraseña",
+                        "inputType": "password",
+                        "layout|anchor": "100%",
+                        "name": "contrasena",
+                        "trimValue": true,
+                        "validateOnBlur": false,
+                        "validateOnChange": false
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "inputType": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "validateOnBlur": "boolean",
+                        "validateOnChange": "boolean",
+                        "trimValue": "boolean"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "adcd4862-bd0a-4463-9014-cf35a0cd2a31",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "trimValue",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout": "center",
+                        "margin": "30 0 0 0"
+                    },
+                    "configAlternates": {
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer",
+                    "designerId": "3df0fcfb-a7be-4ee0-8379-0da16e41c9bc",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "itemId": "btnIngresar",
+                                "scale": "medium",
+                                "text": "Ingresar",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "itemId": "string",
+                                "scale": "string",
+                                "text": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyButton",
+                            "designerId": "717d0429-8402-4de1-a285-54c526ddeaf0",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnIngresarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    loginForm = me.view.down(\"#loginForm\");",
+                                            "",
+                                            "if (loginForm.isValid()) {",
+                                            "    loginForm.submit({",
+                                            "        success: function(form, action) {",
+                                            "            var mainViewport;",
+                                            "",
+                                            "            mainViewport = new Entregas100Web.view.MainViewport();",
+                                            "            mainViewport.show();",
+                                            "            console.log(arguments);",
+                                            "            Ext._.usuario = action.result.data;",
+                                            "            me.view.close();",
+                                            "        },",
+                                            "        failure: function(form, action) {",
+                                            "            Ext.Msg.show({",
+                                            "                title: 'Mensaje del Sistema',",
+                                            "                message: (action.result && action.result.message) || \"Error al iniciar sesión\",",
+                                            "                buttons: Ext.Msg.OK,",
+                                            "                icon: Ext.Msg.ERROR",
+                                            "            });",
+                                            "        },",
+                                            "        waitMsg: \"Validando usuario...\",",
+                                            "        waitTitle: \"Mensaje del Sistema\"",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnIngresarClick",
+                                    "designerId": "fbdbd3ba-3b40-4af0-9070-7db0ab148ca1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

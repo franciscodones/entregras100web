@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "operadorespanel",
+        "designer|userClassName": "OperadoresPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ZonasPanelViewModel2",
+    "designerId": "111ef4c5-ba0c-4ccd-bcf1-eb0023d98331"
+}

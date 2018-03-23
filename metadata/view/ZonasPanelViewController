@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "zonaspanel",
+        "designer|userClassName": "ZonasPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PlazasPanelViewController2",
+    "designerId": "0a7d1758-6801-44e0-bca5-b49c56db8b0c"
+}

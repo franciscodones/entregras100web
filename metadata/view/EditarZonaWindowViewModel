@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarzonawindow",
+        "designer|userClassName": "EditarZonaWindowViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearZonaWindowViewModel1",
+    "designerId": "28be9016-f4a2-47ec-813a-6c737eb8c9f7"
+}

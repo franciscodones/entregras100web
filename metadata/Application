@@ -1,0 +1,109 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "StoreController"
+        ],
+        "models": [
+            "PlazaModel",
+            "EmpresaModel",
+            "ZonaModel",
+            "UnidadModel",
+            "OperadorModel",
+            "TarifaModel"
+        ],
+        "name": "Entregas100Web",
+        "stores": [
+            "PlazasStore",
+            "EmpresasStore",
+            "ZonasStore",
+            "UnidadesStore",
+            "OperadoresStore",
+            "TarifasStore"
+        ],
+        "views": [
+            "MainViewport",
+            "LoginWindow",
+            "PlazasPanel",
+            "CrearPlazaWindow",
+            "EditarPlazaWindow",
+            "ZonasPanel",
+            "CrearZonaWindow",
+            "EditarZonaWindow",
+            "UnidadesPanel",
+            "CrearUnidadWindow",
+            "EditarUnidadWindow",
+            "OperadoresPanel",
+            "CrearOperadorWindow",
+            "EditarOperadorWindow",
+            "TarifasPanel",
+            "ConfigurarCuentaPanel"
+        ]
+    },
+    "configAlternates": {
+        "name": "string",
+        "views": "typedarray",
+        "models": "typedarray",
+        "stores": "typedarray",
+        "controllers": "typedarray"
+    },
+    "name": "Application",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "init",
+                "implHandler": [
+                    "// quitar cargando con ExtJS",
+                    "var cargando = Ext.get('cargando');",
+                    "if (cargando) {",
+                    "    cargando.destroy();",
+                    "}",
+                    "",
+                    "// Separador de decimales == '.'",
+                    "// Separador de miles == ','",
+                    "if (Ext.util && Ext.util.Format) {",
+                    "    Ext.apply(Ext.util.Format, {",
+                    "        thousandSeparator: \",\",",
+                    "        decimalSeparator: \".\"",
+                    "    });",
+                    "}",
+                    "",
+                    "// Deshabilita los warnings de ARIA",
+                    "Ext.ariaWarn = Ext.emptyFn;",
+                    "",
+                    "/**",
+                    " * Namespace para guardar todas las variables globales",
+                    " * Es mejor usar las variables globales de la forma:",
+                    " * ",
+                    " * Ext._.usuario = {};     en vez de     Ext._usuario = {};",
+                    " * ",
+                    " * Esto para tener un mejor control sobre estas variables a lo largo de la programacion",
+                    " * ya que se podran acceder a todas las globales guardadas simplemente accediendo de la",
+                    " * forma:",
+                    " *",
+                    " * Ext._",
+                    " */",
+                    "Ext._ = {};"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "init",
+            "designerId": "e8fb59dc-bda6-4179-bd70-44eed292b25c"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crearoperadorwindow",
+        "designer|userClassName": "CrearOperadorWindowViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearUnidadWindowViewModel1",
+    "designerId": "b20e0974-89be-4552-83cf-c37f3636af83"
+}

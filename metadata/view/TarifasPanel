@@ -1,0 +1,580 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "container|align": "stretch",
+        "designer|userAlias": "tarifaspanel",
+        "designer|userClassName": "TarifasPanel",
+        "glyph": "f155@FontAwesome",
+        "id": "tarifasPanel",
+        "layout": "vbox",
+        "requires": [
+            "Pyansa.window.dialog.ComboBox"
+        ],
+        "title": "Tarifas",
+        "viewModel": [
+            "{",
+            "    type: \"tarifaspanel\",",
+            "    stores: {",
+            "        TarifasLocalStore: Ext.create(\"Entregas100Web.store.TarifasStore\", {",
+            "            filters: [",
+            "                {",
+            "                    id: 'permiso-plazas', ",
+            "                    filterFn: function(record) {",
+            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
+            "                    }",
+            "                }",
+            "            ]",
+            "        })",
+            "    }",
+            "}"
+        ]
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "title": "string",
+        "viewModel": "object",
+        "container|align": "string",
+        "layout": "string",
+        "requires": "typedarray"
+    },
+    "name": "ZonasPanel1",
+    "designerId": "921e189d-2733-4d81-a2ca-be7895629d90",
+    "viewControllerInstanceId": "69cd34fe-08b3-453f-bb83-ed6f740c228d",
+    "viewModelInstanceId": "fb8ebc54-b414-4e3e-a526-54be6a9f96c1",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "footer",
+                "dock": "top",
+                "ui": "footer"
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "dock": "string",
+                "ui": "string"
+            },
+            "name": "MyToolbar",
+            "designerId": "99c30952-ffbc-4446-a5bd-86e3241c3dae",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-small",
+                        "glyph": "f021@FontAwesome",
+                        "itemId": "btnRefrescar",
+                        "layout|flex": null,
+                        "text": "Refrescar",
+                        "ui": "default-small"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "itemId": "string",
+                        "designer|uiInterfaceName": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "a41cde9a-bae5-4867-af10-235ce70cf337",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnRefrescarClick",
+                                "implHandler": [
+                                    "this.getStore(\"TarifasLocalStore\").load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnRefrescarClick",
+                            "designerId": "92912efe-f874-4b21-9ef0-8d87dc174fe0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Aumento Gas",
+                        "hideTrigger": true,
+                        "itemId": "txtAumentoGas",
+                        "layout|flex": null,
+                        "validateOnBlur": false,
+                        "validateOnChange": false,
+                        "width": 180
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "hideTrigger": "boolean",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "validateOnBlur": "boolean",
+                        "validateOnChange": "boolean",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberField5",
+                    "designerId": "586018cb-5a8a-4f90-b5ad-9f875d87dc7b"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Aumento AD+",
+                        "hideTrigger": true,
+                        "itemId": "txtAumentoAditivo",
+                        "layout|flex": null,
+                        "margin": "0 0 0 10",
+                        "validateOnBlur": false,
+                        "validateOnChange": false,
+                        "width": 180
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|flex": "number",
+                        "allowBlank": "boolean",
+                        "hideTrigger": "boolean",
+                        "itemId": "string",
+                        "margin": "auto",
+                        "validateOnBlur": "boolean",
+                        "validateOnChange": "boolean",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberField6",
+                    "designerId": "fc24df9a-23e3-4739-ab63-f0c7b192050c"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f058@FontAwesome",
+                        "itemId": "btnAplicar",
+                        "layout|flex": null,
+                        "text": "Aplicar"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "14f851ba-55a6-478e-90b3-c0f2a776e1d7",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnAplicarClick",
+                                "implHandler": [
+                                    "var me = this,",
+                                    "    txtAumentoGas = me.view.down(\"#txtAumentoGas\"),",
+                                    "    txtAumentoAditivo = me.view.down(\"#txtAumentoAditivo\"),",
+                                    "    tarifasGrid = me.view.down(\"#tarifasGrid\"),",
+                                    "    tarifasLocalStore = me.getStore(\"TarifasLocalStore\");",
+                                    "",
+                                    "if (txtAumentoGas.isValid() && txtAumentoAditivo.isValid()) {",
+                                    "    Ext.Array.each(tarifasGrid.getSelection(), function(record) {",
+                                    "        record.set(\"precio2\", record.get(\"precio2\") + txtAumentoGas.getValue());",
+                                    "        record.set(\"aditivo2\", record.get(\"aditivo2\") + txtAumentoAditivo.getValue());",
+                                    "    });",
+                                    "    tarifasLocalStore.sync();",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnAplicarClick",
+                            "designerId": "9f16e2db-c28a-4eee-8a41-17915e9da230"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "itemId": "tarifasGrid",
+                "layout|flex": 1,
+                "scrollable": true,
+                "showMenuHint": true,
+                "showMenuTriggers": true,
+                "store": [
+                    "{TarifasLocalStore}"
+                ]
+            },
+            "configAlternates": {
+                "columnLines": "boolean",
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "itemId": "string",
+                "scrollable": "auto",
+                "store": "binding",
+                "autoLoad": "boolean",
+                "layout|flex": "number",
+                "showMenuTriggers": "boolean",
+                "showMenuHint": "boolean"
+            },
+            "name": "MyGridPanel",
+            "designerId": "0d17afc8-9e62-499f-ae7b-00efe487df41",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuTriggers",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuHint",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cvetar",
+                        "format": "0,000",
+                        "text": "Clave",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "format": "string"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "021197c3-2f16-431c-8a9a-5b209f972d9f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter6",
+                            "designerId": "49e8db3a-4564-4fd7-bf8a-cde66863abe4"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "precio2",
+                        "text": "Precio Gas",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "flex": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "9ee0c65f-1651-49d0-87ed-cc2a2c044a63"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "aditivo2",
+                        "text": "Precio AD+",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "5e6374c5-7f6a-42d5-ae2e-83d8356d779d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombre_plaza",
+                        "text": "Plaza",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "b120476d-863e-4ecd-8a30-b11ceeebb94a"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "es_base",
+                        "falseText": "NO",
+                        "text": "Tarifa Base",
+                        "trueText": "SI",
+                        "undefinedText": "DESCONOCIDO",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "falseText": "string",
+                        "trueText": "string",
+                        "undefinedText": "string"
+                    },
+                    "name": "MyBooleanColumn",
+                    "designerId": "5dbc4ba6-b9b5-427f-8c9f-8999f55a23ce",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyBooleanFilter4",
+                            "designerId": "8c05f152-d149-469f-ab9d-a1cefb441514"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyCheckbox5",
+                            "designerId": "fbcb3a09-4718-44b4-bfd4-4325460f045f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "No se encontraron resultados"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string"
+                    },
+                    "name": "MyTable",
+                    "designerId": "f3e03a4c-de9a-48d3-a3cc-1f7491329cdf"
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "d51ad3d9-fd22-41e6-9f41-ec19a80caa25"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "bae670d2-4926-43cc-835f-cd32560f16f7"
+                },
+                {
+                    "type": "Ext.grid.plugin.RowEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowEditingPlugin1",
+                    "designerId": "c10b770c-ad3e-4016-9092-4f4cef217b3c",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onRowEditingBeforeEdit",
+                                "implHandler": [
+                                    "if (context.record.get(\"es_base\")) {",
+                                    "    return false;",
+                                    "}"
+                                ],
+                                "name": "beforeedit",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onRowEditingBeforeEdit",
+                            "designerId": "25820569-4990-4cb4-b06f-fd4f18abcb8c"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onRowEditingEdit",
+                                "implHandler": [
+                                    "var record = context.record,",
+                                    "    store = context.store;",
+                                    "",
+                                    "if (record.get(\"es_base\")) {",
+                                    "    store.each(function(rec) {",
+                                    "        if (record.get(\"cvetar\") != rec.get(\"cvetar\")) {",
+                                    "            rec.set(\"es_base\", false);",
+                                    "        }",
+                                    "    });",
+                                    "    store.sync();",
+                                    "}"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onRowEditingEdit",
+                            "designerId": "096774da-4c15-484d-9597-188d2e7db981"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTarifasPanelBeforeRender",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "me.getStore(\"TarifasLocalStore\").getProxy().setExtraParam(\"plaza_id\", me.getViewModel().get(\"plazaId\"));"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onTarifasPanelBeforeRender",
+            "designerId": "da342578-5a68-45ac-9b94-8b5b8e3caa91"
+        }
+    ]
+}
