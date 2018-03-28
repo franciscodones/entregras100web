@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "perfilespagopanel",
+        "designer|userClassName": "PerfilesPagoPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "FormasPagoPanelViewModel1",
+    "designerId": "dcfda130-4a95-4591-a3c7-164675df36f9"
+}

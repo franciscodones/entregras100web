@@ -5,6 +5,10 @@
 Ext.define('Pyansa.overrides.grid.filters.filter.Date', {
     override: 'Ext.grid.filters.filter.Date',
 
+    requires: [
+        "Ext.Object"
+    ],
+
     /**
      * Sobreescritura de la funcion `constructor`
      * @param  {Object} config
@@ -12,11 +16,14 @@ Ext.define('Pyansa.overrides.grid.filters.filter.Date', {
     constructor: function(config) {
         var me = this;
 
-        config.fields = {
+        config = config || {};
+        config = Ext.Object.chain(config);
+
+        config.fields = Ext.apply({
             lt: {text: 'Antes de'},
             gt: {text: 'Despues de'},
             eq: {text: 'En'}
-        }
+        }, config.fields);
 
         me.callParent(arguments);
     }

@@ -8,21 +8,22 @@
     "userConfig": {
         "designer|userClassName": "ZonasStore",
         "model": "ZonaModel",
-        "rollbackOnExceptions": true,
+        "rejectOnExceptions": true,
         "storeId": "ZonasStore"
     },
     "configAlternates": {
         "rollbackOnExceptions": "boolean",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
     },
     "name": "MyJsonStore",
     "designerId": "f3c75a54-d675-488d-88b0-d9e98606dac4",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
-            "name": "rollbackOnExceptions",
+            "name": "rejectOnExceptions",
             "type": "string"
         }
     ],
@@ -56,11 +57,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "messageProperty": "message",
-                        "metaProperty": "metadata",
-                        "rootProperty": "data"
-                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -76,12 +72,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "allowSingle": false,
-                        "encode": true,
-                        "rootProperty": "datos",
-                        "writeAllFields": true
-                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

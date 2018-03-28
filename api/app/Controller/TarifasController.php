@@ -60,7 +60,7 @@ class TarifasController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de tarifas",
-            "data" => $aTarifasProcesadas,
+            "records" => $aTarifasProcesadas,
             "metadata" => array(
                 "total_registros" => count($aTarifasProcesadas)
             )
@@ -74,8 +74,8 @@ class TarifasController extends AppController {
     public function update() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
         $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
         $nPlazaId = $aDatos["plaza_id"];
 
         // obtiene la conexion a la bd de la plaza
@@ -105,23 +105,23 @@ class TarifasController extends AppController {
             )
         );
 
-        // actualiza el registro de la zona
-        foreach ($aDatos["datos"] as $key => $aTarifa) {
-            $sQuery = "UPDATE tarifas SET " .
-                    "precio2 = ?, " .
-                    "aditivo2 = ? " .
-                "WHERE cvetar = ?";
+        // actualiza el registro de la tarifa
+        $sQuery = "UPDATE tarifas SET " .
+                "precio2 = ?, " .
+                "aditivo2 = ? " .
+            "WHERE cvetar = ?";
+        foreach ($aRecords as $aRecord) {
             $aQueryParams = array(
-                $aTarifa["precio2"],
-                $aTarifa["aditivo2"],
-                $aTarifa["cvetar"]
+                $aRecord["precio2"],
+                $aRecord["aditivo2"],
+                $aRecord["cvetar"]
             );
             $oConexionPlaza->query($sQuery, $aQueryParams);
-            if ($aTarifa["es_base"]) {
+            if ($aRecord["es_base"]) {
                 $sQuery = "UPDATE plaza SET " .
                         "tarifa_id = ? " .
                     "WHERE id = ?";
-                $aQueryParams = array($aTarifa["cvetar"], $aPlaza["id"]);
+                $aQueryParams = array($aRecord["cvetar"], $aPlaza["id"]);
                 $oConexion->query($sQuery, $aQueryParams);
             }
         }

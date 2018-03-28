@@ -31,6 +31,15 @@ Ext.define('Entregas100Web.view.EditarPlazaWindowViewController', {
         if (editarPlazaForm.isValid()) {
             waitWindow = Ext.MessageBox.wait("Guardando cambios...");
             editarPlazaForm.updateRecord();
+            record = editarPlazaForm.getRecord();
+
+            // si el record no ha sufrigo cambios se termina la edicion
+            if (!record.isDirty()) {
+                waitWindow.close();
+                me.view.close();
+                return;
+            }
+
             plazasLocalStore.sync({
                 success: onSyncSuccess
             });

@@ -28,7 +28,6 @@ Ext.define('Entregas100Web.view.LoginWindowViewController', {
 
                     mainViewport = new Entregas100Web.view.MainViewport();
                     mainViewport.show();
-                    console.log(arguments);
                     Ext._.usuario = action.result.data;
                     me.view.close();
                 },

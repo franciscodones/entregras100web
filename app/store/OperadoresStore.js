@@ -24,7 +24,7 @@ Ext.define('Entregas100Web.store.OperadoresStore', {
     ],
 
     config: {
-        rollbackOnExceptions: true
+        rejectOnExceptions: true
     },
 
     constructor: function(cfg) {
@@ -41,17 +41,10 @@ Ext.define('Entregas100Web.store.OperadoresStore', {
                     update: 'api/operadores/update'
                 },
                 reader: {
-                    type: 'json',
-                    messageProperty: 'message',
-                    rootProperty: 'data',
-                    metaProperty: 'metadata'
+                    type: 'json'
                 },
                 writer: {
-                    type: 'json',
-                    writeAllFields: true,
-                    allowSingle: false,
-                    encode: true,
-                    rootProperty: 'datos'
+                    type: 'json'
                 }
             }
         }, cfg)]);

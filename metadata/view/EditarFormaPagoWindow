@@ -1,0 +1,312 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarformapagowindow",
+        "designer|userClassName": "EditarFormaPagoWindow",
+        "glyph": "f0d6@FontAwesome",
+        "id": "editarFormaPagoWindow",
+        "modal": true,
+        "title": "Editar Forma de Pago",
+        "width": 400
+    },
+    "configAlternates": {
+        "viewModel": "object",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto",
+        "id": "string"
+    },
+    "name": "EditarOperadorWindow1",
+    "designerId": "359bf0de-ba29-4752-8026-9f357b415b03",
+    "viewControllerInstanceId": "2ac57f6c-d97d-43a9-8edf-c454e9f8029c",
+    "viewModelInstanceId": "0ef002b5-da14-48b2-a99e-d78afcd63542",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "editarFormaPagoForm",
+                "trimValues": true
+            },
+            "configAlternates": {
+                "trimValues": "boolean",
+                "bodyPadding": "auto",
+                "itemId": "string"
+            },
+            "name": "MyForm2",
+            "designerId": "d0a77c9b-ecfa-4306-8670-75afa788918d",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "trimValues",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "configAlternates": {
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField2",
+                    "designerId": "d5a1b54a-d19d-4aee-b695-5c430c7372f7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Descripcion",
+                        "layout|anchor": "100%",
+                        "name": "descripcion"
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string"
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "b8e4b325-71a3-4639-8e01-827f8291a2c0"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Es Eliminable",
+                        "hideEmptyLabel": false,
+                        "layout|anchor": "100%",
+                        "name": "es_eliminable"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyCheckbox3",
+                    "designerId": "107d0434-f69f-4569-8eb4-c1c82f6c1126"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Es Seleccionable",
+                        "hideEmptyLabel": false,
+                        "layout|anchor": "100%",
+                        "name": "es_seleccionable"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "hideEmptyLabel": "boolean",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyCheckbox1",
+                    "designerId": "880e99c0-aac5-426d-b3ea-d7b2fae0167f"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "20 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer9",
+                    "designerId": "74a085be-352e-4557-b2fa-a13471d3f8de",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnCancelar",
+                                "text": "Cancelar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "d9afa06f-ff7c-42e0-ac0d-4ee175241acb",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCancelarClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnCancelarClick",
+                                    "designerId": "50773571-8bc0-4b3a-9747-59f5f458c73b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer8",
+                            "designerId": "4f924036-b3d7-4654-b20e-120b8138e17b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "text": "Guardar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "3e7ac986-8e88-49e2-9e04-34b5b67ef66a",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    editarFormaPagoForm = me.view.down(\"form\").getForm(),",
+                                            "    formasPagoPanel = Ext.ComponentManager.get(\"formasPagoPanel\"),",
+                                            "    formasPagoLocalStore = formasPagoPanel.getController().getStore(\"FormasPagoLocalStore\"),",
+                                            "    record, waitWindow;",
+                                            "",
+                                            "if (editarFormaPagoForm.isValid()) {",
+                                            "    waitWindow = Ext.MessageBox.wait(\"Guardando cambios...\");",
+                                            "    editarFormaPagoForm.updateRecord();",
+                                            "    record = editarFormaPagoForm.getRecord();",
+                                            "                                    ",
+                                            "    // si el record no ha sufrigo cambios se termina la edicion",
+                                            "    if (!record.isDirty()) {",
+                                            "        waitWindow.close();",
+                                            "        me.view.close();",
+                                            "        return;",
+                                            "    }",
+                                            "",
+                                            "    formasPagoLocalStore.sync({",
+                                            "        success: onSyncSuccess",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSuccess() {",
+                                            "    waitWindow.close();",
+                                            "    me.view.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "3ac16484-69f3-4896-b586-234de802b45c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

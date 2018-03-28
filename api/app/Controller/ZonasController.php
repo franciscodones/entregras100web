@@ -25,7 +25,7 @@ class ZonasController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de zonas",
-            "data" => $aZonas,
+            "records" => $aZonas,
             "metadata" => array(
                 "total_registros" => count($aZonas)
             )
@@ -33,22 +33,14 @@ class ZonasController extends AppController {
     }
 
     /**
-     * Crea una zona
+     * Crea zonas
      * @return JsonResponse
      */
     public function create() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nZona = $aDatos["zona"];
-        $nPlazaId = $aDatos["plaza_id"];
-        $sDescripcion = $aDatos["descripcion"];
-        $bRequiereAyudante = $aDatos["ayudante"];
-        $sEstatus = "";
-        $sFechaRegistro = date("Y-m-d H:i:s");
-        $sFechaModificacion = date("Y-m-d H:i:s");
-
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // agrega el registro de la zona
         $sQuery = "INSERT INTO zona (" .
@@ -62,42 +54,46 @@ class ZonasController extends AppController {
             ") VALUES (" .
                 "?, ?, ?, ?, ?, ?, ?" .
             ")";
-        $aQueryParams = array(
-            $nPlazaId,
-            $nZona,
-            $sDescripcion,
-            $bRequiereAyudante,
-            $sEstatus,
-            $sFechaRegistro,
-            $sFechaModificacion
-        );
-        $aResultado = $oConexion->query($sQuery, $aQueryParams);
-        $nZonaId = $oConexion->lastInsertId();
+        foreach ($aRecords as &$aRecord) {
+            $aRecord["clientId"] = $aRecord["id"];
+            $aQueryParams = array(
+                $aRecord["plaza_id"],
+                $aRecord["zona"],
+                $aRecord["descripcion"],
+                $aRecord["ayudante"],
+                "",
+                date("Y-m-d H:i:s"),
+                date("Y-m-d H:i:s")
+            );
+            $aResultado = $oConexion->query($sQuery, $aQueryParams);
+            $aRecord["id"] = $oConexion->lastInsertId();
+        }
+        unset($aRecord);
+
+        // procesa los records para regresarlos y que los campos se actualicen en el store
+        $aRecords = array_map(function($aRecord) {
+            return array(
+                "id" => $aRecord["id"],
+                "clientId" => $aRecord["clientId"]
+            );
+        }, $aRecords);
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Zona agregada",
-            "data" => array(
-                "id" => $nZonaId
-            )
+            "message" => "Zonas agregadas",
+            "records" => $aRecords
         ));
     }
 
     /**
-     * Actualiza una zona
+     * Actualiza zonas
      * @return JsonResponse
      */
     public function update() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nId = $aDatos["id"];
-        $nZona = $aDatos["zona"];
-        $nPlazaId = $aDatos["plaza_id"];
-        $sDescripcion = $aDatos["descripcion"];
-        $bRequiereAyudante = $aDatos["ayudante"];
-        $sFechaModificacion = date("Y-m-d H:i:s");
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // actualiza el registro de la zona
         $sQuery = "UPDATE zona SET " .
@@ -107,19 +103,21 @@ class ZonasController extends AppController {
                 "ayudante = ?, " .
                 "fecha_modificacion = ? " .
             "WHERE id = ?";
-        $aQueryParams = array(
-            $nPlazaId,
-            $nZona,
-            $sDescripcion,
-            $bRequiereAyudante,
-            $sFechaModificacion,
-            $nId
-        );
-        $oConexion->query($sQuery, $aQueryParams);
+        foreach ($aRecords as $aRecord) {
+            $aQueryParams = array(
+                $aRecord["plaza_id"],
+                $aRecord["zona"],
+                $aRecord["descripcion"],
+                $aRecord["ayudante"],
+                date("Y-m-d H:i:s"),
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Zona actualizada"
+            "message" => "Zonas actualizadas"
         ));
     }
 }

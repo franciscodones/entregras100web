@@ -23,7 +23,7 @@ class UnidadesController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de unidades",
-            "data" => $aUnidades,
+            "records" => $aUnidades,
             "metadata" => array(
                 "total_registros" => count($aUnidades)
             )
@@ -37,28 +37,8 @@ class UnidadesController extends AppController {
     public function create() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nZonaId = $aDatos["zona_id"];
-        $nUnidad = $aDatos["unidad"];
-        $sLetra = $aDatos["letra"];
-        $sTipo = "E";
-        $sFecha = "0000-00-00 00:00:00";
-        $nLatitud = 0;
-        $nLongitud = 0;
-        $nRssi = 0;
-        $bOnline = $aDatos["online"];
-        $bCobroAditivo = $aDatos["cobro_aditivo"];
-        $bAditivoObligatorio = false;
-        $sAutorizacion = "";
-        $nTiempo = 0;
-        $nSincronizacion = 0;
-        $sFechaOperacion = "0000-00-00 00:00:00";
-        $sVersion = "2.4";
-        $sRutaActualizacion = "http://gps.gaspasa.com.mx:8080/Entregas100/APK/v2.4/v2.4_gps.apk";
-        $sFechaRegistro = date("Y-m-d H:i:s");
-        $sFechaModificacion = date("Y-m-d H:i:s");
-        $sEstado = "";
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // agrega el registro de la unidad
         $sQuery = "INSERT INTO unidad (" .
@@ -85,55 +65,59 @@ class UnidadesController extends AppController {
             ") VALUES (" .
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
             ")";
-        $aQueryParams = array(
-            $nZonaId,
-            $nUnidad,
-            $sLetra,
-            $sTipo,
-            $sFecha,
-            $nLatitud,
-            $nLongitud,
-            $nRssi,
-            $bOnline,
-            $bCobroAditivo,
-            $bAditivoObligatorio,
-            $sAutorizacion,
-            $nTiempo,
-            $nSincronizacion,
-            $sFechaOperacion,
-            $sVersion,
-            $sRutaActualizacion,
-            $sFechaRegistro,
-            $sFechaModificacion,
-            $sEstado
-        );
-        $aResultado = $oConexion->query($sQuery, $aQueryParams);
-        $nUnidadId = $oConexion->lastInsertId();
+        foreach ($aRecords as &$aRecord) {
+            $aRecord["clientId"] = $aRecord["id"];
+            $aQueryParams = array(
+                $aRecord["zona_id"],
+                $aRecord["unidad"],
+                $aRecord["letra"],
+                "E",
+                "0000-00-00 00:00:00",
+                0,
+                0,
+                0,
+                $aRecord["online"],
+                $aRecord["cobro_aditivo"],
+                false,
+                "",
+                0,
+                0,
+                "0000-00-00 00:00:00",
+                "2.4",
+                "http://gps.gaspasa.com.mx:8080/Entregas100/APK/v2.4/v2.4_gps.apk",
+                date("Y-m-d H:i:s"),
+                date("Y-m-d H:i:s"),
+                ""
+            );
+            $aResultado = $oConexion->query($sQuery, $aQueryParams);
+            $aRecord["id"] = $oConexion->lastInsertId();
+        }
+        unset($aRecord);
+
+        // procesa los records para regresarlos y que los campos se actualicen en el store
+        $aRecords = array_map(function($aRecord) {
+            return array(
+                "id" => $aRecord["id"],
+                "clientId" => $aRecord["clientId"]
+            );
+        }, $aRecords);
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Unidad agregada",
-            "data" => array(
-                "id" => $nUnidadId
-            )
+            "message" => "Unidades agregadas",
+            "records" => $aRecords
         ));
     }
 
     /**
-     * Actualiza una unidad
+     * Actualiza unidades
      * @return JsonResponse
      */
     public function update() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nId = $aDatos["id"];
-        $nZonaId = $aDatos["zona_id"];
-        $nUnidad = $aDatos["unidad"];
-        $sLetra = $aDatos["letra"];
-        $bOnline = $aDatos["online"];
-        $bCobroAditivo = $aDatos["cobro_aditivo"];
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // actualiza el registro de la unidad
         $sQuery = "UPDATE unidad SET " .
@@ -143,19 +127,22 @@ class UnidadesController extends AppController {
                 "online = ?, " .
                 "cobro_aditivo = ? " .
             "WHERE id = ?";
-        $aQueryParams = array(
-            $nUnidad,
-            $nZonaId,
-            $sLetra,
-            $bOnline,
-            $bCobroAditivo,
-            $nId
-        );
-        $oConexion->query($sQuery, $aQueryParams);
+        foreach ($aRecords as $aRecord) {
+            $aQueryParams = array(
+                $aRecord["unidad"],
+                $aRecord["zona_id"],
+                $aRecord["letra"],
+                $aRecord["online"],
+                $aRecord["cobro_aditivo"],
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+
+        }
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Unidad actualizada"
+            "message" => "Unidades actualizadas"
         ));
     }
 }

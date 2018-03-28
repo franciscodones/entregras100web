@@ -17,7 +17,7 @@ class PlazasController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de plazas",
-            "data" => $aPlazas,
+            "records" => $aPlazas,
             "metadata" => array(
                 "total_registros" => count($aPlazas)
             )
@@ -25,40 +25,14 @@ class PlazasController extends AppController {
     }
 
     /**
-     * Crea una plaza
+     * Crea plazas
      * @return JsonResponse
      */
     public function create() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nEmpresaId = $aDatos["empresa_id"];
-        $sPlaza = $aDatos["plaza"];
-        $sPlaza2 = $aDatos["plaza2"];
-        $sCiudad = $aDatos["ciudad"];
-        $sEstado = $aDatos["estado"];
-        $sDireccionSucursal = $aDatos["direccion_sucursal"];
-        $sTelefonoPedido = $aDatos["telefono_pedido"];
-        $sTelefonoQueja = $aDatos["telefono_queja"];
-        $sTelefonoQueja2 = $aDatos["telefono_queja2"];
-        $sPermiso = $aDatos["permiso"];
-        $sOficio = "";
-        $nPrecioGas = 0;
-        $nPrecioAditivo = 0;
-        $nPrecioAditivoc = 0;
-        $nFactorControl = $aDatos["factor_control"];
-        $nFactorSpace = $aDatos["factor_space"];
-        $nLitrosVale = 10;
-        $nClientesEstacionario = $aDatos["clientes_estacionario"];
-        $nClientesPortatil = 0;
-        $nLimiteDescarga = $aDatos["limite_descarga"];
-        $nFechaLista = 0;
-        $bOtorgaPuntos = $aDatos["otorga_puntos"];
-        $sEstatus = "";
-        $sFechaOperacion = "0000-00-00";
-        $sFechaPlanta = "0000-00-00";
-        $nTarifaId = 1;
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // agrega el registro de la plaza
         $sQuery = "INSERT INTO plaza (" .
@@ -91,72 +65,66 @@ class PlazasController extends AppController {
             ") VALUES (" .
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
             ")";
-        $aQueryParams = array(
-            $nEmpresaId,
-            $sPlaza,
-            $sPlaza2,
-            $sCiudad,
-            $sEstado,
-            $sDireccionSucursal,
-            $sTelefonoPedido,
-            $sTelefonoQueja,
-            $sTelefonoQueja2,
-            $sPermiso,
-            $sOficio,
-            $nPrecioGas,
-            $nPrecioAditivo,
-            $nPrecioAditivoc,
-            $nFactorControl,
-            $nFactorSpace,
-            $nLitrosVale,
-            $nClientesEstacionario,
-            $nClientesPortatil,
-            $nLimiteDescarga,
-            $nFechaLista,
-            $bOtorgaPuntos,
-            $sEstatus,
-            $sFechaOperacion,
-            $sFechaPlanta,
-            $nTarifaId
-        );
-        $aResultado = $oConexion->query($sQuery, $aQueryParams);
-        $nPlazaId = $oConexion->lastInsertId();
+
+        foreach ($aRecords as &$aRecord) {
+            $aRecord["clientId"] = $aRecord["id"];
+            $aQueryParams = array(
+                $aRecord["empresa_id"],
+                $aRecord["plaza"],
+                $aRecord["plaza2"],
+                $aRecord["ciudad"],
+                $aRecord["estado"],
+                $aRecord["direccion_sucursal"],
+                $aRecord["telefono_pedido"],
+                $aRecord["telefono_queja"],
+                $aRecord["telefono_queja2"],
+                $aRecord["permiso"],
+                "",
+                0,
+                0,
+                0,
+                $aRecord["factor_control"],
+                $aRecord["factor_space"],
+                10,
+                $aRecord["clientes_estacionario"],
+                0,
+                $aRecord["limite_descarga"],
+                0,
+                $aRecord["otorga_puntos"],
+                "",
+                "0000-00-00",
+                "0000-00-00",
+                1
+            );
+            $aResultado = $oConexion->query($sQuery, $aQueryParams);
+            $aRecord["id"] = $oConexion->lastInsertId();
+        }
+        unset($aRecord);
+
+        // procesa los records para regresarlos y que los campos se actualicen en el store
+        $aRecords = array_map(function($aRecord) {
+            return array(
+                "id" => $aRecord["id"],
+                "clientId" => $aRecord["clientId"]
+            );
+        }, $aRecords);
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Plaza agregada",
-            "data" => array(
-                "id" => $nPlazaId
-            )
+            "message" => "Plazas agregadas",
+            "records" => $aRecords
         ));
     }
 
     /**
-     * Actualiza una plaza
+     * Actualiza plazas
      * @return JsonResponse
      */
     public function update() {
         $oConexion = $this->getConexion();
-        throw new Exception("HOLIS");
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nId = $aDatos["id"];
-        $nEmpresaId = $aDatos["empresa_id"];
-        $sPlaza = $aDatos["plaza"];
-        $sPlaza2 = $aDatos["plaza2"];
-        $sCiudad = $aDatos["ciudad"];
-        $sEstado = $aDatos["estado"];
-        $sDireccionSucursal = $aDatos["direccion_sucursal"];
-        $sTelefonoPedido = $aDatos["telefono_pedido"];
-        $sTelefonoQueja = $aDatos["telefono_queja"];
-        $sTelefonoQueja2 = $aDatos["telefono_queja2"];
-        $sPermiso = $aDatos["permiso"];
-        $nFactorControl = $aDatos["factor_control"];
-        $nFactorSpace = $aDatos["factor_space"];
-        $nClientesEstacionario = $aDatos["clientes_estacionario"];
-        $nLimiteDescarga = $aDatos["limite_descarga"];
-        $bOtorgaPuntos = $aDatos["otorga_puntos"];
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // actualiza el registro de la plaza
         $sQuery = "UPDATE plaza SET " .
@@ -176,29 +144,31 @@ class PlazasController extends AppController {
                 "limite_descarga = ?, " .
                 "otorga_puntos = ? " .
             "WHERE id = ?";
-        $aQueryParams = array(
-            $nEmpresaId,
-            $sPlaza,
-            $sPlaza2,
-            $sCiudad,
-            $sEstado,
-            $sDireccionSucursal,
-            $sTelefonoPedido,
-            $sTelefonoQueja,
-            $sTelefonoQueja2,
-            $sPermiso,
-            $nFactorControl,
-            $nFactorSpace,
-            $nClientesEstacionario,
-            $nLimiteDescarga,
-            $bOtorgaPuntos,
-            $nId
-        );
-        $oConexion->query($sQuery, $aQueryParams);
+        foreach ($aRecords as $aRecord) {
+            $aQueryParams = array(
+                $aRecord["empresa_id"],
+                $aRecord["plaza"],
+                $aRecord["plaza2"],
+                $aRecord["ciudad"],
+                $aRecord["estado"],
+                $aRecord["direccion_sucursal"],
+                $aRecord["telefono_pedido"],
+                $aRecord["telefono_queja"],
+                $aRecord["telefono_queja2"],
+                $aRecord["permiso"],
+                $aRecord["factor_control"],
+                $aRecord["factor_space"],
+                $aRecord["clientes_estacionario"],
+                $aRecord["limite_descarga"],
+                $aRecord["otorga_puntos"],
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Plaza actualizada"
+            "message" => "Plazas actualizadas"
         ));
     }
 }

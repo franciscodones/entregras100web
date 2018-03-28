@@ -8,21 +8,22 @@
     "userConfig": {
         "designer|userClassName": "OperadoresStore",
         "model": "OperadorModel",
-        "rollbackOnExceptions": true,
+        "rejectOnExceptions": true,
         "storeId": "OperadoresStore"
     },
     "configAlternates": {
         "rollbackOnExceptions": "boolean",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
     },
     "name": "ZonasStore1",
     "designerId": "c31b5538-b18e-4d18-a964-708d3134e7e7",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
-            "name": "rollbackOnExceptions",
+            "name": "rejectOnExceptions",
             "type": "string"
         }
     ],
@@ -56,11 +57,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "messageProperty": "message",
-                        "metaProperty": "metadata",
-                        "rootProperty": "data"
-                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -76,12 +72,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "allowSingle": false,
-                        "encode": true,
-                        "rootProperty": "datos",
-                        "writeAllFields": true
-                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

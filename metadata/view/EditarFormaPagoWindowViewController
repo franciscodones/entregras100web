@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarformapagowindow",
+        "designer|userClassName": "EditarFormaPagoWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "EditarOperadorWindowViewController1",
+    "designerId": "2ac57f6c-d97d-43a9-8edf-c454e9f8029c"
+}

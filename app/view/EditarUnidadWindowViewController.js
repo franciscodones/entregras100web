@@ -52,6 +52,14 @@ Ext.define('Entregas100Web.view.EditarUnidadWindowViewController', {
             waitWindow = Ext.MessageBox.wait("Guardando cambios...");
             editarUnidadForm.updateRecord();
             record = editarUnidadForm.getRecord();
+
+            // si el record no ha sufrigo cambios se termina la edicion
+            if (!record.isDirty()) {
+                waitWindow.close();
+                me.view.close();
+                return;
+            }
+
             record.set("zona", zona);
             unidadesLocalStore.sync({
                 success: onSyncSuccess

@@ -8,21 +8,22 @@
     "userConfig": {
         "designer|userClassName": "UnidadesStore",
         "model": "UnidadModel",
-        "rollbackOnExceptions": true,
+        "rejectOnExceptions": true,
         "storeId": "UnidadesStore"
     },
     "configAlternates": {
         "rollbackOnExceptions": "boolean",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
     },
     "name": "ZonasStore1",
     "designerId": "0d92b6c4-4d96-4cec-afa6-7285476dfa01",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
-            "name": "rollbackOnExceptions",
+            "name": "rejectOnExceptions",
             "type": "string"
         }
     ],
@@ -56,11 +57,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "messageProperty": "message",
-                        "metaProperty": "metadata",
-                        "rootProperty": "data"
-                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -76,12 +72,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "allowSingle": false,
-                        "encode": true,
-                        "rootProperty": "datos",
-                        "writeAllFields": true
-                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

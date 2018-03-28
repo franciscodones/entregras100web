@@ -30,7 +30,8 @@ Ext.define("Pyansa.window.dialog.ComboBox", {
                 labelStyle: 'text-align: center;',
                 allowBlank: false,
                 editable: false,
-                forceSelection: true
+                forceSelection: true,
+                emptyText: "Seleccione una opción"
             }
         }, config);
 

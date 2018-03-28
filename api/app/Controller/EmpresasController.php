@@ -17,7 +17,7 @@ class EmpresasController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de empresas",
-            "data" => $aPlazas,
+            "records" => $aPlazas,
             "metadata" => array(
                 "total_registros" => count($aPlazas)
             )

@@ -283,7 +283,7 @@ class AppController extends Controller {
             array(
                 "success" => false,
                 "message" => "",
-                "data" => null,
+                "records" => null,
                 "metadata" => null
             ),
             $data

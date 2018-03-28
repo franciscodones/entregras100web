@@ -34,6 +34,14 @@ Ext.define('Entregas100Web.view.EditarOperadorWindowViewController', {
             waitWindow = Ext.MessageBox.wait("Guardando cambios...");
             editarOperadorForm.updateRecord();
             record = editarOperadorForm.getRecord();
+
+            // si el record no ha sufrigo cambios se termina la edicion
+            if (!record.isDirty()) {
+                waitWindow.close();
+                me.view.close();
+                return;
+            }
+
             record.set("tipo_usuario", tipoUsuario);
             record.set("nombre_plaza", nombrePlaza);
             operadoresLocalStore.sync({

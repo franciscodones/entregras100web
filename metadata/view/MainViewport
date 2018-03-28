@@ -70,16 +70,138 @@
                     "userConfig": {
                         "layout": "accordion",
                         "layout|flex": 1,
+                        "margin": 0,
                         "padding": 0
                     },
                     "configAlternates": {
                         "layout": "string",
                         "layout|flex": "number",
-                        "padding": "auto"
+                        "padding": "auto",
+                        "margin": "auto"
                     },
                     "name": "MyContainer",
                     "designerId": "7b150d40-38a9-405c-95b0-37af6ba301ba",
                     "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "menu-flechas"
+                                ],
+                                "designer|uiInterfaceName": "default",
+                                "floating": false,
+                                "margin": 0,
+                                "title": "Configuracion"
+                            },
+                            "configAlternates": {
+                                "cls": "typedarray",
+                                "floating": "boolean",
+                                "margin": "auto",
+                                "title": "string",
+                                "designer|uiInterfaceName": "string"
+                            },
+                            "name": "MyMenu3",
+                            "designerId": "e5a3c52c-38db-4b49-b78a-206464102c44",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0d6@FontAwesome",
+                                        "itemId": "mItemFormasPago",
+                                        "text": "Formas de Pago"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem8",
+                                    "designerId": "4abe5f6b-bd61-461d-940b-68c7296d1159",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemFormasPagoClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.formaspagopanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemFormasPagoClick",
+                                            "designerId": "6ab8e902-caed-410b-a7d9-ed911fcd9df6"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f09d@FontAwesome",
+                                        "itemId": "mItemPerfilesPago",
+                                        "text": "Perfiles de Pago"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem7",
+                                    "designerId": "3150d095-fba9-4d01-94be-39722ea8ce95",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPerfilesPagoClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.perfilespagopanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPerfilesPagoClick",
+                                            "designerId": "54fe764f-52d4-4d1d-8b2b-ca723cd91e1d"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             "type": "Ext.menu.Menu",
                             "reference": {

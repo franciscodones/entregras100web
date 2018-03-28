@@ -30,6 +30,14 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
         tabContainer.setActiveTab(panel);
     },
 
+    onMItemFormasPagoClick: function(item, e, eOpts) {
+        this.abrirPanel("widget.formaspagopanel");
+    },
+
+    onMItemPerfilesPagoClick: function(item, e, eOpts) {
+        this.abrirPanel("widget.perfilespagopanel");
+    },
+
     onMItemPlazasClick: function(item, e, eOpts) {
         this.abrirPanel("widget.plazaspanel");
     },

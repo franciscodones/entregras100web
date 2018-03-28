@@ -8,21 +8,22 @@
     "userConfig": {
         "designer|userClassName": "TarifasStore",
         "model": "TarifaModel",
-        "rollbackOnExceptions": true,
+        "rejectOnExceptions": true,
         "storeId": "TarifasStore"
     },
     "configAlternates": {
         "rollbackOnExceptions": "boolean",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
     },
     "name": "ZonasStore1",
     "designerId": "be553a38-11ce-4586-bca0-e8c088f5ffc3",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
-            "name": "rollbackOnExceptions",
+            "name": "rejectOnExceptions",
             "type": "string"
         }
     ],
@@ -55,11 +56,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "messageProperty": "message",
-                        "metaProperty": "metadata",
-                        "rootProperty": "data"
-                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -75,12 +71,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "allowSingle": false,
-                        "encode": true,
-                        "rootProperty": "datos",
-                        "writeAllFields": true
-                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

@@ -1,0 +1,87 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CombinacionesFormaPlazaStore",
+        "model": "CombinacionFormaPlaza",
+        "rejectOnExceptions": true,
+        "storeId": "CombinacionesFormaPlazaStore"
+    },
+    "configAlternates": {
+        "rollbackOnExceptions": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
+    },
+    "name": "CombinacionesFormaPagoStore1",
+    "designerId": "4eb3f0fd-f1f6-410d-b5a8-e6a8ea8ce7cf",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rejectOnExceptions",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "    create: \"api/formasPago/createCombinacionesFormaPlaza\",",
+                    "    read: \"api/formasPago/readCombinacionesFormaPlaza\",",
+                    "    destroy: \"api/formasPago/destroyCombinacionesFormaPlaza\"",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "api": "object"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "1e64d12a-d003-48c7-8a7d-7bbb60b63e7d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "metaProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "9043dd51-0e65-4c22-b367-4fb432425a63"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter1",
+                    "designerId": "84a77a8d-5d43-4158-b4a9-f8bc3a406357"
+                }
+            ]
+        }
+    ]
+}

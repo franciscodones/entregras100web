@@ -26,7 +26,12 @@ Ext.application({
         'ZonaModel',
         'UnidadModel',
         'OperadorModel',
-        'TarifaModel'
+        'TarifaModel',
+        'FormaPagoModel',
+        'CombinacionFormaPago',
+        'CombinacionFormaPlaza',
+        'PerfilPago',
+        'CombinacionFormaPerfil'
     ],
     stores: [
         'PlazasStore',
@@ -34,7 +39,12 @@ Ext.application({
         'ZonasStore',
         'UnidadesStore',
         'OperadoresStore',
-        'TarifasStore'
+        'TarifasStore',
+        'FormasPagoStore',
+        'CombinacionesFormaPagoStore',
+        'CombinacionesFormaPlazaStore',
+        'PerfilesPagoStore',
+        'CombinacionesFormaPerfilStore'
     ],
     views: [
         'MainViewport',
@@ -52,7 +62,11 @@ Ext.application({
         'CrearOperadorWindow',
         'EditarOperadorWindow',
         'TarifasPanel',
-        'ConfigurarCuentaPanel'
+        'ConfigurarCuentaPanel',
+        'FormasPagoPanel',
+        'EditarFormaPagoWindow',
+        'PerfilesPagoPanel',
+        'EditarPerfilPagoWindow'
     ],
     controllers: [
         'StoreController'

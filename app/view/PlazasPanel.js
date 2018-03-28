@@ -115,7 +115,7 @@ Ext.define('Entregas100Web.view.PlazasPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 110,
+                    width: 150,
                     dataIndex: 'ciudad',
                     text: 'Plaza',
                     filter: {

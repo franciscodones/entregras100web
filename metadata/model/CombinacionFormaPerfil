@@ -1,0 +1,114 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CombinacionFormaPerfil"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "99392d4a-8b95-44f3-bdd2-74102d4e1a6e",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger22",
+            "designerId": "09786b4a-9780-40cd-b77d-275c611a32c7"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tipo_cliente_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger23",
+            "designerId": "c07cd4f7-1158-49a2-a75d-7b97bd2c2742"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tipo_cliente"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString7",
+            "designerId": "d593654f-b188-4fa7-9882-1b5dafdaad2c"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "forma_pago_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger24",
+            "designerId": "16b4569d-b381-4b31-b0f7-243032624374"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "forma_pago"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString8",
+            "designerId": "5537d3f4-8c7b-4156-afba-603a3f172e0a"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "es_default"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyBoolean9",
+            "designerId": "04147acd-5a6d-4553-87ed-0ccae4615630"
+        }
+    ]
+}

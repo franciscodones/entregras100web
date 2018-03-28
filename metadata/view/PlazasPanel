@@ -265,7 +265,7 @@
                     "userConfig": {
                         "dataIndex": "ciudad",
                         "text": "Plaza",
-                        "width": 110
+                        "width": 150
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",

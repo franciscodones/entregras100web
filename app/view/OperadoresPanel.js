@@ -103,7 +103,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                 {
                     xtype: 'button',
                     itemId: 'btnAgregar',
-                    glyph: 'f055 @FontAwesome',
+                    glyph: 'f055@FontAwesome',
                     text: 'Agregar',
                     listeners: {
                         click: 'onBtnAgregarClick'

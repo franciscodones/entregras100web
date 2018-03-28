@@ -22,7 +22,7 @@ class OperadoresController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de operadores",
-            "data" => $aOperadores,
+            "records" => $aOperadores,
             "metadata" => array(
                 "total_registros" => count($aOperadores)
             )
@@ -30,42 +30,36 @@ class OperadoresController extends AppController {
     }
 
     /**
-     * Crea un operador
+     * Crea operadores
      * @return JsonResponse
      */
     public function create() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $sNombre = $aDatos["nombre"];
-        $nNip = 0;
-        $nTipoUsuarioId = $aDatos["tipo_usuario_id"];
-        $nPlazaId = $aDatos["plaza_id"];
-        $bEstatus = true;
-        $bSesion = false;
-        $nUnidadId = 0;
-        $bPlazas = false;
-        $sFechaSesion = "0000-00-00 00:00:00";
-        $sFechaRegistro = date("Y-m-d H:i:s");
-
-        // genera un nip aleatorio que no este repetido
-        // el ciclo continuara hasta que el nip no este repetido
-        $x = 10;
-        do {
-            $nNip = rand(100000, 999999);
-            $sQuery = "SELECT nip FROM operador WHERE nip = ?";
-            $aQueryParams = array($nNip);
-            $aResultado = $oConexion->query($sQuery, $aQueryParams);
-            $aResultado = $this->parsearQueryResult($aResultado);
-            if (count($aResultado) > 0) {
-                $nNip = 0;
-            }
-            $x--;
-        } while ($nNip <= 0 || $x > 0);
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
 
         // agrega el registro del operador
-        $sQuery = "INSERT INTO operador (" .
+        foreach ($aRecords as &$aRecord) {
+            $aRecord["clientId"] = $aRecord["id"];
+
+            // genera un nip aleatorio que no este repetido
+            // el ciclo continuara hasta que el nip no este repetido
+            $x = 10;
+            do {
+                $nNip = rand(100000, 999999);
+                $sQuery = "SELECT nip FROM operador WHERE nip = ?";
+                $aQueryParams = array($nNip);
+                $aResultado = $oConexion->query($sQuery, $aQueryParams);
+                $aResultado = $this->parsearQueryResult($aResultado);
+                if (count($aResultado) > 0) {
+                    $nNip = 0;
+                }
+                $x--;
+            } while ($nNip <= 0 || $x > 0);
+            $aRecord["nip"] = $nNip;
+
+            $sQuery = "INSERT INTO operador (" .
                 "nombre, " .
                 "nip, " .
                 "tipo_usuario_id, " .
@@ -79,45 +73,48 @@ class OperadoresController extends AppController {
             ") VALUES (" .
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
             ")";
-        $aQueryParams = array(
-            $sNombre,
-            $nNip,
-            $nTipoUsuarioId,
-            $nPlazaId,
-            $bEstatus,
-            $bSesion,
-            $nUnidadId,
-            $bPlazas,
-            $sFechaSesion,
-            $sFechaRegistro
-        );
-        $aResultado = $oConexion->query($sQuery, $aQueryParams);
-        $nOperadorId = $oConexion->lastInsertId();
+            $aQueryParams = array(
+                $aRecord["nombre"],
+                $aRecord["nip"],
+                $aRecord["tipo_usuario_id"],
+                $aRecord["plaza_id"],
+                true,
+                false,
+                0,
+                false,
+                "0000-00-00 00:00:00",
+                date("Y-m-d H:i:s")
+            );
+            $aResultado = $oConexion->query($sQuery, $aQueryParams);
+            $aRecord["id"] = $oConexion->lastInsertId();
+        }
+        unset($aRecord);
+
+        // procesa los records para regresarlos y que los campos se actualicen en el store
+        $aRecords = array_map(function($aRecord) {
+            return array(
+                "id" => $aRecord["id"],
+                "clientId" => $aRecord["clientId"],
+                "nip" => $aRecord["nip"]
+            );
+        }, $aRecords);
 
         return $this->asJson(array(
             "success" => true,
             "message" => "Operador agregado",
-            "data" => array(
-                "id" => $nOperadorId,
-                "nip" => $nNip
-            )
+            "records" => $aRecords
         ));
     }
 
     /**
-     * Actualiza un operador
+     * Actualiza operadores
      * @return JsonResponse
      */
     public function update() {
         $oConexion = $this->getConexion();
 
-        $this->request->data["datos"] = json_decode($this->request->data["datos"], true);
-        $aDatos = $this->request->data["datos"][0];
-        $nId = $aDatos["id"];
-        $sNombre = $aDatos["nombre"];
-        $nTipoUsuarioId = $aDatos["tipo_usuario_id"];
-        $nPlazaId = $aDatos["plaza_id"];
-        $bSesion = $aDatos["sesion"];
+        $aDatos = $this->request->data;
+        $aDatos["records"] = json_decode($aDatos["records"], true);
 
         // actualiza el registro del operador
         $sQuery = "UPDATE operador SET " .
@@ -126,14 +123,16 @@ class OperadoresController extends AppController {
                 "plaza_id = ?, " .
                 "sesion = ? " .
             "WHERE id = ?";
-        $aQueryParams = array(
-            $sNombre,
-            $nTipoUsuarioId,
-            $nPlazaId,
-            $bSesion,
-            $nId
-        );
-        $oConexion->query($sQuery, $aQueryParams);
+        foreach ($aDatos["records"] as $record) {
+            $aQueryParams = array(
+                $record["nombre"],
+                $record["tipo_usuario_id"],
+                $record["plaza_id"],
+                $record["sesion"],
+                $record["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
 
         return $this->asJson(array(
             "success" => true,

@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userClassName": "PlazasStore",
         "model": "PlazaModel",
-        "rollbackOnExceptions": true,
+        "rejectOnExceptions": true,
         "storeId": " PlazasStore"
     },
     "configAlternates": {
@@ -16,14 +16,15 @@
         "model": "model",
         "storeId": "string",
         "manageSync": "boolean",
-        "rollbackOnExceptions": "boolean"
+        "rollbackOnExceptions": "boolean",
+        "rejectOnExceptions": "boolean"
     },
     "name": "MyJsonStore",
     "designerId": "5f235546-7ed6-4ca3-99cc-f4c65cc9edd8",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
-            "name": "rollbackOnExceptions",
+            "name": "rejectOnExceptions",
             "type": "string"
         }
     ],
@@ -58,11 +59,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "messageProperty": "message",
-                        "metaProperty": "metadata",
-                        "rootProperty": "data"
-                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -78,12 +74,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "allowSingle": false,
-                        "encode": true,
-                        "rootProperty": "datos",
-                        "writeAllFields": true
-                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

@@ -52,9 +52,37 @@ Ext.define('Entregas100Web.view.MainViewport', {
                 {
                     xtype: 'container',
                     flex: 1,
+                    margin: 0,
                     padding: 0,
                     layout: 'accordion',
                     items: [
+                        {
+                            xtype: 'menu',
+                            cls: 'menu-flechas',
+                            floating: false,
+                            margin: 0,
+                            title: 'Configuracion',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemFormasPago',
+                                    glyph: 'f0d6@FontAwesome',
+                                    text: 'Formas de Pago',
+                                    listeners: {
+                                        click: 'onMItemFormasPagoClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemPerfilesPago',
+                                    glyph: 'f09d@FontAwesome',
+                                    text: 'Perfiles de Pago',
+                                    listeners: {
+                                        click: 'onMItemPerfilesPagoClick'
+                                    }
+                                }
+                            ]
+                        },
                         {
                             xtype: 'menu',
                             cls: 'menu-flechas',

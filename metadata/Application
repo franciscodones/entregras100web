@@ -15,7 +15,12 @@
             "ZonaModel",
             "UnidadModel",
             "OperadorModel",
-            "TarifaModel"
+            "TarifaModel",
+            "FormaPagoModel",
+            "CombinacionFormaPago",
+            "CombinacionFormaPlaza",
+            "PerfilPago",
+            "CombinacionFormaPerfil"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -24,7 +29,12 @@
             "ZonasStore",
             "UnidadesStore",
             "OperadoresStore",
-            "TarifasStore"
+            "TarifasStore",
+            "FormasPagoStore",
+            "CombinacionesFormaPagoStore",
+            "CombinacionesFormaPlazaStore",
+            "PerfilesPagoStore",
+            "CombinacionesFormaPerfilStore"
         ],
         "views": [
             "MainViewport",
@@ -42,7 +52,11 @@
             "CrearOperadorWindow",
             "EditarOperadorWindow",
             "TarifasPanel",
-            "ConfigurarCuentaPanel"
+            "ConfigurarCuentaPanel",
+            "FormasPagoPanel",
+            "EditarFormaPagoWindow",
+            "PerfilesPagoPanel",
+            "EditarPerfilPagoWindow"
         ]
     },
     "configAlternates": {

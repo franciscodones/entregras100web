@@ -220,7 +220,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "glyph": "f055 @FontAwesome",
+                        "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
                         "text": "Agregar"
