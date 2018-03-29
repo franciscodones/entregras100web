@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarusuariowindow",
+        "designer|userClassName": "CrearUsuarioWindowViewController1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearUsuarioWindowViewController1",
+    "designerId": "9f468c95-49f3-4800-9463-ca7970c5198a"
+}

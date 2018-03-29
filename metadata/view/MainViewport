@@ -40,6 +40,8 @@
                 "collapseDirection": "left",
                 "collapsible": true,
                 "container|align": "stretch",
+                "designer|uiInterfaceName": "default-framed",
+                "frame": true,
                 "layout": "vbox",
                 "layout|region": "west",
                 "title": "Menu",
@@ -55,7 +57,9 @@
                 "layout|region": "string",
                 "title": "string",
                 "width": "auto",
-                "container|align": "string"
+                "container|align": "string",
+                "designer|uiInterfaceName": "string",
+                "frame": "boolean"
             },
             "name": "MyPanel",
             "designerId": "82e3aef1-1524-48fa-8dba-b3b99cc9a2e0",
@@ -103,7 +107,8 @@
                                 "floating": "boolean",
                                 "margin": "auto",
                                 "title": "string",
-                                "designer|uiInterfaceName": "string"
+                                "designer|uiInterfaceName": "string",
+                                "permissionId": "boolean"
                             },
                             "name": "MyMenu3",
                             "designerId": "e5a3c52c-38db-4b49-b78a-206464102c44",
@@ -116,17 +121,81 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "glyph": "f279@FontAwesome",
+                                        "itemId": "mItemPlazas",
+                                        "permissionId": 1,
+                                        "text": "Plazas"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "8b1bf2c3-005f-4701-86d3-22aa878485be",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPlazasClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.plazaspanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPlazasClick",
+                                            "designerId": "ebfd92db-c6c9-4697-abb0-cc02aa5022d2"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
                                         "glyph": "f0d6@FontAwesome",
                                         "itemId": "mItemFormasPago",
+                                        "permissionId": 15,
                                         "text": "Formas de Pago"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
                                         "itemId": "string",
-                                        "text": "string"
+                                        "text": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem8",
                                     "designerId": "4abe5f6b-bd61-461d-940b-68c7296d1159",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -164,15 +233,24 @@
                                     "userConfig": {
                                         "glyph": "f09d@FontAwesome",
                                         "itemId": "mItemPerfilesPago",
+                                        "permissionId": 21,
                                         "text": "Perfiles de Pago"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
                                         "itemId": "string",
-                                        "text": "string"
+                                        "text": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem7",
                                     "designerId": "3150d095-fba9-4d01-94be-39722ea8ce95",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -199,6 +277,129 @@
                                             "designerId": "54fe764f-52d4-4d1d-8b2b-ca723cd91e1d"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0c0@FontAwesome",
+                                        "itemId": "mItemUsuarios",
+                                        "permissionId": 29,
+                                        "text": "Usuarios"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem10",
+                                    "designerId": "d599084c-a30f-4889-9f8d-dabdad8ad720",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPerfilesPagoClick11",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.usuariospanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPerfilesPagoClick11",
+                                            "designerId": "b36178b0-4067-4fd2-84b8-4762d88a244e"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f023@FontAwesome",
+                                        "itemId": "mItemPermisos",
+                                        "text": "Permisos"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem9",
+                                    "designerId": "a421cd5c-505f-4434-94e3-c3fb92fe953b",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPerfilesPagoClick1",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.perfilespagopanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPerfilesPagoClick1",
+                                            "designerId": "aa8d0f6a-04f0-40b3-9d94-4739467980a4"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "isPermited",
+                                        "implHandler": [
+                                            "// si no existen menuitems visibles, se toma el menu como no permitido y se oculta",
+                                            "return this.query(\"> menuitem[hidden=false]\").length > 0;"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "isPermited",
+                                    "designerId": "cefb7189-7687-4132-a93e-7df2bed514d6"
                                 }
                             ]
                         },
@@ -235,63 +436,26 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "glyph": "f279@FontAwesome",
-                                        "itemId": "mItemPlazas",
-                                        "text": "Plazas"
-                                    },
-                                    "configAlternates": {
-                                        "text": "string",
-                                        "glyph": "auto",
-                                        "itemId": "string"
-                                    },
-                                    "name": "MyMenuItem",
-                                    "designerId": "8b1bf2c3-005f-4701-86d3-22aa878485be",
-                                    "cn": [
-                                        {
-                                            "type": "viewcontrollereventbinding",
-                                            "reference": {
-                                                "name": "listeners",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "onMItemPlazasClick",
-                                                "implHandler": [
-                                                    "this.abrirPanel(\"widget.plazaspanel\");"
-                                                ],
-                                                "name": "click",
-                                                "scope": "me"
-                                            },
-                                            "configAlternates": {
-                                                "fn": "string",
-                                                "implHandler": "code",
-                                                "name": "string",
-                                                "scope": "string"
-                                            },
-                                            "name": "onMItemPlazasClick",
-                                            "designerId": "ebfd92db-c6c9-4697-abb0-cc02aa5022d2"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
                                         "glyph": "f041@FontAwesome",
                                         "itemId": "mItemZonas",
+                                        "permissionId": 4,
                                         "text": "Zonas"
                                     },
                                     "configAlternates": {
                                         "text": "string",
                                         "glyph": "auto",
-                                        "itemId": "string"
+                                        "itemId": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem1",
                                     "designerId": "890243b8-4311-4483-bbef-dafd36cafb5a",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -329,15 +493,24 @@
                                     "userConfig": {
                                         "glyph": "f0d1@FontAwesome",
                                         "itemId": "mItemUnidades",
+                                        "permissionId": 7,
                                         "text": "Unidades"
                                     },
                                     "configAlternates": {
                                         "text": "string",
                                         "glyph": "auto",
-                                        "itemId": "string"
+                                        "itemId": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem2",
                                     "designerId": "d7f8bb4b-9689-4faa-b486-eaf6f9bfb9ac",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -375,15 +548,24 @@
                                     "userConfig": {
                                         "glyph": "f0c0@FontAwesome",
                                         "itemId": "mItemOperadores",
+                                        "permissionId": 10,
                                         "text": "Operadores"
                                     },
                                     "configAlternates": {
                                         "text": "string",
                                         "glyph": "auto",
-                                        "itemId": "string"
+                                        "itemId": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem6",
                                     "designerId": "8ccd7f7c-14dd-4b59-a127-be281ac32ec9",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -421,15 +603,24 @@
                                     "userConfig": {
                                         "glyph": "f155@FontAwesome",
                                         "itemId": "mItemTarifas",
+                                        "permissionId": 13,
                                         "text": "Tarifas"
                                     },
                                     "configAlternates": {
                                         "text": "string",
                                         "glyph": "auto",
-                                        "itemId": "string"
+                                        "itemId": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem3",
                                     "designerId": "413d4e9f-2806-4680-83d7-894af6c4f166",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -497,6 +688,27 @@
                                             "designerId": "a9f443e7-f14e-4d0a-b9b0-a34e4906a623"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "isPermited",
+                                        "implHandler": [
+                                            "// si no existen menuitems visibles, se toma el menu como no permitido y se oculta",
+                                            "return this.query(\"> menuitem[hidden=false]\").length > 0;"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "isPermited",
+                                    "designerId": "e3c2a55c-21a1-430c-9a6e-1e3c58505198"
                                 }
                             ]
                         },

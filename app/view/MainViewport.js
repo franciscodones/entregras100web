@@ -39,6 +39,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
         {
             xtype: 'panel',
             region: 'west',
+            frame: true,
             width: 170,
             bodyPadding: 0,
             collapseDirection: 'left',
@@ -58,6 +59,10 @@ Ext.define('Entregas100Web.view.MainViewport', {
                     items: [
                         {
                             xtype: 'menu',
+                            isPermited: function() {
+                                // si no existen menuitems visibles, se toma el menu como no permitido y se oculta
+                                return this.query("> menuitem[hidden=false]").length > 0;
+                            },
                             cls: 'menu-flechas',
                             floating: false,
                             margin: 0,
@@ -65,33 +70,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    itemId: 'mItemFormasPago',
-                                    glyph: 'f0d6@FontAwesome',
-                                    text: 'Formas de Pago',
-                                    listeners: {
-                                        click: 'onMItemFormasPagoClick'
-                                    }
-                                },
-                                {
-                                    xtype: 'menuitem',
-                                    itemId: 'mItemPerfilesPago',
-                                    glyph: 'f09d@FontAwesome',
-                                    text: 'Perfiles de Pago',
-                                    listeners: {
-                                        click: 'onMItemPerfilesPagoClick'
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            xtype: 'menu',
-                            cls: 'menu-flechas',
-                            floating: false,
-                            margin: 0,
-                            title: 'Catalogos',
-                            items: [
-                                {
-                                    xtype: 'menuitem',
+                                    permissionId: 1,
                                     itemId: 'mItemPlazas',
                                     glyph: 'f279@FontAwesome',
                                     text: 'Plazas',
@@ -101,6 +80,59 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 15,
+                                    itemId: 'mItemFormasPago',
+                                    glyph: 'f0d6@FontAwesome',
+                                    text: 'Formas de Pago',
+                                    listeners: {
+                                        click: 'onMItemFormasPagoClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    permissionId: 21,
+                                    itemId: 'mItemPerfilesPago',
+                                    glyph: 'f09d@FontAwesome',
+                                    text: 'Perfiles de Pago',
+                                    listeners: {
+                                        click: 'onMItemPerfilesPagoClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    permissionId: 29,
+                                    itemId: 'mItemUsuarios',
+                                    glyph: 'f0c0@FontAwesome',
+                                    text: 'Usuarios',
+                                    listeners: {
+                                        click: 'onMItemPerfilesPagoClick11'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemPermisos',
+                                    glyph: 'f023@FontAwesome',
+                                    text: 'Permisos',
+                                    listeners: {
+                                        click: 'onMItemPerfilesPagoClick1'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'menu',
+                            isPermited: function() {
+                                // si no existen menuitems visibles, se toma el menu como no permitido y se oculta
+                                return this.query("> menuitem[hidden=false]").length > 0;
+                            },
+                            cls: 'menu-flechas',
+                            floating: false,
+                            margin: 0,
+                            title: 'Catalogos',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    permissionId: 4,
                                     itemId: 'mItemZonas',
                                     glyph: 'f041@FontAwesome',
                                     text: 'Zonas',
@@ -110,6 +142,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 7,
                                     itemId: 'mItemUnidades',
                                     glyph: 'f0d1@FontAwesome',
                                     text: 'Unidades',
@@ -119,6 +152,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 10,
                                     itemId: 'mItemOperadores',
                                     glyph: 'f0c0@FontAwesome',
                                     text: 'Operadores',
@@ -128,6 +162,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 13,
                                     itemId: 'mItemTarifas',
                                     glyph: 'f155@FontAwesome',
                                     text: 'Tarifas',

@@ -6,9 +6,6 @@
     },
     "codeClass": null,
     "userConfig": {
-        "controllers": [
-            "StoreController"
-        ],
         "models": [
             "PlazaModel",
             "EmpresaModel",
@@ -20,7 +17,9 @@
             "CombinacionFormaPago",
             "CombinacionFormaPlaza",
             "PerfilPago",
-            "CombinacionFormaPerfil"
+            "CombinacionFormaPerfil",
+            "UsuarioModel",
+            "TipoSesion"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -34,7 +33,9 @@
             "CombinacionesFormaPagoStore",
             "CombinacionesFormaPlazaStore",
             "PerfilesPagoStore",
-            "CombinacionesFormaPerfilStore"
+            "CombinacionesFormaPerfilStore",
+            "UsuariosStore",
+            "TiposSesionStore"
         ],
         "views": [
             "MainViewport",
@@ -56,7 +57,10 @@
             "FormasPagoPanel",
             "EditarFormaPagoWindow",
             "PerfilesPagoPanel",
-            "EditarPerfilPagoWindow"
+            "EditarPerfilPagoWindow",
+            "UsuariosPanel",
+            "CrearUsuarioWindow",
+            "EditarUsuarioWindow"
         ]
     },
     "configAlternates": {

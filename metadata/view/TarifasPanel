@@ -138,6 +138,7 @@
                         "hideTrigger": true,
                         "itemId": "txtAumentoGas",
                         "layout|flex": null,
+                        "permissionId": 14,
                         "validateOnBlur": false,
                         "validateOnChange": false,
                         "width": 180
@@ -150,10 +151,18 @@
                         "layout|flex": "number",
                         "validateOnBlur": "boolean",
                         "validateOnChange": "boolean",
-                        "width": "auto"
+                        "width": "auto",
+                        "permissionId": "number"
                     },
                     "name": "MyNumberField5",
-                    "designerId": "586018cb-5a8a-4f90-b5ad-9f875d87dc7b"
+                    "designerId": "586018cb-5a8a-4f90-b5ad-9f875d87dc7b",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Number",
@@ -169,6 +178,7 @@
                         "itemId": "txtAumentoAditivo",
                         "layout|flex": null,
                         "margin": "0 0 0 10",
+                        "permissionId": 14,
                         "validateOnBlur": false,
                         "validateOnChange": false,
                         "width": 180
@@ -182,10 +192,18 @@
                         "margin": "auto",
                         "validateOnBlur": "boolean",
                         "validateOnChange": "boolean",
-                        "width": "auto"
+                        "width": "auto",
+                        "permissionId": "number"
                     },
                     "name": "MyNumberField6",
-                    "designerId": "fc24df9a-23e3-4739-ab63-f0c7b192050c"
+                    "designerId": "fc24df9a-23e3-4739-ab63-f0c7b192050c",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -198,16 +216,25 @@
                         "glyph": "f058@FontAwesome",
                         "itemId": "btnAplicar",
                         "layout|flex": null,
+                        "permissionId": 14,
                         "text": "Aplicar"
                     },
                     "configAlternates": {
                         "glyph": "auto",
                         "itemId": "string",
                         "layout|flex": "number",
-                        "text": "string"
+                        "text": "string",
+                        "permissionId": "number"
                     },
                     "name": "MyButton9",
                     "designerId": "14f851ba-55a6-478e-90b3-c0f2a776e1d7",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -506,7 +533,7 @@
                             "userConfig": {
                                 "fn": "onRowEditingBeforeEdit",
                                 "implHandler": [
-                                    "if (context.record.get(\"es_base\")) {",
+                                    "if (context.record.get(\"es_base\") || !Ext.Array.contains(Ext._.usuario.permisos, 14)) {",
                                     "    return false;",
                                     "}"
                                 ],

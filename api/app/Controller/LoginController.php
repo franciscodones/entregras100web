@@ -26,11 +26,38 @@ class LoginController extends AppController {
         }
         $aUsuario = $aResultado[0];
 
+        // obtiene los permisos personalizados del usuario
+        $sQuery = "SELECT permisos.id " .
+            "FROM permisos " .
+            "INNER JOIN permisos_usuarios ON permisos.id = permisos_usuarios.permiso_id " .
+            "WHERE permisos_usuarios.usuario_id = ?";
+        $aQueryParams = array($aUsuario["id"]);
+        $aResultado = $oConexion->query($sQuery, $aQueryParams);
+        $aResultado = $this->parsearQueryResult($aResultado);
+        $aPermisos = array_map(function($item) {
+            return $item["id"];
+        }, $aResultado);
+
+        // si no existen permisos personalizados se obtienen los del tipo de usuario
+        if (empty($aPermisos)) {
+            $sQuery = "SELECT permisos.id " .
+                "FROM permisos " .
+                "INNER JOIN permisos_usuarios ON permisos.id = permisos_usuarios.permiso_id " .
+                "WHERE permisos_usuarios.tipo_usuario_id = ?";
+            $aQueryParams = array($aUsuario["tipo_sesion_id"]);
+            $aResultado = $oConexion->query($sQuery, $aQueryParams);
+            $aResultado = $this->parsearQueryResult($aResultado);
+            $aPermisos = array_map(function($item) {
+                return $item["id"];
+            }, $aResultado);
+        }
+
         // procesa la informacion del usuario
         $aInfoProcesada = array(
             "id" => $aUsuario["id"],
             "nombre" => $aUsuario["nombre"],
-            "usuario" => $aUsuario["usuario"]
+            "usuario" => $aUsuario["usuario"],
+            "permisos" => $aPermisos
         );
 
         // si no tiene ninguna plaza especificada se toma como si tuviera acceso a todas

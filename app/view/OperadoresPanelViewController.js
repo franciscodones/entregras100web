@@ -38,8 +38,8 @@ Ext.define('Entregas100Web.view.OperadoresPanelViewController', {
         crearOperadorWindow.show();
     },
 
-    onRowEditingEdit: function(editor, context, eOpts) {
-        console.log(arguments);
+    onRowEditingBeforeEdit: function(editor, context, eOpts) {
+        return Ext.Array.contains(Ext._.usuario.permisos, 12);
     }
 
 });

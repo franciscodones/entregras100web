@@ -129,19 +129,28 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "glyph": "f055 @FontAwesome",
+                        "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
+                        "permissionId": 5,
                         "text": "Agregar"
                     },
                     "configAlternates": {
                         "glyph": "auto",
                         "layout|flex": "number",
                         "text": "string",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "permissionId": "number"
                     },
                     "name": "MyButton2",
                     "designerId": "c11dad15-3749-4074-9905-58b518f5f30c",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -381,8 +390,23 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "permissionId": 6,
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "permissionId": "number",
+                        "width": "auto"
+                    },
                     "name": "MyActionColumn",
                     "designerId": "6f27ea87-5f9b-4f2d-8f64-7557346a6bf1",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",

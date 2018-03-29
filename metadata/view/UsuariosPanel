@@ -8,18 +8,18 @@
     "userConfig": {
         "closable": true,
         "container|align": "stretch",
-        "designer|userAlias": "perfilespagopanel",
-        "designer|userClassName": "PerfilesPagoPanel",
-        "glyph": "f09d@FontAwesome",
-        "id": "perfilesPagoPanel",
+        "designer|userAlias": "usuariospanel",
+        "designer|userClassName": "UsuariosPanel",
+        "glyph": "f0c0@FontAwesome",
+        "id": "usuariosPanel",
         "layout": "hbox",
-        "title": "Perfiles de Pago",
+        "title": "Usuarios",
         "viewModel": [
             "{",
-            "    type: \"perfilespagopanel\",",
+            "    type: \"usuariospanel\",",
             "    stores: {",
-            "        PerfilesPagoLocalStore: Ext.create(\"Entregas100Web.store.PerfilesPagoStore\", {}),",
-            "        CombinacionesFormaPerfilLocalStore: Ext.create(\"Entregas100Web.store.CombinacionesFormaPerfilStore\", {})",
+            "        UsuariosLocalStore: Ext.create(\"Entregas100Web.store.UsuariosStore\", {}),",
+            "        PlazasAgregadasLocalStore: Ext.create(\"Entregas100Web.store.PlazasStore\", {})",
             "    }",
             "}"
         ]
@@ -35,10 +35,10 @@
         "container|align": "string",
         "layout": "string"
     },
-    "name": "FormasPagoPanel1",
-    "designerId": "9cfb8ebe-84f9-4cbd-b751-13bd482e5310",
-    "viewControllerInstanceId": "c872f671-ec04-48c9-b59d-5462b06ef61e",
-    "viewModelInstanceId": "dcfda130-4a95-4591-a3c7-164675df36f9",
+    "name": "PerfilesPagoPanel1",
+    "designerId": "ee39e46e-8293-4cdf-9648-7c6f1f3b72c1",
+    "viewControllerInstanceId": "0b7133cc-ae58-4d02-9deb-208d2297a02b",
+    "viewModelInstanceId": "5aa99982-2046-4c65-84b7-da87a0dfde18",
     "cn": [
         {
             "type": "Ext.toolbar.Toolbar",
@@ -58,7 +58,7 @@
                 "ui": "string"
             },
             "name": "MyToolbar",
-            "designerId": "556ca936-94a0-4133-9663-3ccc10500309",
+            "designerId": "d8f307fe-4968-4ba6-8e84-0ae69c9b332d",
             "cn": [
                 {
                     "type": "Ext.button.Button",
@@ -84,7 +84,7 @@
                         "ui": "string"
                     },
                     "name": "MyButton1",
-                    "designerId": "281deaef-1bca-4496-a65c-d043a6b2c0e9",
+                    "designerId": "3f1b486a-f793-4731-ba57-4cb8600bc030",
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -98,8 +98,8 @@
                                 "implHandler": [
                                     "var me = this;",
                                     "",
-                                    "me.getStore(\"PerfilesPagoLocalStore\").load();",
-                                    "me.getStore(\"CombinacionesFormaPerfilLocalStore\").load();"
+                                    "me.getStore(\"UsuariosLocalStore\").load();",
+                                    "me.getStore(\"PlazasAgregadasLocalStore\").load();"
                                 ],
                                 "name": "click",
                                 "scope": "me"
@@ -111,7 +111,66 @@
                                 "scope": "string"
                             },
                             "name": "onBtnRefrescarClick",
-                            "designerId": "a21234eb-a313-4df3-b736-3dbf5e0c65c3"
+                            "designerId": "c45ab2d9-58bf-4adb-b783-6cd7f4d35856"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f055@FontAwesome",
+                        "itemId": "btnAgregar",
+                        "layout|flex": null,
+                        "permissionId": 30,
+                        "text": "Agregar"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "permissionId": "number"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "32666a80-6967-4866-928f-bdaba79a6946",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnAgregarClick",
+                                "implHandler": [
+                                    "var crearUsuarioWindow = new Entregas100Web.view.CrearUsuarioWindow();",
+                                    "",
+                                    "crearUsuarioWindow.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnAgregarClick",
+                            "designerId": "4411330a-e46b-43f8-989a-cabb37cbd2a5"
                         }
                     ]
                 }
@@ -130,13 +189,13 @@
                 "designer|uiInterfaceName": "default",
                 "enableColumnHide": false,
                 "enableColumnMove": false,
-                "itemId": "perfilesPagoGrid",
+                "itemId": "usuariosGrid",
                 "layout|flex": 1,
                 "scrollable": true,
                 "showMenuHint": true,
                 "showMenuTriggers": true,
                 "store": [
-                    "{PerfilesPagoLocalStore}"
+                    "{UsuariosLocalStore}"
                 ],
                 "width": 500
             },
@@ -156,7 +215,7 @@
                 "width": "auto"
             },
             "name": "MyGridPanel",
-            "designerId": "3985ceb3-b832-4b98-b2c3-579c3f7dd6e1",
+            "designerId": "34cc9ce2-b3c3-42aa-9d64-8bc3e7bb062d",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -190,7 +249,7 @@
                         "format": "string"
                     },
                     "name": "MyNumberColumn2",
-                    "designerId": "acf286a5-5f70-4708-a8d0-34cf902536a6"
+                    "designerId": "e6ca3ad5-ff36-4662-b632-b4f9118c7e64"
                 },
                 {
                     "type": "Ext.grid.column.Column",
@@ -200,8 +259,8 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "descripcion",
-                        "text": "Descripción",
+                        "dataIndex": "nombre",
+                        "text": "Nombre",
                         "width": 200
                     },
                     "configAlternates": {
@@ -211,7 +270,7 @@
                         "width": "auto"
                     },
                     "name": "MyColumn2",
-                    "designerId": "3db8ce25-1625-48fb-bdf3-2069743a8723",
+                    "designerId": "fffbd37b-9398-4c26-97b6-503c4be9a928",
                     "cn": [
                         {
                             "type": "Ext.grid.filters.filter.String",
@@ -221,7 +280,7 @@
                             },
                             "codeClass": null,
                             "name": "MyStringFilter7",
-                            "designerId": "7908f5f0-2564-4ca3-9d16-8a1002c33c53"
+                            "designerId": "5a0bcce5-b045-44e1-aaac-c7bd767d2a21"
                         }
                     ]
                 },
@@ -239,7 +298,152 @@
                         "emptyText": "string"
                     },
                     "name": "MyTable",
-                    "designerId": "ebbb963e-021c-4537-b706-d28472ae314d"
+                    "designerId": "0f32e26d-b970-4c93-8517-29430930da65"
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "4771fbde-75e7-486b-86b2-79129dd0214f"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onUsuariosGridSelect",
+                        "implHandler": [
+                            "var me = this,",
+                            "    plazasAgregadasLocalStore = me.getStore(\"PlazasAgregadasLocalStore\");",
+                            "",
+                            "plazasAgregadasLocalStore.removeFilter(\"usuario-seleccionado\");",
+                            "plazasAgregadasLocalStore.addFilter([",
+                            "    {",
+                            "        id: \"usuario-seleccionado\",",
+                            "        filterFn: function(rec) {",
+                            "            var plazas = record.get(\"plaza_id\").split(\",\").map(function(item) {",
+                            "                return parseInt(item.trim());",
+                            "            });",
+                            "",
+                            "            return Ext.Array.contains(plazas, rec.get(\"id\"));",
+                            "        }",
+                            "    }",
+                            "]);"
+                        ],
+                        "name": "select",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onUsuariosGridSelect",
+                    "designerId": "c569f705-be7d-4aad-89c3-81bd93969326"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "usuario",
+                        "text": "Usuario",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "74206a27-ef39-4094-95db-fc5779f7d63f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter8",
+                            "designerId": "cb504d5c-4729-4c1b-9e6f-fe7c9e6f4137"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "email",
+                        "text": "Email",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "af914fe0-d3e5-4876-85bd-6ad0f3e3abe6",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter9",
+                            "designerId": "229c84bf-d4f3-4a6b-b460-c22d47fb7811"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tipo_sesion",
+                        "text": "Tipo",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "3e6e5344-fe36-42e3-b9ca-a493bd51b688",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter5",
+                            "designerId": "5a3e2806-3996-4b25-b069-dfbc76872cdc"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Action",
@@ -249,7 +453,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "permissionId": 22,
+                        "permissionId": 31,
                         "width": 30
                     },
                     "configAlternates": {
@@ -257,7 +461,7 @@
                         "width": "auto"
                     },
                     "name": "MyActionColumn",
-                    "designerId": "5ed58ea8-9454-4e16-83f1-53184d954d9a",
+                    "designerId": "a491e2c3-0f8c-42ce-9b99-113b72ea7214",
                     "customConfigs": [
                         {
                             "group": "(Custom Properties)",
@@ -282,7 +486,7 @@
                                 "tooltip": "string"
                             },
                             "name": "MyActionColumnItem",
-                            "designerId": "ab684a02-5f14-4ad2-a920-e88d487b23da",
+                            "designerId": "e8e5122e-1ded-45ea-938a-04cf0d2742be",
                             "cn": [
                                 {
                                     "type": "fixedfunction",
@@ -303,10 +507,10 @@
                                         ],
                                         "fn": "handler",
                                         "implHandler": [
-                                            "var editarPerfilPagoWindow = Ext.create(\"Entregas100Web.view.EditarPerfilPagoWindow\");",
+                                            "var editarUsuarioWindow = Ext.create(\"Entregas100Web.view.EditarUsuarioWindow\");",
                                             "",
-                                            "editarPerfilPagoWindow.down(\"form\").loadRecord(record);",
-                                            "editarPerfilPagoWindow.show();"
+                                            "editarUsuarioWindow.down(\"form\").loadRecord(record);",
+                                            "editarUsuarioWindow.show();"
                                         ]
                                     },
                                     "configAlternates": {
@@ -315,56 +519,11 @@
                                         "implHandler": "code"
                                     },
                                     "name": "handler",
-                                    "designerId": "aec7cd36-e74d-41a5-b0a6-901c5451ade9"
+                                    "designerId": "579d3248-3128-4ad9-9b1b-d81aa8677a3d"
                                 }
                             ]
                         }
                     ]
-                },
-                {
-                    "type": "Ext.grid.filters.Filters",
-                    "reference": {
-                        "name": "plugins",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "name": "MyGridFiltersPlugin3",
-                    "designerId": "d45a32fd-f9f9-4960-98fe-3ef63b3310a6"
-                },
-                {
-                    "type": "viewcontrollereventbinding",
-                    "reference": {
-                        "name": "listeners",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fn": "onPerfilesPagoGridSelect",
-                        "implHandler": [
-                            "var me = this,",
-                            "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\");",
-                            "",
-                            "combinacionesFormaPerfilLocalStore.removeFilter(\"perfil-seleccionado\");",
-                            "combinacionesFormaPerfilLocalStore.addFilter([",
-                            "    {",
-                            "        id: \"perfil-seleccionado\",",
-                            "        property: \"tipo_cliente_id\",",
-                            "        value: record.get(\"id\"),",
-                            "        exactMatch: true",
-                            "    }",
-                            "]);"
-                        ],
-                        "name": "select",
-                        "scope": "me"
-                    },
-                    "configAlternates": {
-                        "fn": "string",
-                        "implHandler": "code",
-                        "name": "string",
-                        "scope": "string"
-                    },
-                    "name": "onPerfilesPagoGridSelect",
-                    "designerId": "2aa290e7-1025-48eb-a560-45f4702e2ffc"
                 }
             ]
         },
@@ -378,16 +537,17 @@
             "userConfig": {
                 "designer|uiInterfaceName": "default-framed",
                 "frame": true,
-                "layout|flex": 1
+                "width": 500
             },
             "configAlternates": {
                 "activeTab": "auto",
                 "designer|uiInterfaceName": "string",
                 "frame": "boolean",
-                "layout|flex": "number"
+                "layout|flex": "number",
+                "width": "auto"
             },
             "name": "MyTabPanel",
-            "designerId": "57bcbb81-240f-460f-9038-6f6d1060015d",
+            "designerId": "753627af-cf6d-4624-9e71-c421a52dc855",
             "cn": [
                 {
                     "type": "Ext.grid.Panel",
@@ -400,12 +560,12 @@
                         "autoLoad": true,
                         "enableColumnHide": false,
                         "enableColumnMove": false,
-                        "itemId": "combinacionesGrid",
+                        "itemId": "plazasGrid",
                         "scrollable": true,
                         "store": [
-                            "{CombinacionesFormaPerfilLocalStore}"
+                            "{PlazasAgregadasLocalStore}"
                         ],
-                        "title": "Formas de Pago"
+                        "title": "Plazas"
                     },
                     "configAlternates": {
                         "store": "binding",
@@ -417,7 +577,7 @@
                         "title": "string"
                     },
                     "name": "MyGridPanel1",
-                    "designerId": "874866d4-b4be-42d6-90f4-023f3f96de88",
+                    "designerId": "42dfcdfe-a4ff-4095-b3b9-47d990914584",
                     "cn": [
                         {
                             "type": "Ext.toolbar.Toolbar",
@@ -437,7 +597,7 @@
                                 "ui": "string"
                             },
                             "name": "MyToolbar1",
-                            "designerId": "385c057b-dc23-4da0-b56e-c22413b26fb3",
+                            "designerId": "25bedbd6-99e9-4d9f-8a94-be14cb1648e9",
                             "cn": [
                                 {
                                     "type": "Ext.button.Button",
@@ -448,10 +608,10 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "glyph": "f055@FontAwesome",
-                                        "itemId": "btnAgregarFormaPago",
+                                        "itemId": "btnAgregarPlaza",
                                         "layout|flex": null,
-                                        "permissionId": 23,
-                                        "text": "Agregar Forma de Pago"
+                                        "permissionId": 32,
+                                        "text": "Agregar Plaza"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
@@ -461,7 +621,7 @@
                                         "permissionId": "number"
                                     },
                                     "name": "MyButton3",
-                                    "designerId": "4577e63e-a153-4e57-96c8-3ad1d7560ca8",
+                                    "designerId": "7758118f-2af9-4153-bf5f-c68c66c2ff3e",
                                     "customConfigs": [
                                         {
                                             "group": "(Custom Properties)",
@@ -481,16 +641,17 @@
                                                 "fn": "onBtnAgregarFormaPagoClick",
                                                 "implHandler": [
                                                     "var me = this,",
-                                                    "    formasPagoStore = Ext.create(\"Entregas100Web.store.FormasPagoStore\", {}),",
-                                                    "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\"),",
-                                                    "    perfilPagoRecord = me.view.down(\"#perfilesPagoGrid\").getSelection()[0],",
-                                                    "    formPagoDialog, formasCombinadas, waitWindow;",
+                                                    "    plazasStore = Ext.create(\"Entregas100Web.store.PlazasStore\", {}),",
+                                                    "    plazasAgregadasLocalStore = me.getStore(\"PlazasAgregadasLocalStore\"),",
+                                                    "    usuarioRecord = me.view.down(\"#usuariosGrid\").getSelection()[0],",
+                                                    "    usuariosLocalStore = me.getStore(\"UsuariosLocalStore\"),",
+                                                    "    plazaDialog, plazasAgregadas, waitWindow;",
                                                     "",
                                                     "// si no ha sido seleccionada una forma de pago a la cual agregar la combinacion",
-                                                    "if (!perfilPagoRecord) {",
+                                                    "if (!usuarioRecord) {",
                                                     "    Ext.Msg.show({",
                                                     "        title: \"Mensaje del sistema\",",
-                                                    "        message: \"Seleccione un perfil de pago\",",
+                                                    "        message: \"Seleccione un usuario\",",
                                                     "        buttons: Ext.Msg.OK,",
                                                     "        icon: Ext.Msg.ERROR",
                                                     "    });",
@@ -499,50 +660,45 @@
                                                     "",
                                                     "",
                                                     "// se guardan los ids de las formas ya combinadas para evitar duplicidad",
-                                                    "formasCombinadas = combinacionesFormaPerfilLocalStore.getData().getValues(\"forma_pago_id\", \"data\");",
-                                                    "formasPagoStore.addFilter([",
+                                                    "plazasAgregadas = plazasAgregadasLocalStore.getData().getValues(\"id\", \"data\");",
+                                                    "plazasStore.addFilter([",
                                                     "    {",
-                                                    "        id: \"formas-restantes\",",
+                                                    "        id: \"plazas-restantes\",",
                                                     "        filterFn: function(record) {",
-                                                    "            return !Ext.Array.contains(formasCombinadas, record.get(\"id\"));",
+                                                    "            return !Ext.Array.contains(plazasAgregadas, record.get(\"id\"));",
                                                     "        }",
                                                     "    }",
                                                     "]);",
                                                     "",
                                                     "// muestra el dialogo para seleccionar la forma de pago",
-                                                    "formPagoDialog = Ext.create(\"Pyansa.window.dialog.ComboBox\", {",
-                                                    "    title: \"Seleccione una forma de pago\",",
+                                                    "plazaDialog = Ext.create(\"Pyansa.window.dialog.ComboBox\", {",
+                                                    "    title: \"Seleccione una plaza\",",
                                                     "    field: {",
-                                                    "        fieldLabel: \"Forma de Pago\",",
-                                                    "        store: formasPagoStore,",
+                                                    "        fieldLabel: \"Plaza\",",
+                                                    "        store: plazasStore,",
                                                     "        valueField: \"id\",",
-                                                    "        displayField: \"descripcion\"",
+                                                    "        displayField: \"ciudad\"",
                                                     "    },",
                                                     "    listeners: {",
-                                                    "        accept: onFormaPagoSeleccionada",
+                                                    "        accept: onPlazaSeleccionada",
                                                     "    }",
                                                     "});",
                                                     "",
-                                                    "function onFormaPagoSeleccionada(value, combo) {",
+                                                    "function onPlazaSeleccionada(value, combo) {",
                                                     "    waitWindow = Ext.Msg.wait(\"Guardando cambios...\");",
                                                     "    this.close();",
                                                     "",
-                                                    "    // guarda la combinacion en el store y lo sync",
-                                                    "    combinacionesFormaPerfilLocalStore.add([",
-                                                    "        {",
-                                                    "            forma_pago_id: value,",
-                                                    "            forma_pago: combo.getDisplayValue(),",
-                                                    "            tipo_cliente_id: perfilPagoRecord.get(\"id\"),",
-                                                    "            tipo_cliente: perfilPagoRecord.get(\"descripcion\")",
-                                                    "        }",
-                                                    "    ]);",
-                                                    "    combinacionesFormaPerfilLocalStore.sync({",
+                                                    "    // agrega la nueva plaz",
+                                                    "    plazasAgregadas.push(value);",
+                                                    "    usuarioRecord.set(\"plaza_id\", plazasAgregadas.join(\",\"));",
+                                                    "    usuariosLocalStore.sync({",
                                                     "        success: onSyncSuccess",
                                                     "    });",
                                                     "}",
                                                     "",
                                                     "function onSyncSuccess() {",
                                                     "    waitWindow.close();",
+                                                    "    me.onUsuariosGridSelect(null, usuarioRecord, null, null);",
                                                     "}"
                                                 ],
                                                 "name": "click",
@@ -555,7 +711,7 @@
                                                 "scope": "string"
                                             },
                                             "name": "onBtnAgregarFormaPagoClick",
-                                            "designerId": "7cdc9fbf-24f0-4efe-9896-8f1f2dee3d44"
+                                            "designerId": "af485750-9fc6-49bc-9c53-ca0e1dce9552"
                                         }
                                     ]
                                 }
@@ -569,7 +725,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "forma_pago_id",
+                                "dataIndex": "id",
                                 "format": "0,000",
                                 "text": "Id",
                                 "width": 60
@@ -581,7 +737,7 @@
                                 "width": "auto"
                             },
                             "name": "MyNumberColumn1",
-                            "designerId": "263f06af-b68a-42dc-9efd-65e30baeddd5"
+                            "designerId": "f9e07f34-3e3a-4b63-b803-f6f73c489a0f"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -591,8 +747,8 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "forma_pago",
-                                "text": "Forma de pago",
+                                "dataIndex": "ciudad",
+                                "text": "Plaza",
                                 "width": 200
                             },
                             "configAlternates": {
@@ -601,31 +757,7 @@
                                 "width": "auto"
                             },
                             "name": "MyColumn",
-                            "designerId": "a06b0101-5c59-4f17-a46b-34ced4e7c60a"
-                        },
-                        {
-                            "type": "Ext.grid.column.Boolean",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "es_default",
-                                "falseText": "NO",
-                                "text": "Es la Default",
-                                "trueText": "SI",
-                                "undefinedText": "DESCONOCIDO"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "falseText": "string",
-                                "text": "string",
-                                "trueText": "string",
-                                "undefinedText": "string"
-                            },
-                            "name": "MyBooleanColumn3",
-                            "designerId": "d5b0db2c-c3ec-4b56-9ee2-e565b77e4890"
+                            "designerId": "23b16ab8-4f21-4c71-8a36-2c6516a2b8fa"
                         },
                         {
                             "type": "Ext.view.Table",
@@ -635,7 +767,7 @@
                             },
                             "codeClass": null,
                             "name": "MyTable1",
-                            "designerId": "e7ed6832-14f1-427f-bc7d-43dc1bbab1f7"
+                            "designerId": "6bacc8e0-efa3-45d1-b65e-6dbaf8455e7d"
                         },
                         {
                             "type": "Ext.grid.column.Action",
@@ -645,7 +777,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "permissionId": 24,
+                                "permissionId": 33,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -653,7 +785,7 @@
                                 "permissionId": "number"
                             },
                             "name": "MyActionColumn1",
-                            "designerId": "f14b3874-e11a-4da3-ac0d-d07a2e597729",
+                            "designerId": "c0812427-5911-4d7b-9ab0-ccc15a07c20c",
                             "customConfigs": [
                                 {
                                     "group": "(Custom Properties)",
@@ -678,7 +810,7 @@
                                         "tooltip": "string"
                                     },
                                     "name": "MyActionColumnItem1",
-                                    "designerId": "669ab347-9219-4206-b801-af444add584f",
+                                    "designerId": "b9f55bf5-cf2f-483c-8af7-22dc08f10c1a",
                                     "cn": [
                                         {
                                             "type": "fixedfunction",
@@ -699,28 +831,23 @@
                                                 ],
                                                 "fn": "handler",
                                                 "implHandler": [
-                                                    "var combinacionesFormaPerfilLocalStore = record.store,",
-                                                    "    records, waitWindow, filter;",
-                                                    "",
-                                                    "// si la forma de pago es la default no se puede eliminar",
-                                                    "if (record.get(\"es_default\")) {",
-                                                    "    Ext.Msg.show({",
-                                                    "        title: \"Mensaje del sistema\",",
-                                                    "        message: \"Antes de eliminar esta forma de pago seleccione otra como la default\",",
-                                                    "        buttons: Ext.Msg.OK,",
-                                                    "        icon: Ext.Msg.ERROR",
-                                                    "    });",
-                                                    "    return;",
-                                                    "}",
+                                                    "var me = this.up(\"#usuariosPanel\").getController(),",
+                                                    "    plazasAgregadasLocalStore = me.getStore(\"PlazasAgregadasLocalStore\"),",
+                                                    "    usuarioRecord = me.view.down(\"#usuariosGrid\").getSelection()[0],",
+                                                    "    usuariosLocalStore = me.getStore(\"UsuariosLocalStore\"),",
+                                                    "    plazasAgregadas, waitWindow;",
                                                     "",
                                                     "Ext.Msg.confirm(",
                                                     "    \"Mensaje del sistema\",",
-                                                    "    \"¿Desea eliminar esta forma de pago?\",",
+                                                    "    \"¿Desea eliminar esta plaza del usuario?\",",
                                                     "    function(result) {",
                                                     "        if (result == \"yes\") {",
                                                     "            waitWindow = Ext.Msg.wait(\"Guardando cambios...\");",
-                                                    "            combinacionesFormaPerfilLocalStore.remove(record);",
-                                                    "            combinacionesFormaPerfilLocalStore.sync({",
+                                                    "",
+                                                    "            plazasAgregadas = plazasAgregadasLocalStore.getData().getValues(\"id\", \"data\");",
+                                                    "            plazasAgregadas = Ext.Array.remove(plazasAgregadas, record.get(\"id\"));",
+                                                    "            usuarioRecord.set(\"plaza_id\", plazasAgregadas.join(\",\"));",
+                                                    "            usuariosLocalStore.sync({",
                                                     "                success: onSyncSuccess",
                                                     "            });",
                                                     "        }",
@@ -729,6 +856,7 @@
                                                     "",
                                                     "function onSyncSuccess() {",
                                                     "    waitWindow.close();",
+                                                    "    me.onUsuariosGridSelect(null, usuarioRecord, null, null);",
                                                     "}"
                                                 ]
                                             },
@@ -738,173 +866,7 @@
                                                 "implHandler": "code"
                                             },
                                             "name": "handler",
-                                            "designerId": "1e17e60f-e4f6-49e7-b59a-156cff07c0e8"
-                                        },
-                                        {
-                                            "type": "fixedfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|params": [
-                                                    "view",
-                                                    "rowIndex",
-                                                    "colIndex",
-                                                    "item",
-                                                    "record"
-                                                ],
-                                                "fn": "isActionDisabled",
-                                                "implHandler": [
-                                                    "return record.get(\"es_default\");"
-                                                ]
-                                            },
-                                            "configAlternates": {
-                                                "designer|params": "typedarray",
-                                                "fn": "string",
-                                                "implHandler": "code"
-                                            },
-                                            "name": "isActionDisabled",
-                                            "designerId": "0097b224-99f5-4369-b0a7-f4c07e5b05a0"
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "Ext.grid.column.Action",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "permissionId": 25,
-                                "width": 30
-                            },
-                            "configAlternates": {
-                                "width": "auto",
-                                "permissionId": "number"
-                            },
-                            "name": "MyActionColumn3",
-                            "designerId": "46ec845e-6f78-44fd-8ceb-7d0dd05a7659",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "permissionId",
-                                    "type": "string"
-                                }
-                            ],
-                            "cn": [
-                                {
-                                    "type": "actioncolumnitem",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "icon": "resources/icon/claveakey.png",
-                                        "tooltip": "Seleccionar como default"
-                                    },
-                                    "configAlternates": {
-                                        "icon": "string",
-                                        "tooltip": "string"
-                                    },
-                                    "name": "MyActionColumnItem1",
-                                    "designerId": "4f293d57-957a-4e96-b982-bbaffa8c38f3",
-                                    "cn": [
-                                        {
-                                            "type": "fixedfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|params": [
-                                                    "view",
-                                                    "rowIndex",
-                                                    "colIndex",
-                                                    "item",
-                                                    "e",
-                                                    "record",
-                                                    "row"
-                                                ],
-                                                "fn": "handler",
-                                                "implHandler": [
-                                                    "var combinacionesFormaPerfilLocalStore = record.store,",
-                                                    "    perfilesPagoPanel = view.up(\"#perfilesPagoPanel\"),",
-                                                    "    perfilPagoRecord = perfilesPagoPanel.down(\"#perfilesPagoGrid\").getSelection()[0],",
-                                                    "    perfilesPagoLocalStore = perfilesPagoPanel.getController().getStore(\"PerfilesPagoLocalStore\"),",
-                                                    "    formaPagoDefault, waitWindow, filter;",
-                                                    "",
-                                                    "Ext.Msg.confirm(",
-                                                    "    \"Mensaje del sistema\",",
-                                                    "    \"¿Desea seleccionar esta forma de pago como la default?\",",
-                                                    "    function(result) {",
-                                                    "        if (result == \"yes\") {",
-                                                    "            waitWindow = Ext.Msg.wait(\"Guardando cambios...\");",
-                                                    "            formaPagoDefault = combinacionesFormaPerfilLocalStore.findRecord(\"es_default\", true);",
-                                                    "            if (formaPagoDefault) {",
-                                                    "                formaPagoDefault.set(\"es_default\", false);",
-                                                    "            }",
-                                                    "            record.set(\"es_default\", true);",
-                                                    "            perfilPagoRecord.set(\"forma_pago_id\", record.get(\"forma_pago_id\"));",
-                                                    "            perfilesPagoLocalStore.sync({",
-                                                    "                success: onSyncSuccess,",
-                                                    "                failure: onSyncError",
-                                                    "            });",
-                                                    "        }",
-                                                    "    }",
-                                                    ");",
-                                                    "",
-                                                    "function onSyncSuccess() {",
-                                                    "    waitWindow.close();",
-                                                    "    combinacionesFormaPerfilLocalStore.commitChanges();",
-                                                    "}",
-                                                    "",
-                                                    "function onSyncError() {",
-                                                    "    combinacionesFormaPerfilLocalStore.rejectChanges();",
-                                                    "}"
-                                                ]
-                                            },
-                                            "configAlternates": {
-                                                "designer|params": "typedarray",
-                                                "fn": "string",
-                                                "implHandler": "code"
-                                            },
-                                            "name": "handler",
-                                            "designerId": "167ac917-db60-4cfe-b372-1cb58b7f2de1"
-                                        },
-                                        {
-                                            "type": "fixedfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|params": [
-                                                    "view",
-                                                    "rowIndex",
-                                                    "colIndex",
-                                                    "item",
-                                                    "record"
-                                                ],
-                                                "fn": "isActionDisabled",
-                                                "implHandler": [
-                                                    "return record.get(\"es_default\");"
-                                                ]
-                                            },
-                                            "configAlternates": {
-                                                "designer|params": "typedarray",
-                                                "fn": "string",
-                                                "implHandler": "code"
-                                            },
-                                            "name": "isActionDisabled",
-                                            "designerId": "bcc073d1-186c-459a-997e-5fb3816d0c01"
+                                            "designerId": "3aabd0b8-a7b2-4851-bed7-a3bc41ec0569"
                                         }
                                     ]
                                 }
@@ -918,7 +880,7 @@
                             },
                             "codeClass": null,
                             "name": "TabConfig1",
-                            "designerId": "f34749b9-7b88-4380-972b-0e2753b66b73"
+                            "designerId": "62560aa5-0401-4962-ad55-7a50f2f21c51"
                         }
                     ]
                 }
@@ -932,16 +894,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onPerfilesPagoPanelBeforeRender",
+                "fn": "onUsuariosPanelBeforeRender",
                 "implHandler": [
                     "var me = this,",
-                    "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\");",
+                    "    plazasAgregadasLocalStore = me.getStore(\"PlazasAgregadasLocalStore\");",
                     "",
-                    "// inicialmente no se muestra ninguna combinacion ya que ninguna forma de pago ha",
-                    "// sido seleccionada",
-                    "combinacionesFormaPerfilLocalStore.addFilter([",
+                    "// inicialmente no se muestra ninguna combinacion ya que ningun usuario ha",
+                    "// sido seleccionado",
+                    "plazasAgregadasLocalStore.addFilter([",
                     "    {",
-                    "        id: \"perfil-seleccionado\",",
+                    "        id: \"usuario-seleccionado\",",
                     "        filterFn: function () {",
                     "            return false;",
                     "        }",
@@ -957,8 +919,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onPerfilesPagoPanelBeforeRender",
-            "designerId": "7379b4c6-8480-4864-899d-385e8b126a30"
+            "name": "onUsuariosPanelBeforeRender",
+            "designerId": "7bd558dd-d45d-489b-892b-a537d7871067"
         }
     ]
 }

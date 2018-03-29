@@ -26,9 +26,15 @@ Ext.define('Entregas100Web.view.LoginWindowViewController', {
                 success: function(form, action) {
                     var mainViewport;
 
+                    Ext._.usuario = action.result.data;
+                    //sobreescribe la funcion `isPermited` de Ext.Component.prototype
+                    // para aplicarla a todos los componentes
+                    Ext.Component.prototype.isPermited = function(permissionId) {
+                        return Ext.Array.contains(Ext._.usuario.permisos, permissionId);
+                    };
+
                     mainViewport = new Entregas100Web.view.MainViewport();
                     mainViewport.show();
-                    Ext._.usuario = action.result.data;
                     me.view.close();
                 },
                 failure: function(form, action) {

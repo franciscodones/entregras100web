@@ -131,15 +131,24 @@
                     "userConfig": {
                         "glyph": "f019@FontAwesome",
                         "layout|flex": null,
+                        "permissionId": 26,
                         "text": "Exportar"
                     },
                     "configAlternates": {
                         "glyph": "auto",
                         "layout|flex": "number",
-                        "text": "string"
+                        "text": "string",
+                        "permissionId": "number"
                     },
                     "name": "MyButton10",
                     "designerId": "723c488e-1cd4-4754-9532-b5ca3c179725",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "Ext.menu.Menu",
@@ -223,16 +232,25 @@
                         "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
+                        "permissionId": 11,
                         "text": "Agregar"
                     },
                     "configAlternates": {
                         "glyph": "auto",
                         "layout|flex": "number",
                         "text": "string",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "permissionId": "number"
                     },
                     "name": "MyButton2",
                     "designerId": "537f6c93-b919-4a14-bc56-12ed0c1a9f36",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -522,13 +540,24 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "ignoreExport": true
+                        "ignoreExport": true,
+                        "permissionId": 12,
+                        "width": 30
                     },
                     "configAlternates": {
-                        "ignoreExport": "boolean"
+                        "ignoreExport": "boolean",
+                        "permissionId": "number",
+                        "width": "auto"
                     },
                     "name": "MyActionColumn",
                     "designerId": "6fefd54a-e026-40fd-bdd0-50eb1ae8c1ba",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -592,6 +621,9 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "configAlternates": {
+                        "permissionId": "number"
+                    },
                     "name": "MyGridFiltersPlugin1",
                     "designerId": "2b604f37-b5a0-4b87-80ee-d487472ed5ea"
                 },
@@ -606,7 +638,8 @@
                         "syncAfterEdit": true
                     },
                     "configAlternates": {
-                        "syncAfterEdit": "boolean"
+                        "syncAfterEdit": "boolean",
+                        "permissionId": "number"
                     },
                     "name": "MyRowEditingPlugin",
                     "designerId": "67a8610d-df0a-4349-9dab-9dbc3ce52fb9",
@@ -626,11 +659,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onRowEditingEdit",
+                                "fn": "onRowEditingBeforeEdit",
                                 "implHandler": [
-                                    "console.log(arguments);"
+                                    "return Ext.Array.contains(Ext._.usuario.permisos, 12);"
                                 ],
-                                "name": "edit",
+                                "name": "beforeedit",
                                 "scope": "me"
                             },
                             "configAlternates": {
@@ -639,8 +672,8 @@
                                 "name": "string",
                                 "scope": "string"
                             },
-                            "name": "onRowEditingEdit",
-                            "designerId": "b7f5744b-ca12-4d19-a46a-223f8f34ebd2"
+                            "name": "onRowEditingBeforeEdit",
+                            "designerId": "cd5823fe-451b-476a-958d-2fae32236ae5"
                         }
                     ]
                 },

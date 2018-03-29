@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "usuariospanel",
+        "designer|userClassName": "UsuariosPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PerfilesPagoPanelViewController1",
+    "designerId": "0b7133cc-ae58-4d02-9deb-208d2297a02b"
+}

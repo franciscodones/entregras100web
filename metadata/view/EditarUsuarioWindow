@@ -1,0 +1,469 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editarusuariowindow",
+        "designer|userClassName": "EditarUsuarioWindow",
+        "glyph": "f0c0@FontAwesome",
+        "id": "editarUsuarioWindow",
+        "modal": true,
+        "title": "Editar Usuario",
+        "viewModel": [
+            "{",
+            "    type: 'editarusuariowindow',",
+            "    stores: {",
+            "        TiposSesionLocalStore: Ext.create('Entregas100Web.store.TiposSesionStore', {})",
+            "    }",
+            "}"
+        ],
+        "width": 400
+    },
+    "configAlternates": {
+        "viewModel": "object",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto",
+        "id": "string"
+    },
+    "name": "CrearUsuarioWindow1",
+    "designerId": "a8b6a99a-e801-404a-b6c2-3bb3ae541b2c",
+    "viewControllerInstanceId": "9f468c95-49f3-4800-9463-ca7970c5198a",
+    "viewModelInstanceId": "db347ed6-f9fc-4371-8e42-ed91438980b2",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "editarUsuarioForm",
+                "trimValues": true
+            },
+            "configAlternates": {
+                "trimValues": "boolean",
+                "bodyPadding": "auto",
+                "itemId": "string"
+            },
+            "name": "MyForm2",
+            "designerId": "182eb71c-7001-4faf-be59-26b1cfa200c5",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "trimValues",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|anchor": "100%",
+                        "name": "id"
+                    },
+                    "configAlternates": {
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "0f18b906-281b-452a-96e4-5c9c683598c1"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Nombre",
+                        "layout|anchor": "100%",
+                        "name": "nombre",
+                        "transformToUpper": true
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string"
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "6e9a22cc-a7c7-46e2-b9d6-c3b732ef71ea",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "transformToUpper",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Email",
+                        "inputType": "email",
+                        "itemId": "txtEmail",
+                        "layout|anchor": "100%",
+                        "name": "email",
+                        "vtype": "email"
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "inputType": "string",
+                        "itemId": "string",
+                        "vtype": "string"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "66b61265-4229-494e-9bea-82d57e36645b",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtEmailChange",
+                                "implHandler": [
+                                    "var me = this,",
+                                    "    txtUsuario = me.view.down(\"#txtUsuario\");",
+                                    "",
+                                    "txtUsuario.setValue(newValue.replace(/(.*)@.*/, \"$1\"));"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtEmailChange",
+                            "designerId": "52c7f2bf-4378-4b19-b588-4ce213df56ad"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Usuario",
+                        "itemId": "txtUsuario",
+                        "layout|anchor": "100%",
+                        "maxLength": 50,
+                        "minLength": 4,
+                        "name": "usuario"
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "3a9c0cf3-f966-4c67-81cb-034bf8bef61d"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Contraseña",
+                        "inputType": "password",
+                        "layout|anchor": "100%",
+                        "maxLength": 20,
+                        "minLength": 4,
+                        "name": "password"
+                    },
+                    "configAlternates": {
+                        "transformToUpper": "boolean",
+                        "allowBlank": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "maskRe": "regex",
+                        "maxLength": "number",
+                        "minLength": "number",
+                        "name": "string",
+                        "inputType": "string"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "53fed370-c737-4798-a460-f097580bfba1"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "tipo_sesion",
+                        "editable": false,
+                        "fieldLabel": "Tipo",
+                        "forceSelection": true,
+                        "itemId": "cmbTipoSesion",
+                        "layout|anchor": "100%",
+                        "name": "tipo_sesion_id",
+                        "store": [
+                            "{TiposSesionLocalStore}"
+                        ],
+                        "valueField": "id"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "valueField": "datafield",
+                        "disabled": "boolean",
+                        "store": "binding",
+                        "queryMode": "string"
+                    },
+                    "name": "MyComboBox2",
+                    "designerId": "90c75d0f-6327-4b94-8644-f016f92f6564"
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "20 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer9",
+                    "designerId": "02e7362c-83de-442e-9855-5d6d053b9226",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnCancelar",
+                                "text": "Cancelar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "54fe03e8-cb63-4617-a696-7fab8f2e64af",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCancelarClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnCancelarClick",
+                                    "designerId": "f3d8a341-d618-4401-baf7-92a0da8194ca"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer8",
+                            "designerId": "e43a2e11-02d3-4330-9826-65440510ab09"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "text": "Guardar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "8a603452-ac16-4bba-b58a-f393480af8d3",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    editarUsuarioForm = me.view.down(\"form\").getForm(),",
+                                            "    tipoSesion = me.view.down(\"#cmbTipoSesion\").getDisplayValue(),",
+                                            "    usuariosPanel = Ext.ComponentManager.get(\"usuariosPanel\"),",
+                                            "    usuariosLocalStore = usuariosPanel.getController().getStore(\"UsuariosLocalStore\"),",
+                                            "    record, waitWindow;",
+                                            "",
+                                            "if (editarUsuarioForm.isValid()) {",
+                                            "    waitWindow = Ext.MessageBox.wait(\"Guardando cambios...\");",
+                                            "    editarUsuarioForm.updateRecord();",
+                                            "    record = editarUsuarioForm.getRecord();",
+                                            "",
+                                            "    // si el record no ha sufrigo cambios se termina la edicion",
+                                            "    if (!record.isDirty()) {",
+                                            "        waitWindow.close();",
+                                            "        me.view.close();",
+                                            "        return;",
+                                            "    }",
+                                            "",
+                                            "    record.set(\"tipo_sesion\", tipoSesion);",
+                                            "    usuariosLocalStore.sync({",
+                                            "        success: onSyncSuccess",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSuccess() {",
+                                            "    waitWindow.close();",
+                                            "    me.view.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "3c4c16e6-d73b-4280-9fe6-8b6903afca5c"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onEditarUsuarioWindowAfterRender",
+                "implHandler": [
+                    "this.getStore(\"TiposSesionLocalStore\").load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onEditarUsuarioWindowAfterRender",
+            "designerId": "323fb3fc-fedf-4c67-9159-2bd72af3d6cd"
+        }
+    ]
+}

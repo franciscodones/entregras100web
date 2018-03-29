@@ -12,14 +12,14 @@ class EmpresasController extends AppController {
         // obtiene todas las empresas
         $sQuery = "SELECT * FROM empresa";
         $aResultado = $oConexion->query($sQuery);
-        $aPlazas = $this->parsearQueryResult($aResultado);
+        $aEmpresas = $this->parsearQueryResult($aResultado);
 
         return $this->asJson(array(
             "success" => true,
             "message" => "Catalogo de empresas",
-            "records" => $aPlazas,
+            "records" => $aEmpresas,
             "metadata" => array(
-                "total_registros" => count($aPlazas)
+                "total_registros" => count($aEmpresas)
             )
         ));
     }

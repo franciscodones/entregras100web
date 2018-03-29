@@ -110,6 +110,8 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 22,
+                    width: 30,
                     items: [
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {
@@ -133,7 +135,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                 }
             ],
             listeners: {
-                select: 'onFormasPagoGridSelect'
+                select: 'onPerfilesPagoGridSelect'
             }
         },
         {
@@ -160,6 +162,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    permissionId: 23,
                                     itemId: 'btnAgregarFormaPago',
                                     glyph: 'f055@FontAwesome',
                                     text: 'Agregar Forma de Pago',
@@ -194,6 +197,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
+                            permissionId: 24,
                             width: 30,
                             items: [
                                 {
@@ -230,6 +234,9 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                                             waitWindow.close();
                                         }
                                     },
+                                    isActionDisabled: function(view, rowIndex, colIndex, item, record) {
+                                        return record.get("es_default");
+                                    },
                                     icon: 'resources/icon/garbage.png',
                                     tooltip: 'Eliminar esta forma de pago'
                                 }
@@ -237,6 +244,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
+                            permissionId: 25,
                             width: 30,
                             items: [
                                 {
@@ -290,7 +298,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
         }
     ],
     listeners: {
-        beforerender: 'onFormasPagoPanelBeforeRender'
+        beforerender: 'onPerfilesPagoPanelBeforeRender'
     }
 
 });

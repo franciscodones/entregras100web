@@ -78,6 +78,7 @@ Ext.define('Entregas100Web.view.PlazasPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 2,
                     itemId: 'btnAgregar',
                     glyph: 'f055 @FontAwesome',
                     text: 'Agregar',
@@ -155,6 +156,8 @@ Ext.define('Entregas100Web.view.PlazasPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 3,
+                    width: 30,
                     items: [
                         {
                             handler: function(view, rowIndex, colIndex, item, e, record, row) {

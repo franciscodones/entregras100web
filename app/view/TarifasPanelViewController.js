@@ -48,7 +48,7 @@ Ext.define('Entregas100Web.view.TarifasPanelViewController', {
     },
 
     onRowEditingBeforeEdit: function(editor, context, eOpts) {
-        if (context.record.get("es_base")) {
+        if (context.record.get("es_base") || !Ext.Array.contains(Ext._.usuario.permisos, 14)) {
             return false;
         }
     },

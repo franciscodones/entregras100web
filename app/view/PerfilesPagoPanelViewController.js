@@ -24,7 +24,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         me.getStore("CombinacionesFormaPerfilLocalStore").load();
     },
 
-    onFormasPagoGridSelect: function(rowmodel, record, index, eOpts) {
+    onPerfilesPagoGridSelect: function(rowmodel, record, index, eOpts) {
         var me = this,
             combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore");
 
@@ -106,7 +106,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         }
     },
 
-    onFormasPagoPanelBeforeRender: function(component, eOpts) {
+    onPerfilesPagoPanelBeforeRender: function(component, eOpts) {
         var me = this,
             combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore");
 
@@ -115,7 +115,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         combinacionesFormaPerfilLocalStore.addFilter([
         {
             id: "perfil-seleccionado",
-            fn: function () {
+            filterFn: function () {
                 return false;
             }
         }
