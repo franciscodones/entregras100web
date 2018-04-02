@@ -31,5 +31,15 @@ Ext.define('Pyansa.overrides.data.Store', {
         }
 
         me.callParent(arguments);
+    },
+
+    /**
+     * Retorna `true` en caso que el store tenga records agregados, modificados o removidos
+     * @return {Boolean}
+     */
+    isDirty: function() {
+        var me = this;
+
+        return me.getNewRecords().length > 0 || me.getUpdatedRecords().length > 0 || me.getRemovedRecords().length > 0;
     }
 });

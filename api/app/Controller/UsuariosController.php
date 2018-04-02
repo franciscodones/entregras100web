@@ -3,13 +3,13 @@
 class UsuariosController extends AppController {
 
     /**
-     * Lee el catalogo de operadores
+     * Lee el catalogo de usuarios
      * @return JsonResponse
      */
     public function read() {
         $oConexion = $this->getConexion();
 
-        // obtiene todos los operadores
+        // obtiene todos los usuarios
         $sQuery = "SELECT usuario.*, " .
                 "tipo_sesion.tipo_sesion " .
             "FROM usuario " .
@@ -37,7 +37,7 @@ class UsuariosController extends AppController {
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
-        // actualiza el registro del operador
+        // actualiza el registro del usuarios
         $sQuery = "INSERT INTO usuario (" .
                 "nombre, " .
                 "usuario, " .
@@ -92,7 +92,7 @@ class UsuariosController extends AppController {
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
-        // actualiza el registro del operador
+        // actualiza el registro del usuario
         $sQuery = "UPDATE usuario SET " .
                 "nombre = ?, " .
                 "usuario = ?, " .

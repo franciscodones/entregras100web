@@ -870,7 +870,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "designer|uiInterfaceName": "default-medium",
-                                "glyph": "f058 @FontAwesome",
+                                "glyph": "f058@FontAwesome",
                                 "itemId": "btnGuardar",
                                 "scale": "medium",
                                 "text": "Guardar",

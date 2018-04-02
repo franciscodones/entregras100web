@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "permisospanel",
+        "designer|userClassName": "PermisosPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PerfilesPagoPanelViewModel1",
+    "designerId": "8969c5da-58fb-430b-8ab7-efc66c55f2a8"
+}

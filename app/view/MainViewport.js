@@ -110,6 +110,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 34,
                                     itemId: 'mItemPermisos',
                                     glyph: 'f023@FontAwesome',
                                     text: 'Permisos',

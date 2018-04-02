@@ -33,7 +33,9 @@ Ext.application({
         'PerfilPago',
         'CombinacionFormaPerfil',
         'UsuarioModel',
-        'TipoSesion'
+        'TipoSesion',
+        'PermisoModel',
+        'PermisoUsuarioModel'
     ],
     stores: [
         'PlazasStore',
@@ -48,7 +50,9 @@ Ext.application({
         'PerfilesPagoStore',
         'CombinacionesFormaPerfilStore',
         'UsuariosStore',
-        'TiposSesionStore'
+        'TiposSesionStore',
+        'PermisosStore',
+        'PermisosUsuarioStore'
     ],
     views: [
         'MainViewport',
@@ -73,7 +77,8 @@ Ext.application({
         'EditarPerfilPagoWindow',
         'UsuariosPanel',
         'CrearUsuarioWindow',
-        'EditarUsuarioWindow'
+        'EditarUsuarioWindow',
+        'PermisosPanel'
     ],
     name: 'Entregas100Web',
 

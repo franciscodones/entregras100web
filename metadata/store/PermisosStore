@@ -1,0 +1,87 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PermisosStore",
+        "model": "PermisoModel",
+        "rejectOnExceptions": true,
+        "storeId": "PermisosStore"
+    },
+    "configAlternates": {
+        "rollbackOnExceptions": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "rejectOnExceptions": "boolean"
+    },
+    "name": "UsuariosStore1",
+    "designerId": "1cc8d897-4001-40b5-bd31-742dd3206b8b",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rejectOnExceptions",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "    create: \"api/permisos/create\",",
+                    "    read: \"api/permisos/read\",",
+                    "    update: \"api/permisos/update\"",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "api": "object"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "d190e598-9f3f-4350-b5a7-edaa39eb4fe4",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "metaProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "b3e5b25f-f4e9-4d98-b3c6-da8ced0a9b84"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter1",
+                    "designerId": "996dd0cc-2acc-4d96-bb11-3995fd393936"
+                }
+            ]
+        }
+    ]
+}

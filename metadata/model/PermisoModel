@@ -1,0 +1,82 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PermisoModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "d5a3ced2-125a-4800-b5d3-e4da1498309b",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger",
+            "designerId": "e5cd2824-790f-4d4e-bf1e-2d943bd672c5"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "descripcion"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString",
+            "designerId": "dd77c76f-8a51-40f1-a305-ae333ffbd432"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "categoria_permiso_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger1",
+            "designerId": "c11243ba-0213-450c-bb31-fa2e28f7209f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "categoria_permiso"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString1",
+            "designerId": "7749f683-c4f8-4d67-8ac9-50e1da0f4210"
+        }
+    ]
+}

@@ -315,7 +315,7 @@ Ext.define('Entregas100Web.view.EditarPlazaWindow', {
                             itemId: 'btnGuardar',
                             ui: 'default-medium',
                             width: 120,
-                            glyph: 'f058 @FontAwesome',
+                            glyph: 'f058@FontAwesome',
                             scale: 'medium',
                             text: 'Guardar',
                             listeners: {

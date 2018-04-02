@@ -19,7 +19,9 @@
             "PerfilPago",
             "CombinacionFormaPerfil",
             "UsuarioModel",
-            "TipoSesion"
+            "TipoSesion",
+            "PermisoModel",
+            "PermisoUsuarioModel"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -35,7 +37,9 @@
             "PerfilesPagoStore",
             "CombinacionesFormaPerfilStore",
             "UsuariosStore",
-            "TiposSesionStore"
+            "TiposSesionStore",
+            "PermisosStore",
+            "PermisosUsuarioStore"
         ],
         "views": [
             "MainViewport",
@@ -60,7 +64,8 @@
             "EditarPerfilPagoWindow",
             "UsuariosPanel",
             "CrearUsuarioWindow",
-            "EditarUsuarioWindow"
+            "EditarUsuarioWindow",
+            "PermisosPanel"
         ]
     },
     "configAlternates": {

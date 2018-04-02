@@ -1,0 +1,86 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PermisoUsuarioModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "9eeeceda-882c-4e3f-9669-ea4181c07d5c",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger2",
+            "designerId": "4f2690d5-b66a-48a1-b0b9-cb1765e98668"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "tipo_usuario_id"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyInteger3",
+            "designerId": "f81be998-bcc7-4add-9e1b-3f7d0939f8fe"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "usuario_id"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyInteger4",
+            "designerId": "6fef574c-fc5c-443c-bb07-d4226834fe83"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "permiso_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger5",
+            "designerId": "0e151bbf-ba5e-4076-8f86-82c704cf4535"
+        }
+    ]
+}

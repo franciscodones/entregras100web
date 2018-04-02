@@ -343,6 +343,7 @@
                                     "userConfig": {
                                         "glyph": "f023@FontAwesome",
                                         "itemId": "mItemPermisos",
+                                        "permissionId": 34,
                                         "text": "Permisos"
                                     },
                                     "configAlternates": {
@@ -353,6 +354,13 @@
                                     },
                                     "name": "MyMenuItem9",
                                     "designerId": "a421cd5c-505f-4434-94e3-c3fb92fe953b",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -364,7 +372,7 @@
                                             "userConfig": {
                                                 "fn": "onMItemPerfilesPagoClick1",
                                                 "implHandler": [
-                                                    "this.abrirPanel(\"widget.perfilespagopanel\");"
+                                                    "this.abrirPanel(\"widget.permisospanel\");"
                                                 ],
                                                 "name": "click",
                                                 "scope": "me"
