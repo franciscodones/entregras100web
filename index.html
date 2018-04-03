@@ -7,7 +7,65 @@
     <title>Entregas100Web</title>
     <!-- The line below must be kept intact for Sencha Command to build your application -->
     <script id="microloader" type="text/javascript" src="bootstrap.js"></script>
+    <style type="text/css">
+        #cargando {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #cargando-puntos {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #cargando-puntos > div {
+            background-color: #B64447;
+            display: inline-block;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin: 0 5px;
+            opacity: 0.8;
+            animation-name: cargando-puntos;
+            animation-duration: 0.5s;
+            animation-iteration-count: infinite;
+            animation-direction: linear;
+        }
+
+        @keyframes cargando-puntos{
+            0% {
+                opacity: 0.8
+            }
+            50% {
+                opacity: 0
+            }
+            100% {
+                opacity: 0.8
+            }
+        }
+
+        #cargando-porcentaje {
+            text-align: center;
+            margin: 0;
+            font-size: 40px;
+            color: #B64447;
+            font-family: monospace;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <div id="cargando">
+        <img id="cargando-logo" src="resources/images/logo.png">
+        <div id="cargando-puntos">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p id="cargando-porcentaje">Cargando: 0%</p>
+    </div>
 </body>
 </html>

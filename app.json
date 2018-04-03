@@ -118,7 +118,22 @@
       }
    ],
    "archivePath": "archive",
-   "slicer": null,
+   "slicer": {
+      "js": [
+         {
+            "path": "sass/example/custom.js",
+            "isWidgetManifest": true
+         }
+      ],
+      "output": {
+         "appCache": {
+            "enable": false
+         }
+      },
+      "cache": {
+         "enable": false
+      }
+   },
    "ignore": [
       "(^|/)CVS(/?$|/.*?$)"
    ],

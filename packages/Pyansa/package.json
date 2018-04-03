@@ -6,7 +6,7 @@
     "creator": "Pyansa",
     "summary": "Short summary",
     "detailedDescription": "Long description of package",
-    "version": "1.0",
+    "version": "6.5.0",
     "compatVersion": "1.0.0",
     "architect": {
         "compatFrameworks": [
@@ -14,11 +14,6 @@
             "ext65"
         ],
         "classes": [
-            {
-                "definition": "controller/DatabaseController.Definition.js",
-                "className": "Pyansa.controller.DatabaseController",
-                "js": ["controller/DatabaseController.js"]
-            }
         ]
     },
     "format": "1",

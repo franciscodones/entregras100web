@@ -7,8 +7,6 @@ Ext.define('Pyansa.overrides.data.proxy.Ajax', {
 
     requires: [
         "Ext.Object",
-        "Pyansa.overrides.data.reader.Json",
-        "Pyansa.overrides.data.writer.Json",
         "Ext.window.MessageBox"
     ],
 
