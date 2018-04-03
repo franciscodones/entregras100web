@@ -35,31 +35,6 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
         type: 'editarunidadwindow'
     },
     modal: true,
-    viewModel: {
-        type: 'editarunidadwindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            }),
-            ZonasLocalStore: Ext.create('Entregas100Web.store.ZonasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("plaza_id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'editarUnidadWindow',
     width: 400,
     glyph: 'f0d1@FontAwesome',

@@ -13,25 +13,7 @@
         "glyph": "f041@FontAwesome",
         "id": "zonasPanel",
         "layout": "vbox",
-        "title": "Zonas",
-        "viewModel": [
-            "{",
-            "    type: \"zonaspanel\",",
-            "    stores: {",
-            "        ZonasLocalStore: Ext.create(\"Entregas100Web.store.ZonasStore\", {",
-            "            filters: [",
-            "                {",
-            "                    id: 'permiso-plazas', ",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ]
+        "title": "Zonas"
     },
     "configAlternates": {
         "closable": "boolean",

@@ -13,17 +13,7 @@
         "glyph": "f0d6@FontAwesome",
         "id": "formasPagoPanel",
         "layout": "hbox",
-        "title": "Formas de Pago",
-        "viewModel": [
-            "{",
-            "    type: \"formaspagopanel\",",
-            "    stores: {",
-            "        FormasPagoLocalStore: Ext.create(\"Entregas100Web.store.FormasPagoStore\", {}),",
-            "        CombinacionesFormaPagoLocalStore: Ext.create(\"Entregas100Web.store.CombinacionesFormaPagoStore\", {}),",
-            "        CombinacionesFormaPlazaLocalStore: Ext.create(\"Entregas100Web.store.CombinacionesFormaPlazaStore\", {})",
-            "    }",
-            "}"
-        ]
+        "title": "Formas de Pago"
     },
     "configAlternates": {
         "closable": "boolean",

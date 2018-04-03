@@ -14,5 +14,105 @@
         "designer|userClassName": "string"
     },
     "name": "CrearOperadorWindowViewModel1",
-    "designerId": "c08d7422-1d06-4ecc-ac5b-936d77d852e8"
+    "designerId": "c08d7422-1d06-4ecc-ac5b-936d77d852e8",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "PlazaModel",
+                "name": "PlazasLocalStore",
+                "type": "PlazasLocalStore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore23",
+            "designerId": "b65fe31b-b6c1-4a3b-95f5-5e6d31a247b2",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "permiso-plazas"
+                    },
+                    "configAlternates": {
+                        "id": "string"
+                    },
+                    "name": "MyFilter10",
+                    "designerId": "4d8b24d8-a6d5-439d-9774-a312364d0389",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "item"
+                                ],
+                                "fn": "filterFn",
+                                "implHandler": [
+                                    "return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get(\"id\"));"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "filterFn",
+                            "designerId": "dac7de97-5b10-44ec-8281-1cdd27e25c9b"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "TipoSesionModel",
+                "name": "TiposSesionLocalStore",
+                "type": "tipossesionstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore24",
+            "designerId": "d9625d82-4a4c-49cb-bc32-32c59b33813c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

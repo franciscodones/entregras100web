@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "CombinacionFormaPago"
+        "designer|userClassName": "CombinacionFormaPagoModel"
     },
     "configAlternates": {
         "designer|userClassName": "string"

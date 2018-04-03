@@ -34,21 +34,6 @@ Ext.define('Entregas100Web.view.EditarOperadorWindow', {
         type: 'editaroperadorwindow'
     },
     modal: true,
-    viewModel: {
-        type: 'editaroperadorwindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'editarOperadorWindow',
     width: 400,
     glyph: 'f0c0@FontAwesome',

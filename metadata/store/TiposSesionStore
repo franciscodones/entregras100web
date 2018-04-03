@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "tipossesionstore",
         "designer|userClassName": "TiposSesionStore",
-        "model": "TipoSesion",
+        "model": "TipoSesionModel",
         "rejectOnExceptions": true,
         "storeId": "TiposSesionStore"
     },
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "UsuariosStore1",
     "designerId": "c4aed17c-1688-4c49-9656-695e1f2a367b",

@@ -39,21 +39,6 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
     viewModel: {
         type: 'unidadespanel'
     },
-    viewModel: {
-        type: 'unidadespanel',
-        stores: {
-            UnidadesLocalStore: Ext.create('Entregas100Web.store.UnidadesStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("plaza_id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'unidadesPanel',
     closable: true,
     glyph: 'f0d1@FontAwesome',

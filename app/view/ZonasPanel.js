@@ -37,21 +37,6 @@ Ext.define('Entregas100Web.view.ZonasPanel', {
     viewModel: {
         type: 'zonaspanel'
     },
-    viewModel: {
-        type: 'zonaspanel',
-        stores: {
-            ZonasLocalStore: Ext.create('Entregas100Web.store.ZonasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("plaza_id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'zonasPanel',
     closable: true,
     glyph: 'f041@FontAwesome',

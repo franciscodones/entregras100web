@@ -14,5 +14,61 @@
         "designer|userClassName": "string"
     },
     "name": "PerfilesPagoPanelViewModel1",
-    "designerId": "5aa99982-2046-4c65-84b7-da87a0dfde18"
+    "designerId": "5aa99982-2046-4c65-84b7-da87a0dfde18",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "UsuarioModel",
+                "name": "UsuariosLocalStore",
+                "type": "usuariosstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore1",
+            "designerId": "4bd065f5-ea73-471a-b327-0863d91e035d",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "PlazaModel",
+                "name": "PlazasAgregadasLocalStore",
+                "type": "plazasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore2",
+            "designerId": "ca96046d-27a3-410b-bcc1-79f7e9707e4f",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

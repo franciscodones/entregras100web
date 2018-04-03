@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.UsuariosStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.usuariosstore',
 
     requires: [
         'Entregas100Web.model.UsuarioModel',

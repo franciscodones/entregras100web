@@ -15,6 +15,30 @@
 
 Ext.define('Entregas100Web.view.PermisosPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.permisospanel'
+    alias: 'viewmodel.permisospanel',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        UsuariosLocalStore: {
+            type: 'usuariosstore',
+            model: 'Entregas100Web.model.UsuarioModel'
+        },
+        TiposSesionLocalStore: {
+            type: 'tipossesionstore',
+            model: 'Entregas100Web.model.TipoSesionModel'
+        },
+        PermisosUsuarioLocalStore: {
+            type: 'permisosusuariostore',
+            model: 'Entregas100Web.model.PermisoUsuarioModel'
+        },
+        PermisosLocalStore: {
+            type: 'permisosstore',
+            groupField: 'categoria_permiso',
+            model: 'Entregas100Web.model.PermisoModel'
+        }
+    }
 
 });

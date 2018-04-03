@@ -14,5 +14,34 @@
         "designer|userClassName": "string"
     },
     "name": "CrearPlazaWindowViewModel1",
-    "designerId": "59aa6dfa-7794-4ad0-b591-87c1d4ecf7b0"
+    "designerId": "59aa6dfa-7794-4ad0-b591-87c1d4ecf7b0",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "EmpresaModel",
+                "name": "EmpresasLocalStore",
+                "type": "empresasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore20",
+            "designerId": "e53fb856-f078-497d-a89d-1c48bbaaf90c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

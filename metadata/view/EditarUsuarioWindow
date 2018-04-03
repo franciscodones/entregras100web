@@ -12,14 +12,6 @@
         "id": "editarUsuarioWindow",
         "modal": true,
         "title": "Editar Usuario",
-        "viewModel": [
-            "{",
-            "    type: 'editarusuariowindow',",
-            "    stores: {",
-            "        TiposSesionLocalStore: Ext.create('Entregas100Web.store.TiposSesionStore', {})",
-            "    }",
-            "}"
-        ],
         "width": 400
     },
     "configAlternates": {

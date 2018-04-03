@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "empresasstore",
         "designer|userClassName": "EmpresasStore",
         "model": "EmpresaModel",
         "storeId": "EmpresasStore"
@@ -13,7 +14,8 @@
     "configAlternates": {
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "designer|userAlias": "string"
     },
     "name": "MyJsonStore",
     "designerId": "8469546a-2755-470a-a414-461319a2b51d",

@@ -32,21 +32,6 @@ Ext.define('Entregas100Web.view.CrearOperadorWindow', {
         type: 'crearoperadorwindow'
     },
     modal: true,
-    viewModel: {
-        type: 'crearoperadorwindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     width: 400,
     glyph: 'f0c0@FontAwesome',
     title: 'Nuevo Operador',

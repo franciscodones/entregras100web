@@ -32,24 +32,6 @@ Ext.define('Entregas100Web.view.CrearUsuarioWindow', {
         type: 'crearusuariowindow'
     },
     modal: true,
-    viewModel: {
-        type: 'crearusuariowindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            }),
-            TiposSesionLocalStore: Ext.create('Entregas100Web.store.TiposSesionStore', {
-                
-            })
-        }
-    },
     width: 400,
     glyph: 'f0c0@FontAwesome',
     title: 'Nuevo Usuario',

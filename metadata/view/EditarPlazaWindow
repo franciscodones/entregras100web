@@ -16,14 +16,6 @@
         "resizable": false,
         "scrollable": "both",
         "title": "Editar Plaza",
-        "viewModel": [
-            "{",
-            "    type: 'editarplazawindow',",
-            "    stores: {",
-            "        EmpresasLocalStore: Ext.create('Entregas100Web.store.EmpresasStore')",
-            "    }",
-            "}"
-        ],
         "width": 600
     },
     "configAlternates": {

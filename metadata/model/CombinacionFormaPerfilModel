@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "CombinacionFormaPerfil"
+        "designer|userClassName": "CombinacionFormaPerfilModel"
     },
     "configAlternates": {
         "designer|userClassName": "string"

@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "operadoresstore",
         "designer|userClassName": "OperadoresStore",
         "model": "OperadorModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "ZonasStore1",
     "designerId": "c31b5538-b18e-4d18-a964-708d3134e7e7",

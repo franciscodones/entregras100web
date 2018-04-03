@@ -14,5 +14,78 @@
         "designer|userClassName": "string"
     },
     "name": "CrearUnidadWindowViewModel2",
-    "designerId": "cbf9f2e0-b8aa-44b2-bf04-cc9838109674"
+    "designerId": "cbf9f2e0-b8aa-44b2-bf04-cc9838109674",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "PlazaModel",
+                "name": "PlazasLocalStore",
+                "type": "plazasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore21",
+            "designerId": "da0ca0ec-89c3-4983-9357-348202b4a5c9",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "permiso-plazas"
+                    },
+                    "configAlternates": {
+                        "id": "string"
+                    },
+                    "name": "MyFilter8",
+                    "designerId": "d9319a49-8a8c-4e51-be0e-79806f1a46bf",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "item"
+                                ],
+                                "fn": "filterFn",
+                                "implHandler": [
+                                    "return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get(\"id\"));"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "filterFn",
+                            "designerId": "64c5f5fd-5214-4258-9e8f-2f583ad8ee2a"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

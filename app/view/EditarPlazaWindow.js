@@ -34,12 +34,6 @@ Ext.define('Entregas100Web.view.EditarPlazaWindow', {
         type: 'editarplazawindow'
     },
     modal: true,
-    viewModel: {
-        type: 'editarplazawindow',
-        stores: {
-            EmpresasLocalStore: Ext.create('Entregas100Web.store.EmpresasStore')
-        }
-    },
     draggable: false,
     id: 'editarPlazaWindow',
     maxHeight: 460,

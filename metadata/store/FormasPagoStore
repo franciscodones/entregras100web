@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "formaspagostore",
         "designer|userClassName": "FormasPagoStore",
         "model": "FormaPagoModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "ZonasStore1",
     "designerId": "f1fe31ae-1f5c-4f29-b84b-7f7123ee5484",

@@ -40,21 +40,6 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
     viewModel: {
         type: 'tarifaspanel'
     },
-    viewModel: {
-        type: 'tarifaspanel',
-        stores: {
-            TarifasLocalStore: Ext.create('Entregas100Web.store.TarifasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("plaza_id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'tarifasPanel',
     closable: true,
     glyph: 'f155@FontAwesome',

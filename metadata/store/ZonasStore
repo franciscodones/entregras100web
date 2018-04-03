@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "zonasstore",
         "designer|userClassName": "ZonasStore",
         "model": "ZonaModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "MyJsonStore",
     "designerId": "f3c75a54-d675-488d-88b0-d9e98606dac4",

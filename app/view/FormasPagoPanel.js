@@ -37,20 +37,6 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
     viewModel: {
         type: 'formaspagopanel'
     },
-    viewModel: {
-        type: 'formaspagopanel',
-        stores: {
-            FormasPagoLocalStore: Ext.create('Entregas100Web.store.FormasPagoStore', {
-                
-            }),
-            CombinacionesFormaPagoLocalStore: Ext.create('Entregas100Web.store.CombinacionesFormaPagoStore', {
-                
-            }),
-            CombinacionesFormaPlazaLocalStore: Ext.create('Entregas100Web.store.CombinacionesFormaPlazaStore', {
-                
-            })
-        }
-    },
     id: 'formasPagoPanel',
     closable: true,
     glyph: 'f0d6@FontAwesome',

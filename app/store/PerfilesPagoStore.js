@@ -15,9 +15,10 @@
 
 Ext.define('Entregas100Web.store.PerfilesPagoStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.perfilespagostore',
 
     requires: [
-        'Entregas100Web.model.PerfilPago',
+        'Entregas100Web.model.PerfilPagoModel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json',
         'Ext.data.writer.Json'
@@ -32,7 +33,7 @@ Ext.define('Entregas100Web.store.PerfilesPagoStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'PerfilesPagoStore',
-            model: 'Entregas100Web.model.PerfilPago',
+            model: 'Entregas100Web.model.PerfilPagoModel',
             proxy: {
                 type: 'ajax',
                 api: {

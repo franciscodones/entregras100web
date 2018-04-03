@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.PermisosUsuarioStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.permisosusuariostore',
 
     requires: [
         'Entregas100Web.model.PermisoUsuarioModel',

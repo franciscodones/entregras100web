@@ -15,9 +15,10 @@
 
 Ext.define('Entregas100Web.store.TiposSesionStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.tipossesionstore',
 
     requires: [
-        'Entregas100Web.model.TipoSesion',
+        'Entregas100Web.model.TipoSesionModel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json',
         'Ext.data.writer.Json'
@@ -32,7 +33,7 @@ Ext.define('Entregas100Web.store.TiposSesionStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'TiposSesionStore',
-            model: 'Entregas100Web.model.TipoSesion',
+            model: 'Entregas100Web.model.TipoSesionModel',
             proxy: {
                 type: 'ajax',
                 api: {

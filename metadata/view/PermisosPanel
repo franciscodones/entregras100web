@@ -13,20 +13,7 @@
         "glyph": "f023@FontAwesome",
         "id": "permisosPanel",
         "layout": "hbox",
-        "title": "Permisos",
-        "viewModel": [
-            "{",
-            "    type: \"permisospanel\",",
-            "    stores: {",
-            "        UsuariosLocalStore: Ext.create(\"Entregas100Web.store.UsuariosStore\", {}),",
-            "        TiposSesionLocalStore: Ext.create(\"Entregas100Web.store.TiposSesionStore\", {}),",
-            "        PermisosUsuarioLocalStore: Ext.create(\"Entregas100Web.store.PermisosUsuarioStore\", {}),",
-            "        PermisosLocalStore: Ext.create(\"Entregas100Web.store.PermisosStore\", {",
-            "            groupField: \"categoria_permiso\"",
-            "        })",
-            "    }",
-            "}"
-        ]
+        "title": "Permisos"
     },
     "configAlternates": {
         "closable": "boolean",

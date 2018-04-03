@@ -13,25 +13,7 @@
         "glyph": "f279@FontAwesome",
         "id": "plazasPanel",
         "layout": "vbox",
-        "title": "Plazas",
-        "viewModel": [
-            "{",
-            "    type: \"plazaspanel\",",
-            "    stores: {",
-            "        PlazasLocalStore: Ext.create(\"Entregas100Web.store.PlazasStore\", {",
-            "            filters: [",
-            "                {\t",
-            "                    id: \"permiso-plazas\",",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ]
+        "title": "Plazas"
     },
     "configAlternates": {
         "closable": "boolean",

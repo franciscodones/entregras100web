@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "CombinacionFormaPlaza"
+        "designer|userClassName": "CombinacionFormaPlazaModel"
     },
     "configAlternates": {
         "designer|userClassName": "string"

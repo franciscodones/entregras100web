@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "combinacionesformaplazastore",
         "designer|userClassName": "CombinacionesFormaPlazaStore",
-        "model": "CombinacionFormaPlaza",
+        "model": "CombinacionFormaPlazaModel",
         "rejectOnExceptions": true,
         "storeId": "CombinacionesFormaPlazaStore"
     },
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "CombinacionesFormaPagoStore1",
     "designerId": "4eb3f0fd-f1f6-410d-b5a8-e6a8ea8ce7cf",

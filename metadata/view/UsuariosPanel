@@ -13,16 +13,7 @@
         "glyph": "f0c0@FontAwesome",
         "id": "usuariosPanel",
         "layout": "hbox",
-        "title": "Usuarios",
-        "viewModel": [
-            "{",
-            "    type: \"usuariospanel\",",
-            "    stores: {",
-            "        UsuariosLocalStore: Ext.create(\"Entregas100Web.store.UsuariosStore\", {}),",
-            "        PlazasAgregadasLocalStore: Ext.create(\"Entregas100Web.store.PlazasStore\", {})",
-            "    }",
-            "}"
-        ]
+        "title": "Usuarios"
     },
     "configAlternates": {
         "closable": "boolean",

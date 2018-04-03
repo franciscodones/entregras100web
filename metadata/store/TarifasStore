@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "tarifasstore",
         "designer|userClassName": "TarifasStore",
         "model": "TarifaModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "ZonasStore1",
     "designerId": "be553a38-11ce-4586-bca0-e8c088f5ffc3",

@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "combinacionesformapagostore",
         "designer|userClassName": "CombinacionesFormaPagoStore",
-        "model": "CombinacionFormaPago",
+        "model": "CombinacionFormaPagoModel",
         "rejectOnExceptions": true,
         "storeId": "CombinacionesFormaPagoStore"
     },
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "ZonasStore1",
     "designerId": "db5534f8-2975-41fd-b856-ef96ca8795b8",

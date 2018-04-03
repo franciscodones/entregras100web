@@ -15,6 +15,17 @@
 
 Ext.define('Entregas100Web.view.CrearPlazaWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.crearplazawindow'
+    alias: 'viewmodel.crearplazawindow',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        EmpresasLocalStore: {
+            type: 'empresasstore',
+            model: 'Entregas100Web.model.EmpresaModel'
+        }
+    }
 
 });

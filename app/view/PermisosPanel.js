@@ -38,23 +38,6 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
     viewModel: {
         type: 'permisospanel'
     },
-    viewModel: {
-        type: 'permisospanel',
-        stores: {
-            UsuariosLocalStore: Ext.create('Entregas100Web.store.UsuariosStore', {
-                
-            }),
-            TiposSesionLocalStore: Ext.create('Entregas100Web.store.TiposSesionStore', {
-                
-            }),
-            PermisosUsuarioLocalStore: Ext.create('Entregas100Web.store.PermisosUsuarioStore', {
-                
-            }),
-            PermisosLocalStore: Ext.create('Entregas100Web.store.PermisosStore', {
-                groupField: 'categoria_permiso'
-            })
-        }
-    },
     id: 'permisosPanel',
     closable: true,
     glyph: 'f023@FontAwesome',

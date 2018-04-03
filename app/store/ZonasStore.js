@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.ZonasStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.zonasstore',
 
     requires: [
         'Entregas100Web.model.ZonaModel',

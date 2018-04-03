@@ -14,5 +14,117 @@
         "designer|userClassName": "string"
     },
     "name": "PerfilesPagoPanelViewModel1",
-    "designerId": "8969c5da-58fb-430b-8ab7-efc66c55f2a8"
+    "designerId": "8969c5da-58fb-430b-8ab7-efc66c55f2a8",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "UsuarioModel",
+                "name": "UsuariosLocalStore",
+                "type": "usuariosstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore6",
+            "designerId": "e4d92994-8393-4720-a784-34eeaa6a0b5b",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "TipoSesionModel",
+                "name": "TiposSesionLocalStore",
+                "type": "tipossesionstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore7",
+            "designerId": "79f079a3-206a-4915-beeb-415b487983af",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "PermisoUsuarioModel",
+                "name": "PermisosUsuarioLocalStore",
+                "type": "permisosusuariostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore8",
+            "designerId": "8cbf4bf8-1ad2-4c29-b54d-1e1e772e0dbe",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "groupField": "categoria_permiso",
+                "model": "PermisoModel",
+                "name": "PermisosLocalStore",
+                "type": "permisosstore"
+            },
+            "configAlternates": {
+                "groupField": "datafield",
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore9",
+            "designerId": "da541ef8-00a9-4a6a-9c64-1b4a848d8093",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

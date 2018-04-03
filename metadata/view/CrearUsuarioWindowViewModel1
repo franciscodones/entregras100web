@@ -14,5 +14,34 @@
         "designer|userClassName": "string"
     },
     "name": "CrearUsuarioWindowViewModel1",
-    "designerId": "db347ed6-f9fc-4371-8e42-ed91438980b2"
+    "designerId": "db347ed6-f9fc-4371-8e42-ed91438980b2",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "TipoSesionModel",
+                "name": "TiposSesionLocalStore",
+                "type": "tipossesionstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore17",
+            "designerId": "5f7fad91-77a8-4aee-8010-09463df3f862",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

@@ -15,6 +15,24 @@
 
 Ext.define('Entregas100Web.view.EditarZonaWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.editarzonawindow'
+    alias: 'viewmodel.editarzonawindow',
+
+    requires: [
+        'Ext.data.Store',
+        'Ext.util.Filter'
+    ],
+
+    stores: {
+        PlazasLocalStore: {
+            type: 'plazasstore',
+            model: 'Entregas100Web.model.PlazaModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("id"));
+                },
+                id: 'permiso-plazas'
+            }
+        }
+    }
 
 });

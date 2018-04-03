@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "perfilespagostore",
         "designer|userClassName": "PerfilesPagoStore",
-        "model": "PerfilPago",
+        "model": "PerfilPagoModel",
         "rejectOnExceptions": true,
         "storeId": "PerfilesPagoStore"
     },
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "FormasPagoStore1",
     "designerId": "bacbce58-d820-488b-82ef-3c6bf7f32e21",

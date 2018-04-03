@@ -12,24 +12,6 @@
         "id": "editarZonaWindow",
         "modal": true,
         "title": "Editar Zona",
-        "viewModel": [
-            "{",
-            "    type: 'editarzonawindow',",
-            "    stores: {",
-            "        PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {",
-            "            filters: [",
-            "                {",
-            "                    id: \"permiso-plazas\",",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ],
         "width": 400
     },
     "configAlternates": {

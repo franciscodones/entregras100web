@@ -14,5 +14,61 @@
         "designer|userClassName": "string"
     },
     "name": "FormasPagoPanelViewModel1",
-    "designerId": "dcfda130-4a95-4591-a3c7-164675df36f9"
+    "designerId": "dcfda130-4a95-4591-a3c7-164675df36f9",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "PerfilPagoModel",
+                "name": "PerfilesPagoLocalStore",
+                "type": "perfilespagostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore10",
+            "designerId": "16a75315-27ee-450c-8fb3-5c3f74e3b886",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "CombinacionFormaPerfilModel",
+                "name": "CombinacionesFormaPerfilLocalStore",
+                "type": "combinacionesformaperfilstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore11",
+            "designerId": "85e85710-1121-4020-b560-c8cf4eb71b5b",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

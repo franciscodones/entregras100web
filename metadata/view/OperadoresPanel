@@ -13,25 +13,7 @@
         "glyph": "f0c0@FontAwesome",
         "id": "operadoresPanel",
         "layout": "vbox",
-        "title": "Operadores",
-        "viewModel": [
-            "{",
-            "    type: \"operadorespanel\",",
-            "    stores: {",
-            "        OperadoresLocalStore: Ext.create(\"Entregas100Web.store.OperadoresStore\", {",
-            "            filters: [",
-            "                {",
-            "                    id: \"permiso-plazas\",",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ]
+        "title": "Operadores"
     },
     "configAlternates": {
         "closable": "boolean",

@@ -36,17 +36,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
     viewModel: {
         type: 'perfilespagopanel'
     },
-    viewModel: {
-        type: 'perfilespagopanel',
-        stores: {
-            PerfilesPagoLocalStore: Ext.create('Entregas100Web.store.PerfilesPagoStore', {
-                
-            }),
-            CombinacionesFormaPerfilLocalStore: Ext.create('Entregas100Web.store.CombinacionesFormaPerfilStore', {
-                
-            })
-        }
-    },
     id: 'perfilesPagoPanel',
     closable: true,
     glyph: 'f09d@FontAwesome',

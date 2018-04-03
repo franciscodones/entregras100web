@@ -34,31 +34,6 @@ Ext.define('Entregas100Web.view.CrearUnidadWindow', {
         type: 'crearunidadwindow'
     },
     modal: true,
-    viewModel: {
-        type: 'crearunidadwindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            }),
-            ZonasLocalStore: Ext.create('Entregas100Web.store.ZonasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("plaza_id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     width: 400,
     glyph: 'f0d1@FontAwesome',
     title: 'Nueva Unidad',

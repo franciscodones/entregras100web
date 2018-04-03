@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "unidadesstore",
         "designer|userClassName": "UnidadesStore",
         "model": "UnidadModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "ZonasStore1",
     "designerId": "0d92b6c4-4d96-4cec-afa6-7285476dfa01",

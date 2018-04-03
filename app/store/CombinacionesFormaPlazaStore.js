@@ -15,9 +15,10 @@
 
 Ext.define('Entregas100Web.store.CombinacionesFormaPlazaStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.combinacionesformaplazastore',
 
     requires: [
-        'Entregas100Web.model.CombinacionFormaPlaza',
+        'Entregas100Web.model.CombinacionFormaPlazaModel',
         'Ext.data.proxy.Ajax',
         'Ext.data.reader.Json',
         'Ext.data.writer.Json'
@@ -32,7 +33,7 @@ Ext.define('Entregas100Web.store.CombinacionesFormaPlazaStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'CombinacionesFormaPlazaStore',
-            model: 'Entregas100Web.model.CombinacionFormaPlaza',
+            model: 'Entregas100Web.model.CombinacionFormaPlazaModel',
             proxy: {
                 type: 'ajax',
                 api: {

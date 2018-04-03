@@ -15,6 +15,24 @@
 
 Ext.define('Entregas100Web.view.UnidadesPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.unidadespanel'
+    alias: 'viewmodel.unidadespanel',
+
+    requires: [
+        'Ext.data.Store',
+        'Ext.util.Filter'
+    ],
+
+    stores: {
+        UnidadesLocalStore: {
+            type: 'unidadesstore',
+            model: 'Entregas100Web.model.UnidadModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
+                },
+                id: 'permiso-plazas'
+            }
+        }
+    }
 
 });

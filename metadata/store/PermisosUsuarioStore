@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "permisosusuariostore",
         "designer|userClassName": "PermisosUsuarioStore",
         "model": "PermisoUsuarioModel",
         "rejectOnExceptions": true,
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "PermisosStore1",
     "designerId": "e409b829-18c0-4886-9fb2-253525373901",

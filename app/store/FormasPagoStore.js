@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.FormasPagoStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.formaspagostore',
 
     requires: [
         'Entregas100Web.model.FormaPagoModel',

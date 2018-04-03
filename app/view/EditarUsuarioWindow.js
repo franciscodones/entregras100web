@@ -33,14 +33,6 @@ Ext.define('Entregas100Web.view.EditarUsuarioWindow', {
         type: 'editarusuariowindow'
     },
     modal: true,
-    viewModel: {
-        type: 'editarusuariowindow',
-        stores: {
-            TiposSesionLocalStore: Ext.create('Entregas100Web.store.TiposSesionStore', {
-                
-            })
-        }
-    },
     id: 'editarUsuarioWindow',
     width: 400,
     glyph: 'f0c0@FontAwesome',

@@ -13,5 +13,34 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string"
     },
-    "designerId": "4ddd265e-e863-4b58-8626-9ecf726f4ab6"
+    "designerId": "4ddd265e-e863-4b58-8626-9ecf726f4ab6",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "EmpresaModel",
+                "name": "EmpresasLocalStore",
+                "type": "empresasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore27",
+            "designerId": "abb48958-314a-4e35-bbb7-2cef655811b4",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

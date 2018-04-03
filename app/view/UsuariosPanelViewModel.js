@@ -15,6 +15,21 @@
 
 Ext.define('Entregas100Web.view.UsuariosPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.usuariospanel'
+    alias: 'viewmodel.usuariospanel',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        UsuariosLocalStore: {
+            type: 'usuariosstore',
+            model: 'Entregas100Web.model.UsuarioModel'
+        },
+        PlazasAgregadasLocalStore: {
+            type: 'plazasstore',
+            model: 'Entregas100Web.model.PlazaModel'
+        }
+    }
 
 });

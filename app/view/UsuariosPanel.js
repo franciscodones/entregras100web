@@ -36,17 +36,6 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
     viewModel: {
         type: 'usuariospanel'
     },
-    viewModel: {
-        type: 'usuariospanel',
-        stores: {
-            UsuariosLocalStore: Ext.create('Entregas100Web.store.UsuariosStore', {
-                
-            }),
-            PlazasAgregadasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                
-            })
-        }
-    },
     id: 'usuariosPanel',
     closable: true,
     glyph: 'f0c0@FontAwesome',

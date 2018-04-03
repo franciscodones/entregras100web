@@ -15,6 +15,21 @@
 
 Ext.define('Entregas100Web.view.PerfilesPagoPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.perfilespagopanel'
+    alias: 'viewmodel.perfilespagopanel',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        PerfilesPagoLocalStore: {
+            type: 'perfilespagostore',
+            model: 'Entregas100Web.model.PerfilPagoModel'
+        },
+        CombinacionesFormaPerfilLocalStore: {
+            type: 'combinacionesformaperfilstore',
+            model: 'Entregas100Web.model.CombinacionFormaPerfilModel'
+        }
+    }
 
 });

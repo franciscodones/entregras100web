@@ -13,25 +13,7 @@
         "glyph": "f0d1@FontAwesome",
         "id": "unidadesPanel",
         "layout": "vbox",
-        "title": "Unidades",
-        "viewModel": [
-            "{",
-            "    type: \"unidadespanel\",",
-            "    stores: {",
-            "        UnidadesLocalStore: Ext.create(\"Entregas100Web.store.UnidadesStore\", {",
-            "            filters: [",
-            "                {",
-            "                    id: 'permiso-plazas', ",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"plaza_id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ]
+        "title": "Unidades"
     },
     "configAlternates": {
         "closable": "boolean",

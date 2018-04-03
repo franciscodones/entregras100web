@@ -12,24 +12,6 @@
         "id": "editarOperadorWindow",
         "modal": true,
         "title": "Editar Operador",
-        "viewModel": [
-            "{",
-            "    type: 'editaroperadorwindow',",
-            "    stores: {",
-            "        PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {",
-            "            filters: [",
-            "                {",
-            "                    id: \"permiso-plazas\",",
-            "                    filterFn: function(record) {",
-            "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
-            "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
-            "                    }",
-            "                }",
-            "            ]",
-            "        })",
-            "    }",
-            "}"
-        ],
         "width": 400
     },
     "configAlternates": {

@@ -15,6 +15,28 @@
 
 Ext.define('Entregas100Web.view.CrearUsuarioWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.crearusuariowindow'
+    alias: 'viewmodel.crearusuariowindow',
+
+    requires: [
+        'Ext.data.Store',
+        'Ext.util.Filter'
+    ],
+
+    stores: {
+        PlazasLocalStore: {
+            type: 'PlazasLocalStore',
+            model: 'Entregas100Web.model.PlazaModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("id"));
+                },
+                id: 'permiso-plazas'
+            }
+        },
+        TiposSesionLocalStore: {
+            type: 'tipossesionstore',
+            model: 'Entregas100Web.model.TipoSesionModel'
+        }
+    }
 
 });

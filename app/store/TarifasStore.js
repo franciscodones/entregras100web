@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.TarifasStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.tarifasstore',
 
     requires: [
         'Entregas100Web.model.TarifaModel',

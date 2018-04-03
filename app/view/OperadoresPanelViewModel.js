@@ -15,6 +15,24 @@
 
 Ext.define('Entregas100Web.view.OperadoresPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.operadorespanel'
+    alias: 'viewmodel.operadorespanel',
+
+    requires: [
+        'Ext.data.Store',
+        'Ext.util.Filter'
+    ],
+
+    stores: {
+        OperadoresLocalStore: {
+            type: 'operadoresstore',
+            model: 'Entregas100Web.model.OperadorModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
+                },
+                id: 'permiso-plazas'
+            }
+        }
+    }
 
 });

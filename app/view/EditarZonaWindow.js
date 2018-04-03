@@ -35,21 +35,6 @@ Ext.define('Entregas100Web.view.EditarZonaWindow', {
         type: 'editarzonawindow'
     },
     modal: true,
-    viewModel: {
-        type: 'editarzonawindow',
-        stores: {
-            PlazasLocalStore: Ext.create('Entregas100Web.store.PlazasStore', {
-                filters: [
-                    {
-                        id: 'permiso-plazas', filterFn: function(record) {
-                                            return Ext.isEmpty(Ext._.usuario.plaza_id) ||
-                                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
-                                        }
-                    }
-                ]
-            })
-        }
-    },
     id: 'editarZonaWindow',
     width: 400,
     glyph: 'f041@FontAwesome',

@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.OperadoresStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.operadoresstore',
 
     requires: [
         'Entregas100Web.model.OperadorModel',

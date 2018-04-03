@@ -13,16 +13,7 @@
         "glyph": "f09d@FontAwesome",
         "id": "perfilesPagoPanel",
         "layout": "hbox",
-        "title": "Perfiles de Pago",
-        "viewModel": [
-            "{",
-            "    type: \"perfilespagopanel\",",
-            "    stores: {",
-            "        PerfilesPagoLocalStore: Ext.create(\"Entregas100Web.store.PerfilesPagoStore\", {}),",
-            "        CombinacionesFormaPerfilLocalStore: Ext.create(\"Entregas100Web.store.CombinacionesFormaPerfilStore\", {})",
-            "    }",
-            "}"
-        ]
+        "title": "Perfiles de Pago"
     },
     "configAlternates": {
         "closable": "boolean",

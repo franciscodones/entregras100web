@@ -15,6 +15,25 @@
 
 Ext.define('Entregas100Web.view.FormasPagoPanelViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.formaspagopanel'
+    alias: 'viewmodel.formaspagopanel',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        FormasPagoLocalStore: {
+            type: 'formaspagostore',
+            model: 'Entregas100Web.model.FormaPagoModel'
+        },
+        CombinacionesFormaPagoLocalStore: {
+            type: 'combinacionesformapagostore',
+            model: 'Entregas100Web.model.CombinacionFormaPagoModel'
+        },
+        CombinacionesFormaPlazaLocalStore: {
+            type: 'combinacionesformaplazastore',
+            model: 'Entregas100Web.model.CombinacionFormaPlazaModel'
+        }
+    }
 
 });

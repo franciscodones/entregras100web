@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "plazasstore",
         "designer|userClassName": "PlazasStore",
         "model": "PlazaModel",
         "rejectOnExceptions": true,
@@ -17,7 +18,8 @@
         "storeId": "string",
         "manageSync": "boolean",
         "rollbackOnExceptions": "boolean",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "MyJsonStore",
     "designerId": "5f235546-7ed6-4ca3-99cc-f4c65cc9edd8",

@@ -15,6 +15,7 @@
 
 Ext.define('Entregas100Web.store.UnidadesStore', {
     extend: 'Ext.data.Store',
+    alias: 'store.unidadesstore',
 
     requires: [
         'Entregas100Web.model.UnidadModel',

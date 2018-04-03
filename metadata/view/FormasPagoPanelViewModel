@@ -14,5 +14,88 @@
         "designer|userClassName": "string"
     },
     "name": "ZonasPanelViewModel1",
-    "designerId": "2f68084e-db9c-4c52-bf4d-b9ca3d43fbbe"
+    "designerId": "2f68084e-db9c-4c52-bf4d-b9ca3d43fbbe",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "FormaPagoModel",
+                "name": "FormasPagoLocalStore",
+                "type": "formaspagostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore13",
+            "designerId": "80bd90e5-c6c5-4a10-b4b4-68af02cb0d0d",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "CombinacionFormaPagoModel",
+                "name": "CombinacionesFormaPagoLocalStore",
+                "type": "combinacionesformapagostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore14",
+            "designerId": "e8d3ccfe-0627-41d1-820c-32065453ba8e",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "CombinacionFormaPlazaModel",
+                "name": "CombinacionesFormaPlazaLocalStore",
+                "type": "combinacionesformaplazastore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore15",
+            "designerId": "32030082-6561-42ac-a29b-a432998d8479",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

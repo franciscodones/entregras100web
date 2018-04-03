@@ -15,6 +15,17 @@
 
 Ext.define('Entregas100Web.view.CrearUsuarioWindowViewModel1', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.editarusuariowindow'
+    alias: 'viewmodel.editarusuariowindow',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        TiposSesionLocalStore: {
+            type: 'tipossesionstore',
+            model: 'Entregas100Web.model.TipoSesionModel'
+        }
+    }
 
 });

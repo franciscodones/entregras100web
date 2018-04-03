@@ -6,13 +6,13 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "PerfilPago"
+        "designer|userClassName": "TipoSesionModel"
     },
     "configAlternates": {
         "designer|userClassName": "string"
     },
     "name": "MyModel",
-    "designerId": "3d2b7520-9235-4563-8f57-2a070f998909",
+    "designerId": "425a2d06-fa40-4c23-a1b8-9e569a4047b8",
     "cn": [
         {
             "type": "Ext.data.field.Integer",
@@ -27,8 +27,8 @@
             "configAlternates": {
                 "name": "string"
             },
-            "name": "MyInteger20",
-            "designerId": "098d1773-26c8-41c3-89a3-3315f801b78a"
+            "name": "MyInteger2",
+            "designerId": "859f977e-2d98-4924-8fd9-e47229101c41"
         },
         {
             "type": "Ext.data.field.String",
@@ -38,29 +38,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "descripcion"
+                "name": "tipo_sesion"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyString6",
-            "designerId": "0d919712-1a74-47c9-8c74-ffb63dbae68b"
-        },
-        {
-            "type": "Ext.data.field.Integer",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "forma_pago_id"
-            },
-            "configAlternates": {
-                "name": "string"
-            },
-            "name": "MyInteger21",
-            "designerId": "7f041b58-d5ee-476b-bcf7-db9be734ffb5"
+            "designerId": "90b90b33-a355-4e72-887c-ea2fc06b2a6d"
         }
     ]
 }

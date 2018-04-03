@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "designer|userAlias": "combinacionesformaperfilstore",
         "designer|userClassName": "CombinacionesFormaPerfilStore",
-        "model": "CombinacionFormaPerfil",
+        "model": "CombinacionFormaPerfilModel",
         "rejectOnExceptions": true,
         "storeId": "CombinacionesFormaPerfilStore"
     },
@@ -16,7 +17,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "rejectOnExceptions": "boolean"
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
     },
     "name": "CombinacionesFormaPlazaStore1",
     "designerId": "c3307081-5b8b-4070-9613-d567a30a4c70",
