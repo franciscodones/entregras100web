@@ -116,6 +116,42 @@ Ext.define('Entregas100Web.model.UnidadModel', {
         {
             type: 'string',
             name: 'nombre_plaza'
+        },
+        {
+            type: 'int',
+            name: 'folios_id'
+        },
+        {
+            type: 'string',
+            name: 'folios_serie'
+        },
+        {
+            type: 'int',
+            name: 'folios_nota'
+        },
+        {
+            type: 'int',
+            name: 'folios_puntos'
+        },
+        {
+            type: 'int',
+            name: 'folios_litrogas'
+        },
+        {
+            type: 'int',
+            name: 'folios_recirculacion'
+        },
+        {
+            type: 'int',
+            name: 'folios_consignacion'
+        },
+        {
+            type: 'int',
+            name: 'folios_donativo'
+        },
+        {
+            type: 'int',
+            name: 'folios_cortesia'
         }
     ]
 });

@@ -289,7 +289,7 @@
                     "userConfig": {
                         "dataIndex": "nombre_plaza",
                         "text": "Plaza",
-                        "width": 140
+                        "width": 120
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -321,7 +321,7 @@
                     "userConfig": {
                         "dataIndex": "zona",
                         "text": "Zona",
-                        "width": 140
+                        "width": 70
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -471,6 +471,218 @@
                     },
                     "name": "MyTable",
                     "designerId": "04604c89-ffc9-4f3e-981a-b38f4dce7312"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "text": "Folios"
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "text": "string"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "b2c9929d-6e6e-4e9c-bc96-8ceceb5e9c5a",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "align": "center",
+                                "dataIndex": "folios_serie",
+                                "style": "text-align: left",
+                                "text": "Serie",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "align": "string",
+                                "dataIndex": "datafield",
+                                "style": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyColumn6",
+                            "designerId": "1ff7625c-4909-4d8b-979d-c7e8156d3c20"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_nota",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Nota",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "style": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn2",
+                            "designerId": "64b41c1b-056a-4567-87b9-df5eee9bd66b"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_puntos",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Punt.",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "style": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn3",
+                            "designerId": "332f7de6-3ad7-4095-835a-7378005174dd"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_litrogas",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Litrog.",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "style": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn4",
+                            "designerId": "7f0addc2-3648-4e3a-82f3-08cb3c199540"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_recirculacion",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Recir.",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "text": "string",
+                                "style": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn5",
+                            "designerId": "700393fe-cef7-4762-8cbf-d3782b12caf3"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_consignacion",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Consig.",
+                                "width": 85
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "text": "string",
+                                "style": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn6",
+                            "designerId": "c40d2a68-a5d7-4f86-a570-f40e951f0062"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_donativo",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Dona.",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "text": "string",
+                                "style": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn7",
+                            "designerId": "b7699948-ea67-4561-8f6c-d01918f4b190"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "folios_cortesia",
+                                "format": "0,000",
+                                "style": "text-align: left",
+                                "text": "Cort.",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "format": "string",
+                                "text": "string",
+                                "style": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyNumberColumn8",
+                            "designerId": "5165df2e-f72f-45de-b93c-b3cf14a69831"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Action",

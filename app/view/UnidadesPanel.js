@@ -114,7 +114,7 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 140,
+                    width: 120,
                     dataIndex: 'nombre_plaza',
                     text: 'Plaza',
                     filter: {
@@ -123,7 +123,7 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 140,
+                    width: 70,
                     dataIndex: 'zona',
                     text: 'Zona',
                     filter: {
@@ -163,6 +163,77 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                     filter: {
                         type: 'boolean'
                     }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    align: 'center',
+                    text: 'Folios',
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            align: 'center',
+                            dataIndex: 'folios_serie',
+                            text: 'Serie'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_nota',
+                            text: 'Nota',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_puntos',
+                            text: 'Punt.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_litrogas',
+                            text: 'Litrog.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_recirculacion',
+                            text: 'Recir.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 85,
+                            dataIndex: 'folios_consignacion',
+                            text: 'Consig.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_donativo',
+                            text: 'Dona.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_cortesia',
+                            text: 'Cort.',
+                            format: '0,000'
+                        }
+                    ]
                 },
                 {
                     xtype: 'actioncolumn',

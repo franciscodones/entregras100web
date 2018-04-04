@@ -65,7 +65,6 @@ Ext.application({
         'EditarZonaWindow',
         'UnidadesPanel',
         'CrearUnidadWindow',
-        'EditarUnidadWindow',
         'OperadoresPanel',
         'CrearOperadorWindow',
         'EditarOperadorWindow',
@@ -78,7 +77,8 @@ Ext.application({
         'UsuariosPanel',
         'CrearUsuarioWindow',
         'EditarUsuarioWindow',
-        'PermisosPanel'
+        'PermisosPanel',
+        'EditarUnidadWindow'
     ],
     name: 'Entregas100Web',
 

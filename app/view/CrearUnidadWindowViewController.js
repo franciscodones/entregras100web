@@ -20,10 +20,12 @@ Ext.define('Entregas100Web.view.CrearUnidadWindowViewController', {
     onCmbPlazaSelect: function(combo, record, eOpts) {
         var me = this,
             cmbZona = me.view.down("#cmbZona"),
+            txtSerie = me.view.down("#txtSerie"),
             zonasLocalStore = me.getStore("ZonasLocalStore");
 
         if (record) {
-            this.view.down("#cmbZona").enable();
+            cmbZona.enable();
+            txtSerie.setValue(record.get("plaza"));
 
             // refresca el filtro de la plaza en el store de zonas
             zonasLocalStore.removeFilter("plazaFilter");
@@ -52,7 +54,7 @@ Ext.define('Entregas100Web.view.CrearUnidadWindowViewController', {
         if (crearUnidadForm.isValid()) {
             waitWindow = Ext.MessageBox.wait("Agregando unidad...");
             record = Ext.create(
-            "Entregas100Web.model.ZonaModel",
+            "Entregas100Web.model.UnidadModel",
             Ext.apply(crearUnidadForm.getFieldValues(), {nombre_plaza: nombrePlaza, zona: zona})
             );
             unidadesLocalStore.add(record);

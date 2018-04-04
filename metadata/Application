@@ -52,7 +52,6 @@
             "EditarZonaWindow",
             "UnidadesPanel",
             "CrearUnidadWindow",
-            "EditarUnidadWindow",
             "OperadoresPanel",
             "CrearOperadorWindow",
             "EditarOperadorWindow",
@@ -65,7 +64,8 @@
             "UsuariosPanel",
             "CrearUsuarioWindow",
             "EditarUsuarioWindow",
-            "PermisosPanel"
+            "PermisosPanel",
+            "EditarUnidadWindow"
         ]
     },
     "configAlternates": {

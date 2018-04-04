@@ -14,7 +14,7 @@
         "designer|userClassName": "string"
     },
     "name": "CrearUnidadWindowViewModel1",
-    "designerId": "f77d90cd-6f77-4604-bffd-9d4d3126fd1b",
+    "designerId": "7ee4c284-dabf-41d0-8e15-b31e76f18c6b",
     "cn": [
         {
             "type": "Ext.data.Store",
@@ -33,8 +33,8 @@
                 "name": "string",
                 "type": "string"
             },
-            "name": "MyStore18",
-            "designerId": "ad276107-554c-47d8-b834-5ec2855c9645",
+            "name": "MyStore25",
+            "designerId": "ecb63203-b0e9-47ea-af21-b23fa0d2de9a",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -56,8 +56,8 @@
                     "configAlternates": {
                         "id": "string"
                     },
-                    "name": "MyFilter6",
-                    "designerId": "d7921472-21b8-41e8-830e-c07cca7b1edd",
+                    "name": "MyFilter11",
+                    "designerId": "feac5323-ae3d-4c68-adb4-692117903224",
                     "cn": [
                         {
                             "type": "fixedfunction",
@@ -81,7 +81,7 @@
                                 "implHandler": "code"
                             },
                             "name": "filterFn",
-                            "designerId": "88b33bb1-4325-42a0-96d2-7d486b385095"
+                            "designerId": "c489b9e5-53ab-4282-9c3d-45b73bc4ebec"
                         }
                     ]
                 }
@@ -104,8 +104,8 @@
                 "name": "string",
                 "type": "string"
             },
-            "name": "MyStore19",
-            "designerId": "82a73139-f89e-4ac1-874b-4b1b378dcc33",
+            "name": "MyStore26",
+            "designerId": "31fc7006-7321-453c-ada8-2a6831acb7ce",
             "customConfigs": [
                 {
                     "group": "(Custom Properties)",
@@ -127,8 +127,8 @@
                     "configAlternates": {
                         "id": "string"
                     },
-                    "name": "MyFilter7",
-                    "designerId": "15599606-d141-45bc-aff1-77e6a3bf62e9",
+                    "name": "MyFilter12",
+                    "designerId": "f7fce03c-5e8f-4952-a94f-1441a9949f61",
                     "cn": [
                         {
                             "type": "fixedfunction",
@@ -152,7 +152,7 @@
                                 "implHandler": "code"
                             },
                             "name": "filterFn",
-                            "designerId": "db674210-1221-4b8f-96b3-506bd43344ef"
+                            "designerId": "76617165-c773-4f81-94f6-9b2f2a3399b0"
                         }
                     ]
                 }

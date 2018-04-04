@@ -21,13 +21,13 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
         'Entregas100Web.view.EditarUnidadWindowViewModel',
         'Entregas100Web.view.EditarUnidadWindowViewController',
         'Ext.form.Panel',
-        'Ext.form.field.Hidden',
-        'Ext.form.field.Number',
-        'Ext.form.field.ComboBox',
-        'Ext.form.field.Checkbox',
         'Ext.form.FieldContainer',
-        'Ext.button.Button',
-        'Ext.toolbar.Spacer'
+        'Ext.form.field.Number',
+        'Ext.toolbar.Spacer',
+        'Ext.form.field.ComboBox',
+        'Ext.form.FieldSet',
+        'Ext.form.field.Checkbox',
+        'Ext.button.Button'
     ],
 
     controller: 'editarunidadwindow',
@@ -36,7 +36,7 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
     },
     modal: true,
     id: 'editarUnidadWindow',
-    width: 400,
+    width: 500,
     glyph: 'f0d1@FontAwesome',
     title: 'Editar Unidad',
 
@@ -48,86 +48,267 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
             bodyPadding: 10,
             items: [
                 {
-                    xtype: 'hiddenfield',
-                    anchor: '100%',
-                    fieldLabel: 'Label',
-                    name: 'id'
-                },
-                {
-                    xtype: 'numberfield',
-                    anchor: '100%',
-                    fieldLabel: 'Unidad',
-                    name: 'unidad',
-                    allowBlank: false,
-                    hideTrigger: true,
-                    allowDecimals: false,
-                    allowExponential: false,
-                    maxValue: 999,
-                    minValue: 1
-                },
-                {
-                    xtype: 'textfield',
-                    transformToUpper: true,
-                    anchor: '100%',
-                    fieldLabel: 'Tipo',
-                    name: 'letra',
-                    allowBlank: false,
-                    maskRe: /[A-Za-z]/,
-                    maxLength: 1,
-                    minLength: 1
-                },
-                {
-                    xtype: 'combobox',
-                    anchor: '100%',
-                    itemId: 'cmbPlaza',
-                    fieldLabel: 'Plaza',
-                    name: 'plaza_id',
-                    readOnly: true,
-                    allowBlank: false,
-                    editable: false,
-                    displayField: 'ciudad',
-                    forceSelection: true,
-                    valueField: 'id',
-                    bind: {
-                        store: '{PlazasLocalStore}'
+                    xtype: 'fieldcontainer',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
                     },
-                    listeners: {
-                        select: 'onCmbPlazaSelect'
-                    }
+                    items: [
+                        {
+                            xtype: 'numberfield',
+                            flex: 1,
+                            fieldLabel: 'Unidad',
+                            name: 'unidad',
+                            allowBlank: false,
+                            hideTrigger: true,
+                            allowDecimals: false,
+                            allowExponential: false,
+                            maxValue: 999,
+                            minValue: 1
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 20
+                        },
+                        {
+                            xtype: 'textfield',
+                            transformToUpper: true,
+                            flex: 1,
+                            fieldLabel: 'Tipo',
+                            name: 'letra',
+                            allowBlank: false,
+                            maskRe: /[A-Za-z]/,
+                            maxLength: 1,
+                            minLength: 1
+                        }
+                    ]
                 },
                 {
-                    xtype: 'combobox',
-                    anchor: '100%',
-                    itemId: 'cmbZona',
-                    fieldLabel: 'Zona',
-                    name: 'zona_id',
-                    allowBlank: false,
-                    editable: false,
-                    displayField: 'zona',
-                    forceSelection: true,
-                    valueField: 'id',
-                    bind: {
-                        store: '{ZonasLocalStore}'
-                    }
+                    xtype: 'fieldcontainer',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            itemId: 'cmbPlaza',
+                            fieldLabel: 'Plaza',
+                            name: 'plaza_id',
+                            allowBlank: false,
+                            editable: false,
+                            displayField: 'ciudad',
+                            forceSelection: true,
+                            valueField: 'id',
+                            bind: {
+                                store: '{PlazasLocalStore}'
+                            },
+                            listeners: {
+                                select: 'onCmbPlazaSelect'
+                            }
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 20
+                        },
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            itemId: 'cmbZona',
+                            fieldLabel: 'Zona',
+                            name: 'zona_id',
+                            allowBlank: false,
+                            editable: false,
+                            displayField: 'zona',
+                            forceSelection: true,
+                            valueField: 'id',
+                            bind: {
+                                store: '{ZonasLocalStore}'
+                            }
+                        }
+                    ]
                 },
                 {
-                    xtype: 'checkboxfield',
-                    anchor: '100%',
-                    hideEmptyLabel: false,
-                    name: 'cobro_aditivo',
-                    boxLabel: 'Contiene AD+',
-                    checked: true,
-                    inputValue: 'true',
-                    uncheckedValue: 'false'
+                    xtype: 'fieldset',
+                    title: 'Folios',
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    flex: 1,
+                                    itemId: 'txtSerie',
+                                    fieldLabel: 'Serie',
+                                    name: 'folios_serie',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Notas',
+                                    name: 'folios_nota',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Puntos',
+                                    name: 'folios_puntos',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Litrogas',
+                                    name: 'folios_litrogas',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Recirculacion',
+                                    name: 'folios_recirculacion',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Consignacion',
+                                    name: 'folios_consignacion',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Donativo',
+                                    name: 'folios_donativo',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'numberfield',
+                                    flex: 1,
+                                    fieldLabel: 'Cortesia',
+                                    name: 'folios_cortesia',
+                                    value: 0,
+                                    allowBlank: false,
+                                    hideTrigger: true,
+                                    allowDecimals: false,
+                                    allowExponential: false,
+                                    minValue: 0
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    xtype: 'checkboxfield',
-                    anchor: '100%',
-                    hideEmptyLabel: false,
-                    name: 'online',
-                    boxLabel: 'Modo Online',
-                    inputValue: 'true',
-                    uncheckedValue: 'false'
+                    xtype: 'fieldcontainer',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch',
+                        pack: 'center'
+                    },
+                    items: [
+                        {
+                            xtype: 'checkboxfield',
+                            width: 150,
+                            hideEmptyLabel: false,
+                            labelWidth: 0,
+                            name: 'cobro_aditivo',
+                            boxLabel: 'Contiene AD+',
+                            checked: true,
+                            inputValue: 'true',
+                            uncheckedValue: 'false'
+                        },
+                        {
+                            xtype: 'checkboxfield',
+                            width: 150,
+                            hideEmptyLabel: false,
+                            labelWidth: 0,
+                            name: 'online',
+                            boxLabel: 'Modo Online',
+                            inputValue: 'true',
+                            uncheckedValue: 'false'
+                        }
+                    ]
                 },
                 {
                     xtype: 'fieldcontainer',
