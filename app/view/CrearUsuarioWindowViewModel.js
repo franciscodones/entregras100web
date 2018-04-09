@@ -24,7 +24,7 @@ Ext.define('Entregas100Web.view.CrearUsuarioWindowViewModel', {
 
     stores: {
         PlazasLocalStore: {
-            type: 'PlazasLocalStore',
+            type: 'plazasstore',
             model: 'Entregas100Web.model.PlazaModel',
             filters: {
                 filterFn: function(item) {

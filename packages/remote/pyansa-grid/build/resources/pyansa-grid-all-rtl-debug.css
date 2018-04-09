@@ -1,0 +1,19 @@
+/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:3 */
+.x-column-header-show-trigger .x-column-header-trigger {
+    display: block;
+    background-color: #c5c5c5;
+}
+/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:10 */
+.x-column-header-show-trigger.x-column-header-over .x-column-header-trigger {
+    background-color: #aaccf6;
+}
+/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:16 */
+.x-column-header-show-trigger.x-column-header-open .x-column-header-trigger {
+    background-color: transparent;
+}
+/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:21 */
+.x-column-header-show-trigger .x-column-header-trigger {
+    width: 14px;
+    cursor: pointer;
+    background: transparent url(images/grid/grid3-hd-btn.gif) no-repeat 0 center;
+}

@@ -26,7 +26,7 @@
             "userConfig": {
                 "model": "PlazaModel",
                 "name": "PlazasLocalStore",
-                "type": "PlazasLocalStore"
+                "type": "plazasstore"
             },
             "configAlternates": {
                 "model": "model",

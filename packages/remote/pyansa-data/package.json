@@ -1,0 +1,46 @@
+{
+  "name": "pyansa-data",
+  "namespace": "Pyansa",
+  "format": "1",
+  "version": "6.5.0",
+  "compatVersion": "1.0.0",
+  "creator": "Pyansa",
+  "summary": "Pyansa data",
+  "detailedDescription": "Sobreescritura y funcionalidades del paquete de Sencha",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Pyansa",
+      "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
+      "created": "2018-04-07T01:27:19Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "VgNoLZQVazc\u003d",
+      "signature": "IgnUddSbrEhHqGfQ9kDbeokqguBdNrcZwr5mJNQSStmrMXpEeEPIi93oNYo4a4P2/w5aYY6v9AXb17ONaAxtV7PkRO9J8SvfxbRVIhGjb5H0W8uV7uvgxs+iUrtci+6uEwOK1KmReHV/nmbIs67JteFS2+6B9uPnRCPpNqk1lhK6z1yvD8u57EYTitectaonWCBjoiFImpujOoULr011uWd7toKbvB0Y231+vysI44ti2RiIKgdZH1UHGwFoK3LALrektS++TpR35VcRm4MnJ5ES1ToNobN9yCjNMDw/lRpatoG/ndxjw2c63c5BJdJXyepgSUyr1eQ2884FhaGv/g\u003d\u003d"
+    }
+  ],
+  "architect": {
+    "compatFrameworks": [
+      "modern65",
+      "ext65"
+    ],
+    "classes": []
+  },
+  "builds": {
+    "classic": {
+      "toolkit": "classic"
+    }
+  },
+  "output": "${package.dir}/build",
+  "classpath": [
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
+  ],
+  "framework": "ext",
+  "properties": {
+    "skip.style": 1
+  }
+}

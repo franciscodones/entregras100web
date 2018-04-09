@@ -1,1 +1,1 @@
-{"_comment":"Please don't edit. This is Architect data.","name":"Entregas100Web","resources":[],"requires":["exporter"],"theme":"theme-triton-bededc52-2f39-44f8-9a11-4d8f26eca495","classpath":null,"css":[],"js":[]}
+{"_comment":"Please don't edit. This is Architect data.","name":"Entregas100Web","resources":[],"requires":["exporter","pyansa-form","pyansa-dialog","pyansa-locale","pyansa-data","pyansa-grid","pyansa-permissible"],"theme":"theme-triton-bededc52-2f39-44f8-9a11-4d8f26eca495","classpath":null,"css":[],"js":[]}

@@ -9,7 +9,13 @@
         "basePath": "ext/build/",
         "designer|userClassName": "Library",
         "libraryRequires": [
-            "exporter"
+            "exporter",
+            "pyansa-form",
+            "pyansa-dialog",
+            "pyansa-locale",
+            "pyansa-data",
+            "pyansa-grid",
+            "pyansa-permissible"
         ],
         "theme": "MyTritonTheme"
     },

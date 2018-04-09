@@ -1,0 +1,46 @@
+{
+  "name": "pyansa-locale",
+  "namespace": "Pyansa",
+  "format": "1",
+  "version": "6.5.0",
+  "compatVersion": "1.0.0",
+  "creator": "Pyansa",
+  "summary": "Pyansa locale",
+  "detailedDescription": "Traduccion de textos de los componentes",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Pyansa",
+      "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
+      "created": "2018-04-07T01:04:59Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "DpGwhdHssRA\u003d",
+      "signature": "m36dhSqvZ8VlTHdk+oVnTQwY0KzsOVaa4aArXXwz3wcTUorVLMqjo1P1Z8w0b60QoY5O/a7DFAbi3qcZ6FGySlmxyJEmM+fk7kHSoTRTwYhHxv/vZl4mOrfJPi2YyDMFI2qGIJcGvhVw/maNQZNgrXIOMFrpWcxaN1VcG98pfA0UEMaVm/njL/5Q2urlt2PM4Noz1H5OIdAQwnoe3M2sjxeSg6P9lLR8z5ZLLOfDibQ/fPq7dbc9MrI9YDNoSr5SXHlmkgKlP4VGKEUp0qs1KKM2rWgRJTg5Cc6walS6RsmU8diIcRIJZnPMX01+n49JSM+gxikeepF2b86sUJL4uw\u003d\u003d"
+    }
+  ],
+  "architect": {
+    "compatFrameworks": [
+      "modern65",
+      "ext65"
+    ],
+    "classes": []
+  },
+  "builds": {
+    "classic": {
+      "toolkit": "classic"
+    }
+  },
+  "toolkit": "classic",
+  "output": "${package.dir}/build",
+  "theme": "ext-theme-classic",
+  "classpath": [
+    "${package.dir}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides"
+  ],
+  "framework": "ext",
+  "properties": {
+    "skip.style": 1
+  }
+}

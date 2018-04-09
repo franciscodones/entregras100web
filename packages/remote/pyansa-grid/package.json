@@ -1,0 +1,60 @@
+{
+  "name": "pyansa-grid",
+  "namespace": "Pyansa",
+  "format": "1",
+  "version": "6.5.0",
+  "compatVersion": "1.0.0",
+  "creator": "Pyansa",
+  "summary": "Pyansa grid",
+  "detailedDescription": "Sobreescritura y mejoras del paquete de Sencha",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Pyansa",
+      "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
+      "created": "2018-04-07T01:04:05Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "lYHtsH9QEXw\u003d",
+      "signature": "XFqlMC8shfScZgFcnYQ6hbirhurKB4nBfrI6IebCgvWpm+ZBfCxHYpB275fJ+JHyr6h3v16w+GVyAtqsIALu+ZXIxb/y4RTK3T+z0sW6z6oAe3+J1ZJk/njx9ivUHGhlox8itEVRl+qFXTFSN7mc+yyST22i/tUI5YkmRkxDlCv4twNSxRif1IZ8HDWKxSY9q7Rdc9cchXyZL+NKcIDnZIEq4aZQAtPgdRoz9mMUIx8ifbI1Y4Ue1wgbQvITgloQ2PACVIyiBXbrdvhB8k/gJLD+Rn2JbYKcvOgHI4p0BlxWBLPIs9FBUcO/kDjlFYfZWyg7a4Nqg3FzUOGprhNBZA\u003d\u003d"
+    }
+  ],
+  "architect": {
+    "compatFrameworks": [
+      "modern65",
+      "ext65"
+    ],
+    "classes": []
+  },
+  "builds": {
+    "classic": {
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    }
+  },
+  "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
+  "classpath": [
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
+  ],
+  "framework": "ext",
+  "properties": {}
+}

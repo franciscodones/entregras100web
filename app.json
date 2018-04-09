@@ -7,9 +7,14 @@
    "theme": "theme-triton-bededc52-2f39-44f8-9a11-4d8f26eca495",
    "requires": [
       "font-awesome",
+      "ext-locale",
       "exporter",
-      "Pyansa",
-      "ext-locale"
+      "pyansa-form",
+      "pyansa-dialog",
+      "pyansa-locale",
+      "pyansa-data",
+      "pyansa-grid",
+      "pyansa-permissible"
    ],
    "locale": "es",
    "indexHtmlPath": "index.html",

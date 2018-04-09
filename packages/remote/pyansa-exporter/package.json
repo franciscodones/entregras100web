@@ -1,0 +1,47 @@
+{
+  "name": "pyansa-exporter",
+  "alternateName": [
+    "exporter"
+  ],
+  "namespace": "Ext",
+  "format": "1",
+  "version": "6.5.0",
+  "compatVersion": "1.0.0",
+  "creator": "Pyansa",
+  "summary": "Pyansa exporter",
+  "detailedDescription": "Paquete exporter",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Pyansa",
+      "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
+      "created": "2018-04-07T01:03:08Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "hgQBlKYz3E0\u003d",
+      "signature": "Tsw7Q1TbHEZibEOIPg8eXs419ERGqw3r0Qp1+pdYCCcso+k4AOQddYgDMEAXEo8tGewfldK/qKyI4jv4SpTa/EPEeEPu1hja4CDIuoShVrD7HnNDnTsy7AsZfyc7+i6unNKCYYmiWQYglW0NE9XdbEL8eNJp+2pMj9HhzDOOOJamL29h9oIBLS714da7iUPTp2kmETNu/IWNcp1fl7+FN7eHUaS1imhAI9IuGVg4ShBUS9V1k4TLQnnz2v92bPz3xPAzrJ2zmu2ygukmn6Fxi+jJXsXrlPSUvatwzeTa3YQ6k8KZ9cxJqInsQCN+PHSVpJUGNgxDRo2ftouS7GC/qA\u003d\u003d"
+    }
+  ],
+  "architect": {
+    "compatFrameworks": [
+      "modern65",
+      "ext65"
+    ],
+    "classes": []
+  },
+  "builds": {
+    "classic": {
+      "toolkit": "classic"
+    }
+  },
+  "output": "${package.dir}/build",
+  "classpath": [
+    "${package.dir}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides"
+  ],
+  "framework": "ext",
+  "properties": {
+    "skip.style": 1
+  }
+}
