@@ -49,6 +49,9 @@ Cache::config('default', array('engine' => 'File'));
  *     'Plugin'                    => array('/path/to/plugins/', '/next/path/to/plugins/'),
  * ));
  */
+App::build(array(
+    'Controller' => array(ROOT.'/app/Controller/Entregas100/')
+));
 
 /**
  * Custom Inflector rules can be set to correctly pluralize or singularize table, model, controller names or whatever other

@@ -20,7 +20,7 @@
  */
 
 App::uses('Controller', 'Controller');
-App::uses('ConnectionManager', 'Model');
+App::uses('PyansaConnectionManager', 'Model');
 
 /**
  * Application Controller
@@ -227,10 +227,10 @@ class AppController extends Controller {
         $conexion = null;
         try {
             if (empty($config)) {
-                return ConnectionManager::getDataSource($name);
+                return PyansaConnectionManager::getDataSource($name);
             } else {
                 // crea una nueva conexion con config
-                return ConnectionManager::create(
+                return PyansaConnectionManager::create(
                     $name,
                     array(
                         'datasource' => 'Database/Mysql',
