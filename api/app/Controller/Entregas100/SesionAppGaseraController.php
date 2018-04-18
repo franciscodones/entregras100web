@@ -87,7 +87,7 @@ class SesionAppGaseraController extends AppGaseraController {
                 "tipo" => $aUsuario1["tipo_usuario_id"],
                 "version" => $aUnidad["version"],
                 "ruta_actualizacion" => $aUnidad["ruta_actualizacion"],
-                "fecha" => $dFechaOperacion->format("Y-m-d")
+                "fecha" => ""
             )
         ));
     }

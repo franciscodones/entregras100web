@@ -1,5 +1,5 @@
 <?php
-App::uses('SolicitarlistaController', 'Controller');
+App::uses('SolicitarlistaAppGaseraController', 'Controller');
 
 class SolicitarpadronAppGaseraController extends AppGaseraController {
 
@@ -44,7 +44,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
 
         // genera la lista de trabajo en una tabla temporal
         $sQuery = "CREATE TEMPORARY TABLE lista_app AS (" .
-            SolicitarlistaController::getListaQueryString() .
+            SolicitarlistaAppGaseraController::getListaQueryString() .
             ")";
         $aQueryParams = array($aPlaza["otorga_puntos"], $dFechaPadron, $dFechaPadron);
         $oConexionPlaza->query($sQuery, $aQueryParams);

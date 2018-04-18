@@ -90,7 +90,7 @@ class SurtidoAppGaseraController extends AppGaseraController {
 
         // si el servicio no trae linea de captura se asigna 0
         if (trim($nLineaCaptura) == "") {
-            $nLineaCaptura = "0";
+            $nLineaCaptura = str_pad("0", 20, "0", STR_PAD_LEFT);
         }
 
         // se comvierte el tipo_compromiso_id a su respectiva letra

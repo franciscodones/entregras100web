@@ -30,13 +30,20 @@ class ConciliarservicioAppGaseraController extends AppGaseraController {
             "WHERE unidad_id = ? ".
             "AND fecha = ? " .
             "AND numero_control = ? " .
-            "AND numero_servicio = ?";
-        foreach ($aServicios as $aServicioApp) {
+            "AND numero_servicio = ? " .
+            "AND linea_captura = ?";
+        foreach ($aServicios as &$aServicioApp) {
+            // si el servicio no trae linea de captura se asigna 0
+            if (trim($aServicioApp["linea_captura"]) == "") {
+                $aServicioApp["linea_captura"] = str_pad("0", 20, "0", STR_PAD_LEFT);
+            }
+
             $aQueryParams = array(
                 $aUnidad['id'],
                 $aServicioApp["fecha_operacion"],
                 $aServicioApp["numero_control"],
-                $aServicioApp["numero_servicio"]
+                $aServicioApp["numero_servicio"],
+                str_pad($aServicioApp["linea_captura"], 20, "0", STR_PAD_LEFT)
             );
             $aResultado = $oConexion->query($sQuery, $aQueryParams);
             $aResultado = $this->parsearQueryResult($aResultado);
@@ -48,6 +55,7 @@ class ConciliarservicioAppGaseraController extends AppGaseraController {
                 );
             }
         }
+        unset($aServicioApp);
 
         return $this->asJson(array(
             "success" => true,
