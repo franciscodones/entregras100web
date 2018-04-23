@@ -10,7 +10,7 @@
         "designer|userClassName": "PlazasStore",
         "model": "PlazaModel",
         "rejectOnExceptions": true,
-        "storeId": " PlazasStore"
+        "storeId": "PlazasStore"
     },
     "configAlternates": {
         "designer|userClassName": "string",

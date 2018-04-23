@@ -39,6 +39,15 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
         $nTotalLista = 0;
         $dFechaLista = date("Y-m-d");
 
+        // obtiene el horario nocturno de la zona en caso que tenga
+        $sQuery = "SELECT * " .
+            "FROM horario_zona " .
+            "WHERE zona_id = ?";
+        $aQueryParams = array($aUnidad["zona_id"]);
+        $aResultado = $oConexion->query($sQuery, $aQueryParams);
+        $aResultado = $this->parsearQueryResult($aResultado);
+        $aHorarioNocturno = count($aResultado) > 0 ? $aResultado[0] : null;
+
         // genera la lista de trabajo en una tabla temporal
         $sQuery = "CREATE TEMPORARY TABLE lista_app AS (" .
             self::getListaQueryString() .
@@ -46,11 +55,66 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
         $aQueryParams = array($aPlaza["otorga_puntos"], $dFechaLista, $dFechaLista);
         $oConexionPlaza->query($sQuery, $aQueryParams);
 
-        // obtiene los registros de la lista de trabajo de la zona de la unidad
+        /**
+         * obtiene los registros de la lista de trabajo de la zona de la unidad y de acuerdo a su horario de lista:
+         *
+         *
+         *       06:00                              15:00                           23:00
+         *         |-------- HORARIO DIURNO ----------|--------- HORARIO NOCTURNO ----|
+         * 00:00                                    15:00                                23:59
+         *   |----------------------------------------|------------------------------------|
+         *           |--- PINSA---|             |-- BIMBO --|        |-- TECATE --|
+         *         07:00        10:00         14:00       16:00    20:00        22:00
+         *
+         *                                  ENVASES ZAPATA (SIN HORARIO)
+         *
+         * Los resultados serian los sigueintes:
+         * LISTA DIURNA:
+         *     PINSA  07:00 - 10:00
+         *     BIMBO  14:00 - 16:00
+         *     ENVASES ZAPATA
+         *
+         * LISTA NOCTURNA:
+         *     BIMBO  14:00 - 16:00
+         *     TECATE 20:00 - 22:00
+         *     ENVASES ZAPATA
+         */
         $sQuery = "SELECT * " .
             "FROM lista_app " .
             "WHERE zona = ?";
-        $aQueryParams = array($aUnidad["zona"]);
+        $aQueryParams = array(
+            $aUnidad["zona"]
+        );
+        if ($aHorarioNocturno) {
+            if ($aDatos["horario_zona"] == "N") {
+                $sQuery .= " AND (" .
+                        "hora_pref1 BETWEEN ? AND ? " .
+                        "OR hora_pref2 BETWEEN ? AND ? " .
+                        "OR hora_pref1 = 0" .
+                    ")";
+                $aQueryParams = array_merge(
+                    $aQueryParams,
+                    array(
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_inicial"]), 0, 4)),
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_final"]), 0, 4)),
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_inicial"]), 0, 4)),
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_final"]), 0, 4))
+                    )
+                );
+            } else {
+                $sQuery .= " AND (" .
+                        "hora_pref1 NOT BETWEEN ? AND ? " .
+                        "OR hora_pref1 = 0" .
+                    ")";
+                $aQueryParams = array_merge(
+                    $aQueryParams,
+                    array(
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_inicial"]), 0, 4)),
+                        intval(substr(str_replace(":", "", $aHorarioNocturno["hora_final"]), 0, 4)),
+                    )
+                );
+            }
+        }
         $aResultado = $oConexionPlaza->query($sQuery, $aQueryParams);
         $aListaTrabajo = $this->parsearQueryResult($aResultado);
         $nTotalLista = count($aListaTrabajo);
@@ -150,9 +214,13 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             "padron.cuenta_cxc AS cuenta_credito, " .
             "listas.fecvta AS fecha_clave, " .
             "listas.zona AS zona, " .
-            "\"\" AS numero_interior, " .
             "0 AS tipo_compromiso_id, " .
             "? AS plaza_otorga_puntos, " .
+            "IF(" .
+                "padron.interior IS NULL, " .
+                "\"\", " .
+                "padron.interior" .
+            ") AS numero_interior, " .
             // identifica si el servicio es programado
             "CASE " .
                 "WHEN llamadas.ncontrol IS NOT NULL AND TRIM(listas.lista) IN (\"N\", \"P\", \"C\", \"L\", \"\") " .

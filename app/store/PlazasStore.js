@@ -32,7 +32,7 @@ Ext.define('Entregas100Web.store.PlazasStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
-            storeId: ' PlazasStore',
+            storeId: 'PlazasStore',
             model: 'Entregas100Web.model.PlazaModel',
             proxy: {
                 type: 'ajax',
