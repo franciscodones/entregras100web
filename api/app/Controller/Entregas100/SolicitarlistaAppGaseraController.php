@@ -86,7 +86,7 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             $aUnidad["zona"]
         );
         if ($aHorarioNocturno) {
-            if ($aDatos["horario_zona"] == "N") {
+            if ($aDatos["tipo_ruta"] == "N") {
                 $sQuery .= " AND (" .
                         "hora_pref1 BETWEEN ? AND ? " .
                         "OR hora_pref2 BETWEEN ? AND ? " .

@@ -87,7 +87,8 @@ class SesionAppGaseraController extends AppGaseraController {
                 "tipo" => $aUsuario1["tipo_usuario_id"],
                 "version" => $aUnidad["version"],
                 "ruta_actualizacion" => $aUnidad["ruta_actualizacion"],
-                "fecha" => ""
+                "fecha" => "",
+                "permitir_ruta_nocturna" => $aUnidad["permitir_ruta_nocturna"]
             )
         ));
     }
