@@ -32,6 +32,12 @@ class ExceptionHandler extends ErrorHandler {
     protected $response;
 
     /**
+     * `true` si el manejo de excepciones esta suspendido
+     * @var boolean
+     */
+    private static $isExceptionHandlerSuspended = false;
+
+    /**
      * Template para el trace de la excepcion
      * @var array
      */
@@ -266,17 +272,7 @@ class ExceptionHandler extends ErrorHandler {
             }
 
             // elimina la ruta del documento hasta la carpeta root del proyecto
-            $appDirRegex = getcwd();
-            $appDirRegex = str_replace("\\", "/", $appDirRegex);
-            $appDirRegex = preg_replace("/[\\\\\\/]?webroot$/", "", $appDirRegex);
-            $appDirRegex = "/" . preg_replace("/[\\\\\\/]/", "[\\\\\\\\\\/]", $appDirRegex) . "/";
-            $message = preg_replace($appDirRegex, "", $message);
-
-            // plan B es eliminar al menos la ruta del documento hasta el carpeta del servidor
-            $rootDirRegex = $_SERVER["DOCUMENT_ROOT"];
-            $rootDirRegex = str_replace("/", "\\", $rootDirRegex);
-            $rootDirRegex = "/" . preg_replace("/[\\\\\\/]/", "[\\\\\\\\\\/]", $rootDirRegex) . "/";
-            $message = preg_replace($rootDirRegex, "", $message);
+            $message = static::removePathFromMessage($message);
 
             $data = array(
                 "success" => false,
@@ -351,5 +347,43 @@ class ExceptionHandler extends ErrorHandler {
         // mata el script para evitar que el script continue en errores como
         // warnings, notice, debug, etc
         exit;
+    }
+
+    /**
+     * Elimina la ruta del documento hasta la carpeta root del proyecto
+     * @param  string $message
+     * @return string
+     */
+    public static function removePathFromMessage($message) {
+        // elimina la ruta del documento hasta la carpeta root del proyecto
+        $appDirRegex = $_SERVER["SCRIPT_FILENAME"];
+        $appDirRegex = preg_replace("/[\\\\\\/]?webroot[\\\\\\/]index\\.php$/", "", $appDirRegex);
+        $appDirRegex = preg_split("/[\\\\\\/]/", $appDirRegex);
+        $appDirRegex = array_map(function($item) {
+            return "/" . $item . "[\\\\\\/]/";
+        }, $appDirRegex);
+        $message = preg_replace($appDirRegex, "", $message);
+
+        return $message;
+    }
+
+    /**
+     * Suspende el manejo de excepciones
+     */
+    public static  function suspendExceptionHandler() {
+        if (!static::$isExceptionHandlerSuspended) {
+            set_exception_handler(function($ex) {});
+            static::$isExceptionHandlerSuspended = true;
+        }
+    }
+
+    /**
+     * Reanuda el manejo de excepciones
+     */
+    public static function resumeExceptionHandler() {
+        if (static::$isExceptionHandlerSuspended) {
+            restore_exception_handler();
+            static::$isExceptionHandlerSuspended = false;
+        }
     }
 }

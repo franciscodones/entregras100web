@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7279697da0341d39a98b1b26729f496b",
+    "content-hash": "a3196d1a01606c2c9fcb6985fe53e62c",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -285,6 +285,43 @@
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
             "time": "2017-12-24T21:09:29+00:00"
+        },
+        {
+            "name": "hraq/cake-intl",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hraq/cake-intl.git",
+                "reference": "158b86772a674c01098547ed73095556778cc3bd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hraq/cake-intl/zipball/158b86772a674c01098547ed73095556778cc3bd",
+                "reference": "158b86772a674c01098547ed73095556778cc3bd",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.0",
+                "php": ">=5.4.16"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CakeIntl\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "PHP License v3.01"
+            ],
+            "authors": [
+                {
+                    "name": "Jussi Salminen",
+                    "email": "jussi.salminen@kooditarha.com"
+                }
+            ],
+            "description": "CakeIntl plugin for CakePHP",
+            "time": "2015-07-01T09:30:19+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1896,6 +1933,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "hraq/cake-intl": 20,
         "psy/psysh": 0
     },
     "prefer-stable": true,

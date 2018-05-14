@@ -33,11 +33,6 @@ require ROOT . DS . 'vendor' . DS . 'autoload.php';
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
-// You can remove this if you are confident you have intl installed.
-if (!extension_loaded('intl')) {
-    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
-}
-
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
@@ -54,6 +49,11 @@ use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 use App\Error\ExceptionHandler;
+
+// You can remove this if you are confident you have intl installed.
+if (!extension_loaded('intl')) {
+    Plugin::load('CakeIntl', ['bootstrap' => true]);
+}
 
 /**
  * Read configuration file and inject configuration into various
