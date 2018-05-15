@@ -5,8 +5,8 @@
   ],
   "namespace": "Ext",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.2",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa exporter",
   "detailedDescription": "Paquete exporter",
@@ -15,10 +15,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:03:08Z",
+      "created": "2018-05-04T22:14:35Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "hgQBlKYz3E0\u003d",
-      "signature": "Tsw7Q1TbHEZibEOIPg8eXs419ERGqw3r0Qp1+pdYCCcso+k4AOQddYgDMEAXEo8tGewfldK/qKyI4jv4SpTa/EPEeEPu1hja4CDIuoShVrD7HnNDnTsy7AsZfyc7+i6unNKCYYmiWQYglW0NE9XdbEL8eNJp+2pMj9HhzDOOOJamL29h9oIBLS714da7iUPTp2kmETNu/IWNcp1fl7+FN7eHUaS1imhAI9IuGVg4ShBUS9V1k4TLQnnz2v92bPz3xPAzrJ2zmu2ygukmn6Fxi+jJXsXrlPSUvatwzeTa3YQ6k8KZ9cxJqInsQCN+PHSVpJUGNgxDRo2ftouS7GC/qA\u003d\u003d"
+      "nonce": "XO+8yawZQzo\u003d",
+      "signature": "bnkqAGUHnOxkw/ZOVhcHEKGGUav8OA91zGytHNJU3A5yOfdvwKslMI7MlzGeE3OfKCmmUteZZr1sZfsVU0wsVPT6rSPzQi+iotBmvRcl02MFtRSpokC4kwn8XouldnV8hSMYcF4TCMqtgnS3ZJs1hDz8n5YSY3B4YV0OvL/BBCxu50dw54p20MT4YjgKbS7inwHPChUW15atDDrgZoBr4jG3I9i225pcALYGs1YZH3FaNH1dN5Kl+EtkqTjDHFWLN64/KrAaVMSSHgsizH63zgYINktt3mkf5t3E7/zhuCQOv6GstpG8LYwZktKGtpCxv+kXZipqpGaEQGOe8tyRTA\u003d\u003d"
     }
   ],
   "architect": {
@@ -28,12 +28,38 @@
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
   "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Ext",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src"
+    ]
+  },
   "classpath": [
     "${package.dir}/src"
   ],
