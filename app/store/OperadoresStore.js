@@ -39,7 +39,8 @@ Ext.define('Entregas100Web.store.OperadoresStore', {
                 api: {
                     create: 'api/operadores/create',
                     read: 'api/operadores/read',
-                    update: 'api/operadores/update'
+                    update: 'api/operadores/update',
+                    destroy: 'api/operadores/destroy'
                 },
                 reader: {
                     type: 'json'

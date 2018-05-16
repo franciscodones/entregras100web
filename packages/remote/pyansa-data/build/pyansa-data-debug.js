@@ -1719,6 +1719,33 @@ try {
   }
 } catch (e) {
 }
+Ext.define('Pyansa.overrides.data.AbstractStore', {override:'Ext.data.AbstractStore', requires:['Ext.data.identifier.Sequential'], constructor:function(config) {
+  var me = this, identifier = me.self.identifier;
+  storeId = me.getStoreId();
+  if (!storeId && (config && config.storeId)) {
+    me.setStoreId(storeId = config.storeId);
+  }
+  if (!storeId && (config && config.id)) {
+    me.setStoreId(storeId = config.id);
+  }
+  if (!identifier && storeId) {
+    identifier = me.initIdentifier(storeId);
+  }
+  if (Ext.data.StoreManager.get(storeId)) {
+    me.setStoreId(storeId = identifier.generate());
+    if (config && config.storeId) {
+      config.storeId = storeId;
+    }
+    if (config && config.id) {
+      config.id = storeId;
+    }
+  }
+  me.callParent([config]);
+}, initIdentifier:function(storeId) {
+  var identifier = new Ext.data.identifier.Sequential({prefix:storeId + '-'});
+  this.self.identifier = identifier;
+  return identifier;
+}});
 Ext.define('Pyansa.overrides.data.Model', {override:'Ext.data.Model', requires:['Ext.Object'], clientIdProperty:'clientId'});
 Ext.define('Pyansa.overrides.data.proxy.Ajax', {override:'Ext.data.proxy.Ajax', requires:['Ext.Object', 'Ext.window.MessageBox'], constructor:function(config) {
   var me = this;

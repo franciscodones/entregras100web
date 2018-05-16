@@ -34,7 +34,7 @@ Ext.define('Entregas100Web.view.EditarZonaWindowViewController', {
             editarZonaForm.updateRecord();
             record = editarZonaForm.getRecord();
 
-            // si el record no ha sufrigo cambios se termina la edicion
+            // si el record no ha sufrido cambios se termina la edicion
             if (!record.isDirty()) {
                 waitWindow.close();
                 me.view.close();

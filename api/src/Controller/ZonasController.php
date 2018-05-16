@@ -19,6 +19,7 @@ class ZonasController extends AppController {
                 "zona.descripcion, " .
                 "zona.ayudante, " .
                 "zona.plaza_id, " .
+                "zona.estatus, " .
                 "plaza.ciudad AS nombre_plaza " .
             "FROM zona " .
             "INNER JOIN plaza ON zona.plaza_id = plaza.id " .
@@ -64,7 +65,7 @@ class ZonasController extends AppController {
                 $aRecord["zona"],
                 $aRecord["descripcion"],
                 $aRecord["ayudante"],
-                "",
+                $aRecord["estatus"],
                 date("Y-m-d H:i:s"),
                 date("Y-m-d H:i:s")
             );
@@ -104,7 +105,8 @@ class ZonasController extends AppController {
                 "zona = ?, " .
                 "descripcion = ?, " .
                 "ayudante = ?, " .
-                "fecha_modificacion = ? " .
+                "fecha_modificacion = ?, " .
+                "estatus = ? " .
             "WHERE id = ?";
         foreach ($aRecords as $aRecord) {
             $aQueryParams = array(
@@ -113,6 +115,7 @@ class ZonasController extends AppController {
                 $aRecord["descripcion"],
                 $aRecord["ayudante"],
                 date("Y-m-d H:i:s"),
+                $aRecord["estatus"],
                 $aRecord["id"]
             );
             $oConexion->query($sQuery, $aQueryParams);
@@ -121,6 +124,30 @@ class ZonasController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Zonas actualizadas"
+        ));
+    }
+
+    /**
+     * Elimina zonas
+     * @return JsonResponse
+     */
+    public function destroy() {
+        $oConexion = $this->getConexion();
+
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
+
+        // actualiza el registro de la zona
+        $sQuery = "DELETE FROM zona " .
+            "WHERE id = ?";
+        foreach ($aRecords as $aRecord) {
+            $aQueryParams = array($aRecord["id"]);
+            $oConexion->query($sQuery, $aQueryParams);
+        }
+
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Zonas eliminadas"
         ));
     }
 }

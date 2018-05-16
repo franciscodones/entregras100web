@@ -2,8 +2,8 @@
   "name": "pyansa-form",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.3",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa form",
   "detailedDescription": "Sobreescritura y mejoras del paquete de Sencha",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:03:30Z",
+      "created": "2018-05-08T16:12:08Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "aENYELbg7jc\u003d",
-      "signature": "ibSzv40rGI42S6FIodnfgH7dveRMiTkcfMHM2uqTWg/W3m8QfgI9DyYzs5HYP4p2ZDnGxSWqxfVJ4KK4IKvqSQNMyHIa4/HV596f765PaSxy3L++DtUko9Gqk4X4kUMA0kPCHQdOqDzKz1VPLoKK3tZSSPOSP3zmqGMEVapKPFwVCAv1pX0BvNseV9hClO+f4HvRTFMVesi6+1yIxKrpE5dHdMkQpXKm0qN2hjLnywNFctj/oSrlOT/Ud1RTyEcm4mdnzx157jvLkS4LPfWn9hflUBIAzoiboXer2mEkFhNDuVyH1uBBQKYeeqrBNcjMp/cVwPq62lJLrIG2+99LsQ\u003d\u003d"
+      "nonce": "/EOjQSiHEbs\u003d",
+      "signature": "iVQWcEoOMRReeOm6V0PdnmJFnKS/4tAUJznvsheDf2YMjtCtfE9103QCpeqizQj9bj5nGqdUhULxs69/ZnbZBIc5+JHbxoXAxcdFOwtGzGzpzt0G61vMj655usNAplpJiv+vgvyuYV1PeZzeI1ejGvkW86HAxMy+PancphtGKFft5cgwl0D2D82qBw1uEIehH3gcflPkd/BxqykWP0d7aixSuZV6Tq3BsG+wEkxujq+knXGw6j/NoNp0hIEVhfkF4gtHbwW2vNmbt28iiBy1eiMX9e/CVg923ZrGkvySh7tHIUPf9zt0Aud2Bb4KByEukTlxlcaStDzQYe1b20eGmw\u003d\u003d"
     }
   ],
   "architect": {
@@ -25,17 +25,51 @@
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
   "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
   "classpath": [
-    "${package.dir}/src"
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
   ],
   "overrides": [
-    "${package.dir}/overrides"
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
   "properties": {

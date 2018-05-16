@@ -343,7 +343,7 @@
             "designerId": "366ff6fb-84fa-4ebc-ae20-00812f14181c"
         },
         {
-            "type": "Ext.data.field.Field",
+            "type": "Ext.data.field.Boolean",
             "reference": {
                 "name": "fields",
                 "type": "array"
@@ -355,7 +355,7 @@
             "configAlternates": {
                 "name": "string"
             },
-            "name": "MyField6",
+            "name": "MyBoolean5",
             "designerId": "7df9cd68-70af-4e54-94bf-99fa100409e6"
         },
         {

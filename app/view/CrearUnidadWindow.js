@@ -27,7 +27,8 @@ Ext.define('Entregas100Web.view.CrearUnidadWindow', {
         'Ext.form.field.ComboBox',
         'Ext.form.FieldSet',
         'Ext.form.field.Checkbox',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Hidden'
     ],
 
     controller: 'crearunidadwindow',
@@ -344,6 +345,12 @@ Ext.define('Entregas100Web.view.CrearUnidadWindow', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    name: 'estado',
+                    value: true
                 }
             ]
         }

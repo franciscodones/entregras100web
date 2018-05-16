@@ -62,7 +62,7 @@ class UsuariosController extends AppController {
                 $aRecord["email"],
                 $aRecord["plaza_id"],
                 $aRecord["tipo_sesion_id"],
-                true,
+                $aRecord["estatus"],
                 date("Y-m-d H:i:s")
             );
             $oConexion->query($sQuery, $aQueryParams);
@@ -102,7 +102,8 @@ class UsuariosController extends AppController {
                 "password = ?, " .
                 "email = ?, " .
                 "plaza_id = ?, " .
-                "tipo_sesion_id = ? " .
+                "tipo_sesion_id = ?, " .
+                "estatus = ? " .
             "WHERE id = ?";
         foreach ($aRecords as $aRecord) {
             $aQueryParams = array(
@@ -112,6 +113,7 @@ class UsuariosController extends AppController {
                 $aRecord["email"],
                 $aRecord["plaza_id"],
                 $aRecord["tipo_sesion_id"],
+                $aRecord["estatus"],
                 $aRecord["id"]
             );
             $oConexion->query($sQuery, $aQueryParams);
@@ -120,6 +122,32 @@ class UsuariosController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Usuarios actualizados"
+        ));
+    }
+
+    /**
+     * Elimina los usuarios
+     * @return JsonResponse
+     */
+    public function destroy() {
+        $oConexion = $this->getConexion();
+
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
+
+        // actualiza el registro del usuario
+        $sQuery = "DELETE FROM usuario " .
+            "WHERE id = ?";
+        foreach ($aRecords as $aRecord) {
+            $aQueryParams = array(
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
+
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Usuarios eliminados"
         ));
     }
 }

@@ -26,7 +26,8 @@ Ext.define('Entregas100Web.view.CrearZonaWindow', {
         'Ext.form.field.Checkbox',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Spacer'
+        'Ext.toolbar.Spacer',
+        'Ext.form.field.Hidden'
     ],
 
     controller: 'crearzonawindow',
@@ -124,6 +125,12 @@ Ext.define('Entregas100Web.view.CrearZonaWindow', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    name: 'estatus',
+                    value: true
                 }
             ]
         }

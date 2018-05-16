@@ -42,7 +42,8 @@
                     "{",
                     "    create: \"api/operadores/create\",",
                     "    read: \"api/operadores/read\",",
-                    "    update: \"api/operadores/update\"",
+                    "    update: \"api/operadores/update\",",
+                    "    destroy: \"api/operadores/destroy\"",
                     "}"
                 ]
             },

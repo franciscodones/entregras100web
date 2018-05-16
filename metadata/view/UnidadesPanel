@@ -765,6 +765,220 @@
                     ]
                 },
                 {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "permissionId": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn3",
+                    "designerId": "d59925b4-8139-4855-b906-218225aae415",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "tooltip": "Editar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "df0b5e96-2de0-4d6b-9556-a4f0bf208127",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActiva = record.get(\"estado\");",
+                                            "",
+                                            "if (isActiva) {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea desactivar la unidad seleccionada?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                record.set(\"estado\", false);",
+                                            "                record.store.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "} else {",
+                                            "    record.set(\"estado\", true);",
+                                            "    record.store.sync();",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "7c6510ae-f841-4eb7-9956-7b6f1447bae7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var actionItem = this.items[0];",
+                                    "",
+                                    "if (record.get(\"estado\")) {",
+                                    "    actionItem.icon = \"resources/icon/activo.png\";",
+                                    "    actionItem.tooltip = \"Desactivar\";",
+                                    "} else {",
+                                    "    actionItem.icon = \"resources/icon/inactivo.png\";",
+                                    "    actionItem.tooltip = \"Activar\";",
+                                    "}",
+                                    "",
+                                    "return value;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "daaba82e-21e4-43f1-947c-8b9dd887a121"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "permissionId": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn4",
+                    "designerId": "c496d291-ccca-44d3-93a4-47c2bff026c2",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/garbage.png",
+                                "tooltip": "Eliminar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "f7fefb38-5330-44ab-9111-1e2e2d597313",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActiva = record.get(\"estado\"),",
+                                            "    unidadesLocalStore = record.store;",
+                                            "",
+                                            "if (isActiva) {",
+                                            "    Ext.Msg.show({",
+                                            "        title: 'Mensaje del sistema',",
+                                            "        message: \"Es necesario desactivar la unidad primero\",",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        icon: Ext.Msg.ERROR",
+                                            "    });",
+                                            "} else {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea eliminar la unidad definitivamente?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                unidadesLocalStore.remove(record);",
+                                            "                unidadesLocalStore.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "a9d9a351-9db1-44d3-ad4c-91e1f48bc6e1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.grid.filters.Filters",
                     "reference": {
                         "name": "plugins",

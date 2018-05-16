@@ -107,6 +107,7 @@ Ext.define('Entregas100Web.model.UnidadModel', {
             dateFormat: 'Y-m-d H:i:s'
         },
         {
+            type: 'boolean',
             name: 'estado'
         },
         {

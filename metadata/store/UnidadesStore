@@ -42,7 +42,8 @@
                     "{",
                     "    create: \"api/unidades/create\",",
                     "    read: \"api/unidades/read\",",
-                    "    update: \"api/unidades/update\"",
+                    "    update: \"api/unidades/update\",",
+                    "    destroy: \"api/unidades/destroy\"",
                     "}"
                 ]
             },

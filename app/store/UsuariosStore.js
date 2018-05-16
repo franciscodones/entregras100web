@@ -39,7 +39,8 @@ Ext.define('Entregas100Web.store.UsuariosStore', {
                 api: {
                     create: 'api/usuarios/create',
                     read: 'api/usuarios/read',
-                    update: 'api/usuarios/update'
+                    update: 'api/usuarios/update',
+                    destroy: 'api/usuarios/destroy'
                 },
                 reader: {
                     type: 'json'

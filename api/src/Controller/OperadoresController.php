@@ -80,7 +80,7 @@ class OperadoresController extends AppController {
                 $aRecord["nip"],
                 $aRecord["tipo_usuario_id"],
                 $aRecord["plaza_id"],
-                true,
+                $aRecord["estatus"],
                 false,
                 0,
                 false,
@@ -123,7 +123,8 @@ class OperadoresController extends AppController {
                 "nombre = ?, " .
                 "tipo_usuario_id = ?, " .
                 "plaza_id = ?, " .
-                "sesion = ? " .
+                "sesion = ?, " .
+                "estatus = ? " .
             "WHERE id = ?";
         foreach ($aDatos["records"] as $record) {
             $aQueryParams = array(
@@ -131,6 +132,7 @@ class OperadoresController extends AppController {
                 $record["tipo_usuario_id"],
                 $record["plaza_id"],
                 $record["sesion"],
+                $record["estatus"],
                 $record["id"]
             );
             $oConexion->query($sQuery, $aQueryParams);
@@ -139,6 +141,32 @@ class OperadoresController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Operador actualizado"
+        ));
+    }
+
+    /**
+     * Elimina operadores
+     * @return JsonResponse
+     */
+    public function destroy() {
+        $oConexion = $this->getConexion();
+
+        $aDatos = $this->request->data;
+        $aDatos["records"] = json_decode($aDatos["records"], true);
+
+        // actualiza el registro del operador
+        $sQuery = "DELETE FROM operador " .
+            "WHERE id = ?";
+        foreach ($aDatos["records"] as $record) {
+            $aQueryParams = array(
+                $record["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
+
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Operadores eliminados"
         ));
     }
 }

@@ -100,7 +100,7 @@ class UnidadesController extends AppController {
                 "http://gps.gaspasa.com.mx:8080/Entregas100/APK/v2.4/v2.4_gps.apk",
                 date("Y-m-d H:i:s"),
                 date("Y-m-d H:i:s"),
-                ""
+                $aRecord["estado"]
             );
             $aResultado = $oConexion->query($sQuery, $aQueryParams);
             $aRecord["id"] = $oConexion->driver()->lastInsertId();
@@ -170,7 +170,8 @@ class UnidadesController extends AppController {
                     "zona_id = ?, " .
                     "letra = ?, " .
                     "online = ?, " .
-                    "cobro_aditivo = ? " .
+                    "cobro_aditivo = ?, " .
+                    "estado = ? " .
                 "WHERE id = ?";
             $aQueryParams = array(
                 $aRecord["unidad"],
@@ -178,6 +179,7 @@ class UnidadesController extends AppController {
                 $aRecord["letra"],
                 $aRecord["online"],
                 $aRecord["cobro_aditivo"],
+                $aRecord["estado"],
                 $aRecord["id"]
             );
             $oConexion->query($sQuery, $aQueryParams);
@@ -210,6 +212,40 @@ class UnidadesController extends AppController {
         return $this->asJson(array(
             "success" => true,
             "message" => "Unidades actualizadas"
+        ));
+    }
+
+    /**
+     * Elimina unidades
+     * @return JsonResponse
+     */
+    public function destroy() {
+        $oConexion = $this->getConexion();
+
+        $aDatos = $this->request->data;
+        $aRecords = json_decode($aDatos["records"], true);
+
+        foreach ($aRecords as $aRecord) {
+            // actualiza el registro de la unidad
+            $sQuery = "DELETE FROM unidad " .
+                "WHERE id = ?";
+            $aQueryParams = array(
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+
+            // actualiza el registro de los folios
+            $sQuery = "DELETE FROM folios " .
+                "WHERE unidad_id = ?";
+            $aQueryParams = array(
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+        }
+
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Unidades eliminadas"
         ));
     }
 }

@@ -251,6 +251,81 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                             tooltip: 'Editar'
                         }
                     ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var actionItem = this.items[0];
+
+                        if (record.get("estado")) {
+                            actionItem.icon = "resources/icon/activo.png";
+                            actionItem.tooltip = "Desactivar";
+                        } else {
+                            actionItem.icon = "resources/icon/inactivo.png";
+                            actionItem.tooltip = "Activar";
+                        }
+
+                        return value;
+                    },
+                    width: 30,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActiva = record.get("estado");
+
+                                if (isActiva) {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea desactivar la unidad seleccionada?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            record.set("estado", false);
+                                            record.store.sync();
+                                        }
+                                    }
+                                    );
+                                } else {
+                                    record.set("estado", true);
+                                    record.store.sync();
+                                }
+                            },
+                            tooltip: 'Editar'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    width: 30,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActiva = record.get("estado"),
+                                    unidadesLocalStore = record.store;
+
+                                if (isActiva) {
+                                    Ext.Msg.show({
+                                        title: 'Mensaje del sistema',
+                                        message: "Es necesario desactivar la unidad primero",
+                                        buttons: Ext.Msg.OK,
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                } else {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea eliminar la unidad definitivamente?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            unidadesLocalStore.remove(record);
+                                            unidadesLocalStore.sync();
+                                        }
+                                    }
+                                    );
+                                }
+                            },
+                            icon: 'resources/icon/garbage.png',
+                            tooltip: 'Eliminar'
+                        }
+                    ]
                 }
             ],
             viewConfig: {

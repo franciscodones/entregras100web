@@ -5,7 +5,7 @@
   ],
   "namespace": "Ext",
   "format": "1",
-  "version": "6.5.0.2",
+  "version": "6.5.0.3",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa exporter",
@@ -15,10 +15,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-05-04T22:14:35Z",
+      "created": "2018-05-08T16:09:34Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "XO+8yawZQzo\u003d",
-      "signature": "bnkqAGUHnOxkw/ZOVhcHEKGGUav8OA91zGytHNJU3A5yOfdvwKslMI7MlzGeE3OfKCmmUteZZr1sZfsVU0wsVPT6rSPzQi+iotBmvRcl02MFtRSpokC4kwn8XouldnV8hSMYcF4TCMqtgnS3ZJs1hDz8n5YSY3B4YV0OvL/BBCxu50dw54p20MT4YjgKbS7inwHPChUW15atDDrgZoBr4jG3I9i225pcALYGs1YZH3FaNH1dN5Kl+EtkqTjDHFWLN64/KrAaVMSSHgsizH63zgYINktt3mkf5t3E7/zhuCQOv6GstpG8LYwZktKGtpCxv+kXZipqpGaEQGOe8tyRTA\u003d\u003d"
+      "nonce": "PNEFtOnLFek\u003d",
+      "signature": "n3E58jkPcS2Ky1G7rMJU8/Ep1DZTt40cemf9LwpXjL6m+f4tPfRvByzn8fnAs2XnC5h45FlAhrgUhr1wavysY0nx0fcWDMPNDehadZns+Z9VJ60wWhicoz0Q3SIFOlJ4RAFeD1qu4G3E2lWoCvUSsvix7EO9TbWHeb9s1Oc+P/Jm5y2L2GwsG9s2Uu8hAO9NqvthPRMnoVI4p2wWOEJMUGUylo8Naz0ZjzQn6Q/b+JwrubjCr+Kj0hXyWtHk3Qqpo14QceZZ57ZaVHcxNXqFshWZYcqFqWcpulDY6+M823DncINZ5wiy9ilA5VOpPfmRHngr7L3jR67rUSstwo9Igg\u003d\u003d"
     }
   ],
   "architect": {
@@ -31,6 +31,9 @@
   "resources": [
     {
       "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
     }
   ],
   "builds": {
@@ -51,20 +54,25 @@
   "sass": {
     "namespace": "Ext",
     "etc": [
-      "${package.dir}/sass/etc/all.scss"
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
     ],
     "var": [
-      "${package.dir}/sass/var"
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
     ],
     "src": [
-      "${package.dir}/sass/src"
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
     ]
   },
   "classpath": [
-    "${package.dir}/src"
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
   ],
   "overrides": [
-    "${package.dir}/overrides"
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
   "properties": {

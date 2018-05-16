@@ -515,6 +515,217 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "permissionId": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn2",
+                    "designerId": "fd182cc8-8e03-47be-8f26-cf3e6375a10b",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "be5ca1a0-c881-421d-8bee-f7ef14061c38",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActivo = record.get(\"estatus\");",
+                                            "",
+                                            "if (isActivo) {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea desactivar el usuario seleccionado?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                record.set(\"estatus\", false);",
+                                            "                record.store.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "} else {",
+                                            "    record.set(\"estatus\", true);",
+                                            "    record.store.sync();",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "05c39c0a-d21c-441b-b3e3-e8aeabd6a874"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var actionItem = this.items[0];",
+                                    "",
+                                    "if (record.get(\"estatus\")) {",
+                                    "    actionItem.icon = \"resources/icon/activo.png\";",
+                                    "    actionItem.tooltip = \"Desactivar\";",
+                                    "} else {",
+                                    "    actionItem.icon = \"resources/icon/inactivo.png\";",
+                                    "    actionItem.tooltip = \"Activar\";",
+                                    "}",
+                                    "",
+                                    "return value;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "918ac8f1-d92e-4c33-aab6-c5ac8606b706"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "permissionId": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn3",
+                    "designerId": "850b6b09-12ac-465e-9460-af4b7d7b999a",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/garbage.png",
+                                "tooltip": "Eliminar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "499526c4-b65e-4f2e-be24-5ecce3089e3f",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActivo = record.get(\"estatus\"),",
+                                            "    usuariosLocalStore = record.store;",
+                                            "",
+                                            "if (isActivo) {",
+                                            "    Ext.Msg.show({",
+                                            "        title: 'Mensaje del sistema',",
+                                            "        message: \"Es necesario desactivar el usuario primero\",",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        icon: Ext.Msg.ERROR",
+                                            "    });",
+                                            "} else {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea eliminar el usuario definitivamente?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                usuariosLocalStore.remove(record);",
+                                            "                usuariosLocalStore.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "4b10c0ce-fb7d-4e76-abc8-9508dcd5f486"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },

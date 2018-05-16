@@ -454,6 +454,211 @@
                     "codeClass": null,
                     "name": "MyGridFiltersPlugin3",
                     "designerId": "7852133c-856b-42ed-8c55-55c888e25a1d"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn1",
+                    "designerId": "30f01100-043e-4ffa-9619-a3db43728a45",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyActionColumnItem1",
+                            "designerId": "a1db45c0-525b-4cd9-b11c-1b3953f73318",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActiva = record.get(\"estatus\");",
+                                            "",
+                                            "if (isActiva) {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea desactivar la zona seleccionada?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                record.set(\"estatus\", false);",
+                                            "                record.store.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "} else {",
+                                            "    record.set(\"estatus\", true);",
+                                            "    record.store.sync();",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "69a0d29a-f0f4-4791-a069-324ea1a287d6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var actionItem = this.items[0];",
+                                    "",
+                                    "if (record.get(\"estatus\")) {",
+                                    "    actionItem.icon = \"resources/icon/activo.png\";",
+                                    "    actionItem.tooltip = \"Desactivar\";",
+                                    "} else {",
+                                    "    actionItem.icon = \"resources/icon/inactivo.png\";",
+                                    "    actionItem.tooltip = \"Activar\";",
+                                    "}",
+                                    "",
+                                    "return value;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "59c61e1a-db27-4651-b3c0-56c690877026"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn2",
+                    "designerId": "44bdb0d4-fb20-44fa-84d0-bafe590d778f",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/garbage.png",
+                                "tooltip": "Eliminar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem1",
+                            "designerId": "c9853816-18a4-416e-a6f3-67685481aa6c",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var isActiva = record.get(\"estatus\"),",
+                                            "    zonasLocalStore = record.store;",
+                                            "",
+                                            "if (isActiva) {",
+                                            "    Ext.Msg.show({",
+                                            "        title: 'Mensaje del sistema',",
+                                            "        message: \"Es necesario desactivar la zona primero\",",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        icon: Ext.Msg.ERROR",
+                                            "    });",
+                                            "} else {",
+                                            "    Ext.Msg.confirm(",
+                                            "        \"Mensaje del sistema\",",
+                                            "        \"¿Desea eliminar la zona definitivamente?\",",
+                                            "        function(result) {",
+                                            "            if (result == \"yes\") {",
+                                            "                zonasLocalStore.remove(record);",
+                                            "                zonasLocalStore.sync();",
+                                            "            }",
+                                            "        }",
+                                            "    );",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "e2bdce71-8a01-4ec3-9381-31e75ba07af8"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

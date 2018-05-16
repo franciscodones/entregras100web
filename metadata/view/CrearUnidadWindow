@@ -985,6 +985,28 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|anchor": "100%",
+                        "name": "estado",
+                        "value": [
+                            "true"
+                        ]
+                    },
+                    "configAlternates": {
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "value": "object"
+                    },
+                    "name": "MyHiddenField2",
+                    "designerId": "03353da2-cb9e-44af-84a9-97979f714860"
                 }
             ]
         }

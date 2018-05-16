@@ -24,7 +24,8 @@ Ext.define('Entregas100Web.view.CrearOperadorWindow', {
         'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Spacer'
+        'Ext.toolbar.Spacer',
+        'Ext.form.field.Hidden'
     ],
 
     controller: 'crearoperadorwindow',
@@ -129,6 +130,12 @@ Ext.define('Entregas100Web.view.CrearOperadorWindow', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    name: 'estatus',
+                    value: true
                 }
             ]
         }

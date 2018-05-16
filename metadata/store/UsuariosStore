@@ -42,7 +42,8 @@
                     "{",
                     "    create: \"api/usuarios/create\",",
                     "    read: \"api/usuarios/read\",",
-                    "    update: \"api/usuarios/update\"",
+                    "    update: \"api/usuarios/update\",",
+                    "    destroy: \"api/usuarios/destroy\"",
                     "}"
                 ]
             },

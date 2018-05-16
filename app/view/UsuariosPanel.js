@@ -150,6 +150,80 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
                             tooltip: 'Editar'
                         }
                     ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var actionItem = this.items[0];
+
+                        if (record.get("estatus")) {
+                            actionItem.icon = "resources/icon/activo.png";
+                            actionItem.tooltip = "Desactivar";
+                        } else {
+                            actionItem.icon = "resources/icon/inactivo.png";
+                            actionItem.tooltip = "Activar";
+                        }
+
+                        return value;
+                    },
+                    width: 30,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActivo = record.get("estatus");
+
+                                if (isActivo) {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea desactivar el usuario seleccionado?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            record.set("estatus", false);
+                                            record.store.sync();
+                                        }
+                                    }
+                                    );
+                                } else {
+                                    record.set("estatus", true);
+                                    record.store.sync();
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    width: 30,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActivo = record.get("estatus"),
+                                    usuariosLocalStore = record.store;
+
+                                if (isActivo) {
+                                    Ext.Msg.show({
+                                        title: 'Mensaje del sistema',
+                                        message: "Es necesario desactivar el usuario primero",
+                                        buttons: Ext.Msg.OK,
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                } else {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea eliminar el usuario definitivamente?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            usuariosLocalStore.remove(record);
+                                            usuariosLocalStore.sync();
+                                        }
+                                    }
+                                    );
+                                }
+                            },
+                            icon: 'resources/icon/garbage.png',
+                            tooltip: 'Eliminar'
+                        }
+                    ]
                 }
             ],
             viewConfig: {

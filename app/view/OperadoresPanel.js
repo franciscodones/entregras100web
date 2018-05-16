@@ -186,6 +186,82 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                             tooltip: 'Editar'
                         }
                     ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var actionItem = this.items[0];
+
+                        if (record.get("estatus")) {
+                            actionItem.icon = "resources/icon/activo.png";
+                            actionItem.tooltip = "Desactivar";
+                        } else {
+                            actionItem.icon = "resources/icon/inactivo.png";
+                            actionItem.tooltip = "Activar";
+                        }
+
+                        return value;
+                    },
+                    width: 30,
+                    ignoreExport: true,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActivo = record.get("estatus");
+
+                                if (isActivo) {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea desactivar el operador seleccionado?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            record.set("estatus", false);
+                                            record.store.sync();
+                                        }
+                                    }
+                                    );
+                                } else {
+                                    record.set("estatus", true);
+                                    record.store.sync();
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'actioncolumn',
+                    width: 30,
+                    ignoreExport: true,
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                var isActivo = record.get("estatus"),
+                                    operadoresLocalStore = record.store;
+
+                                if (isActivo) {
+                                    Ext.Msg.show({
+                                        title: 'Mensaje del sistema',
+                                        message: "Es necesario desactivar el operador primero",
+                                        buttons: Ext.Msg.OK,
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                } else {
+                                    Ext.Msg.confirm(
+                                    "Mensaje del sistema",
+                                    "¿Desea eliminar el operador definitivamente?",
+                                    function(result) {
+                                        if (result == "yes") {
+                                            operadoresLocalStore.remove(record);
+                                            operadoresLocalStore.sync();
+                                        }
+                                    }
+                                    );
+                                }
+                            },
+                            icon: 'resources/icon/garbage.png',
+                            tooltip: 'Eliminar'
+                        }
+                    ]
                 }
             ],
             viewConfig: {

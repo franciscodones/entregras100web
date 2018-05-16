@@ -2,8 +2,8 @@
   "name": "pyansa-locale",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.3",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa locale",
   "detailedDescription": "Traduccion de textos de los componentes",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:04:59Z",
+      "created": "2018-05-08T16:18:14Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "DpGwhdHssRA\u003d",
-      "signature": "m36dhSqvZ8VlTHdk+oVnTQwY0KzsOVaa4aArXXwz3wcTUorVLMqjo1P1Z8w0b60QoY5O/a7DFAbi3qcZ6FGySlmxyJEmM+fk7kHSoTRTwYhHxv/vZl4mOrfJPi2YyDMFI2qGIJcGvhVw/maNQZNgrXIOMFrpWcxaN1VcG98pfA0UEMaVm/njL/5Q2urlt2PM4Noz1H5OIdAQwnoe3M2sjxeSg6P9lLR8z5ZLLOfDibQ/fPq7dbc9MrI9YDNoSr5SXHlmkgKlP4VGKEUp0qs1KKM2rWgRJTg5Cc6walS6RsmU8diIcRIJZnPMX01+n49JSM+gxikeepF2b86sUJL4uw\u003d\u003d"
+      "nonce": "mQfuXAwXgyo\u003d",
+      "signature": "EVLGMkPGAszzWyK8WNSDzqjReDKOBUWksOHITdu7W7bW8CjPbloZkjdMxZ493F8XPRAlTheaycA9K6k961NCokNVr4lejpze06cscJaaXHlEigJd41GophgNMV1D6sI9QSupEgaNNpMqaj+jBy6VExYNISPIPqiMjSDr9/NOtkLF4VQl4gSsGwLYueViZJnfimM9kHGhVVSLyjASsMxjAUSlF8SRsNjt7nsBHj2gsoF8C9QwYHNm7ccHQKLYbJM2xAlQzj0kYWgXJdmlUl6JytlOQObJ4b/QKVZXdvdgW8p0Dumql1rfccyfkhWBmJQ0kF62loWVafxcf9aqlH2QKA\u003d\u003d"
     }
   ],
   "architect": {
@@ -25,19 +25,51 @@
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
-  "toolkit": "classic",
   "output": "${package.dir}/build",
-  "theme": "ext-theme-classic",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
   "classpath": [
-    "${package.dir}/src"
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
   ],
   "overrides": [
-    "${package.dir}/overrides"
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
   "properties": {

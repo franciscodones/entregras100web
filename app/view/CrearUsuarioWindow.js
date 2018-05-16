@@ -24,7 +24,8 @@ Ext.define('Entregas100Web.view.CrearUsuarioWindow', {
         'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
-        'Ext.toolbar.Spacer'
+        'Ext.toolbar.Spacer',
+        'Ext.form.field.Hidden'
     ],
 
     controller: 'crearusuariowindow',
@@ -148,6 +149,12 @@ Ext.define('Entregas100Web.view.CrearUsuarioWindow', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'hiddenfield',
+                    anchor: '100%',
+                    name: 'estatus',
+                    value: true
                 }
             ]
         }

@@ -1721,13 +1721,13 @@ try {
   }
 } catch (e) {
 }
-Ext.define('Ext.overrides.exporter.util.Format', {override:'Ext.util.Format', decToHex:function(a, d) {
-  var c = '', b;
-  for (b = 0; b < d; b++) {
-    c += String.fromCharCode(a & 255);
-    a = a >>> 8;
+Ext.define('Ext.overrides.exporter.util.Format', {override:'Ext.util.Format', decToHex:function(dec, bytes) {
+  var hex = '', i;
+  for (i = 0; i < bytes; i++) {
+    hex += String.fromCharCode(dec & 255);
+    dec = dec >>> 8;
   }
-  return c;
+  return hex;
 }});
 Ext.define('Ext.exporter.data.Base', {requires:['Ext.util.Collection'], config:{idPrefix:'id', id:null, autoGenerateId:true}, internalCols:null, clearPropertiesOnDestroy:false, constructor:function(config) {
   var me = this;

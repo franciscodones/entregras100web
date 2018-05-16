@@ -2,8 +2,8 @@
   "name": "pyansa-permissible",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.3",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa permissible",
   "detailedDescription": "Utilidades para darle funcionalidad a los componentes para que estos puedan ser permitidos o no",
@@ -12,30 +12,64 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:05:33Z",
+      "created": "2018-05-08T16:21:11Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "sTtaQWXGIUo\u003d",
-      "signature": "RoNfI/J+Up8WTu5XAIaKyhl7i23BwlnHMBEIzV4qW5ej3wh+F86ZsJsGvfdnIvJCiOCISMzzakED9WImyocAzmIgYNxNC9SIWkTfCRr+15qW79yO7nbvRgTYNTCcxFlKyhB5kxYIEHOk4zyuYQARO+3/axlemi++epCjpnu6z35Y2Cd6ocH8b06ecr1/iRaDE2n7d5QC7lTtbNTVHuAdKBQM09QhRw14SacwjlvnD9w5aaP4QZezqHOUr5+4YKWikK93Kqw/qgXqABbJX8yPpHBygouTc6HR/S/U/0tju2DSjH02EAHhzwafx1WbZdwC66vc3URrS8skJZvt4f1vcg\u003d\u003d"
+      "nonce": "rPZv5eYFPq0\u003d",
+      "signature": "EiSX2s94FeP6DLkd/dFLDgQNeWH3eSt10tiobUPFKP9Vei9mtQZjkpiHdAB5xc20b+1f6CD4olMdCsmLf2wjF3SlJT2xSvWpjoYUmcbOeV4feEt2TvVEI0PvOH3lb8B3yVByMbNfpRXDgrWYxVY/gKFMCtHnWOb8mj0CwMPZtqqnGiksjV9BPapCwUKys3wO8IWaBQScvDsQm5KlKhTAbF7hw5jZmVH3ZgyRLdboQUlYvyevsUWgr/dkkt1Gl7A37iQ3QVbuqfmR2KH53oVBoK2JsyGr6dCQC+y2IdFuvUpyQgvNhcbdU6e6iwLSAtVtj6AZKrfFXk+SwtJWlbSVGg\u003d\u003d"
     }
   ],
   "architect": {
     "compatFrameworks": [
-      "modern65",
-      "ext65"
+      "ext65",
+      "modern65"
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
   "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
   "classpath": [
-    "${package.dir}/src"
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
   ],
   "overrides": [
-    "${package.dir}/overrides"
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
   "properties": {

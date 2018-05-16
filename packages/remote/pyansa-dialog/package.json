@@ -2,8 +2,8 @@
   "name": "pyansa-dialog",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.3",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa dialog",
   "detailedDescription": "Componentes para generar ventanas de dialogos para ingresar o seleccionar valores",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:02:44Z",
+      "created": "2018-05-08T16:07:31Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "nvEQsR99vko\u003d",
-      "signature": "kPUwCg9A9CkEZvpq+rb/Krkhp1Xa4OnpPSu1nT8rPPJ5a3Ei0UEuRWY8eWb5kGmunrCvrnm99msqCwARoLyBFMzOo4E5RHtXTXZ+J5i+jFgz+HON44B0bHPp1/yeBs0uzQdc+xrqpPpoRNMBGX3VTWycm4V3P3WG5bByz1wTZZn0xuh3CqID+dvhDJWjcQx4fvLGCkHqe4zlZlFCb7nOlnAQCHWyDv1tjFE3uADsM/X71BTz5f6O5XlTUVkLPyrdtH69pTRTvm4Ls51LB2Fj+aJWkI9EbHcJHSrEwMwER6/vCtW+uxOZ5aesFieQj6x2XGf+gO92HRJGQ6PUFcSUiw\u003d\u003d"
+      "nonce": "JylebXER9yg\u003d",
+      "signature": "IYg0eZwd0uvxr0nDLONT6JRsVtSd28yb5lpnCnUwoWIDFI8baF19HlUSDcXNlxfis1t6mWTJCn8c/r3uDU/OpEwe3Bl7hs9jFVbZdpXiDhdKfGqkr1uDxDCV2RYxVslhZ9BL5ucwoGhIhoqj2JmA+Qhs4O5jpwhZopVqvmZxRvsGBVM4/aQQeC8BhhPOHJSAOr/Yl5sTgtQEO+EA98Ad411TdRnL7Eq3w7AJXgVhMZcavABs8xROYA7Qxqwo3l4vMDGPJbLaiTsqKCFzLDknzwaGviWciexTr+356Pmx8jdZphywLngtaZM/o64k8mbK6Kyw0Moqulpox8Uz0FO9rg\u003d\u003d"
     }
   ],
   "architect": {
@@ -25,17 +25,51 @@
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
   "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
   "classpath": [
-    "${package.dir}/src"
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
   ],
   "overrides": [
-    "${package.dir}/overrides"
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
   "properties": {

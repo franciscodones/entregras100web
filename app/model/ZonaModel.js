@@ -46,6 +46,10 @@ Ext.define('Entregas100Web.model.ZonaModel', {
         {
             type: 'string',
             name: 'nombre_plaza'
+        },
+        {
+            type: 'boolean',
+            name: 'estatus'
         }
     ]
 });

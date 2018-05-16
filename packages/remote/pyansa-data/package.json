@@ -2,8 +2,8 @@
   "name": "pyansa-data",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0",
-  "compatVersion": "1.0.0",
+  "version": "6.5.0.3",
+  "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa data",
   "detailedDescription": "Sobreescritura y funcionalidades del paquete de Sencha",
@@ -12,25 +12,57 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-04-07T01:27:19Z",
+      "created": "2018-05-08T16:02:07Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "VgNoLZQVazc\u003d",
-      "signature": "IgnUddSbrEhHqGfQ9kDbeokqguBdNrcZwr5mJNQSStmrMXpEeEPIi93oNYo4a4P2/w5aYY6v9AXb17ONaAxtV7PkRO9J8SvfxbRVIhGjb5H0W8uV7uvgxs+iUrtci+6uEwOK1KmReHV/nmbIs67JteFS2+6B9uPnRCPpNqk1lhK6z1yvD8u57EYTitectaonWCBjoiFImpujOoULr011uWd7toKbvB0Y231+vysI44ti2RiIKgdZH1UHGwFoK3LALrektS++TpR35VcRm4MnJ5ES1ToNobN9yCjNMDw/lRpatoG/ndxjw2c63c5BJdJXyepgSUyr1eQ2884FhaGv/g\u003d\u003d"
+      "nonce": "U9y8zhwBr/Y\u003d",
+      "signature": "PNA0zVUlzoSglIxf9FyTezF6qVpOBXGjSMfm9vx1K8i4/eq7PPEvU8TYlVctZ8uWMiXszugSNBVk4adQRB+4+LJ8E/ax7tKnLm7NODafq0o2Cvr61hUNUGwChETseX9Dklye4Fpz+NMploTWIginK2lIPGG9HvtuUy0PCCDTzo6hGyWKwAhzeKGOYiUDT7CfbkkUGewbv2quct7eiAEc8fqdmyl1sAUXGdyVfokughncSh3RpTrLVVQL9GXgCMTJWFftJN0oEYjjZ9ZKr3x3q2cviOT5YoLqMSch9jRQ0MXFugAhHMnZiLj1ncS9h7FPAPR71LtAKeyxc7kl22Kjcg\u003d\u003d"
     }
   ],
   "architect": {
     "compatFrameworks": [
-      "modern65",
-      "ext65"
+      "ext65",
+      "modern65"
     ],
     "classes": []
   },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
   "builds": {
     "classic": {
-      "toolkit": "classic"
+      "toolkit": "classic",
+      "theme": "ext-theme-classic"
+    },
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
     }
   },
   "output": "${package.dir}/build",
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src"
+    ]
+  },
   "classpath": [
     "${package.dir}/src",
     "${package.dir}/${toolkit.name}/src"

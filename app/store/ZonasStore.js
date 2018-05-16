@@ -39,7 +39,8 @@ Ext.define('Entregas100Web.store.ZonasStore', {
                 api: {
                     create: 'api/zonas/create',
                     read: 'api/zonas/read',
-                    update: 'api/zonas/update'
+                    update: 'api/zonas/update',
+                    destroy: 'api/zonas/destroy'
                 },
                 reader: {
                     type: 'json'

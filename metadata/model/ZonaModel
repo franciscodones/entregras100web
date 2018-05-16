@@ -109,6 +109,22 @@
             },
             "name": "MyString16",
             "designerId": "17512ed7-54c5-48b0-872a-90e43e02218a"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "estatus"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyBoolean2",
+            "designerId": "302c1b0d-fa1a-400f-b032-8fa91f4319af"
         }
     ]
 }
