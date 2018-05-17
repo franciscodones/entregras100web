@@ -36,7 +36,7 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
         permisosActuales = permisosActuales.getValues("permiso_id", "data");
 
         // modifica permisosLocalStore para coordinarlo con los permisosActuales
-        permisosLocalStore.removeFilter("sin-seleccion");
+        permisosLocalStore.removeFilter("sinSeleccion");
         permisosLocalStore.each(function(rec) {
             rec.set(
             "es_permitido",
@@ -81,7 +81,7 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
         permisosActuales = permisosActuales.getValues("permiso_id", "data");
 
         // modifica permisosLocalStore para coordinarlo con los permisosActuales
-        permisosLocalStore.removeFilter("sin-seleccion");
+        permisosLocalStore.removeFilter("sinSeleccion");
         permisosLocalStore.each(function(rec) {
             rec.set(
             "es_permitido",
@@ -230,7 +230,7 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
         // filtra el permisosLocalStore para no mostrar nada inicialmente
         permisosLocalStore.addFilter([
         {
-            id: "sin-seleccion",
+            id: "sinSeleccion",
             filterFn: function() {
                 return false;
             }

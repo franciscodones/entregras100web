@@ -28,10 +28,10 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         var me = this,
             combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore");
 
-        combinacionesFormaPerfilLocalStore.removeFilter("perfil-seleccionado");
+        combinacionesFormaPerfilLocalStore.removeFilter("perfilSeleccionado");
         combinacionesFormaPerfilLocalStore.addFilter([
         {
-            id: "perfil-seleccionado",
+            id: "perfilSeleccionado",
             property: "tipo_cliente_id",
             value: record.get("id"),
             exactMatch: true
@@ -62,7 +62,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         formasCombinadas = combinacionesFormaPerfilLocalStore.getData().getValues("forma_pago_id", "data");
         formasPagoStore.addFilter([
         {
-            id: "formas-restantes",
+            id: "formasRestantes",
             filterFn: function(record) {
                 return !Ext.Array.contains(formasCombinadas, record.get("id"));
             }
@@ -114,7 +114,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
         // sido seleccionada
         combinacionesFormaPerfilLocalStore.addFilter([
         {
-            id: "perfil-seleccionado",
+            id: "perfilSeleccionado",
             filterFn: function () {
                 return false;
             }

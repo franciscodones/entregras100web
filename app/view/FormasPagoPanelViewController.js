@@ -29,20 +29,20 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
             combinacionesFormaPagoLocalStore = me.getStore("CombinacionesFormaPagoLocalStore"),
             combinacionesFormaPlazaLocalStore = me.getStore("CombinacionesFormaPlazaLocalStore");
 
-        combinacionesFormaPagoLocalStore.removeFilter("forma-seleccionada");
+        combinacionesFormaPagoLocalStore.removeFilter("formaSeleccionada");
         combinacionesFormaPagoLocalStore.addFilter([
         {
-            id: "forma-seleccionada",
+            id: "formaSeleccionada",
             property: "forma_pago_id",
             value: record.get("id"),
             exactMatch: true
         }
         ]);
 
-        combinacionesFormaPlazaLocalStore.removeFilter("forma-seleccionada");
+        combinacionesFormaPlazaLocalStore.removeFilter("formaSeleccionada");
         combinacionesFormaPlazaLocalStore.addFilter([
         {
-            id: "forma-seleccionada",
+            id: "formaSeleccionada",
             property: "forma_pago_id",
             value: record.get("id"),
             exactMatch: true
@@ -81,7 +81,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
                 store: Ext.create("Entregas100Web.store.FormasPagoStore", {
                     filters: [
                     {
-                        id: "formas-restantes",
+                        id: "formasRestantes",
                         filterFn: function(record) {
                             return !Ext.Array.contains(formasCombinadas, record.get("id"));
                         }
@@ -147,7 +147,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
         plazasCombinadas = combinacionesFormaPlazaLocalStore.getData().getValues("plaza_id", "data");
         plazasStore.addFilter([
         {
-            id: "plazas-restantes",
+            id: "plazasRestantes",
             filterFn: function(record) {
                 return !Ext.Array.contains(plazasCombinadas, record.get("id"));
             }
@@ -200,7 +200,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
         // sido seleccionada
         combinacionesFormaPagoLocalStore.addFilter([
         {
-            id: "forma-seleccionada",
+            id: "formaSeleccionada",
             filterFn: function () {
                 return false;
             }
@@ -208,7 +208,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
         ]);
         combinacionesFormaPlazaLocalStore.addFilter([
         {
-            id: "forma-seleccionada",
+            id: "formaSeleccionada",
             filterFn: function () {
                 return false;
             }

@@ -30,7 +30,7 @@ Ext.define('Entregas100Web.view.HorariosZonaPanelViewModel', {
                 filterFn: function(item) {
                     return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
                 },
-                id: 'permiso-plazas'
+                id: 'permisoPlazas'
             }
         }
     }

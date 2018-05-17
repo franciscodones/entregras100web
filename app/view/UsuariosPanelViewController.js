@@ -34,10 +34,10 @@ Ext.define('Entregas100Web.view.UsuariosPanelViewController', {
         var me = this,
             plazasAgregadasLocalStore = me.getStore("PlazasAgregadasLocalStore");
 
-        plazasAgregadasLocalStore.removeFilter("usuario-seleccionado");
+        plazasAgregadasLocalStore.removeFilter("usuarioSeleccionado");
         plazasAgregadasLocalStore.addFilter([
         {
-            id: "usuario-seleccionado",
+            id: "usuarioSeleccionado",
             filterFn: function(rec) {
                 var plazas = record.get("plaza_id").split(",").map(function(item) {
                     return parseInt(item.trim());
@@ -73,7 +73,7 @@ Ext.define('Entregas100Web.view.UsuariosPanelViewController', {
         plazasAgregadas = plazasAgregadasLocalStore.getData().getValues("id", "data");
         plazasStore.addFilter([
         {
-            id: "plazas-restantes",
+            id: "plazasRestantes",
             filterFn: function(record) {
                 return !Ext.Array.contains(plazasAgregadas, record.get("id"));
             }
@@ -120,7 +120,7 @@ Ext.define('Entregas100Web.view.UsuariosPanelViewController', {
         // sido seleccionado
         plazasAgregadasLocalStore.addFilter([
         {
-            id: "usuario-seleccionado",
+            id: "usuarioSeleccionado",
             filterFn: function () {
                 return false;
             }

@@ -37,10 +37,10 @@ Ext.define('Entregas100Web.view.UnidadesPanelViewController', {
         me.getStore("FoliosLocalStore").loadData([record.copy()]);
 
 
-        operadoresLocalStore.removeFilter("unidad-seleccionada");
+        operadoresLocalStore.removeFilter("unidadSeleccionada");
         operadoresLocalStore.addFilter([
         {
-            id: "unidad-seleccionada",
+            id: "unidadSeleccionada",
             filterFn: function(item) {
                 return item.get("unidad_id") == record.get("id");
             }

@@ -229,8 +229,8 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                                                     rec.get("forma_pago_id") == record.get("forma_pago_id2") &&
                                                     rec.get("forma_pago_id2") == record.get("forma_pago_id");
                                                 });
-                                                filter = combinacionesFormaPagoLocalStore.getFilters().get("forma-seleccionada");
-                                                combinacionesFormaPagoLocalStore.removeFilter("forma-seleccionada");
+                                                filter = combinacionesFormaPagoLocalStore.getFilters().get("formaSeleccionada");
+                                                combinacionesFormaPagoLocalStore.removeFilter("formaSeleccionada");
                                                 combinacionesFormaPagoLocalStore.remove(records.items);
                                                 combinacionesFormaPagoLocalStore.sync({
                                                     success: onSyncSuccess,

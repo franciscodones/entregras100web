@@ -51,7 +51,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "permiso-plazas"
+                        "id": "permisoPlazas"
                     },
                     "configAlternates": {
                         "id": "string"
@@ -149,7 +149,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "permiso-plazas"
+                        "id": "permisoPlazas"
                     },
                     "configAlternates": {
                         "id": "string"
@@ -191,7 +191,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "sesion-iniciada"
+                        "id": "sesionIniciada"
                     },
                     "configAlternates": {
                         "id": "string"
@@ -233,7 +233,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "unidad-seleccionada"
+                        "id": "unidadSeleccionada"
                     },
                     "configAlternates": {
                         "id": "string"

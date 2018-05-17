@@ -102,8 +102,8 @@ Ext.define('Entregas100Web.view.HorariosZonaPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'plaza',
                     width: 150,
+                    dataIndex: 'plaza',
                     text: 'Plaza',
                     filter: {
                         type: 'list'

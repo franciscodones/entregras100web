@@ -50,7 +50,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "permiso-plazas"
+                        "id": "permisoPlazas"
                     },
                     "configAlternates": {
                         "id": "string"

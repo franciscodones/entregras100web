@@ -30,7 +30,7 @@ Ext.define('Entregas100Web.view.UnidadesPanelViewModel', {
                 filterFn: function(item) {
                     return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
                 },
-                id: 'permiso-plazas'
+                id: 'permisoPlazas'
             }
         },
         FoliosLocalStore: {
@@ -45,19 +45,19 @@ Ext.define('Entregas100Web.view.UnidadesPanelViewModel', {
                     filterFn: function(item) {
                         return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
                     },
-                    id: 'permiso-plazas'
+                    id: 'permisoPlazas'
                 },
                 {
                     filterFn: function(item) {
                         return item.get("sesion");
                     },
-                    id: 'sesion-iniciada'
+                    id: 'sesionIniciada'
                 },
                 {
                     filterFn: function(item) {
                         return false;
                     },
-                    id: 'unidad-seleccionada'
+                    id: 'unidadSeleccionada'
                 }
             ]
         }

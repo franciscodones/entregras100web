@@ -655,7 +655,7 @@
                                                     "            store: Ext.create(\"Entregas100Web.store.PlazasStore\", {",
                                                     "                filters: [",
                                                     "                {",
-                                                    "                    id: \"permiso-plazas\",",
+                                                    "                    id: \"permisoPlazas\",",
                                                     "                    filterFn: function(record) {",
                                                     "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
                                                     "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
