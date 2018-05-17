@@ -21,7 +21,8 @@
             "UsuarioModel",
             "TipoSesionModel",
             "PermisoModel",
-            "PermisoUsuarioModel"
+            "PermisoUsuarioModel",
+            "HorarioZonaModel"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -39,7 +40,8 @@
             "UsuariosStore",
             "TiposSesionStore",
             "PermisosStore",
-            "PermisosUsuarioStore"
+            "PermisosUsuarioStore",
+            "HorariosZonaStore"
         ],
         "views": [
             "MainViewport",
@@ -65,7 +67,10 @@
             "CrearUsuarioWindow",
             "EditarUsuarioWindow",
             "PermisosPanel",
-            "EditarUnidadWindow"
+            "EditarUnidadWindow",
+            "HorariosZonaPanel",
+            "CrearHorarioZonaWindow",
+            "EditarHorarioZonaWindow"
         ]
     },
     "configAlternates": {

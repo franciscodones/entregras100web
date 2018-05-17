@@ -698,6 +698,53 @@
                                     ]
                                 },
                                 {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f017@FontAwesome",
+                                        "itemId": "mItemHorariosLista",
+                                        "text": "Horarios de Lista"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem11",
+                                    "designerId": "4eadc306-bf0b-4932-94d6-10e424f2329c",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemTarifasClick1",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.horarioszonapanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemTarifasClick1",
+                                            "designerId": "8fc9809b-b203-404c-9248-edad71ec4838"
+                                        }
+                                    ]
+                                },
+                                {
                                     "type": "basicfunction",
                                     "reference": {
                                         "name": "items",

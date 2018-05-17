@@ -35,7 +35,8 @@ Ext.application({
         'UsuarioModel',
         'TipoSesionModel',
         'PermisoModel',
-        'PermisoUsuarioModel'
+        'PermisoUsuarioModel',
+        'HorarioZonaModel'
     ],
     stores: [
         'PlazasStore',
@@ -52,7 +53,8 @@ Ext.application({
         'UsuariosStore',
         'TiposSesionStore',
         'PermisosStore',
-        'PermisosUsuarioStore'
+        'PermisosUsuarioStore',
+        'HorariosZonaStore'
     ],
     views: [
         'MainViewport',
@@ -78,7 +80,10 @@ Ext.application({
         'CrearUsuarioWindow',
         'EditarUsuarioWindow',
         'PermisosPanel',
-        'EditarUnidadWindow'
+        'EditarUnidadWindow',
+        'HorariosZonaPanel',
+        'CrearHorarioZonaWindow',
+        'EditarHorarioZonaWindow'
     ],
     name: 'Entregas100Web',
 

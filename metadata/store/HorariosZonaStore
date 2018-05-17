@@ -1,0 +1,90 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "horarioszonastore",
+        "designer|userClassName": "HorariosZonaStore",
+        "model": "HorarioZonaModel",
+        "rejectOnExceptions": true,
+        "storeId": "HorariosZonaStore"
+    },
+    "configAlternates": {
+        "rollbackOnExceptions": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
+    },
+    "name": "ZonasStore1",
+    "designerId": "912d77c5-13a9-401b-89bf-0749ca6b9418",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rejectOnExceptions",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "    create: \"api/horariosZona/create\",",
+                    "    read: \"api/horariosZona/read\",",
+                    "    update: \"api/horariosZona/update\",",
+                    "    destroy: \"api/horariosZona/destroy\"",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "api": "object"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "9fb922dd-8a73-4f97-a60c-820d7a17e145",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "metaProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "4eea9db3-f92e-4d02-99d2-8aba28c08e51"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter1",
+                    "designerId": "10f1a4ff-7d5a-4334-b47d-0be41a5984d8"
+                }
+            ]
+        }
+    ]
+}

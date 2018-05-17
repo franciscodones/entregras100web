@@ -170,6 +170,15 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                     listeners: {
                                         click: 'onMItemTarifasClick'
                                     }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemHorariosLista',
+                                    glyph: 'f017@FontAwesome',
+                                    text: 'Horarios de Lista',
+                                    listeners: {
+                                        click: 'onMItemTarifasClick1'
+                                    }
                                 }
                             ]
                         },

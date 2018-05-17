@@ -1,0 +1,134 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "HorarioZonaModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "41ddd7b2-8540-45e4-84a9-dd35e73c7f8b",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger18",
+            "designerId": "607b3f06-0287-48d9-bf49-c08e5be69515"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "zona_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger19",
+            "designerId": "2baad408-44d0-4d3a-9100-9b589299d547"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_inicial"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate6",
+            "designerId": "c62d2aef-3677-4f68-87b1-1de86d01c129"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_final"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate7",
+            "designerId": "51f98aa0-07a4-4113-8511-aa18589aa606"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "zona"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger22",
+            "designerId": "f899ccc2-5216-42cd-ab52-328a69a8a8c7"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger23",
+            "designerId": "a574654d-f705-4c4c-90b0-1bcebba100d6"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString23",
+            "designerId": "c07e56b7-c2ba-42ff-8e3c-50b626aadf9f"
+        }
+    ]
+}
