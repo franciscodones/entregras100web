@@ -269,6 +269,70 @@
             },
             "name": "MyInteger2",
             "designerId": "b3cff186-edd0-4a87-8379-a856aab63d04"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ip_te"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString6",
+            "designerId": "a2f9a683-9b85-45fc-bc63-9bb42980270f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "usuario_te"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString7",
+            "designerId": "f7d8d77a-a072-4b1c-8c94-01e0457424e0"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "password_te"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString8",
+            "designerId": "67875ecd-cc92-418b-8e21-4a6b6d9a1d58"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "base_te"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString9",
+            "designerId": "edac64f8-f3f7-471a-8bd0-eb107a2c151c"
         }
     ]
 }

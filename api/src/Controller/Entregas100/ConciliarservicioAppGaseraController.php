@@ -26,39 +26,69 @@ class ConciliarservicioAppGaseraController extends AppGaseraController {
             throw new Exception("No se envio información válida para conciliar");
         }
         $aServicios = $aServicios["servicios"];
+        $isServiciosSurtidos = true;
+        if (empty($aServicios) || $aServicios[0]["numero_servicio"] == 0) {
+            $isServiciosSurtidos = false;
+        }
 
         // busca los servicios y guarda los faltantes
         $aServiciosFaltantes = array();
-        $sQuery = "SELECT * " .
-            "FROM servicio_atendido " .
-            "WHERE unidad_id = ? ".
-            "AND fecha = ? " .
-            "AND numero_control = ? " .
-            "AND numero_servicio = ? " .
-            "AND linea_captura = ?";
-        foreach ($aServicios as &$aServicioApp) {
-            // si el servicio no trae linea de captura se asigna 0
-            if (trim($aServicioApp["linea_captura"]) == "") {
-                $aServicioApp["linea_captura"] = str_pad("0", 20, "0", STR_PAD_LEFT);
-            }
+        if ($isServiciosSurtidos) {
+            $sQuery = "SELECT * " .
+                "FROM servicio_atendido " .
+                "WHERE unidad_id = ? ".
+                "AND fecha = ? " .
+                "AND numero_control = ? " .
+                "AND numero_servicio = ? " .
+                "AND linea_captura = ?";
+            foreach ($aServicios as &$aServicioApp) {
+                // si el servicio no trae linea de captura se asigna 0
+                if (trim($aServicioApp["linea_captura"]) == "") {
+                    $aServicioApp["linea_captura"] = str_pad("0", 20, "0", STR_PAD_LEFT);
+                }
 
-            $aQueryParams = array(
-                $aUnidad['id'],
-                $aServicioApp["fecha_operacion"],
-                $aServicioApp["numero_control"],
-                $aServicioApp["numero_servicio"],
-                str_pad($aServicioApp["linea_captura"], 20, "0", STR_PAD_LEFT)
-            );
-            $aResultado = $oConexion->query($sQuery, $aQueryParams);
-            // si no encontro el servicio se agrega a los faltantes
-            if (count($aResultado) <= 0) {
-                $aServiciosFaltantes[] = array(
-                    "numero_control" => $aServicioApp["numero_control"],
-                    "numero_servicio" => $aServicioApp["numero_servicio"]
+                $aQueryParams = array(
+                    $aUnidad['id'],
+                    $aServicioApp["fecha_operacion"],
+                    $aServicioApp["numero_control"],
+                    $aServicioApp["numero_servicio"],
+                    str_pad($aServicioApp["linea_captura"], 20, "0", STR_PAD_LEFT)
                 );
+                $aResultado = $oConexion->query($sQuery, $aQueryParams);
+                // si no encontro el servicio se agrega a los faltantes
+                if (count($aResultado) <= 0) {
+                    $aServiciosFaltantes[] = array(
+                        "numero_control" => $aServicioApp["numero_control"],
+                        "numero_servicio" => $aServicioApp["numero_servicio"]
+                    );
+                }
             }
+            unset($aServicioApp);
+        } else {
+            $sQuery = "SELECT * " .
+                "FROM servicio_atendido " .
+                "WHERE unidad_id = ? ".
+                "AND fecha = ? " .
+                "AND numero_control = ? " .
+                "AND numero_servicio = ?";
+            foreach ($aServicios as &$aServicioApp) {
+                $aQueryParams = array(
+                    $aUnidad['id'],
+                    $aServicioApp["fecha_operacion"],
+                    $aServicioApp["numero_control"],
+                    $aServicioApp["numero_servicio"],
+                );
+                $aResultado = $oConexion->query($sQuery, $aQueryParams);
+                // si no encontro el servicio se agrega a los faltantes
+                if (count($aResultado) <= 0) {
+                    $aServiciosFaltantes[] = array(
+                        "numero_control" => $aServicioApp["numero_control"],
+                        "numero_servicio" => $aServicioApp["numero_servicio"]
+                    );
+                }
+            }
+            unset($aServicioApp);
         }
-        unset($aServicioApp);
 
         return $this->asJson(array(
             "success" => true,

@@ -26,6 +26,7 @@ Ext.define('Entregas100Web.view.CrearPlazaWindow', {
         'Ext.form.field.ComboBox',
         'Ext.form.field.Checkbox',
         'Ext.form.field.Number',
+        'Ext.form.FieldSet',
         'Ext.button.Button'
     ],
 
@@ -33,15 +34,17 @@ Ext.define('Entregas100Web.view.CrearPlazaWindow', {
     viewModel: {
         type: 'crearplazawindow'
     },
+    constrain: true,
     modal: true,
     draggable: false,
     id: 'crearPlazaWindow',
-    maxHeight: 460,
+    maxHeight: 610,
     resizable: false,
     scrollable: 'both',
     width: 600,
     glyph: 'f055@FontAwesome',
     title: 'Nueva Plaza',
+    monitorResize: true,
 
     items: [
         {
@@ -276,6 +279,67 @@ Ext.define('Entregas100Web.view.CrearPlazaWindow', {
                             allowDecimals: false,
                             maxValue: 3000,
                             minValue: 500
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldset',
+                    title: 'Datos de la conexión',
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    flex: 1,
+                                    fieldLabel: 'IP',
+                                    name: 'ip_te',
+                                    allowBlank: false,
+                                    vtype: 'IPAddress'
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 1,
+                                    fieldLabel: 'Base de datos',
+                                    name: 'base_te',
+                                    allowBlank: false
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    flex: 1,
+                                    fieldLabel: 'Usuario',
+                                    name: 'usuario_te',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'tbspacer',
+                                    width: 20
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 1,
+                                    fieldLabel: 'Contraseña',
+                                    name: 'password_te',
+                                    allowBlank: false
+                                }
+                            ]
                         }
                     ]
                 },

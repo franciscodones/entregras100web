@@ -11,7 +11,7 @@
         "draggable": false,
         "glyph": "f055 @FontAwesome",
         "id": "editarPlazaWindow",
-        "maxHeight": 460,
+        "maxHeight": 610,
         "modal": true,
         "resizable": false,
         "scrollable": "both",
@@ -758,6 +758,184 @@
                             },
                             "name": "MyNumberField3",
                             "designerId": "36bf2844-054e-495e-935b-36f4f70030b2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "Datos de la conexión"
+                    },
+                    "configAlternates": {
+                        "title": "string"
+                    },
+                    "name": "MyFieldSet1",
+                    "designerId": "4896b713-e2c0-40e7-817b-39e020bf46df",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "layout": "hbox"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string"
+                            },
+                            "name": "MyFieldContainer",
+                            "designerId": "8c4edb7a-6888-44a2-85b6-759e0705467a",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "IP",
+                                        "layout|flex": 1,
+                                        "name": "ip_te"
+                                    },
+                                    "configAlternates": {
+                                        "allowBlank": "boolean",
+                                        "fieldLabel": "string",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "40981c2c-2771-4a97-87b2-275608ba3d27"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Spacer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": 20
+                                    },
+                                    "configAlternates": {
+                                        "width": "auto"
+                                    },
+                                    "name": "MySpacer9",
+                                    "designerId": "34e219c3-f5b3-477d-acba-731869017982"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "Base de datos",
+                                        "layout|flex": 1,
+                                        "name": "base_te"
+                                    },
+                                    "configAlternates": {
+                                        "allowBlank": "boolean",
+                                        "fieldLabel": "string",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "1371d371-45ff-46a5-be7d-ac442250a7c2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "layout": "hbox"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string"
+                            },
+                            "name": "MyFieldContainer10",
+                            "designerId": "d9e5a9b7-a9fc-4213-be6b-843b5e8b0509",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "Usuario",
+                                        "layout|flex": 1,
+                                        "name": "usuario_te"
+                                    },
+                                    "configAlternates": {
+                                        "allowBlank": "boolean",
+                                        "fieldLabel": "string",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "7d3da604-76c1-4626-bbe3-d3f1a9c5a333"
+                                },
+                                {
+                                    "type": "Ext.toolbar.Spacer",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "width": 20
+                                    },
+                                    "configAlternates": {
+                                        "width": "auto"
+                                    },
+                                    "name": "MySpacer9",
+                                    "designerId": "714e6925-8717-4ff7-aa3f-08ed20e16ff3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "fieldLabel": "Contraseña",
+                                        "layout|flex": 1,
+                                        "name": "password_te"
+                                    },
+                                    "configAlternates": {
+                                        "allowBlank": "boolean",
+                                        "fieldLabel": "string",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "3f719168-bf74-4332-ad52-4624c13d944a"
+                                }
+                            ]
                         }
                     ]
                 },

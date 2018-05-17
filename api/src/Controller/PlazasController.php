@@ -14,7 +14,13 @@ class PlazasController extends AppController {
         $oConexion = $this->getConexion();
 
         // obtiene todas las plazas
-        $sQuery = "SELECT * FROM plaza";
+        $sQuery = "SELECT plaza.*, " .
+                "conexion.ip_te, " .
+                "conexion.base_te, " .
+                "conexion.usuario_te, " .
+                "conexion.password_te " .
+            "FROM plaza " .
+            "INNER JOIN conexion ON plaza.id = conexion.plaza_id";
         $aPlazas = $oConexion->query($sQuery);
 
         return $this->asJson(array(
@@ -37,40 +43,40 @@ class PlazasController extends AppController {
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
-        // agrega el registro de la plaza
-        $sQuery = "INSERT INTO plaza (" .
-                "empresa_id, " .
-                "plaza, " .
-                "plaza2, " .
-                "ciudad, " .
-                "estado, " .
-                "direccion_sucursal, " .
-                "telefono_pedido, " .
-                "telefono_queja, " .
-                "telefono_queja2, " .
-                "permiso, " .
-                "oficio, " .
-                "precio_gas, " .
-                "precio_aditivo, " .
-                "precio_aditivoc, " .
-                "factor_control, " .
-                "factor_space, " .
-                "litros_vale, " .
-                "clientes_estacionario, " .
-                "clientes_portatil, " .
-                "limite_descarga, " .
-                "fecha_lista, " .
-                "otorga_puntos, " .
-                "estatus, " .
-                "fecha_operacion, " .
-                "fecha_planta, " .
-                "tarifa_id" .
-            ") VALUES (" .
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
-            ")";
-
         foreach ($aRecords as &$aRecord) {
             $aRecord["clientId"] = $aRecord["id"];
+
+            // agrega el registro de la plaza
+            $sQuery = "INSERT INTO plaza (" .
+                    "empresa_id, " .
+                    "plaza, " .
+                    "plaza2, " .
+                    "ciudad, " .
+                    "estado, " .
+                    "direccion_sucursal, " .
+                    "telefono_pedido, " .
+                    "telefono_queja, " .
+                    "telefono_queja2, " .
+                    "permiso, " .
+                    "oficio, " .
+                    "precio_gas, " .
+                    "precio_aditivo, " .
+                    "precio_aditivoc, " .
+                    "factor_control, " .
+                    "factor_space, " .
+                    "litros_vale, " .
+                    "clientes_estacionario, " .
+                    "clientes_portatil, " .
+                    "limite_descarga, " .
+                    "fecha_lista, " .
+                    "otorga_puntos, " .
+                    "estatus, " .
+                    "fecha_operacion, " .
+                    "fecha_planta, " .
+                    "tarifa_id" .
+                ") VALUES (" .
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
+                ")";
             $aQueryParams = array(
                 $aRecord["empresa_id"],
                 $aRecord["plaza"],
@@ -101,6 +107,25 @@ class PlazasController extends AppController {
             );
             $aResultado = $oConexion->query($sQuery, $aQueryParams);
             $aRecord["id"] = $oConexion->driver()->lastInsertId();
+
+            // agrega el registro de la conexion
+            $sQuery = "INSERT INTO conexion (" .
+                    "plaza_id, " .
+                    "ip_te, " .
+                    "base_te, " .
+                    "usuario_te, " .
+                    "password_te" .
+                ") VALUES (" .
+                    "?, ?, ?, ?, ?" .
+                ")";
+            $aQueryParams = array(
+                $aRecord["id"],
+                $aRecord["ip_te"],
+                $aRecord["base_te"],
+                $aRecord["usuario_te"],
+                $aRecord["password_te"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
         }
         unset($aRecord);
 
@@ -129,25 +154,25 @@ class PlazasController extends AppController {
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
-        // actualiza el registro de la plaza
-        $sQuery = "UPDATE plaza SET " .
-                "empresa_id = ?, " .
-                "plaza = ?, " .
-                "plaza2 = ?, " .
-                "ciudad = ?, " .
-                "estado = ?, " .
-                "direccion_sucursal = ?, " .
-                "telefono_pedido = ?, " .
-                "telefono_queja = ?, " .
-                "telefono_queja2 = ?, " .
-                "permiso = ?, " .
-                "factor_control = ?, " .
-                "factor_space = ?, " .
-                "clientes_estacionario = ?, " .
-                "limite_descarga = ?, " .
-                "otorga_puntos = ? " .
-            "WHERE id = ?";
         foreach ($aRecords as $aRecord) {
+            // actualiza el registro de la plaza
+            $sQuery = "UPDATE plaza SET " .
+                    "empresa_id = ?, " .
+                    "plaza = ?, " .
+                    "plaza2 = ?, " .
+                    "ciudad = ?, " .
+                    "estado = ?, " .
+                    "direccion_sucursal = ?, " .
+                    "telefono_pedido = ?, " .
+                    "telefono_queja = ?, " .
+                    "telefono_queja2 = ?, " .
+                    "permiso = ?, " .
+                    "factor_control = ?, " .
+                    "factor_space = ?, " .
+                    "clientes_estacionario = ?, " .
+                    "limite_descarga = ?, " .
+                    "otorga_puntos = ? " .
+                "WHERE id = ?";
             $aQueryParams = array(
                 $aRecord["empresa_id"],
                 $aRecord["plaza"],
@@ -164,6 +189,22 @@ class PlazasController extends AppController {
                 $aRecord["clientes_estacionario"],
                 $aRecord["limite_descarga"],
                 $aRecord["otorga_puntos"],
+                $aRecord["id"]
+            );
+            $oConexion->query($sQuery, $aQueryParams);
+
+            // actualiza el registro de la conexion
+            $sQuery = "UPDATE conexion SET " .
+                    "ip_te = ?, " .
+                    "base_te = ?, " .
+                    "usuario_te = ?, " .
+                    "password_te = ? " .
+                "WHERE plaza_id = ?";
+            $aQueryParams = array(
+                $aRecord["ip_te"],
+                $aRecord["base_te"],
+                $aRecord["usuario_te"],
+                $aRecord["password_te"],
                 $aRecord["id"]
             );
             $oConexion->query($sQuery, $aQueryParams);

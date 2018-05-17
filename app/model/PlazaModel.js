@@ -86,6 +86,22 @@ Ext.define('Entregas100Web.model.PlazaModel', {
         {
             type: 'int',
             name: 'limite_descarga'
+        },
+        {
+            type: 'string',
+            name: 'ip_te'
+        },
+        {
+            type: 'string',
+            name: 'usuario_te'
+        },
+        {
+            type: 'string',
+            name: 'password_te'
+        },
+        {
+            type: 'string',
+            name: 'base_te'
         }
     ]
 });
