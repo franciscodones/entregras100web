@@ -76,6 +76,7 @@ class UnidadesController extends AppController {
                     "ruta_actualizacion, " .
                     "fecha_registro, " .
                     "fecha_modificacion, " .
+                    "permitir_ruta_nocturna, " .
                     "estado " .
                 ") VALUES (" .
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
@@ -100,6 +101,7 @@ class UnidadesController extends AppController {
                 "http://gps.gaspasa.com.mx:8080/Entregas100/APK/v2.4/v2.4_gps.apk",
                 date("Y-m-d H:i:s"),
                 date("Y-m-d H:i:s"),
+                $aRecord["permitir_ruta_nocturna"],
                 $aRecord["estado"]
             );
             $aResultado = $oConexion->query($sQuery, $aQueryParams);
@@ -171,6 +173,7 @@ class UnidadesController extends AppController {
                     "letra = ?, " .
                     "online = ?, " .
                     "cobro_aditivo = ?, " .
+                    "permitir_ruta_nocturna = ?, " .
                     "estado = ? " .
                 "WHERE id = ?";
             $aQueryParams = array(
@@ -179,6 +182,7 @@ class UnidadesController extends AppController {
                 $aRecord["letra"],
                 $aRecord["online"],
                 $aRecord["cobro_aditivo"],
+                $aRecord["permitir_ruta_nocturna"],
                 $aRecord["estado"],
                 $aRecord["id"]
             );

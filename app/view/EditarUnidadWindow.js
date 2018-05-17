@@ -289,7 +289,7 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
                     items: [
                         {
                             xtype: 'checkboxfield',
-                            width: 150,
+                            width: 130,
                             hideEmptyLabel: false,
                             labelWidth: 0,
                             name: 'cobro_aditivo',
@@ -300,11 +300,21 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
                         },
                         {
                             xtype: 'checkboxfield',
-                            width: 150,
+                            width: 130,
                             hideEmptyLabel: false,
                             labelWidth: 0,
                             name: 'online',
                             boxLabel: 'Modo Online',
+                            inputValue: 'true',
+                            uncheckedValue: 'false'
+                        },
+                        {
+                            xtype: 'checkboxfield',
+                            width: 130,
+                            hideEmptyLabel: false,
+                            labelWidth: 0,
+                            name: 'permitir_ruta_nocturna',
+                            boxLabel: 'Ruta Nocturna',
                             inputValue: 'true',
                             uncheckedValue: 'false'
                         }

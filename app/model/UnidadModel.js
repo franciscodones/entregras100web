@@ -153,6 +153,10 @@ Ext.define('Entregas100Web.model.UnidadModel', {
         {
             type: 'int',
             name: 'folios_cortesia'
+        },
+        {
+            type: 'boolean',
+            name: 'permitir_ruta_nocturna'
         }
     ]
 });

@@ -165,6 +165,18 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                     }
                 },
                 {
+                    xtype: 'booleancolumn',
+                    width: 130,
+                    dataIndex: 'permitir_ruta_nocturna',
+                    text: 'Ruta Nocturna',
+                    falseText: 'NO',
+                    trueText: 'SI',
+                    undefinedText: 'DESCONOCIDO',
+                    filter: {
+                        type: 'boolean'
+                    }
+                },
+                {
                     xtype: 'gridcolumn',
                     align: 'center',
                     text: 'Folios',

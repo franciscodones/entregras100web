@@ -457,6 +457,44 @@
                     ]
                 },
                 {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "permitir_ruta_nocturna",
+                        "falseText": "NO",
+                        "text": "Ruta Nocturna",
+                        "trueText": "SI",
+                        "undefinedText": "DESCONOCIDO",
+                        "width": 130
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "falseText": "string",
+                        "text": "string",
+                        "trueText": "string",
+                        "undefinedText": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyBooleanColumn",
+                    "designerId": "44a01b53-e047-4e5e-b089-849e11ced503",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyBooleanFilter3",
+                            "designerId": "8ddf83df-f149-4493-a6c7-67f7d33f0bc3"
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.view.Table",
                     "reference": {
                         "name": "viewConfig",

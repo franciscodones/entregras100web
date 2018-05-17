@@ -780,7 +780,7 @@
                                 "labelWidth": 0,
                                 "name": "cobro_aditivo",
                                 "uncheckedValue": "false",
-                                "width": 150
+                                "width": 130
                             },
                             "configAlternates": {
                                 "boxLabel": "string",
@@ -810,7 +810,7 @@
                                 "labelWidth": 0,
                                 "name": "online",
                                 "uncheckedValue": "false",
-                                "width": 150
+                                "width": 130
                             },
                             "configAlternates": {
                                 "boxLabel": "string",
@@ -825,6 +825,36 @@
                             },
                             "name": "MyCheckbox2",
                             "designerId": "76a4021e-56d1-4be7-9a7f-9b81a1a3f7b6"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Ruta Nocturna",
+                                "hideEmptyLabel": false,
+                                "inputValue": "true",
+                                "labelWidth": 0,
+                                "name": "permitir_ruta_nocturna",
+                                "uncheckedValue": "false",
+                                "width": 130
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "checked": "boolean",
+                                "hideEmptyLabel": "boolean",
+                                "inputValue": "string",
+                                "layout|anchor": "string",
+                                "name": "string",
+                                "uncheckedValue": "string",
+                                "labelWidth": "number",
+                                "width": "auto"
+                            },
+                            "name": "MyCheckbox5",
+                            "designerId": "4729e2b8-2607-4af8-93e8-74de91dc118d"
                         }
                     ]
                 },
