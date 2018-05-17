@@ -1,0 +1,32 @@
+// Base Class Definition
+// -------------------------
+
+.#{$pfa-css-prefix}, .far {
+  display: inline-block;
+  font: normal normal normal #{$pfa-font-size-base}/#{$pfa-line-height-base} FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.fas {
+  display: inline-block;
+  font: normal normal 900 #{$pfa-font-size-base}/#{$pfa-line-height-base} FontAwesomeSolid; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.fab {
+  display: inline-block;
+  font: normal normal normal #{$pfa-font-size-base}/#{$pfa-line-height-base} FontAwesomeBrands; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}

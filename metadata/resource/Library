@@ -15,7 +15,8 @@
             "pyansa-locale",
             "pyansa-data",
             "pyansa-grid",
-            "pyansa-permissible"
+            "pyansa-permissible",
+            "pyansa-font-awesome"
         ],
         "theme": "MyTritonTheme"
     },

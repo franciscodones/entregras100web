@@ -1,0 +1,47 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "descuentospromocionpanel",
+        "designer|userClassName": "DescuentosPromocionPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "TarifasPanelViewModel1",
+    "designerId": "d00f78d5-8d7e-42a5-a776-c9ff0bbc23eb",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "DescuentoPromocionModel",
+                "name": "DescuentosPromocionLocalStore",
+                "type": "descuentospromocionstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore4",
+            "designerId": "f8c99979-3ef6-42b6-b9fe-09b9a97ef552",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

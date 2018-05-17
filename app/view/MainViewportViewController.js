@@ -107,7 +107,53 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
         }
     },
 
-    onMItemTarifasClick1: function(item, e, eOpts) {
+    onMItemDescuentosPromocionClick: function(item, e, eOpts) {
+        var me = this,
+            tabContainer = me.view.down("#tabContainer"),
+            panel = tabContainer.down("> panel[alias=widget.descuentospromocionpanel]"),
+            plazaDialog;
+
+        if (panel) {
+            me.abrirPanel("widget.descuentospromocionpanel");
+        } else {
+            plazaDialog = Ext.create("Pyansa.window.dialog.ComboBox", {
+                title: "Seleccione una plaza",
+                field: {
+                    fieldLabel: "Plaza",
+                    store: Ext.create("Entregas100Web.store.PlazasStore", {
+                        filters: [
+                        {
+                            id: "permisoPlazas",
+                            filterFn: function(record) {
+                                return Ext.isEmpty(Ext._.usuario.plaza_id) ||
+                                Ext.Array.contains(Ext._.usuario.plaza_id, record.get("id"));
+                            }
+                        }
+                        ]
+                    }),
+                    valueField: "id",
+                    displayField: "ciudad"
+                },
+                listeners: {
+                    accept: onPlazaSeleccionada
+                }
+            });
+        }
+
+        function onPlazaSeleccionada(value, combo) {
+            this.close();
+            me.abrirPanel("widget.descuentospromocionpanel", {
+                title: "Descuentos promocion (" + combo.getDisplayValue() + ")",
+                viewModel: {
+                    data: {
+                        plazaId: value
+                    }
+                }
+            });
+        }
+    },
+
+    onMItemHorariosListaClick: function(item, e, eOpts) {
         this.abrirPanel("widget.horarioszonapanel");
     },
 

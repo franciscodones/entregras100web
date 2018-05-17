@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "descuentospromocionpanel",
+        "designer|userClassName": "DescuentosPromocionPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "TarifasPanelViewController1",
+    "designerId": "64134a47-03c0-4967-8daa-5dd66178998a"
+}

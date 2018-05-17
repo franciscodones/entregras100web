@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editardescuentopromocionwindow",
+        "designer|userClassName": "EditarDescuentoPromocionWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearDescuentoPromocionWindowViewController1",
+    "designerId": "eac43c6f-9173-4370-96ba-40c2bfba0cd3"
+}

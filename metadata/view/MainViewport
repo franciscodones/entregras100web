@@ -45,7 +45,7 @@
                 "layout": "vbox",
                 "layout|region": "west",
                 "title": "Menu",
-                "width": 170
+                "width": 200
             },
             "configAlternates": {
                 "bodyPadding": "auto",
@@ -705,6 +705,103 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "glyph": "f4d3@PyansaFontAwesomeSolid",
+                                        "itemId": "mItemDescuentosPromocion",
+                                        "permissionId": 13,
+                                        "text": "Descuentos promocion"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem12",
+                                    "designerId": "547ec916-a89d-4037-8e9f-9bcf39ec9e98",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemDescuentosPromocionClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    tabContainer = me.view.down(\"#tabContainer\"),",
+                                                    "    panel = tabContainer.down(\"> panel[alias=widget.descuentospromocionpanel]\"),",
+                                                    "    plazaDialog;",
+                                                    "",
+                                                    "if (panel) {",
+                                                    "    me.abrirPanel(\"widget.descuentospromocionpanel\");",
+                                                    "} else {",
+                                                    "    plazaDialog = Ext.create(\"Pyansa.window.dialog.ComboBox\", {",
+                                                    "        title: \"Seleccione una plaza\",",
+                                                    "        field: {",
+                                                    "            fieldLabel: \"Plaza\",",
+                                                    "            store: Ext.create(\"Entregas100Web.store.PlazasStore\", {",
+                                                    "                filters: [",
+                                                    "                {",
+                                                    "                    id: \"permisoPlazas\",",
+                                                    "                    filterFn: function(record) {",
+                                                    "                        return Ext.isEmpty(Ext._.usuario.plaza_id) ||",
+                                                    "                            Ext.Array.contains(Ext._.usuario.plaza_id, record.get(\"id\"));",
+                                                    "                    }",
+                                                    "                }",
+                                                    "            ]",
+                                                    "            }),",
+                                                    "            valueField: \"id\",",
+                                                    "            displayField: \"ciudad\"",
+                                                    "        },",
+                                                    "        listeners: {",
+                                                    "            accept: onPlazaSeleccionada",
+                                                    "        }",
+                                                    "    });",
+                                                    "}",
+                                                    "",
+                                                    "function onPlazaSeleccionada(value, combo) {",
+                                                    "    this.close();",
+                                                    "    me.abrirPanel(\"widget.descuentospromocionpanel\", {",
+                                                    "        title: \"Descuentos promocion (\" + combo.getDisplayValue() + \")\",",
+                                                    "        viewModel: {",
+                                                    "            data: {",
+                                                    "                plazaId: value",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemDescuentosPromocionClick",
+                                            "designerId": "b850f3c8-c161-4269-befe-098f6385a014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
                                         "glyph": "f017@FontAwesome",
                                         "itemId": "mItemHorariosLista",
                                         "text": "Horarios de Lista"
@@ -726,7 +823,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "fn": "onMItemTarifasClick1",
+                                                "fn": "onMItemHorariosListaClick",
                                                 "implHandler": [
                                                     "this.abrirPanel(\"widget.horarioszonapanel\");"
                                                 ],
@@ -739,7 +836,7 @@
                                                 "name": "string",
                                                 "scope": "string"
                                             },
-                                            "name": "onMItemTarifasClick1",
+                                            "name": "onMItemHorariosListaClick",
                                             "designerId": "8fc9809b-b203-404c-9248-edad71ec4838"
                                         }
                                     ]

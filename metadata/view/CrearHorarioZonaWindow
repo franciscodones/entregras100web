@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "crearhorariozonawindow",
         "designer|userClassName": "CrearHorarioZonaWindow",
-        "glyph": "f0d1@FontAwesome",
+        "glyph": "f017@FontAwesome",
         "id": "crearHorarioZonaWindow",
         "modal": true,
         "title": "Nuevo Horario de Lista",

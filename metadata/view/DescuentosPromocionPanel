@@ -1,0 +1,524 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "container|align": "stretch",
+        "designer|userAlias": "descuentospromocionpanel",
+        "designer|userClassName": "DescuentosPromocionPanel",
+        "glyph": "f4d3@PyansaFontAwesomeSolid",
+        "id": "descuentosPromocionPanel",
+        "layout": "vbox",
+        "requires": [
+            "Pyansa.window.dialog.ComboBox"
+        ],
+        "title": "Descuentos promocion"
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "title": "string",
+        "viewModel": "object",
+        "container|align": "string",
+        "layout": "string",
+        "requires": "typedarray"
+    },
+    "name": "TarifasPanel1",
+    "designerId": "094e0f5a-fe3b-4f21-85ac-797aad4b10d8",
+    "viewControllerInstanceId": "64134a47-03c0-4967-8daa-5dd66178998a",
+    "viewModelInstanceId": "d00f78d5-8d7e-42a5-a776-c9ff0bbc23eb",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "footer",
+                "dock": "top",
+                "ui": "footer"
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "dock": "string",
+                "ui": "string"
+            },
+            "name": "MyToolbar",
+            "designerId": "2609f080-2972-4778-a96a-cea16bbdf59e",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-small",
+                        "glyph": "f021@FontAwesome",
+                        "itemId": "btnRefrescar",
+                        "layout|flex": null,
+                        "text": "Refrescar",
+                        "ui": "default-small"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "itemId": "string",
+                        "designer|uiInterfaceName": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "1b3bf998-e7eb-47b2-8d97-df966cb9b05b",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnRefrescarClick",
+                                "implHandler": [
+                                    "this.getStore(\"DescuentosPromocionLocalStore\").load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnRefrescarClick",
+                            "designerId": "0ce3ab72-11a1-4845-bf5c-ae6e3e2d80c2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f055@FontAwesome",
+                        "itemId": "btnAgregar",
+                        "layout|flex": null,
+                        "text": "Agregar"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "029dbde4-2481-413b-ae1d-ab3a0cf2cae9",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnAgregarClick",
+                                "implHandler": [
+                                    "var crearDescuentoPromocionWindow = new Entregas100Web.view.CrearDescuentoPromocionWindow();",
+                                    "",
+                                    "crearDescuentoPromocionWindow.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnAgregarClick",
+                            "designerId": "fe9dc435-4a14-42a5-bd49-823b9d77e2be"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "itemId": "descuentosPromocionGrid",
+                "layout|flex": 1,
+                "scrollable": true,
+                "showMenuHint": true,
+                "showMenuTriggers": true,
+                "store": [
+                    "{DescuentosPromocionLocalStore}"
+                ]
+            },
+            "configAlternates": {
+                "columnLines": "boolean",
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "itemId": "string",
+                "scrollable": "auto",
+                "store": "binding",
+                "autoLoad": "boolean",
+                "layout|flex": "number",
+                "showMenuTriggers": "boolean",
+                "showMenuHint": "boolean"
+            },
+            "name": "MyGridPanel",
+            "designerId": "09b840fa-5dcf-4a1b-8dbf-326d1b3da9fa",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuTriggers",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuHint",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "descuento",
+                        "text": "Descuento",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "format": "string"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "0be89c4b-f9e0-4c56-bc4d-afab8760b38a"
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "No se encontraron resultados"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string"
+                    },
+                    "name": "MyTable",
+                    "designerId": "64e8505b-4257-4545-b749-551f340c3b30"
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "2b110244-9200-41af-84a2-dfc1269b6a96"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "hora_inicio",
+                        "format": "g:i A",
+                        "text": "Hora inicial",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "format": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyDateColumn3",
+                    "designerId": "60c02eb1-fa72-4525-95b8-21ff52069fa2"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "hora_fin",
+                        "format": "g:i A",
+                        "text": "Hora final",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "format": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyDateColumn4",
+                    "designerId": "5e74fd09-22cc-4468-8cde-ec74ed1be32b"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "litros_min",
+                        "format": "0,000.###",
+                        "text": "Lts. Minimo",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "format": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn9",
+                    "designerId": "361da6a6-0169-4467-a267-c84c3ac1701a"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "litros_max",
+                        "format": "0,000.###",
+                        "text": "Lts. Maximo",
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "format": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn10",
+                    "designerId": "ed1e9cf9-98d9-4626-b55d-c5a12d198c81"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn6",
+                    "designerId": "52effcb2-bb1b-4874-ad31-32a37541ea94",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/editar.png",
+                                "tooltip": "Editar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem3",
+                            "designerId": "b639c7cb-e836-4a08-956e-ccb3cf1fc4c3",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var editarDescuentoPromocionWindow = Ext.create(\"Entregas100Web.view.EditarDescuentoPromocionWindow\");",
+                                            "",
+                                            "editarDescuentoPromocionWindow.down(\"form\").loadRecord(record);",
+                                            "editarDescuentoPromocionWindow.show();"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "d02b8f3e-d856-428d-a89f-db4a644813d1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 30
+                    },
+                    "configAlternates": {
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn7",
+                    "designerId": "3b5ab815-f24c-45c2-b188-84494bcec68f",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/icon/garbage.png",
+                                "tooltip": "Eliminar"
+                            },
+                            "configAlternates": {
+                                "icon": "string",
+                                "tooltip": "string"
+                            },
+                            "name": "MyActionColumnItem4",
+                            "designerId": "e2200869-0136-49e3-bb01-52e08da92b33",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var descuentosPromocionLocalStore = record.store;",
+                                            "",
+                                            "Ext.Msg.confirm(",
+                                            "    \"Mensaje del sistema\",",
+                                            "    \"¿Desea eliminar el descuento definitivamente?\",",
+                                            "    function(result) {",
+                                            "        if (result == \"yes\") {",
+                                            "            descuentosPromocionLocalStore.remove(record);",
+                                            "            descuentosPromocionLocalStore.sync();",
+                                            "        }",
+                                            "    }",
+                                            ");"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "e91d4c74-1f77-4d69-91d8-c4164a27f6c0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDescuentosPromocionPanelBeforeRender",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "me.getStore(\"DescuentosPromocionLocalStore\").getProxy().setExtraParam(\"plaza_id\", me.getViewModel().get(\"plazaId\"));"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDescuentosPromocionPanelBeforeRender",
+            "designerId": "f900949a-6f6f-4b78-b693-934d248806b6"
+        }
+    ]
+}

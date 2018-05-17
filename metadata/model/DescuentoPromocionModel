@@ -1,0 +1,118 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DescuentoPromocionModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "f2377a23-acbb-4334-adef-b460a7e55fe6",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger25",
+            "designerId": "aa00d8bd-f639-413a-83fe-64c61dd19430"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_inicio"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate8",
+            "designerId": "d435373b-92df-4272-971a-a5c94e3c935e"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_fin"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate9",
+            "designerId": "72748684-7349-4d37-af14-6c9806bf898d"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "descuento"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber9",
+            "designerId": "61e44f07-2b69-4b36-b5a4-4991e3c05120"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "litros_min"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber10",
+            "designerId": "72d790ff-ee16-494a-8fa7-5e3545c17789"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "litros_max"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber11",
+            "designerId": "f5ea9dae-a114-4a9f-830b-19bd28a84b27"
+        }
+    ]
+}

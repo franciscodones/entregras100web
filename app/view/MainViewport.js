@@ -40,7 +40,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
             xtype: 'panel',
             region: 'west',
             frame: true,
-            width: 170,
+            width: 200,
             bodyPadding: 0,
             collapseDirection: 'left',
             collapsible: true,
@@ -173,11 +173,21 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 13,
+                                    itemId: 'mItemDescuentosPromocion',
+                                    glyph: 'f4d3@PyansaFontAwesomeSolid',
+                                    text: 'Descuentos promocion',
+                                    listeners: {
+                                        click: 'onMItemDescuentosPromocionClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
                                     itemId: 'mItemHorariosLista',
                                     glyph: 'f017@FontAwesome',
                                     text: 'Horarios de Lista',
                                     listeners: {
-                                        click: 'onMItemTarifasClick1'
+                                        click: 'onMItemHorariosListaClick'
                                     }
                                 }
                             ]

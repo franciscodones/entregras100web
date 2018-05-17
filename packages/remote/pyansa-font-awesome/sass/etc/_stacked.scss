@@ -1,0 +1,20 @@
+// Stacked Icons
+// -------------------------
+
+.#{$pfa-css-prefix}-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.#{$pfa-css-prefix}-stack-1x, .#{$pfa-css-prefix}-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.#{$pfa-css-prefix}-stack-1x { line-height: inherit; }
+.#{$pfa-css-prefix}-stack-2x { font-size: 2em; }
+.#{$pfa-css-prefix}-inverse { color: $pfa-inverse; }

@@ -1,0 +1,90 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "descuentospromocionstore",
+        "designer|userClassName": "DescuentosPromocionStore",
+        "model": "DescuentoPromocionModel",
+        "rejectOnExceptions": true,
+        "storeId": "DescuentosPromocionStore"
+    },
+    "configAlternates": {
+        "rollbackOnExceptions": "boolean",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "rejectOnExceptions": "boolean",
+        "designer|userAlias": "string"
+    },
+    "name": "TarifasStore1",
+    "designerId": "e507b942-8058-4d9a-8c8c-046fae8e421a",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "rejectOnExceptions",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "    create: \"api/descuentosPromocion/create\",",
+                    "    read: \"api/descuentosPromocion/read\",",
+                    "    update: \"api/descuentosPromocion/update\",",
+                    "    destroy: \"api/descuentosPromocion/destroy\"",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "api": "object"
+            },
+            "name": "MyAjaxProxy2",
+            "designerId": "4fecf3f2-82de-476c-9750-a85a77a66007",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "metaProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "a773bad7-46ef-4d16-90f9-59dc7bcf69bd"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter1",
+                    "designerId": "79e6745a-b132-4da6-86bd-ea667dc5643a"
+                }
+            ]
+        }
+    ]
+}

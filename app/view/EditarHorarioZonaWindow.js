@@ -35,7 +35,7 @@ Ext.define('Entregas100Web.view.EditarHorarioZonaWindow', {
     modal: true,
     id: 'editarHorarioZonaWindow',
     width: 500,
-    glyph: 'f0d1@FontAwesome',
+    glyph: 'f017@FontAwesome',
     title: 'Editar Horario de Lista',
 
     items: [

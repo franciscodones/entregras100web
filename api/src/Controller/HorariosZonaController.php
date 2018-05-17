@@ -121,7 +121,7 @@ class HorariosZonaController extends AppController {
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
-        // actualiza el registro de la zona
+        // actualiza el registro del horario
         $sQuery = "DELETE FROM horario_zona " .
             "WHERE id = ?";
         foreach ($aRecords as $aRecord) {

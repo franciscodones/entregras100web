@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editardescuentopromocionwindow",
+        "designer|userClassName": "EditarDescuentoPromocionWindowViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearDescuentoPromocionWindowViewModel1",
+    "designerId": "d6b04ef7-0460-4c93-9e71-df920b54267b"
+}

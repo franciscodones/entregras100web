@@ -14,7 +14,8 @@
       "pyansa-locale",
       "pyansa-data",
       "pyansa-grid",
-      "pyansa-permissible"
+      "pyansa-permissible",
+      "pyansa-font-awesome"
    ],
    "locale": "es",
    "indexHtmlPath": "index.html",
