@@ -18,13 +18,34 @@ Ext.define('Entregas100Web.view.UnidadesPanelViewController', {
     alias: 'controller.unidadespanel',
 
     onBtnRefrescarClick: function(button, e, eOpts) {
-        this.getStore("UnidadesLocalStore").load();
+        var me = this;
+
+        me.getStore("UnidadesLocalStore").load();
+        me.getStore("OperadoresLocalStore").load();
     },
 
     onBtnAgregarClick: function(button, e, eOpts) {
         var crearUnidadWindow = new Entregas100Web.view.CrearUnidadWindow();
 
         crearUnidadWindow.show();
+    },
+
+    onUnidadesGridSelect: function(rowmodel, record, index, eOpts) {
+        var me = this,
+            operadoresLocalStore = me.getStore("OperadoresLocalStore");
+
+        me.getStore("FoliosLocalStore").loadData([record.copy()]);
+
+
+        operadoresLocalStore.removeFilter("unidad-seleccionada");
+        operadoresLocalStore.addFilter([
+        {
+            id: "unidad-seleccionada",
+            filterFn: function(item) {
+                return item.get("unidad_id") == record.get("id");
+            }
+        }
+        ]);
     }
 
 });

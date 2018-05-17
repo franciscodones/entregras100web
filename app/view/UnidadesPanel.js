@@ -32,7 +32,9 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
         'Ext.grid.filters.filter.Boolean',
         'Ext.view.Table',
         'Ext.grid.column.Action',
-        'Ext.grid.filters.Filters'
+        'Ext.grid.filters.Filters',
+        'Ext.form.field.Checkbox',
+        'Ext.grid.plugin.RowEditing'
     ],
 
     controller: 'unidadespanel',
@@ -45,7 +47,7 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
     title: 'Unidades',
 
     layout: {
-        type: 'vbox',
+        type: 'hbox',
         align: 'stretch'
     },
     dockedItems: [
@@ -177,77 +179,6 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                     }
                 },
                 {
-                    xtype: 'gridcolumn',
-                    align: 'center',
-                    text: 'Folios',
-                    columns: [
-                        {
-                            xtype: 'gridcolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            align: 'center',
-                            dataIndex: 'folios_serie',
-                            text: 'Serie'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_nota',
-                            text: 'Nota',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_puntos',
-                            text: 'Punt.',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_litrogas',
-                            text: 'Litrog.',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_recirculacion',
-                            text: 'Recir.',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 85,
-                            dataIndex: 'folios_consignacion',
-                            text: 'Consig.',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_donativo',
-                            text: 'Dona.',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'numbercolumn',
-                            style: 'text-align: left',
-                            width: 80,
-                            dataIndex: 'folios_cortesia',
-                            text: 'Cort.',
-                            format: '0,000'
-                        }
-                    ]
-                },
-                {
                     xtype: 'actioncolumn',
                     permissionId: 9,
                     width: 30,
@@ -346,6 +277,140 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
             plugins: [
                 {
                     ptype: 'gridfilters'
+                }
+            ],
+            listeners: {
+                select: 'onUnidadesGridSelect'
+            }
+        },
+        {
+            xtype: 'container',
+            width: 680,
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
+            items: [
+                {
+                    xtype: 'gridpanel',
+                    flex: 1,
+                    frame: true,
+                    title: 'Folios',
+                    bind: {
+                        store: '{FoliosLocalStore}'
+                    },
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            align: 'center',
+                            dataIndex: 'folios_serie',
+                            text: 'Serie'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_nota',
+                            text: 'Nota',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_puntos',
+                            text: 'Punt.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_litrogas',
+                            text: 'Litrog.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_recirculacion',
+                            text: 'Recir.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 85,
+                            dataIndex: 'folios_consignacion',
+                            text: 'Consig.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_donativo',
+                            text: 'Dona.',
+                            format: '0,000'
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            style: 'text-align: left',
+                            width: 80,
+                            dataIndex: 'folios_cortesia',
+                            text: 'Cort.',
+                            format: '0,000'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'gridpanel',
+                    flex: 1,
+                    frame: true,
+                    title: 'Operadores en ruta',
+                    autoLoad: true,
+                    bind: {
+                        store: '{OperadoresLocalStore}'
+                    },
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            width: 300,
+                            dataIndex: 'nombre',
+                            text: 'Nombre'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 80,
+                            dataIndex: 'nip',
+                            text: 'NIP'
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            width: 130,
+                            dataIndex: 'sesion',
+                            ignoreExport: true,
+                            text: 'Sesion iniciada',
+                            falseText: 'NO',
+                            trueText: 'SI',
+                            undefinedText: 'DESCONOCIDO',
+                            filter: {
+                                type: 'boolean'
+                            },
+                            editor: {
+                                xtype: 'checkboxfield'
+                            }
+                        }
+                    ],
+                    plugins: [
+                        {
+                            ptype: 'rowediting',
+                            syncAfterEdit: true
+                        }
+                    ]
                 }
             ]
         }

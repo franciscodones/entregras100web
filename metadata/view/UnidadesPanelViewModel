@@ -86,6 +86,188 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "UnidadModel",
+                "name": "FoliosLocalStore",
+                "type": "unidadesstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore",
+            "designerId": "c8d977cc-7bf9-483c-83a0-d5cc56da8d3a",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "OperadorModel",
+                "name": "OperadoresLocalStore",
+                "type": "operadoresstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore4",
+            "designerId": "070cecde-c5a5-466e-830f-f23da1b6f9b8",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "permiso-plazas"
+                    },
+                    "configAlternates": {
+                        "id": "string"
+                    },
+                    "name": "MyFilter",
+                    "designerId": "6ee11209-7f60-4f2f-8337-3800ebd7141f",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "item"
+                                ],
+                                "fn": "filterFn",
+                                "implHandler": [
+                                    "return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get(\"plaza_id\"));"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "filterFn",
+                            "designerId": "967a29c9-0fcb-4cef-bf5c-2c07ca1b1245"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "sesion-iniciada"
+                    },
+                    "configAlternates": {
+                        "id": "string"
+                    },
+                    "name": "MyFilter2",
+                    "designerId": "5caf3b0e-2f3e-4e01-9cbd-53e18695228a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "item"
+                                ],
+                                "fn": "filterFn",
+                                "implHandler": [
+                                    "return item.get(\"sesion\");"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "filterFn",
+                            "designerId": "8cae6d28-63cd-4561-a1a2-e1bff7b532f2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "unidad-seleccionada"
+                    },
+                    "configAlternates": {
+                        "id": "string"
+                    },
+                    "name": "MyFilter3",
+                    "designerId": "f9966d1c-5470-4d22-a98c-eb50d13eab2b",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "item"
+                                ],
+                                "fn": "filterFn",
+                                "implHandler": [
+                                    "return false;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "filterFn",
+                            "designerId": "0b0c752d-2469-40d8-ae3c-67952953ca4a"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

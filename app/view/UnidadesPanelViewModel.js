@@ -32,6 +32,34 @@ Ext.define('Entregas100Web.view.UnidadesPanelViewModel', {
                 },
                 id: 'permiso-plazas'
             }
+        },
+        FoliosLocalStore: {
+            type: 'unidadesstore',
+            model: 'Entregas100Web.model.UnidadModel'
+        },
+        OperadoresLocalStore: {
+            type: 'operadoresstore',
+            model: 'Entregas100Web.model.OperadorModel',
+            filters: [
+                {
+                    filterFn: function(item) {
+                        return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
+                    },
+                    id: 'permiso-plazas'
+                },
+                {
+                    filterFn: function(item) {
+                        return item.get("sesion");
+                    },
+                    id: 'sesion-iniciada'
+                },
+                {
+                    filterFn: function(item) {
+                        return false;
+                    },
+                    id: 'unidad-seleccionada'
+                }
+            ]
         }
     }
 
