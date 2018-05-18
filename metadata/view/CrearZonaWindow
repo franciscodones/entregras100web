@@ -101,6 +101,7 @@
                         "forceSelection": true,
                         "itemId": "cmbPlaza",
                         "layout|anchor": "100%",
+                        "matchFieldWidth": false,
                         "name": "plaza_id",
                         "store": [
                             "{PlazasLocalStore}"
@@ -117,7 +118,8 @@
                         "itemId": "string",
                         "layout|anchor": "string",
                         "name": "string",
-                        "valueField": "datafield"
+                        "valueField": "datafield",
+                        "matchFieldWidth": "boolean"
                     },
                     "name": "MyComboBox1",
                     "designerId": "b815b718-935d-4735-9db4-46a448fa32c8"

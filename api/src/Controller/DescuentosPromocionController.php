@@ -54,9 +54,7 @@ class DescuentosPromocionController extends AppController {
                 "hora_fin" => $aDescuento["hora_fin"],
                 "litros_min" => $aDescuento["litros_min"],
                 "litros_max" => $aDescuento["litros_max"],
-                "descuento" => $aDescuento["descuento"],
-                "plaza_id" => $aPlaza["id"],
-                "nombre_plaza" => $aPlaza["ciudad"]
+                "descuento" => $aDescuento["descuento"]
             );
         }
 

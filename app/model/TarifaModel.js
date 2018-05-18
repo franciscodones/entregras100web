@@ -18,8 +18,7 @@ Ext.define('Entregas100Web.model.TarifaModel', {
 
     requires: [
         'Ext.data.field.Number',
-        'Ext.data.field.Boolean',
-        'Ext.data.field.String'
+        'Ext.data.field.Boolean'
     ],
 
     fields: [
@@ -38,14 +37,6 @@ Ext.define('Entregas100Web.model.TarifaModel', {
         {
             type: 'boolean',
             name: 'es_base'
-        },
-        {
-            type: 'int',
-            name: 'plaza_id'
-        },
-        {
-            type: 'string',
-            name: 'nombre_plaza'
         }
     ]
 });

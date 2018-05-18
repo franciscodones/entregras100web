@@ -73,6 +73,7 @@ Ext.define('Entregas100Web.view.EditarZonaWindow', {
                     readOnly: true,
                     allowBlank: false,
                     editable: false,
+                    matchFieldWidth: false,
                     displayField: 'ciudad',
                     forceSelection: true,
                     valueField: 'id',

@@ -32,8 +32,8 @@ Ext.define('Entregas100Web.view.TarifasPanelViewController', {
         if (txtAumentoGas.isValid() && txtAumentoAditivo.isValid()) {
             if (tarifasSelection.length > 0) {
                 Ext.Array.each(tarifasGrid.getSelection(), function(record) {
-                    record.set("precio2", record.get("precio2") + txtAumentoGas.getValue());
-                    record.set("aditivo2", record.get("aditivo2") + txtAumentoAditivo.getValue());
+                    record.set("precio2", record.get("precio2") + (txtAumentoGas.getValue() || 0));
+                    record.set("aditivo2", record.get("aditivo2") + (txtAumentoAditivo.getValue() || 0));
                 });
                 tarifasLocalStore.sync();
             } else {

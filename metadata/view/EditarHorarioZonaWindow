@@ -89,6 +89,7 @@
                                 "forceSelection": true,
                                 "itemId": "cmbPlaza",
                                 "layout|flex": 1,
+                                "matchFieldWidth": false,
                                 "name": "plaza_id",
                                 "store": [
                                     "{PlazasLocalStore}"
@@ -106,7 +107,8 @@
                                 "layout|anchor": "string",
                                 "name": "string",
                                 "valueField": "datafield",
-                                "layout|flex": "number"
+                                "layout|flex": "number",
+                                "matchFieldWidth": "boolean"
                             },
                             "name": "MyComboBox1",
                             "designerId": "e61dcab7-bc99-4a6a-b168-1b76855acb17",
@@ -185,6 +187,7 @@
                                 "forceSelection": true,
                                 "itemId": "cmbZona",
                                 "layout|flex": 1,
+                                "matchFieldWidth": false,
                                 "name": "zona_id",
                                 "store": [
                                     "{ZonasLocalStore}"
@@ -203,7 +206,8 @@
                                 "name": "string",
                                 "valueField": "datafield",
                                 "disabled": "boolean",
-                                "layout|flex": "number"
+                                "layout|flex": "number",
+                                "matchFieldWidth": "boolean"
                             },
                             "name": "MyComboBox2",
                             "designerId": "688693b3-85d1-4f43-8818-2b1cadd89d86",
@@ -272,6 +276,7 @@
                                 "increment": 30,
                                 "itemId": "timeHoraInicial",
                                 "layout|flex": 1,
+                                "matchFieldWidth": false,
                                 "maxValue": "11:00 PM",
                                 "minValue": "12:00 PM",
                                 "name": "hora_inicial"
@@ -286,7 +291,8 @@
                                 "layout|flex": "number",
                                 "maxValue": "time",
                                 "minValue": "time",
-                                "name": "string"
+                                "name": "string",
+                                "matchFieldWidth": "boolean"
                             },
                             "name": "MyTimeField",
                             "designerId": "d93880bb-b2af-4893-96a9-5a2ee6830909",
@@ -354,6 +360,7 @@
                                 "increment": 30,
                                 "itemId": "timeHoraFinal",
                                 "layout|flex": 1,
+                                "matchFieldWidth": false,
                                 "maxValue": "11:30 PM",
                                 "name": "hora_final"
                             },
@@ -367,7 +374,8 @@
                                 "itemId": "string",
                                 "layout|flex": "number",
                                 "maxValue": "time",
-                                "name": "string"
+                                "name": "string",
+                                "matchFieldWidth": "boolean"
                             },
                             "name": "MyTimeField1",
                             "designerId": "cede8d55-b212-4d0d-b85e-111ac0565b3c",

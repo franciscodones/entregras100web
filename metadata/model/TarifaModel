@@ -77,38 +77,6 @@
             },
             "name": "MyBoolean8",
             "designerId": "50366cca-0ca4-49b5-89b6-6c9113cc853e"
-        },
-        {
-            "type": "Ext.data.field.Integer",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "plaza_id"
-            },
-            "configAlternates": {
-                "name": "string"
-            },
-            "name": "MyInteger17",
-            "designerId": "6dc229f5-f470-427c-bbd3-955ecc07a17b"
-        },
-        {
-            "type": "Ext.data.field.String",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "nombre_plaza"
-            },
-            "configAlternates": {
-                "name": "string"
-            },
-            "name": "MyString23",
-            "designerId": "b78e0b72-4dea-4a5e-bd6f-42dac1a3aa31"
         }
     ]
 }

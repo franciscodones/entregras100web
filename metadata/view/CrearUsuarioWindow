@@ -224,6 +224,7 @@
                         "forceSelection": true,
                         "itemId": "cmbTipoSesion",
                         "layout|anchor": "100%",
+                        "matchFieldWidth": false,
                         "name": "tipo_sesion_id",
                         "store": [
                             "{TiposSesionLocalStore}"
@@ -242,7 +243,8 @@
                         "valueField": "datafield",
                         "disabled": "boolean",
                         "store": "binding",
-                        "queryMode": "string"
+                        "queryMode": "string",
+                        "matchFieldWidth": "boolean"
                     },
                     "name": "MyComboBox2",
                     "designerId": "9738e2f5-faf3-4245-90c1-68863b345185"
@@ -262,6 +264,7 @@
                         "forceSelection": true,
                         "itemId": "cmbPlaza",
                         "layout|anchor": "100%",
+                        "matchFieldWidth": false,
                         "name": "plaza_id",
                         "store": [
                             "{PlazasLocalStore}"
@@ -278,7 +281,8 @@
                         "itemId": "string",
                         "layout|anchor": "string",
                         "name": "string",
-                        "valueField": "datafield"
+                        "valueField": "datafield",
+                        "matchFieldWidth": "boolean"
                     },
                     "name": "MyComboBox1",
                     "designerId": "87c5760f-3c6a-4da6-b380-9e4c12955c0d"

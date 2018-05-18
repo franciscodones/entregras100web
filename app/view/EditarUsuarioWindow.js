@@ -99,6 +99,7 @@ Ext.define('Entregas100Web.view.EditarUsuarioWindow', {
                     name: 'tipo_sesion_id',
                     allowBlank: false,
                     editable: false,
+                    matchFieldWidth: false,
                     displayField: 'tipo_sesion',
                     forceSelection: true,
                     valueField: 'id',

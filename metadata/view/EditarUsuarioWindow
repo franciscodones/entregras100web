@@ -244,6 +244,7 @@
                         "forceSelection": true,
                         "itemId": "cmbTipoSesion",
                         "layout|anchor": "100%",
+                        "matchFieldWidth": false,
                         "name": "tipo_sesion_id",
                         "store": [
                             "{TiposSesionLocalStore}"
@@ -262,7 +263,8 @@
                         "valueField": "datafield",
                         "disabled": "boolean",
                         "store": "binding",
-                        "queryMode": "string"
+                        "queryMode": "string",
+                        "matchFieldWidth": "boolean"
                     },
                     "name": "MyComboBox2",
                     "designerId": "90c75d0f-6327-4b94-8644-f016f92f6564"

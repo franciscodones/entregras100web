@@ -73,7 +73,6 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                     fieldLabel: 'Aumento Gas',
                     validateOnChange: false,
                     validateOnBlur: false,
-                    allowBlank: false,
                     hideTrigger: true
                 },
                 {
@@ -85,7 +84,6 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                     fieldLabel: 'Aumento AD+',
                     validateOnChange: false,
                     validateOnBlur: false,
-                    allowBlank: false,
                     hideTrigger: true
                 },
                 {
@@ -138,12 +136,6 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                     width: 120,
                     dataIndex: 'aditivo2',
                     text: 'Precio AD+'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 110,
-                    dataIndex: 'nombre_plaza',
-                    text: 'Plaza'
                 },
                 {
                     xtype: 'booleancolumn',

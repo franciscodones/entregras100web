@@ -53,9 +53,7 @@ class TarifasController extends AppController {
                 "cvetar" => $aTarifa["cvetar"],
                 "precio2" => $aTarifa["precio2"],
                 "aditivo2" => $aTarifa["aditivo2"],
-                "es_base" => $aTarifa["cvetar"] == $aPlaza["tarifa_id"],
-                "plaza_id" => $aPlaza["id"],
-                "nombre_plaza" => $aPlaza["ciudad"]
+                "es_base" => $aTarifa["cvetar"] == $aPlaza["tarifa_id"]
             );
         }
 

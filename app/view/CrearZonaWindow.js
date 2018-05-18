@@ -66,6 +66,7 @@ Ext.define('Entregas100Web.view.CrearZonaWindow', {
                     name: 'plaza_id',
                     allowBlank: false,
                     editable: false,
+                    matchFieldWidth: false,
                     displayField: 'ciudad',
                     forceSelection: true,
                     valueField: 'id',

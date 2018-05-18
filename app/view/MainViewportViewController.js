@@ -95,9 +95,10 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
             });
         }
 
-        function onPlazaSeleccionada(value) {
+        function onPlazaSeleccionada(value, combo) {
             this.close();
             me.abrirPanel("widget.tarifaspanel", {
+                title: "Tarifas (" + combo.getDisplayValue() + ")",
                 viewModel: {
                     data: {
                         plazaId: value

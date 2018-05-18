@@ -60,6 +60,7 @@ Ext.define('Entregas100Web.view.CrearOperadorWindow', {
                     name: 'tipo_usuario_id',
                     allowBlank: false,
                     editable: false,
+                    matchFieldWidth: false,
                     forceSelection: true,
                     queryMode: 'local',
                     store: [
@@ -89,6 +90,7 @@ Ext.define('Entregas100Web.view.CrearOperadorWindow', {
                     name: 'plaza_id',
                     allowBlank: false,
                     editable: false,
+                    matchFieldWidth: false,
                     displayField: 'ciudad',
                     forceSelection: true,
                     valueField: 'id',
