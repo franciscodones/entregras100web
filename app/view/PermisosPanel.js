@@ -203,7 +203,6 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    permissionId: 35,
                                     itemId: 'btnRevertir',
                                     glyph: 'f0e2@FontAwesome',
                                     text: 'Revertir',
@@ -214,7 +213,6 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
                                 },
                                 {
                                     xtype: 'button',
-                                    permissionId: 35,
                                     itemId: 'btnGuardar',
                                     glyph: 'f058@FontAwesome',
                                     text: 'Guardar',

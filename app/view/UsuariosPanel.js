@@ -63,7 +63,6 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
                 },
                 {
                     xtype: 'button',
-                    permissionId: 30,
                     itemId: 'btnAgregar',
                     glyph: 'f055@FontAwesome',
                     text: 'Agregar',
@@ -136,7 +135,6 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    permissionId: 31,
                     width: 30,
                     items: [
                         {
@@ -262,7 +260,6 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    permissionId: 32,
                                     itemId: 'btnAgregarPlaza',
                                     glyph: 'f055@FontAwesome',
                                     text: 'Agregar Plaza',
@@ -289,7 +286,6 @@ Ext.define('Entregas100Web.view.UsuariosPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
-                            permissionId: 33,
                             width: 30,
                             items: [
                                 {

@@ -68,7 +68,6 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                 },
                 {
                     xtype: 'button',
-                    permissionId: 8,
                     itemId: 'btnAgregar',
                     glyph: 'f055 @FontAwesome',
                     text: 'Agregar',
@@ -180,7 +179,6 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    permissionId: 9,
                     width: 30,
                     items: [
                         {

@@ -59,10 +59,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                     items: [
                         {
                             xtype: 'menu',
-                            isPermited: function() {
-                                // si no existen menuitems visibles, se toma el menu como no permitido y se oculta
-                                return this.query("> menuitem[hidden=false]").length > 0;
-                            },
                             cls: 'menu-flechas',
                             floating: false,
                             margin: 0,
@@ -70,7 +66,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 1,
                                     itemId: 'mItemPlazas',
                                     glyph: 'f279@FontAwesome',
                                     text: 'Plazas',
@@ -80,7 +75,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 15,
                                     itemId: 'mItemFormasPago',
                                     glyph: 'f0d6@FontAwesome',
                                     text: 'Formas de Pago',
@@ -90,7 +84,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 21,
                                     itemId: 'mItemPerfilesPago',
                                     glyph: 'f09d@FontAwesome',
                                     text: 'Perfiles de Pago',
@@ -100,7 +93,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 29,
                                     itemId: 'mItemUsuarios',
                                     glyph: 'f0c0@FontAwesome',
                                     text: 'Usuarios',
@@ -110,7 +102,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 34,
                                     itemId: 'mItemPermisos',
                                     glyph: 'f023@FontAwesome',
                                     text: 'Permisos',
@@ -122,10 +113,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                         },
                         {
                             xtype: 'menu',
-                            isPermited: function() {
-                                // si no existen menuitems visibles, se toma el menu como no permitido y se oculta
-                                return this.query("> menuitem[hidden=false]").length > 0;
-                            },
                             cls: 'menu-flechas',
                             floating: false,
                             margin: 0,
@@ -133,7 +120,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             items: [
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 4,
                                     itemId: 'mItemZonas',
                                     glyph: 'f041@FontAwesome',
                                     text: 'Zonas',
@@ -143,7 +129,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 7,
                                     itemId: 'mItemUnidades',
                                     glyph: 'f0d1@FontAwesome',
                                     text: 'Unidades',
@@ -153,7 +138,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 10,
                                     itemId: 'mItemOperadores',
                                     glyph: 'f0c0@FontAwesome',
                                     text: 'Operadores',
@@ -163,7 +147,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 13,
                                     itemId: 'mItemTarifas',
                                     glyph: 'f155@FontAwesome',
                                     text: 'Tarifas',
@@ -173,7 +156,6 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
-                                    permissionId: 13,
                                     itemId: 'mItemDescuentosPromocion',
                                     glyph: 'f4d3@PyansaFontAwesomeSolid',
                                     text: 'Descuentos promocion',

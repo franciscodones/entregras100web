@@ -240,7 +240,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "permissionId": 22,
                         "width": 30
                     },
                     "configAlternates": {
@@ -249,13 +248,6 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "5ed58ea8-9454-4e16-83f1-53184d954d9a",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "permissionId",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -441,7 +433,6 @@
                                         "glyph": "f055@FontAwesome",
                                         "itemId": "btnAgregarFormaPago",
                                         "layout|flex": null,
-                                        "permissionId": 23,
                                         "text": "Agregar Forma de Pago"
                                     },
                                     "configAlternates": {
@@ -453,13 +444,6 @@
                                     },
                                     "name": "MyButton3",
                                     "designerId": "4577e63e-a153-4e57-96c8-3ad1d7560ca8",
-                                    "customConfigs": [
-                                        {
-                                            "group": "(Custom Properties)",
-                                            "name": "permissionId",
-                                            "type": "string"
-                                        }
-                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -636,7 +620,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "permissionId": 24,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -645,13 +628,6 @@
                             },
                             "name": "MyActionColumn1",
                             "designerId": "f14b3874-e11a-4da3-ac0d-d07a2e597729",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "permissionId",
-                                    "type": "string"
-                                }
-                            ],
                             "cn": [
                                 {
                                     "type": "actioncolumnitem",
@@ -771,7 +747,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "permissionId": 25,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -780,13 +755,6 @@
                             },
                             "name": "MyActionColumn3",
                             "designerId": "46ec845e-6f78-44fd-8ceb-7d0dd05a7659",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "permissionId",
-                                    "type": "string"
-                                }
-                            ],
                             "cn": [
                                 {
                                     "type": "actioncolumnitem",

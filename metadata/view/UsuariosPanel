@@ -117,7 +117,6 @@
                         "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
-                        "permissionId": 30,
                         "text": "Agregar"
                     },
                     "configAlternates": {
@@ -129,13 +128,6 @@
                     },
                     "name": "MyButton4",
                     "designerId": "32666a80-6967-4866-928f-bdaba79a6946",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "permissionId",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -444,7 +436,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "permissionId": 31,
                         "width": 30
                     },
                     "configAlternates": {
@@ -453,13 +444,6 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "a491e2c3-0f8c-42ce-9b99-113b72ea7214",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "permissionId",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -812,7 +796,6 @@
                                         "glyph": "f055@FontAwesome",
                                         "itemId": "btnAgregarPlaza",
                                         "layout|flex": null,
-                                        "permissionId": 32,
                                         "text": "Agregar Plaza"
                                     },
                                     "configAlternates": {
@@ -824,13 +807,6 @@
                                     },
                                     "name": "MyButton3",
                                     "designerId": "7758118f-2af9-4153-bf5f-c68c66c2ff3e",
-                                    "customConfigs": [
-                                        {
-                                            "group": "(Custom Properties)",
-                                            "name": "permissionId",
-                                            "type": "string"
-                                        }
-                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -979,7 +955,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "permissionId": 33,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -988,13 +963,6 @@
                             },
                             "name": "MyActionColumn1",
                             "designerId": "c0812427-5911-4d7b-9ab0-ccc15a07c20c",
-                            "customConfigs": [
-                                {
-                                    "group": "(Custom Properties)",
-                                    "name": "permissionId",
-                                    "type": "string"
-                                }
-                            ],
                             "cn": [
                                 {
                                     "type": "actioncolumnitem",

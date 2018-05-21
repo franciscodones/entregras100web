@@ -99,7 +99,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
-                    permissionId: 22,
                     width: 30,
                     items: [
                         {
@@ -151,7 +150,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    permissionId: 23,
                                     itemId: 'btnAgregarFormaPago',
                                     glyph: 'f055@FontAwesome',
                                     text: 'Agregar Forma de Pago',
@@ -186,7 +184,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
-                            permissionId: 24,
                             width: 30,
                             items: [
                                 {
@@ -233,7 +230,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
-                            permissionId: 25,
                             width: 30,
                             items: [
                                 {

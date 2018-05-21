@@ -727,7 +727,6 @@
                                         "glyph": "f0e2@FontAwesome",
                                         "itemId": "btnRevertir",
                                         "layout|flex": null,
-                                        "permissionId": 35,
                                         "text": "Revertir",
                                         "tooltip": "Revertir cambios"
                                     },
@@ -741,13 +740,6 @@
                                     },
                                     "name": "MyButton",
                                     "designerId": "93444fe9-4a9d-433b-b7d7-06cdc6f44b85",
-                                    "customConfigs": [
-                                        {
-                                            "group": "(Custom Properties)",
-                                            "name": "permissionId",
-                                            "type": "string"
-                                        }
-                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -803,7 +795,6 @@
                                         "glyph": "f058@FontAwesome",
                                         "itemId": "btnGuardar",
                                         "layout|flex": null,
-                                        "permissionId": 35,
                                         "text": "Guardar",
                                         "tooltip": "Guardar cambios"
                                     },
@@ -817,13 +808,6 @@
                                     },
                                     "name": "MyButton2",
                                     "designerId": "a0818c47-4050-4ed7-b530-0f6e32be1c6b",
-                                    "customConfigs": [
-                                        {
-                                            "group": "(Custom Properties)",
-                                            "name": "permissionId",
-                                            "type": "string"
-                                        }
-                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",

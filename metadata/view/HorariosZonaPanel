@@ -114,7 +114,6 @@
                         "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
-                        "permissionId": 5,
                         "text": "Agregar"
                     },
                     "configAlternates": {
@@ -126,13 +125,6 @@
                     },
                     "name": "MyButton2",
                     "designerId": "70b1d290-5ede-49ec-b446-320d6f606d53",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "permissionId",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -342,7 +334,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "permissionId": 6,
                         "width": 30
                     },
                     "configAlternates": {
@@ -351,13 +342,6 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "3a8d9c23-e6ee-4ebe-b7bb-0d80d983c757",
-                    "customConfigs": [
-                        {
-                            "group": "(Custom Properties)",
-                            "name": "permissionId",
-                            "type": "string"
-                        }
-                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
