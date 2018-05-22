@@ -35,7 +35,7 @@ Ext.application({
         'UsuarioModel',
         'TipoSesionModel',
         'PermisoModel',
-        'PermisoUsuarioModel',
+        'PivotePermisoModel',
         'HorarioZonaModel',
         'DescuentoPromocionModel'
     ],
@@ -54,7 +54,7 @@ Ext.application({
         'UsuariosStore',
         'TiposSesionStore',
         'PermisosStore',
-        'PermisosUsuarioStore',
+        'PivotePermisosStore',
         'HorariosZonaStore',
         'DescuentosPromocionStore'
     ],

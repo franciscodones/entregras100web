@@ -30,13 +30,12 @@ Ext.define('Entregas100Web.view.PermisosPanelViewModel', {
             type: 'tipossesionstore',
             model: 'Entregas100Web.model.TipoSesionModel'
         },
-        PermisosUsuarioLocalStore: {
-            type: 'permisosusuariostore',
-            model: 'Entregas100Web.model.PermisoUsuarioModel'
+        PivotePermisosLocalStore: {
+            type: 'pivotepermisosstore',
+            model: 'Entregas100Web.model.PivotePermisoModel'
         },
         PermisosLocalStore: {
             type: 'permisosstore',
-            groupField: 'categoria_permiso',
             model: 'Entregas100Web.model.PermisoModel'
         }
     }

@@ -21,7 +21,7 @@
             "UsuarioModel",
             "TipoSesionModel",
             "PermisoModel",
-            "PermisoUsuarioModel",
+            "PivotePermisoModel",
             "HorarioZonaModel",
             "DescuentoPromocionModel"
         ],
@@ -41,7 +41,7 @@
             "UsuariosStore",
             "TiposSesionStore",
             "PermisosStore",
-            "PermisosUsuarioStore",
+            "PivotePermisosStore",
             "HorariosZonaStore",
             "DescuentosPromocionStore"
         ],

@@ -14,10 +14,8 @@ class PermisosController extends AppController {
         $oConexion = $this->getConexion();
 
         // obtiene todos los permisos
-        $sQuery = "SELECT permisos.*, " .
-                "categorias_permisos.descripcion AS categoria_permiso " .
-            "FROM permisos " .
-            "LEFT JOIN categorias_permisos ON permisos.categoria_permiso_id = categorias_permisos.id";
+        $sQuery = "SELECT * " .
+            "FROM permisos ";
         $aPermisos = $oConexion->query($sQuery);
 
         return $this->asJson(array(
@@ -31,20 +29,27 @@ class PermisosController extends AppController {
     }
 
     /**
-     * Lee el catalogo de permisos de usuarios
+     * Lee el pivote de permisos
      * @return JsonResponse
      */
-    public function readPermisosUsuario() {
+    public function readPivotePermisos() {
         $oConexion = $this->getConexion();
+        $aDatos = $this->request->query;
 
         // obtiene todos los permisos
         $sQuery = "SELECT * " .
-            "FROM permisos_usuarios";
-        $aPermisos = $oConexion->query($sQuery);
+            "FROM pivote_permisos " .
+            "WHERE pertenece_id = ? " .
+            "AND tipo = ?";
+        $aQueryParams = array(
+            $aDatos["pertenece_id"],
+            $aDatos["tipo"]
+        );
+        $aPermisos = $oConexion->query($sQuery, $aQueryParams);
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Catalogo de permisos de usuarios",
+            "message" => "Permisos otorgados",
             "records" => $aPermisos,
             "metadata" => array(
                 "total_registros" => count($aPermisos)
@@ -53,29 +58,29 @@ class PermisosController extends AppController {
     }
 
     /**
-     * Crea permisos de usuario o tipo de usuario
+     * Otorga permisos creando registros en pivote_permisos
      * @return JsonResponse
      */
-    public function createPermisosUsuario() {
+    public function createPivotePermisos() {
         $oConexion = $this->getConexion();
 
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
         // actualiza el registro del operador
-        $sQuery = "INSERT INTO permisos_usuarios (" .
-                "tipo_usuario_id, " .
-                "usuario_id, " .
-                "permiso_id " .
+        $sQuery = "INSERT INTO pivote_permisos (" .
+                "pertenece_id, " .
+                "permiso_id, " .
+                "tipo " .
             ") VALUES (" .
                 "?, ?, ?" .
             ")";
         foreach ($aRecords as &$aRecord) {
             $aRecord["clientId"] = $aRecord["id"];
             $aQueryParams = array(
-                $aRecord["tipo_usuario_id"],
-                $aRecord["usuario_id"],
-                $aRecord["permiso_id"]
+                $aRecord["pertenece_id"],
+                $aRecord["permiso_id"],
+                $aRecord["tipo"]
             );
             $oConexion->query($sQuery, $aQueryParams);
             $aRecord["id"] = $oConexion->driver()->lastInsertId();
@@ -92,23 +97,23 @@ class PermisosController extends AppController {
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Permisos agregados",
+            "message" => "Permisos otorgados",
             "records" => $aRecords
         ));
     }
 
     /**
-     * Elimina los permisos de usuario o tipo de usuario
+     * Quita permisos eliminando registros de pivote_permisos
      * @return JsonResponse
      */
-    public function destroyPermisosUsuario() {
+    public function destroyPivotePermisos() {
         $oConexion = $this->getConexion();
 
         $aDatos = $this->request->data;
         $aRecords = json_decode($aDatos["records"], true);
 
         // actualiza el registro del operador
-        $sQuery = "DELETE FROM permisos_usuarios " .
+        $sQuery = "DELETE FROM pivote_permisos " .
             "WHERE id = ?";
         foreach ($aRecords as $aRecord) {
             $aQueryParams = array(
@@ -119,7 +124,7 @@ class PermisosController extends AppController {
 
         return $this->asJson(array(
             "success" => true,
-            "message" => "Permisos eliminados"
+            "message" => "Permisos quitados"
         ));
     }
 }

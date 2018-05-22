@@ -6,11 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "permisosusuariostore",
-        "designer|userClassName": "PermisosUsuarioStore",
-        "model": "PermisoUsuarioModel",
+        "designer|userAlias": "pivotepermisosstore",
+        "designer|userClassName": "PivotePermisosStore",
+        "model": "PivotePermisoModel",
         "rejectOnExceptions": true,
-        "storeId": "PermisosUsuarioStore"
+        "storeId": "PivotePermisosStore"
     },
     "configAlternates": {
         "rollbackOnExceptions": "boolean",
@@ -40,9 +40,9 @@
             "userConfig": {
                 "api": [
                     "{",
-                    "    create: \"api/permisos/createPermisosUsuario\",",
-                    "    read: \"api/permisos/readPermisosUsuario\",",
-                    "    destroy: \"api/permisos/destroyPermisosUsuario\"",
+                    "    create: \"api/permisos/createPivotePermisos\",",
+                    "    read: \"api/permisos/readPivotePermisos\",",
+                    "    destroy: \"api/permisos/destroyPivotePermisos\"",
                     "}"
                 ]
             },

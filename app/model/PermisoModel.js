@@ -28,15 +28,11 @@ Ext.define('Entregas100Web.model.PermisoModel', {
         },
         {
             type: 'string',
-            name: 'descripcion'
+            name: 'permiso'
         },
         {
             type: 'int',
-            name: 'categoria_permiso_id'
-        },
-        {
-            type: 'string',
-            name: 'categoria_permiso'
+            name: 'padre_id'
         }
     ]
 });

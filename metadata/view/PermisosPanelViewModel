@@ -78,9 +78,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "model": "PermisoUsuarioModel",
-                "name": "PermisosUsuarioLocalStore",
-                "type": "permisosusuariostore"
+                "model": "PivotePermisoModel",
+                "name": "PivotePermisosLocalStore",
+                "type": "pivotepermisosstore"
             },
             "configAlternates": {
                 "model": "model",
@@ -105,7 +105,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "groupField": "categoria_permiso",
+                "groupField": null,
                 "model": "PermisoModel",
                 "name": "PermisosLocalStore",
                 "type": "permisosstore"

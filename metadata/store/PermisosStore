@@ -40,9 +40,7 @@
             "userConfig": {
                 "api": [
                     "{",
-                    "    create: \"api/permisos/create\",",
-                    "    read: \"api/permisos/read\",",
-                    "    update: \"api/permisos/update\"",
+                    "    read: \"api/permisos/read\"",
                     "}"
                 ]
             },

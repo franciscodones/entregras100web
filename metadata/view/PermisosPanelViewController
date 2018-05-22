@@ -14,5 +14,67 @@
         "designer|userClassName": "string"
     },
     "name": "PerfilesPagoPanelViewController1",
-    "designerId": "12ffe505-7dbd-4afe-ad83-241eeb8434f0"
+    "designerId": "12ffe505-7dbd-4afe-ad83-241eeb8434f0",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "perteneceId",
+                    "tipo"
+                ],
+                "fn": "armarPermisosTreeList",
+                "implHandler": [
+                    "var me = this,",
+                    "    permisosLocalStore = me.getStore(\"PermisosLocalStore\"),",
+                    "    permisosTreeStore = new Ext.data.TreeStore({",
+                    "        parentIdProperty: \"padre_id\"",
+                    "    }),",
+                    "    permisosList = me.view.down(\"#permisosList\"),",
+                    "    permisosArray = [];",
+                    "",
+                    "// por cada permiso crea un nodo",
+                    "permisosLocalStore.each(function(record) {",
+                    "    var nodo = {};",
+                    "",
+                    "    nodo.permiso = record.get(\"permiso\");",
+                    "    nodo.pertenece_id = perteneceId;",
+                    "    nodo.permiso_id = record.get(\"id\");",
+                    "    nodo.id = record.get(\"id\");",
+                    "    nodo.tipo = tipo;",
+                    "    nodo.es_permitido = false;",
+                    "    nodo.checked = false;",
+                    "    // si el nodo no es padre de nadie entonces es una hoja",
+                    "    if (!permisosLocalStore.findRecord(\"padre_id\", nodo.permiso_id)) {",
+                    "        nodo.leaf = true;",
+                    "    } else {",
+                    "        nodo.expanded = true;",
+                    "    }",
+                    "    // si no tiene padre entonces no se agrega la propiedad",
+                    "    if (record.get(\"padre_id\")) {",
+                    "        nodo.padre_id = record.get(\"padre_id\");",
+                    "    }",
+                    "    nodo.glyph = \"f023@PyansaFontAwesomeSolid\";",
+                    "",
+                    "    permisosArray.push(nodo);",
+                    "});",
+                    "permisosTreeStore.getProxy().setData(permisosArray);",
+                    "permisosList.setStore(permisosTreeStore);",
+                    "permisosTreeStore.commitChanges();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "armarPermisosTreeList",
+            "designerId": "31c414da-276f-4ee3-a318-479a01af3469"
+        }
+    ]
 }

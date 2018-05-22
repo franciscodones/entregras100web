@@ -25,13 +25,11 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
         'Ext.grid.Panel',
         'Ext.grid.column.Number',
         'Ext.grid.filters.filter.String',
-        'Ext.view.Table',
         'Ext.grid.filters.Filters',
         'Ext.tab.Tab',
         'Ext.grid.filters.filter.List',
-        'Ext.grid.column.Check',
-        'Ext.grid.feature.Grouping',
-        'Ext.XTemplate'
+        'Ext.tree.Panel',
+        'Ext.tree.View'
     ],
 
     controller: 'permisospanel',
@@ -69,9 +67,9 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
     items: [
         {
             xtype: 'tabpanel',
-            flex: 1,
             frame: true,
             itemId: 'gridsTabPanel',
+            width: 600,
             items: [
                 {
                     xtype: 'gridpanel',
@@ -184,33 +182,22 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
             xtype: 'tabpanel',
             flex: 1,
             frame: true,
+            activeTab: 0,
             items: [
                 {
-                    xtype: 'gridpanel',
-                    itemId: 'permisosGrid',
-                    scrollable: true,
+                    xtype: 'treepanel',
+                    itemId: 'permisosList',
                     title: 'Permisos',
-                    enableColumnHide: false,
-                    enableColumnMove: false,
-                    bind: {
-                        store: '{PermisosLocalStore}'
-                    },
+                    displayField: 'permiso',
+                    lines: false,
+                    rootVisible: false,
+                    useArrows: true,
                     dockedItems: [
                         {
                             xtype: 'toolbar',
                             dock: 'top',
                             ui: 'footer',
                             items: [
-                                {
-                                    xtype: 'button',
-                                    itemId: 'btnRevertir',
-                                    glyph: 'f0e2@FontAwesome',
-                                    text: 'Revertir',
-                                    tooltip: 'Revertir cambios',
-                                    listeners: {
-                                        click: 'onBtnRevertirClick'
-                                    }
-                                },
                                 {
                                     xtype: 'button',
                                     itemId: 'btnGuardar',
@@ -220,40 +207,27 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
                                     listeners: {
                                         click: 'onBtnGuardarClick'
                                     }
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'btnRevertir',
+                                    glyph: 'f0e2@FontAwesome',
+                                    text: 'Revertir',
+                                    tooltip: 'Revertir cambios',
+                                    listeners: {
+                                        click: 'onBtnRevertirClick'
+                                    }
                                 }
                             ]
                         }
                     ],
-                    columns: [
-                        {
-                            xtype: 'numbercolumn',
-                            width: 60,
-                            dataIndex: 'id',
-                            text: 'Id',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            width: 400,
-                            dataIndex: 'descripcion',
-                            text: 'Permiso'
-                        },
-                        {
-                            xtype: 'checkcolumn',
-                            dataIndex: 'es_permitido',
-                            tooltip: 'Permitir todo',
-                            headerCheckbox: true
-                        }
-                    ],
-                    features: [
-                        {
-                            ftype: 'grouping',
-                            groupHeaderTpl: [
-                                '{name}'
-                            ],
-                            startCollapsed: true
-                        }
-                    ]
+                    tabConfig: {
+                        xtype: 'tab',
+                        closable: false
+                    },
+                    listeners: {
+                        checkchange: 'onPermisosListCheckChange'
+                    }
                 }
             ]
         }

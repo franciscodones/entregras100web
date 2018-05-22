@@ -37,9 +37,7 @@ Ext.define('Entregas100Web.store.PermisosStore', {
             proxy: {
                 type: 'ajax',
                 api: {
-                    create: 'api/permisos/create',
-                    read: 'api/permisos/read',
-                    update: 'api/permisos/update'
+                    read: 'api/permisos/read'
                 },
                 reader: {
                     type: 'json'

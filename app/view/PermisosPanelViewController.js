@@ -17,41 +17,58 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.permisospanel',
 
-    onBtnRefrescarClick: function(button, e, eOpts) {
-        var me = this;
-
-        me.getStore("PerfilesPagoLocalStore").load();
-        me.getStore("CombinacionesFormaPerfilLocalStore").load();
-    },
-
-    onTiposSesionGridSelect: function(rowmodel, record, index, eOpts) {
+    armarPermisosTreeList: function(perteneceId, tipo) {
         var me = this,
             permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore"),
-            permisosGrid = me.view.down("#permisosGrid"),
-            permisosActuales;
+            permisosTreeStore = new Ext.data.TreeStore({
+                parentIdProperty: "padre_id"
+            }),
+            permisosList = me.view.down("#permisosList"),
+            permisosArray = [];
 
-        // obtiene todos los permisos del usuario
-        permisosActuales = permisosUsuarioLocalStore.query("tipo_usuario_id", record.get("id"));
-        permisosActuales = permisosActuales.getValues("permiso_id", "data");
+        // por cada permiso crea un nodo
+        permisosLocalStore.each(function(record) {
+            var nodo = {};
 
-        // modifica permisosLocalStore para coordinarlo con los permisosActuales
-        permisosLocalStore.removeFilter("sinSeleccion");
-        permisosLocalStore.each(function(rec) {
-            rec.set(
-            "es_permitido",
-            Ext.Array.contains(permisosActuales, rec.get("id"))
-            );
+            nodo.permiso = record.get("permiso");
+            nodo.pertenece_id = perteneceId;
+            nodo.permiso_id = record.get("id");
+            nodo.id = record.get("id");
+            nodo.tipo = tipo;
+            nodo.es_permitido = false;
+            nodo.checked = false;
+            // si el nodo no es padre de nadie entonces es una hoja
+            if (!permisosLocalStore.findRecord("padre_id", nodo.permiso_id)) {
+                nodo.leaf = true;
+            } else {
+                nodo.expanded = true;
+            }
+            // si no tiene padre entonces no se agrega la propiedad
+            if (record.get("padre_id")) {
+                nodo.padre_id = record.get("padre_id");
+            }
+            nodo.glyph = "f023@PyansaFontAwesomeSolid";
+
+            permisosArray.push(nodo);
         });
-        permisosLocalStore.commitChanges();
+        permisosTreeStore.getProxy().setData(permisosArray);
+        permisosList.setStore(permisosTreeStore);
+        permisosTreeStore.commitChanges();
     },
 
-    onTiposSesionGridBeforeSelect: function(rowmodel, record, index, eOpts) {
+    onBtnRefrescarClick: function(button, e, eOpts) {
         var me = this,
             permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore");
+            usuariosLocalStore = me.getStore("UsuariosLocalStore"),
+            pivotePermisosLocalStore = me.getStore("PivotePermisosLocalStore"),
+            tiposSesionLocalStore = me.getStore("TiposSesionLocalStore"),
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore = permisosList.getStore(),
+            promesaPermisosLoad = new Ext.Deferred(),
+            promesaUsuariosLoad = new Ext.Deferred(),
+            promesaTiposSesionLoad = new Ext.Deferred();
 
-        if (permisosLocalStore.isDirty()) {
+        if (permisosListStore && permisosListStore.isDirty()) {
             Ext.Msg.show({
                 title: "Mensaje del sistema",
                 message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
@@ -59,8 +76,105 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                 icon: Ext.Msg.WARNING,
                 fn: function(result) {
                     if (result == "yes") {
-                        permisosLocalStore.rejectChanges();
-                        permisosUsuarioLocalStore.rejectChanges();
+                        refrescar();
+                    }
+                }
+            });
+        } else {
+            refrescar();
+        }
+
+        function refrescar() {
+            me.view.mask("Cargando...");
+
+            // revierte los cambios
+            permisosList.setStore(null);
+
+            // carga los stores necesarios antes de habilitar el panel
+            permisosLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaPermisosLoad.resolve();
+                } else {
+                    promesaPermisosLoad.reject();
+                }
+            });
+            usuariosLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaUsuariosLoad.resolve();
+                } else {
+                    promesaUsuariosLoad.reject();
+                }
+            });
+            tiposSesionLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaTiposSesionLoad.resolve();
+                } else {
+                    promesaTiposSesionLoad.reject();
+                }
+            });
+
+            // al terminar de cargar los stores habilita el panel
+            Ext.Deferred.all([
+            promesaPermisosLoad,
+            promesaUsuariosLoad,
+            promesaTiposSesionLoad
+            ]).then(onStoresLoad, onStoresLoad);
+
+            function onStoresLoad() {
+                me.view.unmask();
+            }
+        }
+    },
+
+    onTiposSesionGridSelect: function(rowmodel, record, index, eOpts) {
+        var me = this,
+            permisosLocalStore = me.getStore("PermisosLocalStore"),
+            pivotePermisosLocalStore = me.getStore("PivotePermisosLocalStore"),
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore;
+
+        permisosList.mask("Cargando...");
+
+        // obtiene todos los permisos
+        pivotePermisosLocalStore.getProxy().setExtraParams({
+            pertenece_id:  record.get("id"),
+            tipo: "TIPO_USUARIOS"
+        });
+        pivotePermisosLocalStore.load(onPivoteLoaded);
+
+        function onPivoteLoaded(records, operation, success) {
+            if (success) {
+                me.armarPermisosTreeList(record.get("id"), "TIPO_USUARIOS");
+                permisosListStore = permisosList.getStore();
+                console.log(permisosListStore.getRange());
+                console.log(records);
+                // marca los permisos otorgados
+                Ext.Array.each(records, function(item) {
+                    var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+
+                    treeRecord.set("es_permitido", true);
+                    treeRecord.set("checked", true);
+                });
+                permisosListStore.commitChanges();
+                permisosList.unmask();
+            }
+        }
+    },
+
+    onTiposSesionGridBeforeSelect: function(rowmodel, record, index, eOpts) {
+        var me = this,
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore = permisosList.getStore();
+
+        if (permisosListStore.isDirty()) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.WARNING,
+                fn: function(result) {
+                    if (result == "yes") {
+                        permisosListStore.rejectChanges();
                         rowmodel.select(record);
                     }
                 }
@@ -72,31 +186,80 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
     onUsuariosGridSelect: function(rowmodel, record, index, eOpts) {
         var me = this,
             permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore"),
-            permisosGrid = me.view.down("#permisosGrid"),
-            permisosActuales;
+            pivotePermisosLocalStore = me.getStore("PivotePermisosLocalStore"),
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore;
 
-        // obtiene todos los permisos del tipo de sesion
-        permisosActuales = permisosUsuarioLocalStore.query("usuario_id", record.get("id"));
-        permisosActuales = permisosActuales.getValues("permiso_id", "data");
+        permisosList.mask("Cargando...");
 
-        // modifica permisosLocalStore para coordinarlo con los permisosActuales
-        permisosLocalStore.removeFilter("sinSeleccion");
-        permisosLocalStore.each(function(rec) {
-            rec.set(
-            "es_permitido",
-            Ext.Array.contains(permisosActuales, rec.get("id"))
-            );
+        // obtiene todos los permisos
+        pivotePermisosLocalStore.getProxy().setExtraParams({
+            pertenece_id:  record.get("id"),
+            tipo: "USUARIOS"
         });
-        permisosLocalStore.commitChanges();
+        pivotePermisosLocalStore.load(onPivoteUsuariosLoaded);
+
+        function onPivoteUsuariosLoaded(records, operation, success) {
+            if (success) {
+                if (records.length > 0) {
+                    me.armarPermisosTreeList(record.get("id"), "USUARIOS");
+                    permisosListStore = permisosList.getStore();
+                    // marca los permisos otorgados
+                    Ext.Array.each(records, function(item) {
+                        var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+
+                        treeRecord.set("es_permitido", true);
+                        treeRecord.set("checked", true);
+                    });
+                    permisosListStore.commitChanges();
+                    permisosList.unmask();
+                } else {
+                    // en caso que el usuario no tenga permisos personalizados se tomaran los del tipo de usuario
+                    pivotePermisosLocalStore.getProxy().setExtraParams({
+                        pertenece_id:  record.get("tipo_sesion_id"),
+                        tipo: "TIPO_USUARIOS"
+                    });
+                    pivotePermisosLocalStore.load(onPivoteTipoUsuariosLoaded);
+                }
+            }
+        }
+
+        function onPivoteTipoUsuariosLoaded(records, operation, success) {
+            if (success) {
+                me.armarPermisosTreeList(record.get("id"), "USUARIOS");
+                permisosListStore = permisosList.getStore();
+                // marca los permisos otorgados
+                Ext.Array.each(records, function(item) {
+                    var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+
+                    treeRecord.set("es_permitido", true);
+                    treeRecord.set("checked", true);
+                });
+
+                // agrega los records al pivote como nuevos
+                copiaRecords = records.map(function(item) {
+                    var copia = {};
+
+                    copia.pertenece_id = record.get("id");
+                    copia.permiso_id = item.get("permiso_id");
+                    copia.tipo = "USUARIOS";
+
+                    return copia;
+                });
+                pivotePermisosLocalStore.removeAll();
+                pivotePermisosLocalStore.commitChanges();
+                pivotePermisosLocalStore.add(copiaRecords);
+                permisosList.unmask();
+            }
+        }
     },
 
     onUsuariosGridBeforeSelect: function(rowmodel, record, index, eOpts) {
         var me = this,
-            permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore");
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore = permisosList.getStore();
 
-        if (permisosLocalStore.isDirty()) {
+        if (permisosListStore.isDirty()) {
             Ext.Msg.show({
                 title: "Mensaje del sistema",
                 message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
@@ -104,8 +267,7 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                 icon: Ext.Msg.WARNING,
                 fn: function(result) {
                     if (result == "yes") {
-                        permisosLocalStore.rejectChanges();
-                        permisosUsuarioLocalStore.rejectChanges();
+                        permisosListStore.rejectChanges();
                         rowmodel.select(record);
                     }
                 }
@@ -114,12 +276,50 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
         }
     },
 
+    onBtnGuardarClick: function(button, e, eOpts) {
+        var me = this,
+            pivotePermisosLocalStore = me.getStore("PivotePermisosLocalStore"),
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore = permisosList.getStore(),
+            waitWindow, esPersonalizado, index;
+
+        if (!permisosListStore.isDirty()) {
+            return;
+        }
+
+        waitWindow = Ext.Msg.wait("Guardando cambios...");
+
+        permisosListStore.each(function(item) {
+            var pivoteRecord = pivotePermisosLocalStore.findRecord("permiso_id", item.get("permiso_id"));
+
+            if (item.get("es_permitido") && !pivoteRecord) {
+                pivotePermisosLocalStore.add({
+                    pertenece_id: item.get("pertenece_id"),
+                    permiso_id: item.get("permiso_id"),
+                    tipo: item.get("tipo")
+                });
+            } else if (!item.get("es_permitido") && pivoteRecord) {
+                pivotePermisosLocalStore.remove(pivoteRecord);
+            }
+        });
+
+        pivotePermisosLocalStore.sync({
+            success: onSyncSuccess
+        });
+
+        function onSyncSuccess() {
+            pivotePermisosLocalStore.commitChanges();
+            permisosListStore.commitChanges();
+            waitWindow.close();
+        }
+    },
+
     onBtnRevertirClick: function(button, e, eOpts) {
         var me = this,
-            permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore");
+            permisosList = me.view.down("#permisosList"),
+            permisosListStore = permisosList.getStore();
 
-        if (permisosLocalStore.isDirty()) {
+        if (permisosListStore && permisosListStore.isDirty()) {
             Ext.Msg.show({
                 title: "Mensaje del sistema",
                 message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
@@ -127,115 +327,32 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                 icon: Ext.Msg.WARNING,
                 fn: function(result) {
                     if (result == "yes") {
-                        permisosLocalStore.rejectChanges();
-                        permisosUsuarioLocalStore.rejectChanges();
+                        // revierte los cambios
+                        permisosListStore.rejectChanges();
+                        permisosListStore.each(function(item) {
+                            item.set("checked", item.get("es_permitido"));
+                        });
                     }
                 }
             });
         }
     },
 
-    onBtnGuardarClick: function(button, e, eOpts) {
-        var me = this,
-            permisosLocalStore = me.getStore("PermisosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore"),
-            record = me.view.down("#gridsTabPanel").getActiveTab().getSelection()[0],
-            waitWindow, esPersonalizado, index;
-
-        if (!record) {
-            Ext.Msg.show({
-                title: "Mensaje del sistema",
-                message: "Seleccione un usuario o tipo de usuario",
-                buttons: Ext.Msg.OK,
-                icon: Ext.Msg.ERRROR
-            });
-            return;
-        } else if (!permisosLocalStore.isDirty()) {
-            return;
-        }
-
-        waitWindow = Ext.Msg.wait("Guardando cambios...");
-        esPersonalizado = record.$className == "Entregas100Web.model.UsuarioModel";
-
-        if (esPersonalizado) {
-            permisosLocalStore.each(function(permisoRecord) {
-                index = permisosUsuarioLocalStore.findBy(function(rec) {
-                    return rec.get("permiso_id") == permisoRecord.get("id") &&
-                    rec.get("usuario_id") == record.get("id");
-                });
-                if (permisoRecord.get("es_permitido")) {
-                    // si es permitido agrega el permiso en caso que no exista
-                    if (index == -1) {
-                        permisosUsuarioLocalStore.add({
-                            usuario_id: record.get("id"),
-                            permiso_id: permisoRecord.get("id")
-                        });
-                    }
-                } else {
-                    // si no es permitido elimina el permiso en caso que exista
-                    if (index != -1) {
-                        permisosUsuarioLocalStore.removeAt(index);
-                    }
-                }
-            });
-        } else {
-            permisosLocalStore.each(function(permisoRecord) {
-                index = permisosUsuarioLocalStore.findBy(function(rec) {
-                    return rec.get("permiso_id") == permisoRecord.get("id") &&
-                    rec.get("tipo_usuario_id") == record.get("id");
-                });
-                if (permisoRecord.get("es_permitido")) {
-                    // si es permitido agrega el permiso en caso que no exista
-                    if (index == -1) {
-                        permisosUsuarioLocalStore.add({
-                            tipo_usuario_id: record.get("id"),
-                            permiso_id: permisoRecord.get("id")
-                        });
-                    }
-                } else {
-                    // si no es permitido elimina el permiso en caso que exista
-                    if (index != -1) {
-                        permisosUsuarioLocalStore.removeAt(index);
-                    }
-                }
-            });
-        }
-
-        permisosUsuarioLocalStore.sync({
-            success: onSyncSuccess
-        });
-
-        function onSyncSuccess() {
-            permisosLocalStore.commitChanges();
-            waitWindow.close();
-        }
-
-        window.me = me;
-        window.permisosUsuarioLocalStore = permisosUsuarioLocalStore;
+    onPermisosListCheckChange: function(node, checked, e, eOpts) {
+        node.set("es_permitido", checked);
     },
 
     onPermisosPanelAfterRender: function(component, eOpts) {
         var me = this,
             permisosLocalStore = me.getStore("PermisosLocalStore"),
             usuariosLocalStore = me.getStore("UsuariosLocalStore"),
-            permisosUsuarioLocalStore = me.getStore("PermisosUsuarioLocalStore"),
+            pivotePermisosLocalStore = me.getStore("PivotePermisosLocalStore"),
             tiposSesionLocalStore = me.getStore("TiposSesionLocalStore"),
             promesaPermisosLoad = new Ext.Deferred(),
             promesaUsuariosLoad = new Ext.Deferred(),
-            promesaTiposSesionLoad = new Ext.Deferred(),
-            promesaPermisosUsuarioLoad = new Ext.Deferred();
+            promesaTiposSesionLoad = new Ext.Deferred();
 
         me.view.mask("Cargando...");
-
-        // filtra el permisosLocalStore para no mostrar nada inicialmente
-        permisosLocalStore.addFilter([
-        {
-            id: "sinSeleccion",
-            filterFn: function() {
-                return false;
-            }
-        }
-        ]);
 
         // carga los stores necesarios antes de habilitar el panel
         permisosLocalStore.load(function(records, operation, success) {
@@ -259,20 +376,12 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                 promesaTiposSesionLoad.reject();
             }
         });
-        permisosUsuarioLocalStore.load(function(records, operation, success) {
-            if (success) {
-                promesaPermisosUsuarioLoad.resolve();
-            } else {
-                promesaPermisosUsuarioLoad.reject();
-            }
-        });
 
         // al terminar de cargar los stores habilita el panel
         Ext.Deferred.all([
         promesaPermisosLoad,
         promesaUsuariosLoad,
-        promesaTiposSesionLoad,
-        promesaPermisosUsuarioLoad
+        promesaTiposSesionLoad
         ]).then(onStoresLoad, onStoresLoad);
 
         function onStoresLoad() {

@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "PermisoUsuarioModel"
+        "designer|userClassName": "PivotePermisoModel"
     },
     "configAlternates": {
         "designer|userClassName": "string"
@@ -38,8 +38,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "allowNull": true,
-                "name": "tipo_usuario_id"
+                "name": "pertenece_id"
             },
             "configAlternates": {
                 "name": "string",
@@ -56,7 +55,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "allowNull": true,
                 "name": "usuario_id"
             },
             "configAlternates": {
@@ -67,19 +65,19 @@
             "designerId": "6fef574c-fc5c-443c-bb07-d4226834fe83"
         },
         {
-            "type": "Ext.data.field.Integer",
+            "type": "Ext.data.field.String",
             "reference": {
                 "name": "fields",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "name": "permiso_id"
+                "name": "tipo"
             },
             "configAlternates": {
                 "name": "string"
             },
-            "name": "MyInteger5",
+            "name": "MyString25",
             "designerId": "0e151bbf-ba5e-4076-8f86-82c704cf4535"
         }
     ]

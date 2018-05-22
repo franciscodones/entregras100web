@@ -80,4 +80,12 @@ class Connection extends CakeConnection {
 
         return $types;
     }
+
+    /**
+     * Retorna el id del ultimo registro insertado
+     * @return number
+     */
+    public function lastInsertId() {
+        return $this->driver()->lastInsertId();
+    }
 }
