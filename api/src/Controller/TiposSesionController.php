@@ -14,7 +14,9 @@ class TiposSesionController extends AppController {
         $oConexion = $this->getConexion();
 
         // obtiene todas las empresas
-        $sQuery = "SELECT * FROM tipo_sesion";
+        $sQuery = "SELECT id, " .
+                "descripcion AS tipo_sesion " .
+            "FROM tipo_usuario";
         $aTiposSesion = $oConexion->query($sQuery);
 
         return $this->asJson(array(

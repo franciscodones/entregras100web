@@ -30,26 +30,26 @@ class LoginController extends AppController {
         $aUsuario = $aResultado[0];
 
         // obtiene los permisos personalizados del usuario
-        $sQuery = "SELECT permisos.id " .
-            "FROM permisos " .
-            "INNER JOIN permisos_usuarios ON permisos.id = permisos_usuarios.permiso_id " .
-            "WHERE permisos_usuarios.usuario_id = ?";
-        $aQueryParams = array($aUsuario["id"]);
+        $sQuery = "SELECT permiso_id " .
+            "FROM pivote_permisos " .
+            "WHERE pertenece_id = ? " .
+            "AND tipo = ?";
+        $aQueryParams = array($aUsuario["id"], "USUARIOS");
         $aResultado = $oConexion->query($sQuery, $aQueryParams);
         $aPermisos = array_map(function($item) {
-            return $item["id"];
+            return $item["permiso_id"];
         }, $aResultado);
 
         // si no existen permisos personalizados se obtienen los del tipo de usuario
         if (empty($aPermisos)) {
-            $sQuery = "SELECT permisos.id " .
-                "FROM permisos " .
-                "INNER JOIN permisos_usuarios ON permisos.id = permisos_usuarios.permiso_id " .
-                "WHERE permisos_usuarios.tipo_usuario_id = ?";
-            $aQueryParams = array($aUsuario["tipo_sesion_id"]);
+            $sQuery = "SELECT permiso_id " .
+                "FROM pivote_permisos " .
+                "WHERE pertenece_id = ? " .
+                "AND tipo = ?";
+            $aQueryParams = array($aUsuario["tipo_sesion_id"], "TIPO_USUARIOS");
             $aResultado = $oConexion->query($sQuery, $aQueryParams);
             $aPermisos = array_map(function($item) {
-                return $item["id"];
+                return $item["permiso_id"];
             }, $aResultado);
         }
 

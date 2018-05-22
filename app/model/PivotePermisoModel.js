@@ -31,12 +31,12 @@ Ext.define('Entregas100Web.model.PivotePermisoModel', {
             name: 'pertenece_id'
         },
         {
-            type: 'int',
-            name: 'usuario_id'
-        },
-        {
             type: 'string',
             name: 'tipo'
+        },
+        {
+            type: 'int',
+            name: 'permiso_id'
         }
     ]
 });

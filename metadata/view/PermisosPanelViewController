@@ -50,7 +50,7 @@
                     "    nodo.es_permitido = false;",
                     "    nodo.checked = false;",
                     "    // si el nodo no es padre de nadie entonces es una hoja",
-                    "    if (!permisosLocalStore.findRecord(\"padre_id\", nodo.permiso_id)) {",
+                    "    if (!permisosLocalStore.findRecord(\"padre_id\", nodo.permiso_id, null, null, null, true)) {",
                     "        nodo.leaf = true;",
                     "    } else {",
                     "        nodo.expanded = true;",

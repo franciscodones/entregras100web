@@ -48,23 +48,6 @@
             "designerId": "f81be998-bcc7-4add-9e1b-3f7d0939f8fe"
         },
         {
-            "type": "Ext.data.field.Integer",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "usuario_id"
-            },
-            "configAlternates": {
-                "name": "string",
-                "allowNull": "boolean"
-            },
-            "name": "MyInteger4",
-            "designerId": "6fef574c-fc5c-443c-bb07-d4226834fe83"
-        },
-        {
             "type": "Ext.data.field.String",
             "reference": {
                 "name": "fields",
@@ -79,6 +62,22 @@
             },
             "name": "MyString25",
             "designerId": "0e151bbf-ba5e-4076-8f86-82c704cf4535"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "permiso_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger4",
+            "designerId": "2c062a8b-5977-45f9-bf0d-18e05c4c6aed"
         }
     ]
 }

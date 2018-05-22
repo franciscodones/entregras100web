@@ -200,36 +200,6 @@
                     "designerId": "3a9c0cf3-f966-4c67-81cb-034bf8bef61d"
                 },
                 {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "fieldLabel": "Contraseña",
-                        "inputType": "password",
-                        "layout|anchor": "100%",
-                        "maxLength": 20,
-                        "minLength": 4,
-                        "name": "password"
-                    },
-                    "configAlternates": {
-                        "transformToUpper": "boolean",
-                        "allowBlank": "boolean",
-                        "fieldLabel": "string",
-                        "layout|anchor": "string",
-                        "maskRe": "regex",
-                        "maxLength": "number",
-                        "minLength": "number",
-                        "name": "string",
-                        "inputType": "string"
-                    },
-                    "name": "MyTextField5",
-                    "designerId": "53fed370-c737-4798-a460-f097580bfba1"
-                },
-                {
                     "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",

@@ -38,7 +38,7 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
             nodo.es_permitido = false;
             nodo.checked = false;
             // si el nodo no es padre de nadie entonces es una hoja
-            if (!permisosLocalStore.findRecord("padre_id", nodo.permiso_id)) {
+            if (!permisosLocalStore.findRecord("padre_id", nodo.permiso_id, null, null, null, true)) {
                 nodo.leaf = true;
             } else {
                 nodo.expanded = true;
@@ -146,14 +146,21 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
             if (success) {
                 me.armarPermisosTreeList(record.get("id"), "TIPO_USUARIOS");
                 permisosListStore = permisosList.getStore();
-                console.log(permisosListStore.getRange());
-                console.log(records);
                 // marca los permisos otorgados
                 Ext.Array.each(records, function(item) {
-                    var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+                    var treeRecord = permisosListStore.findRecord(
+                    "id",
+                    item.get("permiso_id"),
+                    null,
+                    null,
+                    null,
+                    true
+                    );
 
                     treeRecord.set("es_permitido", true);
                     treeRecord.set("checked", true);
+
+                    console.log(item.get("permiso_id"), treeRecord);
                 });
                 permisosListStore.commitChanges();
                 permisosList.unmask();
@@ -206,7 +213,14 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                     permisosListStore = permisosList.getStore();
                     // marca los permisos otorgados
                     Ext.Array.each(records, function(item) {
-                        var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+                        var treeRecord = permisosListStore.findRecord(
+                        "permiso_id",
+                        item.get("permiso_id"),
+                        null,
+                        null,
+                        null,
+                        true
+                        );
 
                         treeRecord.set("es_permitido", true);
                         treeRecord.set("checked", true);
@@ -230,7 +244,14 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
                 permisosListStore = permisosList.getStore();
                 // marca los permisos otorgados
                 Ext.Array.each(records, function(item) {
-                    var treeRecord = permisosListStore.findRecord("permiso_id", item.get("permiso_id"));
+                    var treeRecord = permisosListStore.findRecord(
+                    "permiso_id",
+                    item.get("permiso_id"),
+                    null,
+                    null,
+                    null,
+                    true
+                    );
 
                     treeRecord.set("es_permitido", true);
                     treeRecord.set("checked", true);
@@ -290,7 +311,14 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
         waitWindow = Ext.Msg.wait("Guardando cambios...");
 
         permisosListStore.each(function(item) {
-            var pivoteRecord = pivotePermisosLocalStore.findRecord("permiso_id", item.get("permiso_id"));
+            var pivoteRecord = pivotePermisosLocalStore.findRecord(
+            "permiso_id",
+            item.get("permiso_id"),
+            null,
+            null,
+            null,
+            true
+            );
 
             if (item.get("es_permitido") && !pivoteRecord) {
                 pivotePermisosLocalStore.add({
@@ -339,7 +367,25 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
     },
 
     onPermisosListCheckChange: function(node, checked, e, eOpts) {
+        var me = this,
+            parentNode = node.parentNode,
+            childNodes = node.childNodes;
+        permisosList = me.view.down("#permisosList");
+
         node.set("es_permitido", checked);
+        if (checked && parentNode && !parentNode.get("checked")) {
+            parentNode.set("checked", true);
+            parentNode.set("es_permitido", true);
+            permisosList.fireEvent("checkchange", parentNode, true);
+        } else if (!checked && childNodes) {
+            Ext.Array.each(childNodes, function(item) {
+                if (item.get("checked")) {
+                    item.set("checked", false);
+                    item.set("es_permitido", false);
+                    permisosList.fireEvent("checkchange", item, false);
+                }
+            });
+        }
     },
 
     onPermisosPanelAfterRender: function(component, eOpts) {

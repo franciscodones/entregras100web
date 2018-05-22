@@ -82,16 +82,6 @@ Ext.define('Entregas100Web.view.EditarUsuarioWindow', {
                     minLength: 4
                 },
                 {
-                    xtype: 'textfield',
-                    anchor: '100%',
-                    fieldLabel: 'Contraseña',
-                    name: 'password',
-                    inputType: 'password',
-                    allowBlank: false,
-                    maxLength: 20,
-                    minLength: 4
-                },
-                {
                     xtype: 'combobox',
                     anchor: '100%',
                     itemId: 'cmbTipoSesion',

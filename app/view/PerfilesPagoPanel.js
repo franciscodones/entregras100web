@@ -246,7 +246,14 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                                         function(result) {
                                             if (result == "yes") {
                                                 waitWindow = Ext.Msg.wait("Guardando cambios...");
-                                                formaPagoDefault = combinacionesFormaPerfilLocalStore.findRecord("es_default", true);
+                                                formaPagoDefault = combinacionesFormaPerfilLocalStore.findRecord(
+                                                "es_default",
+                                                true,
+                                                null,
+                                                null,
+                                                null,
+                                                true
+                                                );
                                                 if (formaPagoDefault) {
                                                     formaPagoDefault.set("es_default", false);
                                                 }

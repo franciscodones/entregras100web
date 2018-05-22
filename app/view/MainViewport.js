@@ -209,7 +209,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                     style: 'background: #007888; color: #fff;',
                     fieldLabel: 'Version',
                     labelStyle: 'color: #fff; padding-left: 10px;',
-                    value: '2.0',
+                    value: '2.1',
                     fieldStyle: 'color: #fff;'
                 }
             ]

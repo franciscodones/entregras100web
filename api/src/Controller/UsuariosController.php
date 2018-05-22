@@ -15,9 +15,9 @@ class UsuariosController extends AppController {
 
         // obtiene todos los usuarios
         $sQuery = "SELECT usuario.*, " .
-                "tipo_sesion.tipo_sesion " .
+                "tipo_usuario.descripcion AS tipo_sesion " .
             "FROM usuario " .
-            "INNER JOIN tipo_sesion ON usuario.tipo_sesion_id = tipo_sesion.id";
+            "INNER JOIN tipo_usuario ON usuario.tipo_sesion_id = tipo_usuario.id";
         $aUsuarios = $oConexion->query($sQuery);
 
         return $this->asJson(array(
