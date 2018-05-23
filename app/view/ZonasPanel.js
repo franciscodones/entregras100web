@@ -64,6 +64,7 @@ Ext.define('Entregas100Web.view.ZonasPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 32,
                     itemId: 'btnAgregar',
                     glyph: 'f055@FontAwesome',
                     text: 'Agregar',
@@ -132,6 +133,7 @@ Ext.define('Entregas100Web.view.ZonasPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 33,
                     width: 30,
                     items: [
                         {
@@ -161,6 +163,7 @@ Ext.define('Entregas100Web.view.ZonasPanel', {
 
                         return value;
                     },
+                    permissionId: '34',
                     width: 30,
                     items: [
                         {
@@ -188,6 +191,7 @@ Ext.define('Entregas100Web.view.ZonasPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: '35',
                     width: 30,
                     items: [
                         {

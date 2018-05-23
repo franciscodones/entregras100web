@@ -113,6 +113,7 @@
                     "userConfig": {
                         "glyph": "f019@FontAwesome",
                         "layout|flex": null,
+                        "permissionId": 44,
                         "text": "Exportar"
                     },
                     "configAlternates": {
@@ -123,6 +124,13 @@
                     },
                     "name": "MyButton10",
                     "designerId": "723c488e-1cd4-4754-9532-b5ca3c179725",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "Ext.menu.Menu",
@@ -206,6 +214,7 @@
                         "glyph": "f055@FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
+                        "permissionId": 40,
                         "text": "Agregar"
                     },
                     "configAlternates": {
@@ -217,6 +226,13 @@
                     },
                     "name": "MyButton2",
                     "designerId": "537f6c93-b919-4a14-bc56-12ed0c1a9f36",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -507,6 +523,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "ignoreExport": true,
+                        "permissionId": 41,
                         "width": 30
                     },
                     "configAlternates": {
@@ -516,6 +533,13 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "6fefd54a-e026-40fd-bdd0-50eb1ae8c1ba",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -581,6 +605,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "ignoreExport": true,
+                        "permissionId": 42,
                         "width": 30
                     },
                     "configAlternates": {
@@ -590,6 +615,13 @@
                     },
                     "name": "MyActionColumn4",
                     "designerId": "8714b302-6962-4c30-9636-db50e1f5638f",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -704,6 +736,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "ignoreExport": true,
+                        "permissionId": 43,
                         "width": 30
                     },
                     "configAlternates": {
@@ -713,6 +746,13 @@
                     },
                     "name": "MyActionColumn5",
                     "designerId": "fc94c59a-9485-4621-80f2-837b9934816f",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",

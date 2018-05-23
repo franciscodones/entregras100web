@@ -100,6 +100,7 @@
                                 "designer|uiInterfaceName": "default",
                                 "floating": false,
                                 "margin": 0,
+                                "permissionId": 2,
                                 "title": "Configuracion"
                             },
                             "configAlternates": {
@@ -108,10 +109,17 @@
                                 "margin": "auto",
                                 "title": "string",
                                 "designer|uiInterfaceName": "string",
-                                "permissionId": "boolean"
+                                "permissionId": "number"
                             },
                             "name": "MyMenu3",
                             "designerId": "e5a3c52c-38db-4b49-b78a-206464102c44",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "permissionId",
+                                    "type": "string"
+                                }
+                            ],
                             "cn": [
                                 {
                                     "type": "Ext.menu.Item",
@@ -123,6 +131,7 @@
                                     "userConfig": {
                                         "glyph": "f279@FontAwesome",
                                         "itemId": "mItemPlazas",
+                                        "permissionId": 4,
                                         "text": "Plazas"
                                     },
                                     "configAlternates": {
@@ -133,6 +142,13 @@
                                     },
                                     "name": "MyMenuItem",
                                     "designerId": "8b1bf2c3-005f-4701-86d3-22aa878485be",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -170,6 +186,7 @@
                                     "userConfig": {
                                         "glyph": "f0d6@FontAwesome",
                                         "itemId": "mItemFormasPago",
+                                        "permissionId": 5,
                                         "text": "Formas de Pago"
                                     },
                                     "configAlternates": {
@@ -180,6 +197,13 @@
                                     },
                                     "name": "MyMenuItem8",
                                     "designerId": "4abe5f6b-bd61-461d-940b-68c7296d1159",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -217,6 +241,7 @@
                                     "userConfig": {
                                         "glyph": "f09d@FontAwesome",
                                         "itemId": "mItemPerfilesPago",
+                                        "permissionId": 6,
                                         "text": "Perfiles de Pago"
                                     },
                                     "configAlternates": {
@@ -227,6 +252,13 @@
                                     },
                                     "name": "MyMenuItem7",
                                     "designerId": "3150d095-fba9-4d01-94be-39722ea8ce95",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -264,6 +296,7 @@
                                     "userConfig": {
                                         "glyph": "f0c0@FontAwesome",
                                         "itemId": "mItemUsuarios",
+                                        "permissionId": 7,
                                         "text": "Usuarios"
                                     },
                                     "configAlternates": {
@@ -274,6 +307,13 @@
                                     },
                                     "name": "MyMenuItem10",
                                     "designerId": "d599084c-a30f-4889-9f8d-dabdad8ad720",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -311,6 +351,7 @@
                                     "userConfig": {
                                         "glyph": "f023@FontAwesome",
                                         "itemId": "mItemPermisos",
+                                        "permissionId": 8,
                                         "text": "Permisos"
                                     },
                                     "configAlternates": {
@@ -321,6 +362,13 @@
                                     },
                                     "name": "MyMenuItem9",
                                     "designerId": "a421cd5c-505f-4434-94e3-c3fb92fe953b",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -363,6 +411,7 @@
                                 ],
                                 "floating": false,
                                 "margin": 0,
+                                "permissionId": 3,
                                 "title": "Catalogos"
                             },
                             "configAlternates": {
@@ -370,10 +419,18 @@
                                 "floating": "boolean",
                                 "margin": "auto",
                                 "title": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "permissionId": "number"
                             },
                             "name": "MyMenu",
                             "designerId": "669e728d-eed5-456e-b140-b661c37cc61b",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "permissionId",
+                                    "type": "string"
+                                }
+                            ],
                             "cn": [
                                 {
                                     "type": "Ext.menu.Item",
@@ -385,6 +442,7 @@
                                     "userConfig": {
                                         "glyph": "f041@FontAwesome",
                                         "itemId": "mItemZonas",
+                                        "permissionId": 9,
                                         "text": "Zonas"
                                     },
                                     "configAlternates": {
@@ -395,6 +453,13 @@
                                     },
                                     "name": "MyMenuItem1",
                                     "designerId": "890243b8-4311-4483-bbef-dafd36cafb5a",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -432,6 +497,7 @@
                                     "userConfig": {
                                         "glyph": "f0d1@FontAwesome",
                                         "itemId": "mItemUnidades",
+                                        "permissionId": 10,
                                         "text": "Unidades"
                                     },
                                     "configAlternates": {
@@ -442,6 +508,13 @@
                                     },
                                     "name": "MyMenuItem2",
                                     "designerId": "d7f8bb4b-9689-4faa-b486-eaf6f9bfb9ac",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -479,6 +552,7 @@
                                     "userConfig": {
                                         "glyph": "f0c0@FontAwesome",
                                         "itemId": "mItemOperadores",
+                                        "permissionId": 11,
                                         "text": "Operadores"
                                     },
                                     "configAlternates": {
@@ -489,6 +563,13 @@
                                     },
                                     "name": "MyMenuItem6",
                                     "designerId": "8ccd7f7c-14dd-4b59-a127-be281ac32ec9",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -526,6 +607,7 @@
                                     "userConfig": {
                                         "glyph": "f155@FontAwesome",
                                         "itemId": "mItemTarifas",
+                                        "permissionId": 12,
                                         "text": "Tarifas"
                                     },
                                     "configAlternates": {
@@ -536,6 +618,13 @@
                                     },
                                     "name": "MyMenuItem3",
                                     "designerId": "413d4e9f-2806-4680-83d7-894af6c4f166",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -615,6 +704,7 @@
                                     "userConfig": {
                                         "glyph": "f4d3@PyansaFontAwesomeSolid",
                                         "itemId": "mItemDescuentosPromocion",
+                                        "permissionId": 13,
                                         "text": "Descuentos promocion"
                                     },
                                     "configAlternates": {
@@ -625,6 +715,13 @@
                                     },
                                     "name": "MyMenuItem12",
                                     "designerId": "547ec916-a89d-4037-8e9f-9bcf39ec9e98",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -704,6 +801,7 @@
                                     "userConfig": {
                                         "glyph": "f017@FontAwesome",
                                         "itemId": "mItemHorariosLista",
+                                        "permissionId": 14,
                                         "text": "Horarios de Lista"
                                     },
                                     "configAlternates": {
@@ -714,6 +812,13 @@
                                     },
                                     "name": "MyMenuItem11",
                                     "designerId": "4eadc306-bf0b-4932-94d6-10e424f2329c",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",

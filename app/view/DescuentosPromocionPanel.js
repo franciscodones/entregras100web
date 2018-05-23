@@ -62,6 +62,7 @@ Ext.define('Entregas100Web.view.DescuentosPromocionPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 47,
                     itemId: 'btnAgregar',
                     glyph: 'f055@FontAwesome',
                     text: 'Agregar',
@@ -124,6 +125,7 @@ Ext.define('Entregas100Web.view.DescuentosPromocionPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 48,
                     width: 30,
                     items: [
                         {
@@ -140,6 +142,7 @@ Ext.define('Entregas100Web.view.DescuentosPromocionPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 49,
                     width: 30,
                     items: [
                         {

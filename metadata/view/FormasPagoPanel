@@ -339,6 +339,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "permissionId": 17,
                         "width": 30
                     },
                     "configAlternates": {
@@ -347,6 +348,13 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "d649e931-4e03-4efb-a479-29452126f085",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -544,6 +552,7 @@
                                         "glyph": "f055@FontAwesome",
                                         "itemId": "btnAgregarCombinacion",
                                         "layout|flex": null,
+                                        "permissionId": 18,
                                         "text": "Agregar Combinacion"
                                     },
                                     "configAlternates": {
@@ -555,6 +564,13 @@
                                     },
                                     "name": "MyButton3",
                                     "designerId": "4864c348-4835-47b9-86e8-a6600da2417b",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -715,6 +731,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "permissionId": 19,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -723,6 +740,13 @@
                             },
                             "name": "MyActionColumn1",
                             "designerId": "cf2f92bb-08cb-46b5-9000-f9c8dfd1b364",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "permissionId",
+                                    "type": "string"
+                                }
+                            ],
                             "cn": [
                                 {
                                     "type": "actioncolumnitem",
@@ -875,6 +899,7 @@
                                         "glyph": "f055@FontAwesome",
                                         "itemId": "btnAgregarPlaza",
                                         "layout|flex": null,
+                                        "permissionId": 20,
                                         "text": "Agregar Plaza"
                                     },
                                     "configAlternates": {
@@ -886,6 +911,13 @@
                                     },
                                     "name": "MyButton",
                                     "designerId": "3207898f-c056-4425-a006-ca976059cdc6",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -1037,6 +1069,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "permissionId": 21,
                                 "width": 30
                             },
                             "configAlternates": {
@@ -1045,6 +1078,13 @@
                             },
                             "name": "MyActionColumn2",
                             "designerId": "4d36ddd1-d227-4d42-a748-d7226ace1557",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "permissionId",
+                                    "type": "string"
+                                }
+                            ],
                             "cn": [
                                 {
                                     "type": "actioncolumnitem",

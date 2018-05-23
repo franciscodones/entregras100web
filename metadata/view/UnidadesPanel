@@ -117,6 +117,7 @@
                         "glyph": "f055 @FontAwesome",
                         "itemId": "btnAgregar",
                         "layout|flex": null,
+                        "permissionId": 36,
                         "text": "Agregar"
                     },
                     "configAlternates": {
@@ -128,6 +129,13 @@
                     },
                     "name": "MyButton2",
                     "designerId": "5ad77fef-471c-423f-9057-e5d1d32a0576",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "viewcontrollereventbinding",
@@ -513,6 +521,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "permissionId": 37,
                         "width": 30
                     },
                     "configAlternates": {
@@ -521,6 +530,13 @@
                     },
                     "name": "MyActionColumn",
                     "designerId": "c594395f-8921-4cac-acbd-1bc72f7c122d",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -585,6 +601,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "permissionId": 38,
                         "width": 30
                     },
                     "configAlternates": {
@@ -593,6 +610,13 @@
                     },
                     "name": "MyActionColumn3",
                     "designerId": "d59925b4-8139-4855-b906-218225aae415",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",
@@ -709,6 +733,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "permissionId": 39,
                         "width": 30
                     },
                     "configAlternates": {
@@ -717,6 +742,13 @@
                     },
                     "name": "MyActionColumn4",
                     "designerId": "c496d291-ccca-44d3-93a4-47c2bff026c2",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "actioncolumnitem",

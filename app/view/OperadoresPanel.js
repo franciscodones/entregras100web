@@ -68,6 +68,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 44,
                     glyph: 'f019@FontAwesome',
                     text: 'Exportar',
                     menu: {
@@ -87,6 +88,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 40,
                     itemId: 'btnAgregar',
                     glyph: 'f055@FontAwesome',
                     text: 'Agregar',
@@ -169,6 +171,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 41,
                     width: 30,
                     ignoreExport: true,
                     items: [
@@ -199,6 +202,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
 
                         return value;
                     },
+                    permissionId: 42,
                     width: 30,
                     ignoreExport: true,
                     items: [
@@ -227,6 +231,7 @@ Ext.define('Entregas100Web.view.OperadoresPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 43,
                     width: 30,
                     ignoreExport: true,
                     items: [

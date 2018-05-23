@@ -67,6 +67,7 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                 },
                 {
                     xtype: 'numberfield',
+                    permissionId: 45,
                     itemId: 'txtAumentoGas',
                     width: 180,
                     fieldLabel: 'Aumento Gas',
@@ -76,6 +77,7 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                 },
                 {
                     xtype: 'numberfield',
+                    permissionId: 45,
                     itemId: 'txtAumentoAditivo',
                     margin: '0 0 0 10',
                     width: 180,
@@ -86,6 +88,7 @@ Ext.define('Entregas100Web.view.TarifasPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 45,
                     itemId: 'btnAplicar',
                     glyph: 'f058@FontAwesome',
                     text: 'Aplicar',

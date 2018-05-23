@@ -63,6 +63,7 @@ Ext.define('Entregas100Web.view.HorariosZonaPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 50,
                     itemId: 'btnAgregar',
                     glyph: 'f055@FontAwesome',
                     text: 'Agregar',
@@ -122,6 +123,7 @@ Ext.define('Entregas100Web.view.HorariosZonaPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 51,
                     width: 30,
                     items: [
                         {
@@ -138,6 +140,7 @@ Ext.define('Entregas100Web.view.HorariosZonaPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 52,
                     width: 30,
                     items: [
                         {

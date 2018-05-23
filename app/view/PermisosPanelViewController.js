@@ -159,8 +159,6 @@ Ext.define('Entregas100Web.view.PermisosPanelViewController', {
 
                     treeRecord.set("es_permitido", true);
                     treeRecord.set("checked", true);
-
-                    console.log(item.get("permiso_id"), treeRecord);
                 });
                 permisosListStore.commitChanges();
                 permisosList.unmask();

@@ -22,18 +22,11 @@ Ext.define('Pyansa.mixin.Permissible', {
     evaluatePermission: function() {
         var me = this;
 
-        // si el componente tiene definida una funcion propia `isPermited`, esta se evalua
-        // sin importar que `permissionId` no este definido
-        if (me.hasOwnProperty("isPermited") && !me.isPermited(me.permissionId)) {
-            if (me.notPermitedAction == "hide") {
-                me.setHidden(true);
-            } else {
-                me.setDisabled(true);
-            }
-        }
-
-        // si el componente no tiene denifido `permissionId` no se evalue la funcion `isPermited`
-        if (me.permissionId != null && Ext.isDefined(me.permissionId) && !me.isPermited(me.permissionId)) {
+        if (
+            me.hasOwnProperty("isPermited") || // si tiene definida una funcion `isPermited`
+            (me.permissionId != null && me.permissionId !== undefined) && // o tiene definida la propiedad `permissionId`
+            !me.isPermited(me.permissionId) // se evalue la funcion `isPermited`
+        ) {
             if (me.notPermitedAction == "hide") {
                 me.setHidden(true);
             } else {

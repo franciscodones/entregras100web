@@ -131,6 +131,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                 },
                 {
                     xtype: 'actioncolumn',
+                    permissionId: 17,
                     width: 30,
                     items: [
                         {
@@ -182,6 +183,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    permissionId: 18,
                                     itemId: 'btnAgregarCombinacion',
                                     glyph: 'f055@FontAwesome',
                                     text: 'Agregar Combinacion',
@@ -208,6 +210,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
+                            permissionId: 19,
                             width: 30,
                             items: [
                                 {
@@ -269,6 +272,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
+                                    permissionId: 20,
                                     itemId: 'btnAgregarPlaza',
                                     glyph: 'f055@FontAwesome',
                                     text: 'Agregar Plaza',
@@ -295,6 +299,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                         },
                         {
                             xtype: 'actioncolumn',
+                            permissionId: 21,
                             width: 30,
                             items: [
                                 {
