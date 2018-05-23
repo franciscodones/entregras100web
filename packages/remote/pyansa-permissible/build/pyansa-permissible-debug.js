@@ -1721,14 +1721,7 @@ try {
 }
 Ext.define('Pyansa.mixin.Permissible', {extend:'Ext.Mixin', mixinConfig:{after:{afterRender:'evaluatePermission'}}, notPermitedAction:'hide', evaluatePermission:function() {
   var me = this;
-  if (me.hasOwnProperty('isPermited') && !me.isPermited(me.permissionId)) {
-    if (me.notPermitedAction == 'hide') {
-      me.setHidden(true);
-    } else {
-      me.setDisabled(true);
-    }
-  }
-  if (me.permissionId != null && Ext.isDefined(me.permissionId) && !me.isPermited(me.permissionId)) {
+  if ((me.hasOwnProperty('isPermited') || me.permissionId != null && me.permissionId !== undefined) && !me.isPermited(me.permissionId)) {
     if (me.notPermitedAction == 'hide') {
       me.setHidden(true);
     } else {

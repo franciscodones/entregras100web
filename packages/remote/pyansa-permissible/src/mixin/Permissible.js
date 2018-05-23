@@ -23,8 +23,10 @@ Ext.define('Pyansa.mixin.Permissible', {
         var me = this;
 
         if (
-            me.hasOwnProperty("isPermited") || // si tiene definida una funcion `isPermited`
-            (me.permissionId != null && me.permissionId !== undefined) && // o tiene definida la propiedad `permissionId`
+            (
+                me.hasOwnProperty("isPermited") || // si tiene definida una funcion `isPermited`
+                (me.permissionId != null && me.permissionId !== undefined) // o tiene definida la propiedad `permissionId`
+            ) &&
             !me.isPermited(me.permissionId) // se evalue la funcion `isPermited`
         ) {
             if (me.notPermitedAction == "hide") {
