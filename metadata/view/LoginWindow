@@ -52,6 +52,11 @@
             "userConfig": {
                 "bodyPadding": 10,
                 "itemId": "loginForm",
+                "keyMap": [
+                    "{",
+                    "    \"ENTER\": \"onBtnIngresarClick\"",
+                    "}"
+                ],
                 "method": "POST",
                 "url": "api/login/login"
             },
@@ -59,7 +64,8 @@
                 "bodyPadding": "auto",
                 "itemId": "string",
                 "method": "string",
-                "url": "string"
+                "url": "string",
+                "keyMap": "object"
             },
             "name": "MyForm",
             "designerId": "be919f80-32a5-45dc-b91a-bd476e57cbd8",

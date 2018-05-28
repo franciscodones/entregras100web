@@ -18,20 +18,13 @@ Ext.define('Entregas100Web.view.TarifasPanelViewModel', {
     alias: 'viewmodel.tarifaspanel',
 
     requires: [
-        'Ext.data.Store',
-        'Ext.util.Filter'
+        'Ext.data.Store'
     ],
 
     stores: {
         TarifasLocalStore: {
             type: 'tarifasstore',
-            model: 'Entregas100Web.model.TarifaModel',
-            filters: {
-                filterFn: function(item) {
-                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
-                },
-                id: 'permisoPlazas'
-            }
+            model: 'Entregas100Web.model.TarifaModel'
         }
     }
 

@@ -44,6 +44,9 @@ Ext.define('Entregas100Web.view.LoginWindow', {
     items: [
         {
             xtype: 'form',
+            keyMap: {
+                ENTER: 'onBtnIngresarClick'
+            },
             itemId: 'loginForm',
             bodyPadding: 10,
             method: 'POST',

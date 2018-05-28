@@ -41,50 +41,6 @@
                     "name": "type",
                     "type": "string"
                 }
-            ],
-            "cn": [
-                {
-                    "type": "Ext.util.Filter",
-                    "reference": {
-                        "name": "filters",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "id": "permisoPlazas"
-                    },
-                    "configAlternates": {
-                        "id": "string"
-                    },
-                    "name": "MyFilter2",
-                    "designerId": "932b9a91-bffd-405f-ab8d-53db38fcfccc",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "item"
-                                ],
-                                "fn": "filterFn",
-                                "implHandler": [
-                                    "return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get(\"plaza_id\"));"
-                                ]
-                            },
-                            "configAlternates": {
-                                "designer|params": "typedarray",
-                                "fn": "string",
-                                "implHandler": "code"
-                            },
-                            "name": "filterFn",
-                            "designerId": "0f3246c4-ec49-4d30-ba26-e7cbeae0c657"
-                        }
-                    ]
-                }
             ]
         }
     ]
