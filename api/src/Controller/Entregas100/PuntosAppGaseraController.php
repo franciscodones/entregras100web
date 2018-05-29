@@ -17,37 +17,11 @@ class PuntosAppGaseraController extends AppGaseraController {
         $aData = func_get_args();
         $aDatos = $aData[1];
         $aUnidad = $aData[2];
-
-        // obtiene la conexion a la bd de la plaza
         $oConexion = $this->getConexion();
-        $sQuery = "SELECT plaza.*, " .
-                "conexion.ip_te, " .
-                "conexion.usuario_te, " .
-                "conexion.password_te, " .
-                "conexion.base_te " .
-            "FROM plaza " .
-            "INNER JOIN conexion ON plaza.id = conexion.plaza_id " .
-            "WHERE plaza.id = ?";
-        $aQueryParams = array($aUnidad['plaza_id']);
-        $aResultado = $oConexion->query($sQuery, $aQueryParams);
-        // si no hay info de la plaza se termina el proceso
-        if (count($aResultado) <= 0) {
-            throw new Exception("Error al obtener los datos de conexion a la plaza");
-        }
-        $aPlaza = $aResultado[0];
-        $oConexionPlaza = $this->getConexion(
-            $aPlaza["plaza"],
-            array(
-                "host" => $aPlaza["ip_te"],
-                "user" => $aPlaza["usuario_te"],
-                "password" => $aPlaza["password_te"],
-                "database" => $aPlaza["base_te"]
-            )
-        );
 
         // obtiene la tabla de puntos
-        $sQuery = "SELECT * FROM puntos GROUP BY puntos ORDER BY puntos";
-        $aPuntos = $oConexionPlaza->query($sQuery);
+        $sQuery = "SELECT * FROM tabla_puntos ORDER BY puntos";
+        $aPuntos = $oConexion->query($sQuery);
 
         // si no existen alarmas se termina el proceso
         if (count($aPuntos) <= 0) {
@@ -58,9 +32,11 @@ class PuntosAppGaseraController extends AppGaseraController {
         $aPuntosProcesados = array();
         foreach ($aPuntos as $value) {
             $aPuntosProcesados[] = array(
-                "limite_inferior" => $value['liminf'],
-                "limite_superior" => $value['limsup'],
-                "puntos" => $value['puntos']
+                "limite_inferior" => $value['limite_inferior'],
+                "limite_superior" => $value['limite_superior'],
+                "puntos" => $value['puntos'],
+                "hora_inicial" => $value['hora_inicial'],
+                "hora_final" => $value['hora_final']
             );
         }
 

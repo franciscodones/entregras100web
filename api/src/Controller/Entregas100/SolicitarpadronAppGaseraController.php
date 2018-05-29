@@ -239,6 +239,18 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 "ELSE 1 " . // general " .
             "END " .
             "AS tipo_cv_id, " .
+            // se verifica si el cliente tiene nombre para facturacion
+            "IF (" .
+                "dat_fact.nombre IS NULL OR TRIM(dat_fact.nombre) = \"\", " .
+                "\"\", " .
+                "dat_fact.nombre" .
+            ") AS nombre_facturacion, " .
+            // se verifica si el cliente tiene domicilio para facturacion
+            "IF (" .
+                "dat_fact.domicilio IS NULL OR TRIM(dat_fact.domicilio) = \"\", " .
+                "\"\", " .
+                "dat_fact.domicilio" .
+            ") AS domicilio_facturacion, " .
             // se verifica si el tipo de cliente es comercial
             "IF(" .
                 "listas_padron.tipo_cte IN (1, 7), " .
@@ -254,6 +266,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
         "LEFT JOIN lista_app ON listas_padron.ncontrol = lista_app.numero_control " .
         "LEFT JOIN padron ON listas_padron.ncontrol = padron.ncontrol " .
         "LEFT JOIN tarifas ON tarifas.cvetar = padron.tarifa " .
+        "LEFT JOIN dat_fact ON listas_padron.ncontrol = dat_fact.ncontrol " .
         "WHERE listas_padron.ncontrol != 0 " .
         "GROUP BY listas_padron.ncontrol " .
         "ORDER BY numero_control";
@@ -314,7 +327,9 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 "_29" => (!empty($aServicio['zona_id'])) ? $aServicio['zona_id'] : '',
                 "_30" => (!empty($aServicio['tarifa_id'])) ? $aServicio['tarifa_id'] : '',
                 "_31" => (!empty($aServicio['tipo_compromiso_id'])) ? $aServicio['tipo_compromiso_id'] : 2,
-                "_32" => $aServicio['numero_interior'] //numero_interior
+                "_32" => $aServicio['numero_interior'], //numero_interior
+                "_33" => $aServicio["nombre_facturacion"], // nombre facturacion
+                "_34" => $aServicio["domicilio_facturacion"] // domicilio facturacion
             );
         }
         unset($aServicio);
