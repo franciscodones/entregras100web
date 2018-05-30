@@ -142,9 +142,6 @@ class SurtidoAppGaseraController extends AppGaseraController {
         $aTanque = count($aResultado) > 0 ? $aResultado[0] : null;
         // si existe el tanque cambia los valores de algunas variables
         if ($aTanque != null) {
-            $nPrecioGas = $aTanque["precio_gas"];
-            $nPrecioAditivo = $aTanque["precio_aditivo"];
-            $nPrecioGas = $aTanque["precio_gas"];
             $nCvecia = $aTanque["cvecia"];
             $nTipoCte = $aTanque["tipo_cte"];
             $nZona = $aTanque["zona"];

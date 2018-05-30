@@ -49,7 +49,6 @@ class CalleAppGaseraController extends AppGaseraController {
         $sQuery = "SELECT calles.cvecall, " .
                 "nomcalle " .
             "FROM calles " .
-            "INNER JOIN padron ON calles.cvecall = padron.cvecall " .
             "WHERE calles.cvecall != 0 " .
             "GROUP BY calles.cvecall";
         $aCalles = $oConexionPlaza->query($sQuery);

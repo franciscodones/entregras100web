@@ -49,7 +49,6 @@ class ColoniaAppGaseraController extends AppGaseraController {
         $sQuery = "SELECT colonias.cvepob, " .
                 "nompob " .
             "FROM poblac AS colonias " .
-            "INNER JOIN padron ON colonias.cvepob = padron.cvepob " .
             "WHERE colonias.cvepob != 0 " .
             "GROUP BY colonias.cvepob";
         $aColonias = $oConexionPlaza->query($sQuery);
