@@ -357,7 +357,7 @@ class ExceptionHandler extends ErrorHandler {
     public static function removePathFromMessage($message) {
         // elimina la ruta del documento hasta la carpeta root del proyecto
         $appDirRegex = $_SERVER["SCRIPT_FILENAME"];
-        $appDirRegex = preg_replace("/[\\\\\\/]?webroot[\\\\\\/]index\\.php$/", "", $appDirRegex);
+        $appDirRegex = preg_replace("/^[\\\\\\/]?(.+)[\\\\\\/]webroot[\\\\\\/]index\\.php$/", "$1", $appDirRegex);
         $appDirRegex = preg_split("/[\\\\\\/]/", $appDirRegex);
         $appDirRegex = array_map(function($item) {
             return "/" . $item . "[\\\\\\/]/";

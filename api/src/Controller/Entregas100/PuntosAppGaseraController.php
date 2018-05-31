@@ -20,8 +20,12 @@ class PuntosAppGaseraController extends AppGaseraController {
         $oConexion = $this->getConexion();
 
         // obtiene la tabla de puntos
-        $sQuery = "SELECT * FROM tabla_puntos ORDER BY puntos";
-        $aPuntos = $oConexion->query($sQuery);
+        $sQuery = "SELECT * " .
+            "FROM tabla_puntos " .
+            "WHERE plaza_id = ? " .
+            "ORDER BY puntos";
+        $aQueryParams = array($aUnidad["plaza_id"]);
+        $aPuntos = $oConexion->query($sQuery, $aQueryParams);
 
         // si no existen alarmas se termina el proceso
         if (count($aPuntos) <= 0) {
