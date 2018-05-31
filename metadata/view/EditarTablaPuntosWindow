@@ -1,0 +1,699 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "editartablapuntoswindow",
+        "designer|userClassName": "EditarTablaPuntosWindow",
+        "glyph": "f4b9@PyansaFontAwesomeSolid",
+        "id": "editarTablaPuntosWindow",
+        "modal": true,
+        "title": "Editar Registro de Puntos",
+        "width": 480
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "CrearTablaPuntosWindow1",
+    "designerId": "ef7fbb26-9215-4292-81c2-2a82385be1ad",
+    "viewControllerInstanceId": "4eeb909b-a490-4b1d-b550-20e741ca4a1c",
+    "viewModelInstanceId": "bfa0dfc1-da6b-45a8-9090-d8b2bb903a7a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "itemId": "editarTablaPuntosForm"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "itemId": "string"
+            },
+            "name": "MyForm1",
+            "designerId": "2f4b5e23-9024-44b5-8f87-c8c1097b5a39",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldContainer1",
+                    "designerId": "90f6348e-1ff3-4f94-98d4-213a39c32887",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowDecimals": false,
+                                "allowExponential": false,
+                                "fieldLabel": "Puntos",
+                                "hideTrigger": true,
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "minValue": 1,
+                                "name": "puntos"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "layout|anchor": "string",
+                                "minValue": "number",
+                                "name": "string",
+                                "allowDecimals": "boolean",
+                                "allowExponential": "boolean",
+                                "layout|flex": "number",
+                                "labelWidth": "number"
+                            },
+                            "name": "MyNumberField8",
+                            "designerId": "1ec0e4a8-4a8f-4b3e-a0e3-656e8f72c919"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer",
+                            "designerId": "8338bf74-c57e-4de7-9ea8-65df52da9d95"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "ciudad",
+                                "editable": false,
+                                "fieldLabel": "Plaza",
+                                "forceSelection": true,
+                                "itemId": "cmbPlaza",
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "name": "plaza_id",
+                                "store": [
+                                    "{PlazasLocalStore}"
+                                ],
+                                "valueField": "id"
+                            },
+                            "configAlternates": {
+                                "store": "binding",
+                                "displayField": "datafield",
+                                "editable": "boolean",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "name": "string",
+                                "valueField": "datafield",
+                                "labelWidth": "number"
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "c6d1fec3-2cdf-4f54-8052-e38bc8e66cc1",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbPlazaSelect",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    hidPlaza = me.view.down(\"#hidPlaza\");",
+                                            "",
+                                            "hidPlaza.setValue(combo.getDisplayValue());"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onCmbPlazaSelect",
+                                    "designerId": "d47bb9bc-664c-4f8c-9394-1e5fe15c8e76"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox",
+                        "title": "Rango de horario"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string",
+                        "title": "string"
+                    },
+                    "name": "MyFieldSet1",
+                    "designerId": "2976a8d0-9ea9-4cad-aa36-0a3387461c59",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Time",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "editable": false,
+                                "fieldLabel": "Hora inicial",
+                                "forceSelection": true,
+                                "itemId": "timeHoraInicial",
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "matchFieldWidth": false,
+                                "minValue": "4:00 AM",
+                                "name": "hora_inicial"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "editable": "boolean",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "increment": "number",
+                                "itemId": "string",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "matchFieldWidth": "boolean",
+                                "minValue": "time",
+                                "name": "string"
+                            },
+                            "name": "MyTimeField2",
+                            "designerId": "d78a45c5-c242-4df9-a81a-2398e165d404",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onTimeHoraInicialSelect",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    cmbHoraFinal = me.view.down(\"#timeHoraFinal\");",
+                                            "",
+                                            "cmbHoraFinal.enable();",
+                                            "cmbHoraFinal.setMinValue(",
+                                            "    Ext.Date.add(combo.getValue(), Ext.Date.MINUTE, 30)",
+                                            ");"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onTimeHoraInicialSelect",
+                                    "designerId": "8061ec40-ec9b-40ae-a973-20e601175940"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer6",
+                            "designerId": "a0914af3-25bb-4936-8cd2-fc7345ec76a0"
+                        },
+                        {
+                            "type": "Ext.form.field.Time",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "editable": false,
+                                "fieldLabel": "Hora final",
+                                "forceSelection": true,
+                                "itemId": "timeHoraFinal",
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "matchFieldWidth": false,
+                                "name": "hora_final"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "editable": "boolean",
+                                "fieldLabel": "string",
+                                "forceSelection": "boolean",
+                                "increment": "number",
+                                "itemId": "string",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "matchFieldWidth": "boolean",
+                                "name": "string"
+                            },
+                            "name": "MyTimeField3",
+                            "designerId": "7215f454-f1c5-48e8-be16-75f9878eedd7",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "var horaInicial = this.up(\"form\").getForm().getFieldValues().hora_inicial,",
+                                            "    horaFinal = this.getValue();",
+                                            "",
+                                            "if (horaInicial < horaFinal) {",
+                                            "    return true;",
+                                            "} else {",
+                                            "    return \"El horario inicial debe ser menor al horario final\";",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "validator",
+                                    "designerId": "11210a26-feb8-4296-a5ac-b30f958ba8d8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox",
+                        "title": "Rango de litraje"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string",
+                        "title": "string"
+                    },
+                    "name": "MyFieldSet2",
+                    "designerId": "49d29910-3c83-4875-95f8-a5f7e1166884",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Lts. Minimo",
+                                "hideTrigger": true,
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "minValue": 0,
+                                "name": "limite_inferior"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "minValue": "number",
+                                "name": "string"
+                            },
+                            "name": "MyNumberField9",
+                            "designerId": "72f4a419-c5e6-4578-ac2d-39403f093d2c"
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer7",
+                            "designerId": "23b36a18-197c-4793-bd28-b7cbd3d03100"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowExponential": false,
+                                "decimalPrecision": 3,
+                                "fieldLabel": "Lts Maximo",
+                                "hideTrigger": true,
+                                "labelWidth": 80,
+                                "layout|flex": 1,
+                                "minValue": 0,
+                                "name": "limite_superior"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "allowExponential": "boolean",
+                                "decimalPrecision": "number",
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "labelWidth": "number",
+                                "layout|flex": "number",
+                                "minValue": "number",
+                                "name": "string"
+                            },
+                            "name": "MyNumberField10",
+                            "designerId": "a257283e-c5ac-49bf-bd4e-8da4a3768225",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value"
+                                        ],
+                                        "fn": "validator",
+                                        "implHandler": [
+                                            "var litrosMin = this.up(\"form\").getForm().getFieldValues().limite_inferior,",
+                                            "    litrosMax = this.getValue();",
+                                            "",
+                                            "if (litrosMin <= litrosMax) {",
+                                            "    return true;",
+                                            "} else {",
+                                            "    return \"El litraje maximo debe ser mayor al litraje minimo\";",
+                                            "}"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "validator",
+                                    "designerId": "e72f68be-239c-4839-bd1f-ca64a37de717"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "layout": "hbox",
+                        "margin": "20 0 0 0"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "layout": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyFieldContainer7",
+                    "designerId": "39825723-68ff-46c7-ab0f-7d51649a2946",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnCancelar",
+                                "text": "Cancelar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "e9a43b87-74a7-49ed-95ad-4b74c5c3a989",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCancelarClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnCancelarClick",
+                                    "designerId": "8312cbc2-3d9b-4f22-82a6-22483754fa9b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 20
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MySpacer9",
+                            "designerId": "163cd32f-415c-4e0c-817f-070f2da6879e"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "text": "Guardar",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "5ea7bc33-1a79-438e-847e-231b6ff65d15",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    editarTablaPuntosForm = me.view.down(\"form\").getForm(),",
+                                            "    tablaPuntosPanel = Ext.ComponentManager.get(\"tablaPuntosPanel\"),",
+                                            "    tablaPuntosLocalStore = tablaPuntosPanel.getController().getStore(\"TablaPuntosLocalStore\"),",
+                                            "    record, waitWindow;",
+                                            "",
+                                            "if (editarTablaPuntosForm.isValid()) {",
+                                            "    waitWindow = Ext.MessageBox.wait(\"Guardando cambios...\");",
+                                            "    editarTablaPuntosForm.updateRecord();",
+                                            "    record = editarTablaPuntosForm.getRecord();",
+                                            "    ",
+                                            "    // si el record no ha sufrigo cambios se termina la edicion",
+                                            "    if (!record.isDirty()) {",
+                                            "        waitWindow.close();",
+                                            "        me.view.close();",
+                                            "        return;",
+                                            "    }",
+                                            "    ",
+                                            "    tablaPuntosLocalStore.sync({",
+                                            "        success: onSyncSuccess",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSuccess() {",
+                                            "    waitWindow.close();",
+                                            "    me.view.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "a77ff1c2-b2c5-4a27-9da1-8076f601626b"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "itemId": "hidPlaza",
+                        "layout|anchor": "100%",
+                        "name": "plaza"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "c00cec88-04be-4dfa-95f3-31cda61c84e8"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onEditarTablaPuntosWindowAfterRender",
+                "implHandler": [
+                    "var me = this,",
+                    "    plazasLocalStore = me.getStore(\"PlazasLocalStore\");",
+                    "",
+                    "plazasLocalStore.load();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onEditarTablaPuntosWindowAfterRender",
+            "designerId": "178a596d-db1c-42d3-87bb-be3a651be07f"
+        }
+    ]
+}

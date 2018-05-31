@@ -1,0 +1,150 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "TablaPuntosModel"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "3f9f9800-9a63-4855-bad1-78a714d758e8",
+    "cn": [
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger26",
+            "designerId": "a80f9212-cb6b-485a-a9ad-6fce21d6c7ef"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "limite_inferior"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber12",
+            "designerId": "ac405ec3-298e-457a-b53d-4da275c893c0"
+        },
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "limite_superior"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber13",
+            "designerId": "6b04c9ec-4b25-4af3-adbc-ff2e6e8eec18"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "puntos"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger27",
+            "designerId": "397d51f8-f67f-43c2-adfc-05e02a8a3465"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_inicial"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate10",
+            "designerId": "e8176463-496a-412a-bb43-ac22c24f32b6"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "H:i:s",
+                "name": "hora_final"
+            },
+            "configAlternates": {
+                "name": "string",
+                "dateFormat": "string"
+            },
+            "name": "MyDate11",
+            "designerId": "02cbd7ed-75ed-45aa-8c95-72f05640b0d9"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza_id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyInteger28",
+            "designerId": "4099c7dc-c1f1-4da5-b9d0-64ce7bea4806"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyString26",
+            "designerId": "421e5b25-16b9-43e6-a6a1-fa13e434834a"
+        }
+    ]
+}

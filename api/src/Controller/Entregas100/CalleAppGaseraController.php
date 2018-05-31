@@ -45,12 +45,24 @@ class CalleAppGaseraController extends AppGaseraController {
             )
         );
 
+        // Se crea esta tabla debido a que al hacer un inner join entre calles y padron
+        // tarda demasiado cuando el padron es muy grande (ej. culiacan con ~50k clientes)
+        // y por otro lado el descargar el catalogo completo de calles es muy pesado para la tablet
+        // (ej. guadalajara con ~16k calles).
+        // Por lo tanto el inner join se hace entre calles y esta tabla temporal para que demore menos.
+        $sQuery = "CREATE TEMPORARY TABLE calles_app " .
+            "SELECT DISTINCT cvecall " .
+            "FROM padron " .
+            "WHERE cvecall != 0";
+        $oConexionPlaza->query($sQuery);
+
         // obtiene las calles
-        $sQuery = "SELECT calles.cvecall, " .
-                "nomcalle " .
+        $sQuery = "SELECT calles.cvecall AS id, " .
+                "nomcalle AS descripcion, " .
+                "1 AS colonia_id " .
             "FROM calles " .
-            "WHERE calles.cvecall != 0 " .
-            "GROUP BY calles.cvecall";
+            "INNER JOIN calles_app ON calles.cvecall = calles_app.cvecall " .
+            "ORDER BY id";
         $aCalles = $oConexionPlaza->query($sQuery);
 
         // si no existen calles se termina el proceso
@@ -58,30 +70,24 @@ class CalleAppGaseraController extends AppGaseraController {
             throw new Exception("No existe un catalogo de calles");
         }
 
-        // se procesa para enviar solo los campos necesarios y hacer menos pesada la respuesta
-        $aCallesProcesadas = array(
+        // se agrega una calle default
+        array_unshift(
+            $aCalles,
             array(
                 "id" => 0,
                 "descripcion" => "SIN CALLE",
                 "colonia_id" => 1
             )
         );
-        foreach ($aCalles as $value) {
-            $aCallesProcesadas[] = array(
-                "id" => $value['cvecall'],
-                "descripcion" => utf8_encode($value['nomcalle']),
-                "colonia_id" => 1
-            );
-        }
 
         return $this->asJson(array(
             "success" => true,
             "message" => "Calles",
-            "data" => $aCallesProcesadas,
+            "data" => $aCalles,
             "metadata" => array(
-                "Registros" => count($aCallesProcesadas),
+                "Registros" => count($aCalles),
                 array(
-                    "Registros" => count($aCallesProcesadas)
+                    "Registros" => count($aCalles)
                 )
             )
         ));

@@ -45,12 +45,23 @@ class ColoniaAppGaseraController extends AppGaseraController {
             )
         );
 
-        // obtiene las colonias
-        $sQuery = "SELECT colonias.cvepob, " .
-                "nompob " .
-            "FROM poblac AS colonias " .
-            "WHERE colonias.cvepob != 0 " .
-            "GROUP BY colonias.cvepob";
+        // Se crea esta tabla debido a que al hacer un inner join entre poblac y padron
+        // tarda demasiado cuando el padron es muy grande (ej. culiacan con ~50k clientes)
+        // y por otro lado el descargar el catalogo completo de poblac es muy pesado para la tablet
+        // (ej. guadalajara con ~4k colonias).
+        // Por lo tanto el inner join se hace entre poblac y esta tabla temporal para que demore menos.
+        $sQuery = "CREATE TEMPORARY TABLE colonias_app " .
+            "SELECT DISTINCT cvepob " .
+            "FROM padron " .
+            "WHERE cvepob != 0";
+        $oConexionPlaza->query($sQuery);
+
+        // obtiene las calles
+        $sQuery = "SELECT poblac.cvepob AS id, " .
+                "nompob AS descripcion " .
+            "FROM poblac " .
+            "INNER JOIN colonias_app ON poblac.cvepob = colonias_app.cvepob " .
+            "ORDER BY id";
         $aColonias = $oConexionPlaza->query($sQuery);
 
         // si no existen calles se termina el proceso
@@ -58,28 +69,23 @@ class ColoniaAppGaseraController extends AppGaseraController {
             throw new Exception("No existe un catalogo de colonias");
         }
 
-        // se procesa para enviar solo los campos necesarios y hacer menos pesada la respuesta
-        $aColoniasProcesadas = array(
+        // se agrega una colonia default
+        array_unshift(
+            $aColonias,
             array(
                 "id" => 0,
                 "descripcion" => "SIN COLONIA"
             )
         );
-        foreach ($aColonias as $value) {
-            $aColoniasProcesadas[] = array(
-                "id" => $value['cvepob'],
-                "descripcion" => utf8_encode($value['nompob'])
-            );
-        }
 
         return $this->asJson(array(
             "success" => true,
             "message" => "Colonias",
-            "data" => $aColoniasProcesadas,
+            "data" => $aColonias,
             "metadata" => array(
-                "Registros" => count($aColoniasProcesadas),
+                "Registros" => count($aColonias),
                 array(
-                    "Registros" => count($aColoniasProcesadas)
+                    "Registros" => count($aColonias)
                 )
             )
         ));

@@ -2,7 +2,7 @@
   "name": "pyansa-locale",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0.3",
+  "version": "6.5.0.4",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa locale",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-05-08T16:18:14Z",
+      "created": "2018-05-18T00:01:37Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "mQfuXAwXgyo\u003d",
-      "signature": "EVLGMkPGAszzWyK8WNSDzqjReDKOBUWksOHITdu7W7bW8CjPbloZkjdMxZ493F8XPRAlTheaycA9K6k961NCokNVr4lejpze06cscJaaXHlEigJd41GophgNMV1D6sI9QSupEgaNNpMqaj+jBy6VExYNISPIPqiMjSDr9/NOtkLF4VQl4gSsGwLYueViZJnfimM9kHGhVVSLyjASsMxjAUSlF8SRsNjt7nsBHj2gsoF8C9QwYHNm7ccHQKLYbJM2xAlQzj0kYWgXJdmlUl6JytlOQObJ4b/QKVZXdvdgW8p0Dumql1rfccyfkhWBmJQ0kF62loWVafxcf9aqlH2QKA\u003d\u003d"
+      "nonce": "eQ1oMPLxlnI\u003d",
+      "signature": "cHNdpPhBS4oKe119AhzcfE2/jlMm/mhHZUyWw4TsH62o0cuLkB9hEyO8d3x9VduJaD3Xojek599vIQSY2nI6TrVes9um/KahVlFISC9VBxkIM7R+z8emAo7EU4iimt2o3VdbcKal+8LM83qejV6wUhHqWO/IKBA++zln+VUSi4Zs+iqGXIKT3ym7D4Bj0dedM7t7Zj+LxkDq08zMEb9lTZdVO4fhkPBktUeG6yRX3YlzX9SnqNEJ8N2VE6GtcHaHthk1hYI8RH2D8NcOwW8si2wlOy49zJ0IU943pPknwDjbl5vIeB5dwsMITDm4QXvVjbJadNYrTrN7uzEk4Zqcqw\u003d\u003d"
     }
   ],
   "architect": {

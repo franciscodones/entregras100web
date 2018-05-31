@@ -294,6 +294,61 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
+                                        "glyph": "f4b9@PyansaFontAwesomeSolid",
+                                        "itemId": "mItemTablaPuntos",
+                                        "permissionId": 53,
+                                        "text": "Tabla de Puntos"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyMenuItem13",
+                                    "designerId": "cadf2a82-7338-4523-be4e-d944bb467c2a",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemPerfilesPagoClick12",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.tablapuntospanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemPerfilesPagoClick12",
+                                            "designerId": "a02f898e-a738-4f9b-a75c-a87b8d1e6f02"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
                                         "glyph": "f0c0@FontAwesome",
                                         "itemId": "mItemUsuarios",
                                         "permissionId": 7,

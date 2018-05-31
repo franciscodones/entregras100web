@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "creartablapuntoswindow",
+        "designer|userClassName": "CrearTablaPuntosWindowViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CrearDescuentoPromocionWindowViewController1",
+    "designerId": "960216a7-ed54-4eeb-a2ae-9fd76cdb70a2"
+}

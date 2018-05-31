@@ -1719,6 +1719,9 @@ try {
   }
 } catch (e) {
 }
+Ext.define('Pyansa.overrides.form.field.VTypes', {override:'Ext.form.field.VTypes', IPAddress:function(value) {
+  return this.IPAddressRe.test(value);
+}, IPAddressRe:/^((([1-9]|1[0-9]|2[0-4])?[0-9]|25[0-5])\.){3}(([1-9]|1[0-9]|2[0-4])?[0-9]|25[0-5])$/, IPAddressText:'Este campo debe ser una direccion IP válida', IPAddressMask:/[\d\.]/i});
 Ext.define('Pyansa.overrides.form.field.Text', {override:'Ext.form.field.Text', transformToUpper:false, trimValue:false, initComponent:function() {
   var me = this;
   me.callParent(arguments);

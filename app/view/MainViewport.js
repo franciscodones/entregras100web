@@ -97,6 +97,16 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                 },
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 53,
+                                    itemId: 'mItemTablaPuntos',
+                                    glyph: 'f4b9@PyansaFontAwesomeSolid',
+                                    text: 'Tabla de Puntos',
+                                    listeners: {
+                                        click: 'onMItemPerfilesPagoClick12'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
                                     permissionId: 7,
                                     itemId: 'mItemUsuarios',
                                     glyph: 'f0c0@FontAwesome',

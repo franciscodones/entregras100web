@@ -7,7 +7,7 @@
             "frameworkVersion": "6.5.0.775"
         },
         "urlPrefixTemplate": "http://localhost:{port}/{path}",
-        "urlPrefix": "http://localhost:60844/",
+        "urlPrefix": "http://localhost:65308/",
         "canvasControls": {
             "viewportSize": {
                 "name": "Large",
@@ -47,6 +47,7 @@
             "19945a1c-e85f-47e0-bc68-8db8b04eeb7b",
             "91d8042d-4bd5-4663-a317-28fe481649ff",
             "226b0890-d7ff-4410-8cd6-00998389188e",
+            "547e2e98-4507-4242-8755-62cd6daad444",
             "10f857b5-cc3c-4e28-81ac-8d722896fb76",
             "9cfb8ebe-84f9-4cbd-b751-13bd482e5310",
             "6ff83ac1-9ec0-484e-ba57-f2a7fc44a3fd",
@@ -58,6 +59,7 @@
             "4f21aed0-c67e-48ca-addf-b997d71e5c11",
             "83c09874-a7d5-4bee-8e34-3fadba45a207",
             "44cc4c8b-a3a5-4fe9-99b7-001cc388ecde",
+            "c83e1094-44d6-406c-a92f-c42bf7b3eee0",
             "2f68084e-db9c-4c52-bf4d-b9ca3d43fbbe",
             "dcfda130-4a95-4591-a3c7-164675df36f9",
             "8969c5da-58fb-430b-8ab7-efc66c55f2a8",
@@ -69,6 +71,7 @@
             "a95535af-29d1-46ed-bdf5-4a8486fe81e3",
             "0a7d1758-6801-44e0-bca5-b49c56db8b0c",
             "f7fbc808-8931-44d0-85e6-310a5731a2e3",
+            "db124953-7430-4394-ba07-7ed876455853",
             "77b6aac0-6c7a-49bd-b962-7c8895750fe8",
             "c872f671-ec04-48c9-b59d-5462b06ef61e",
             "12ffe505-7dbd-4afe-ad83-241eeb8434f0",
@@ -123,16 +126,23 @@
             "f05fa05a-da74-45c1-aaf9-d9cc5113fae0",
             "57235571-c814-45d2-9799-5fbb02e2ccb9",
             "3c1b6b95-0098-4579-b706-501012eb7659",
+            "5a958305-e443-48be-9a22-336c3d036c46",
+            "ef7fbb26-9215-4292-81c2-2a82385be1ad",
             "48e8287b-9fe9-4c4d-92b8-6cf516ed94f0",
             "b211b74a-dc71-4cb5-a6c3-7a29279f774c",
+            "324f43b1-005d-4bb5-a2a1-2c3fe3d5f228",
+            "bfa0dfc1-da6b-45a8-9090-d8b2bb903a7a",
             "d6b04ef7-0460-4c93-9e71-df920b54267b",
             "3418e70f-7a48-4240-8f35-ac362fcf81da",
+            "960216a7-ed54-4eeb-a2ae-9fd76cdb70a2",
+            "4eeb909b-a490-4b1d-b550-20e741ca4a1c",
             "eac43c6f-9173-4370-96ba-40c2bfba0cd3"
         ],
         "store": [
             "5f235546-7ed6-4ca3-99cc-f4c65cc9edd8",
             "8469546a-2755-470a-a414-461319a2b51d",
             "f3c75a54-d675-488d-88b0-d9e98606dac4",
+            "953999ed-d4c8-47d4-905f-90134f87c05e",
             "912d77c5-13a9-401b-89bf-0749ca6b9418",
             "db5534f8-2975-41fd-b856-ef96ca8795b8",
             "4eb3f0fd-f1f6-410d-b5a8-e6a8ea8ce7cf",
@@ -166,7 +176,8 @@
             "d5a3ced2-125a-4800-b5d3-e4da1498309b",
             "9eeeceda-882c-4e3f-9669-ea4181c07d5c",
             "41ddd7b2-8540-45e4-84a9-dd35e73c7f8b",
-            "f2377a23-acbb-4334-adef-b460a7e55fe6"
+            "f2377a23-acbb-4334-adef-b460a7e55fe6",
+            "3f9f9800-9a63-4855-bad1-78a714d758e8"
         ],
         "resource": [
             "eeea5342-405b-4cc3-b300-0364ab6fff3b",

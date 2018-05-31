@@ -42,6 +42,10 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
         this.abrirPanel("widget.perfilespagopanel");
     },
 
+    onMItemPerfilesPagoClick12: function(item, e, eOpts) {
+        this.abrirPanel("widget.tablapuntospanel");
+    },
+
     onMItemPerfilesPagoClick11: function(item, e, eOpts) {
         this.abrirPanel("widget.usuariospanel");
     },

@@ -15,43 +15,5 @@
 
 Ext.define('Entregas100Web.view.CrearUsuarioWindowViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.crearusuariowindow',
-
-    onTxtEmailChange: function(field, newValue, oldValue, eOpts) {
-        var me = this,
-            txtUsuario = me.view.down("#txtUsuario");
-
-        txtUsuario.setValue(newValue.replace(/(.*)@.*/, "$1"));
-    },
-
-    onBtnCancelarClick: function(button, e, eOpts) {
-        this.view.close();
-    },
-
-    onBtnGuardarClick: function(button, e, eOpts) {
-        var me = this,
-            crearUsuarioForm = me.view.down("form").getForm(),
-            tipoSesion = me.view.down("#cmbTipoSesion").getDisplayValue(),
-            usuariosPanel = Ext.ComponentManager.get("usuariosPanel"),
-            usuariosLocalStore = usuariosPanel.getController().getStore("UsuariosLocalStore"),
-            record, waitWindow;
-
-        if (crearUsuarioForm.isValid()) {
-            waitWindow = Ext.MessageBox.wait("Agregando operador...");
-            record = Ext.create(
-            "Entregas100Web.model.UsuarioModel",
-            Ext.apply(crearUsuarioForm.getFieldValues(), {tipo_sesion: tipoSesion})
-            );
-            usuariosLocalStore.add(record);
-            usuariosLocalStore.sync({
-                success: onSyncSuccess
-            });
-        }
-
-        function onSyncSuccess() {
-            waitWindow.close();
-            me.view.close();
-        }
-    }
-
+    alias: 'controller.crearusuariowindow'
 });
