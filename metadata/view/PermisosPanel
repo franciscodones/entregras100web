@@ -865,7 +865,7 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "glyph": "f058@FontAwesome",
+                                        "glyph": "f0c7@FontAwesome",
                                         "itemId": "btnGuardar",
                                         "layout|flex": null,
                                         "text": "Guardar",

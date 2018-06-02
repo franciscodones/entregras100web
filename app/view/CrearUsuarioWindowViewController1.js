@@ -15,5 +15,53 @@
 
 Ext.define('Entregas100Web.view.CrearUsuarioWindowViewController1', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.editarusuariowindow'
+    alias: 'controller.editarusuariowindow',
+
+    onTxtEmailChange: function(field, newValue, oldValue, eOpts) {
+        var me = this,
+            txtUsuario = me.view.down("#txtUsuario");
+
+        txtUsuario.setValue(newValue.replace(/(.*)@.*/, "$1"));
+    },
+
+    onBtnCancelarClick: function(button, e, eOpts) {
+        this.view.close();
+    },
+
+    onBtnGuardarClick: function(button, e, eOpts) {
+        var me = this,
+            editarUsuarioForm = me.view.down("form").getForm(),
+            tipoSesion = me.view.down("#cmbTipoSesion").getDisplayValue(),
+            usuariosPanel = Ext.ComponentManager.get("usuariosPanel"),
+            usuariosLocalStore = usuariosPanel.getController().getStore("UsuariosLocalStore"),
+            record, waitWindow;
+
+        if (editarUsuarioForm.isValid()) {
+            waitWindow = Ext.MessageBox.wait("Guardando cambios...");
+            editarUsuarioForm.updateRecord();
+            record = editarUsuarioForm.getRecord();
+
+            // si el record no ha sufrigo cambios se termina la edicion
+            if (!record.isDirty()) {
+                waitWindow.close();
+                me.view.close();
+                return;
+            }
+
+            record.set("tipo_sesion", tipoSesion);
+            usuariosLocalStore.sync({
+                success: onSyncSuccess
+            });
+        }
+
+        function onSyncSuccess() {
+            waitWindow.close();
+            me.view.close();
+        }
+    },
+
+    onEditarUsuarioWindowAfterRender: function(component, eOpts) {
+        this.getStore("TiposSesionLocalStore").load();
+    }
+
 });

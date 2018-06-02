@@ -11,6 +11,8 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
      */
     showMenuTrigger: false,
 
+    verticalHeader: false,
+
     /**
      * Sobreescribe el template
      * @type {Array}
@@ -20,6 +22,8 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
             '{tipMarkup}class="', Ext.baseCSSPrefix, 'column-header-inner<tpl if="!$comp.isContainer"> ', Ext.baseCSSPrefix, 'leaf-column-header</tpl>',
             // Clase para mostrar el menu trigger permanentemente
             '<tpl if="$comp.showMenuTrigger"> ', Ext.baseCSSPrefix, 'column-header-show-trigger</tpl>',
+            // Clase para cambiar la orientacion del header a vertical
+            '<tpl if="$comp.verticalHeader"> ', Ext.baseCSSPrefix, 'column-vertical-header</tpl>',
             '<tpl if="empty"> ', Ext.baseCSSPrefix, 'column-header-inner-empty</tpl>">',
             //
             // TODO:
@@ -42,5 +46,19 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
             '</tpl>',
         '</div>',
         '{%this.renderContainer(out,values)%}'
-    ]
+    ],
+
+    initComponent: function() {
+        var me = this,
+            textMetrics = new Ext.util.TextMetrics(),
+            suggestedHeight;
+
+        // si es verticalHeader y no es una columna padre se 
+        if (me.verticalHeader && me.columns !== null) {
+            suggestedHeight = textMetrics.getWidth(me.text) + textMetrics.getHeight(me.text) + 10;
+            me.height = Math.max(suggestedHeight, me.height || suggestedHeight);
+        }
+
+        this.callParent(arguments);
+    }
 });

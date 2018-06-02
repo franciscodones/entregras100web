@@ -15,5 +15,31 @@
 
 Ext.define('Entregas100Web.view.OperadoresPanelViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.operadorespanel'
+    alias: 'controller.operadorespanel',
+
+    onBtnRefrescarClick: function(button, e, eOpts) {
+        this.getStore("OperadoresLocalStore").load();
+    },
+
+    onMenuitemClick: function(item, e, eOpts) {
+        var me = this;
+
+        me.view.down("grid").saveDocumentAs({
+            type: "excel",
+            title: "Operadores",
+            author: "Entregas100",
+            fileName: "operadores.xlsx"
+        });
+    },
+
+    onBtnAgregarClick: function(button, e, eOpts) {
+        var crearOperadorWindow = new Entregas100Web.view.CrearOperadorWindow();
+
+        crearOperadorWindow.show();
+    },
+
+    onRowEditingBeforeEdit: function(editor, context, eOpts) {
+        return Ext.Array.contains(Ext._.usuario.permisos, 12);
+    }
+
 });

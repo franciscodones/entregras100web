@@ -32,7 +32,6 @@ Ext.define('Entregas100Web.view.CrearPlazaWindowViewController', {
             waitWindow = Ext.MessageBox.wait("Agregando plaza...");
             record = Ext.create("Entregas100Web.model.PlazaModel", crearPlazaForm.getFieldValues());
             plazasLocalStore.add(record);
-            window.store =plazasLocalStore;
             plazasLocalStore.sync({
                 success: onSyncSuccess
             });

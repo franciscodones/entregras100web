@@ -201,7 +201,7 @@ Ext.define('Entregas100Web.view.PermisosPanel', {
                                 {
                                     xtype: 'button',
                                     itemId: 'btnGuardar',
-                                    glyph: 'f058@FontAwesome',
+                                    glyph: 'f0c7@FontAwesome',
                                     text: 'Guardar',
                                     tooltip: 'Guardar cambios',
                                     listeners: {

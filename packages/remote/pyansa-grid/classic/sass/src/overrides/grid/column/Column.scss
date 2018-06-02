@@ -37,3 +37,14 @@
         background: $grid-header-trigger-background-color theme-background-image($grid-header-trigger-background-image) no-repeat $grid-header-trigger-background-position;
     }
 }
+
+.#{$prefix}column-header:not(.#{$prefix}group-header) .#{$prefix}column-vertical-header{
+    .#{$prefix}column-header-text-wrapper {
+        vertical-align: top;
+    }
+    .#{$prefix}column-header-text {
+        transform: rotate(90deg) translateX(50%);
+        text-overflow: clip;
+        overflow: visible;
+    }
+}

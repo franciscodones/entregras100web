@@ -15,5 +15,16 @@
 
 Ext.define('Entregas100Web.view.ZonasPanelViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.zonaspanel'
+    alias: 'controller.zonaspanel',
+
+    onBtnRefrescarClick: function(button, e, eOpts) {
+        this.getStore("ZonasLocalStore").load();
+    },
+
+    onBtnAgregarClick: function(button, e, eOpts) {
+        var crearZonaWindow = new Entregas100Web.view.CrearZonaWindow();
+
+        crearZonaWindow.show();
+    }
+
 });

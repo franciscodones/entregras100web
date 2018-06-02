@@ -20,8 +20,9 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
     requires: [
         'Entregas100Web.view.FormasPagoPanelViewModel',
         'Entregas100Web.view.FormasPagoPanelViewController',
-        'Ext.toolbar.Toolbar',
+        'Ext.tab.Panel',
         'Ext.grid.Panel',
+        'Ext.toolbar.Toolbar',
         'Ext.grid.column.Number',
         'Ext.grid.filters.filter.String',
         'Ext.grid.column.Boolean',
@@ -29,7 +30,6 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
         'Ext.view.Table',
         'Ext.grid.column.Action',
         'Ext.grid.filters.Filters',
-        'Ext.tab.Panel',
         'Ext.tab.Tab'
     ],
 
@@ -38,142 +38,29 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
         type: 'formaspagopanel'
     },
     id: 'formasPagoPanel',
+    layout: 'fit',
     closable: true,
     glyph: 'f0d6@FontAwesome',
     title: 'Formas de Pago',
 
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            ui: 'footer',
-            items: [
-                {
-                    xtype: 'button',
-                    itemId: 'btnRefrescar',
-                    ui: 'default-small',
-                    glyph: 'f021@FontAwesome',
-                    text: 'Refrescar',
-                    listeners: {
-                        click: 'onBtnRefrescarClick'
-                    }
-                }
-            ]
-        }
-    ],
     items: [
         {
-            xtype: 'gridpanel',
-            showMenuTriggers: true,
-            showMenuHint: true,
-            flex: 1,
-            itemId: 'formasPagoGrid',
-            scrollable: true,
-            width: 500,
-            autoLoad: true,
-            columnLines: true,
-            enableColumnHide: false,
-            enableColumnMove: false,
-            bind: {
-                store: '{FormasPagoLocalStore}'
-            },
-            columns: [
-                {
-                    xtype: 'numbercolumn',
-                    width: 60,
-                    dataIndex: 'id',
-                    text: 'Id',
-                    format: '0,000'
-                },
-                {
-                    xtype: 'gridcolumn',
-                    width: 200,
-                    dataIndex: 'descripcion',
-                    text: 'Descripción',
-                    filter: {
-                        type: 'string'
-                    }
-                },
-                {
-                    xtype: 'booleancolumn',
-                    width: 120,
-                    dataIndex: 'es_eliminable',
-                    text: 'Es eliminable',
-                    falseText: 'NO',
-                    trueText: 'SI',
-                    undefinedText: 'DESCONOCIDO',
-                    filter: {
-                        type: 'boolean'
-                    }
-                },
-                {
-                    xtype: 'booleancolumn',
-                    width: 140,
-                    dataIndex: 'es_seleccionable',
-                    text: 'Es seleccionable',
-                    falseText: 'NO',
-                    trueText: 'SI',
-                    undefinedText: 'DESCONOCIDO',
-                    filter: {
-                        type: 'boolean'
-                    }
-                },
-                {
-                    xtype: 'numbercolumn',
-                    width: 80,
-                    dataIndex: 'orden',
-                    text: 'Orden',
-                    format: '0,000'
-                },
-                {
-                    xtype: 'actioncolumn',
-                    permissionId: 17,
-                    width: 30,
-                    items: [
-                        {
-                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                var editarFormaPagoWindow = Ext.create("Entregas100Web.view.EditarFormaPagoWindow");
-
-                                editarFormaPagoWindow.down("form").loadRecord(record);
-                                editarFormaPagoWindow.show();
-                            },
-                            icon: 'resources/icon/editar.png',
-                            tooltip: 'Editar'
-                        }
-                    ]
-                }
-            ],
-            viewConfig: {
-                emptyText: 'No se encontraron resultados'
-            },
-            plugins: [
-                {
-                    ptype: 'gridfilters'
-                }
-            ],
-            listeners: {
-                select: 'onFormasPagoGridSelect'
-            }
-        },
-        {
             xtype: 'tabpanel',
-            flex: 1,
-            frame: true,
+            activeTab: 0,
             items: [
                 {
                     xtype: 'gridpanel',
-                    itemId: 'combinacionesGrid',
+                    showMenuTriggers: true,
+                    showMenuHint: true,
+                    itemId: 'formasPagoGrid',
                     scrollable: true,
-                    title: 'Combinaciones',
-                    autoLoad: true,
+                    width: 500,
+                    title: 'Formas de Pago',
+                    columnLines: true,
                     enableColumnHide: false,
                     enableColumnMove: false,
                     bind: {
-                        store: '{CombinacionesFormaPagoLocalStore}'
+                        store: '{FormasPagoLocalStore}'
                     },
                     dockedItems: [
                         {
@@ -183,12 +70,11 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    permissionId: 18,
-                                    itemId: 'btnAgregarCombinacion',
-                                    glyph: 'f055@FontAwesome',
-                                    text: 'Agregar Combinacion',
+                                    itemId: 'btnRefrescarFormasPago',
+                                    glyph: 'f021@FontAwesome',
+                                    text: 'Refrescar',
                                     listeners: {
-                                        click: 'onBtnAgregarCombinacionClick'
+                                        click: 'onBtnRefrescarFormasPagoClick'
                                     }
                                 }
                             ]
@@ -198,72 +84,86 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                         {
                             xtype: 'numbercolumn',
                             width: 60,
-                            dataIndex: 'forma_pago_id2',
+                            dataIndex: 'id',
                             text: 'Id',
                             format: '0,000'
                         },
                         {
                             xtype: 'gridcolumn',
                             width: 200,
-                            dataIndex: 'forma_pago_descripcion2',
-                            text: 'Forma de pago'
+                            dataIndex: 'descripcion',
+                            text: 'Descripción',
+                            filter: {
+                                type: 'string'
+                            }
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            width: 120,
+                            dataIndex: 'es_eliminable',
+                            text: 'Es eliminable',
+                            falseText: 'NO',
+                            trueText: 'SI',
+                            undefinedText: 'DESCONOCIDO',
+                            filter: {
+                                type: 'boolean'
+                            }
+                        },
+                        {
+                            xtype: 'booleancolumn',
+                            width: 140,
+                            dataIndex: 'es_seleccionable',
+                            text: 'Es seleccionable',
+                            falseText: 'NO',
+                            trueText: 'SI',
+                            undefinedText: 'DESCONOCIDO',
+                            filter: {
+                                type: 'boolean'
+                            }
+                        },
+                        {
+                            xtype: 'numbercolumn',
+                            width: 80,
+                            dataIndex: 'orden',
+                            text: 'Orden',
+                            format: '0,000'
                         },
                         {
                             xtype: 'actioncolumn',
-                            permissionId: 19,
+                            permissionId: 17,
                             width: 30,
                             items: [
                                 {
                                     handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                        var combinacionesFormaPagoLocalStore = record.store,
-                                            records, waitWindow, filter;
+                                        var editarFormaPagoWindow = Ext.create("Entregas100Web.view.EditarFormaPagoWindow");
 
-                                        Ext.Msg.confirm(
-                                        "Mensaje del sistema",
-                                        "¿Desea eliminar esta combinacion?",
-                                        function(result) {
-                                            if (result == "yes") {
-                                                waitWindow = Ext.Msg.wait("Guardando cambios...");
-                                                records = combinacionesFormaPagoLocalStore.queryBy(function(rec) {
-                                                    return rec.get("id") == record.get("id") ||
-                                                    rec.get("forma_pago_id") == record.get("forma_pago_id2") &&
-                                                    rec.get("forma_pago_id2") == record.get("forma_pago_id");
-                                                });
-                                                filter = combinacionesFormaPagoLocalStore.getFilters().get("formaSeleccionada");
-                                                combinacionesFormaPagoLocalStore.removeFilter("formaSeleccionada");
-                                                combinacionesFormaPagoLocalStore.remove(records.items);
-                                                combinacionesFormaPagoLocalStore.sync({
-                                                    success: onSyncSuccess,
-                                                    failure: onSyncError
-                                                });
-                                            }
-                                        }
-                                        );
-
-                                        function onSyncSuccess() {
-                                            combinacionesFormaPagoLocalStore.addFilter([filter]);
-                                            waitWindow.close();
-                                        }
-
-                                        function onSyncError() {
-                                            combinacionesFormaPagoLocalStore.addFilter([filter]);
-                                        }
+                                        editarFormaPagoWindow.down("form").loadRecord(record);
+                                        editarFormaPagoWindow.show();
                                     },
-                                    icon: 'resources/icon/garbage.png',
-                                    tooltip: 'Eliminar combinacion'
+                                    icon: 'resources/icon/editar.png',
+                                    tooltip: 'Editar'
                                 }
                             ]
+                        }
+                    ],
+                    viewConfig: {
+                        emptyText: 'No se encontraron resultados'
+                    },
+                    plugins: [
+                        {
+                            ptype: 'gridfilters'
                         }
                     ]
                 },
                 {
                     xtype: 'gridpanel',
-                    itemId: 'plazasGrid',
-                    title: 'Plazas',
-                    autoLoad: true,
-                    bind: {
-                        store: '{CombinacionesFormaPlazaLocalStore}'
-                    },
+                    itemId: 'combinacionesGrid',
+                    title: 'Combinaciones',
+                    columnLines: true,
+                    enableColumnHide: false,
+                    enableColumnMove: false,
+                    enableColumnResize: false,
+                    sortableColumns: false,
                     dockedItems: [
                         {
                             xtype: 'toolbar',
@@ -272,12 +172,29 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                             items: [
                                 {
                                     xtype: 'button',
-                                    permissionId: 20,
-                                    itemId: 'btnAgregarPlaza',
-                                    glyph: 'f055@FontAwesome',
-                                    text: 'Agregar Plaza',
+                                    itemId: 'btnRefrescarCombinaciones',
+                                    glyph: 'f021@FontAwesome',
+                                    text: 'Refrescar',
                                     listeners: {
-                                        click: 'onBtnAgregarPlazaClick'
+                                        click: 'onBtnRefrescarCombinacionesClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'btnGuardarCombinaciones',
+                                    glyph: 'f0c7@FontAwesome',
+                                    text: 'Guardar',
+                                    listeners: {
+                                        click: 'onBtnGuardarCombinacionesClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    itemId: 'btnRevertirCombinaciones',
+                                    glyph: 'f0e2@FontAwesome',
+                                    text: 'Revertir',
+                                    listeners: {
+                                        click: 'onBtnRevertirCombinacionesClick'
                                     }
                                 }
                             ]
@@ -285,58 +202,21 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                     ],
                     columns: [
                         {
-                            xtype: 'numbercolumn',
-                            width: 60,
-                            dataIndex: 'plaza_id',
-                            text: 'Id',
-                            format: '0,000'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            width: 150,
-                            dataIndex: 'plaza',
-                            text: 'Plaza'
-                        },
-                        {
-                            xtype: 'actioncolumn',
-                            permissionId: 21,
-                            width: 30,
-                            items: [
-                                {
-                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
-                                        var combinacionesFormaPlazaLocalStore = record.store,
-                                            records, waitWindow, filter;
-
-                                        Ext.Msg.confirm(
-                                        "Mensaje del sistema",
-                                        "¿Desea eliminar la forma de pago de esta plaza?",
-                                        function(result) {
-                                            if (result == "yes") {
-                                                waitWindow = Ext.Msg.wait("Guardando cambios...");
-                                                combinacionesFormaPlazaLocalStore.remove(record);
-                                                combinacionesFormaPlazaLocalStore.sync({
-                                                    success: onSyncSuccess
-                                                });
-                                            }
-                                        }
-                                        );
-
-                                        function onSyncSuccess() {
-                                            waitWindow.close();
-                                        }
-                                    },
-                                    icon: 'resources/icon/garbage.png',
-                                    tooltip: 'Eliminar la forma de pago de esta plaza'
-                                }
-                            ]
+                            xtype: 'booleancolumn',
+                            dataIndex: 'descripcion',
+                            text: 'Descripcion'
                         }
                     ]
+                },
+                {
+                    xtype: 'panel',
+                    title: 'Plazas'
                 }
             ]
         }
     ],
     listeners: {
-        beforerender: 'onFormasPagoPanelBeforeRender'
+        afterrender: 'onFormasPagoPanelAfterRender'
     }
 
 });

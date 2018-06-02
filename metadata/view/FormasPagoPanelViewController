@@ -14,5 +14,135 @@
         "designer|userClassName": "string"
     },
     "name": "ZonasPanelViewController1",
-    "designerId": "77b6aac0-6c7a-49bd-b962-7c8895750fe8"
+    "designerId": "77b6aac0-6c7a-49bd-b962-7c8895750fe8",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "armarCombinacionesGrid",
+                "implHandler": [
+                    "var me = this,",
+                    "    combinacionesGrid = me.view.down(\"#combinacionesGrid\"),",
+                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                    "    combinacionesFormaPagoLocalStore = me.getStore(\"CombinacionesFormaPagoLocalStore\"),",
+                    "    combinacionesStore = new Ext.data.Store(),",
+                    "    columnas = [{",
+                    "        dataIndex: \"descripcion\",",
+                    "        text: \"\",",
+                    "        menuDisabled: true,",
+                    "        resizable: false,",
+                    "        draggable: false,",
+                    "        sortable: false,",
+                    "        width: 180",
+                    "    }],",
+                    "    combinacionModel, i, combinacionIndex;",
+                    "",
+                    "// crea el store para el grid de combinaciones",
+                    "formasPagoLocalStore.each(function(forma1) {",
+                    "    // crea una fila por cada forma de pago",
+                    "    combinacionModel = new Ext.data.Model({",
+                    "        id: forma1.get(\"id\"),",
+                    "        descripcion: forma1.get(\"descripcion\")",
+                    "    });",
+                    "",
+                    "    // crea una columna por cada forma de pago",
+                    "    columnas.push({",
+                    "        xtype: \"checkcolumn\",",
+                    "        dataIndex: \"forma_pago_\" + forma1.get(\"id\"),",
+                    "        text: forma1.get(\"descripcion\"),",
+                    "        verticalHeader: true,",
+                    "        width: 35,",
+                    "        menuDisabled: true,",
+                    "        resizable: false,",
+                    "        draggable: false,",
+                    "        sortable: false,",
+                    "        // se usa un renderer para evitar que el cruce de la misma forma de pago renderice un checkbox",
+                    "        renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {",
+                    "            var me = this,",
+                    "                columnDataIndex = me.up(\"grid\").getColumns()[colIndex].dataIndex,",
+                    "                columnaformaPagoId = columnDataIndex.replace(/forma_pago_(\\d+)/, \"$1\");",
+                    "",
+                    "            if (record.get(\"id\") == columnaformaPagoId) {",
+                    "                metaData.tdCls += ' ' + me.disabledCls;",
+                    "                return;",
+                    "            } else {",
+                    "                me.disable = false;",
+                    "                return me.defaultRenderer.apply(me, arguments);",
+                    "            }",
+                    "        },",
+                    "        listeners: {",
+                    "            checkchange: \"marcarCombinacionHomonima\"",
+                    "        }",
+                    "    });",
+                    "",
+                    "    // agrega un campo por cada forma de pago",
+                    "    formasPagoLocalStore.each(function(forma2) {",
+                    "        // busca la si la combinacion ya existe y la asigna como true",
+                    "        combinacionIndex = combinacionesFormaPagoLocalStore.findBy(function(item) {",
+                    "            return item.get(\"forma_pago_id\") == forma1.get(\"id\") &&",
+                    "                item.get(\"forma_pago_id2\") == forma2.get(\"id\");",
+                    "        });",
+                    "        combinacionModel.set(\"forma_pago_\" + forma2.get(\"id\"), combinacionIndex != -1);",
+                    "    });",
+                    "    combinacionesStore.add(combinacionModel);",
+                    "});",
+                    "// se hace commit al store para evitar que el estado inicial se marcado como modificado",
+                    "combinacionesStore.commitChanges();",
+                    "",
+                    "combinacionesGrid.reconfigure(combinacionesStore, columnas);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "armarCombinacionesGrid",
+            "designerId": "c2e27446-4982-4218-b038-a11464c854f6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "checkcolumn",
+                    "rowIndex",
+                    "checked",
+                    "record",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "marcarCombinacionHomonima",
+                "implHandler": [
+                    "var combinacionesStore = record.store,",
+                    "    recordHomonimo;",
+                    "",
+                    "recordHomonimo = combinacionesStore.findRecord(",
+                    "    \"id\",",
+                    "    parseInt(checkcolumn.dataIndex.replace(/forma_pago_(\\d+)/, \"$1\")),",
+                    "    null,",
+                    "    null,",
+                    "    null,",
+                    "    true",
+                    ");",
+                    "recordHomonimo.set(\"forma_pago_\" + record.get(\"id\"), checked);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "marcarCombinacionHomonima",
+            "designerId": "23d8ef4f-943a-4d3c-98b5-6af3d8044411"
+        }
+    ]
 }

@@ -15,5 +15,117 @@
 
 Ext.define('Entregas100Web.view.UsuariosPanelViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.usuariospanel'
+    alias: 'controller.usuariospanel',
+
+    onBtnRefrescarClick: function(button, e, eOpts) {
+        var me = this;
+
+        me.getStore("UsuariosLocalStore").load();
+        me.getStore("PlazasAgregadasLocalStore").load();
+    },
+
+    onBtnAgregarClick: function(button, e, eOpts) {
+        var crearUsuarioWindow = new Entregas100Web.view.CrearUsuarioWindow();
+
+        crearUsuarioWindow.show();
+    },
+
+    onUsuariosGridSelect: function(rowmodel, record, index, eOpts) {
+        var me = this,
+            plazasAgregadasLocalStore = me.getStore("PlazasAgregadasLocalStore");
+
+        plazasAgregadasLocalStore.removeFilter("usuarioSeleccionado");
+        plazasAgregadasLocalStore.addFilter([
+        {
+            id: "usuarioSeleccionado",
+            filterFn: function(rec) {
+                var plazas = record.get("plaza_id").split(",").map(function(item) {
+                    return parseInt(item.trim());
+                });
+
+                return Ext.Array.contains(plazas, rec.get("id"));
+            }
+        }
+        ]);
+    },
+
+    onBtnAgregarFormaPagoClick: function(button, e, eOpts) {
+        var me = this,
+            plazasStore = Ext.create("Entregas100Web.store.PlazasStore", {}),
+            plazasAgregadasLocalStore = me.getStore("PlazasAgregadasLocalStore"),
+            usuarioRecord = me.view.down("#usuariosGrid").getSelection()[0],
+            usuariosLocalStore = me.getStore("UsuariosLocalStore"),
+            plazaDialog, plazasAgregadas, waitWindow;
+
+        // si no ha sido seleccionada una forma de pago a la cual agregar la combinacion
+        if (!usuarioRecord) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Seleccione un usuario",
+                buttons: Ext.Msg.OK,
+                icon: Ext.Msg.ERROR
+            });
+            return;
+        }
+
+
+        // se guardan los ids de las formas ya combinadas para evitar duplicidad
+        plazasAgregadas = plazasAgregadasLocalStore.getData().getValues("id", "data");
+        plazasStore.addFilter([
+        {
+            id: "plazasRestantes",
+            filterFn: function(record) {
+                return !Ext.Array.contains(plazasAgregadas, record.get("id"));
+            }
+        }
+        ]);
+
+        // muestra el dialogo para seleccionar la forma de pago
+        plazaDialog = Ext.create("Pyansa.window.dialog.ComboBox", {
+            title: "Seleccione una plaza",
+            field: {
+                fieldLabel: "Plaza",
+                store: plazasStore,
+                valueField: "id",
+                displayField: "ciudad"
+            },
+            listeners: {
+                accept: onPlazaSeleccionada
+            }
+        });
+
+        function onPlazaSeleccionada(value, combo) {
+            waitWindow = Ext.Msg.wait("Guardando cambios...");
+            this.close();
+
+            // agrega la nueva plaz
+            plazasAgregadas.push(value);
+            usuarioRecord.set("plaza_id", plazasAgregadas.join(","));
+            usuariosLocalStore.sync({
+                success: onSyncSuccess
+            });
+        }
+
+        function onSyncSuccess() {
+            waitWindow.close();
+            me.onUsuariosGridSelect(null, usuarioRecord, null, null);
+        }
+    },
+
+    onUsuariosPanelBeforeRender: function(component, eOpts) {
+        var me = this,
+            plazasAgregadasLocalStore = me.getStore("PlazasAgregadasLocalStore");
+
+        // inicialmente no se muestra ninguna combinacion ya que ningun usuario ha
+        // sido seleccionado
+        plazasAgregadasLocalStore.addFilter([
+        {
+            id: "usuarioSeleccionado",
+            filterFn: function () {
+                return false;
+            }
+        }
+        ]);
+    }
+
 });
