@@ -181,6 +181,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                                 },
                                 {
                                     xtype: 'button',
+                                    permissionId: 18,
                                     itemId: 'btnGuardarCombinaciones',
                                     glyph: 'f0c7@FontAwesome',
                                     text: 'Guardar',
@@ -190,6 +191,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                                 },
                                 {
                                     xtype: 'button',
+                                    permissionId: 18,
                                     itemId: 'btnRevertirCombinaciones',
                                     glyph: 'f0e2@FontAwesome',
                                     text: 'Revertir',
@@ -209,8 +211,54 @@ Ext.define('Entregas100Web.view.FormasPagoPanel', {
                     ]
                 },
                 {
-                    xtype: 'panel',
-                    title: 'Plazas'
+                    xtype: 'gridpanel',
+                    itemId: 'plazasGrid',
+                    title: 'Plazas',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            ui: 'footer',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    itemId: 'btnRefrescarPlazas',
+                                    glyph: 'f021@FontAwesome',
+                                    text: 'Refrescar',
+                                    listeners: {
+                                        click: 'onBtnRefrescarPlazasClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    permissionId: 20,
+                                    itemId: 'btnGuardarPlazas',
+                                    glyph: 'f0c7@FontAwesome',
+                                    text: 'Guardar',
+                                    listeners: {
+                                        click: 'onBtnGuardarPlazasClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    permissionId: 20,
+                                    itemId: 'btnRevertirPlazas',
+                                    glyph: 'f0e2@FontAwesome',
+                                    text: 'Revertir',
+                                    listeners: {
+                                        click: 'onBtnRevertirPlazasClick'
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'descripcion',
+                            text: 'Descripcion'
+                        }
+                    ]
                 }
             ]
         }

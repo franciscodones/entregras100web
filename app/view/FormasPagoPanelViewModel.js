@@ -18,7 +18,8 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewModel', {
     alias: 'viewmodel.formaspagopanel',
 
     requires: [
-        'Ext.data.Store'
+        'Ext.data.Store',
+        'Ext.util.Filter'
     ],
 
     stores: {
@@ -32,7 +33,23 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewModel', {
         },
         CombinacionesFormaPlazaLocalStore: {
             type: 'combinacionesformaplazastore',
-            model: 'Entregas100Web.model.CombinacionFormaPlazaModel'
+            model: 'Entregas100Web.model.CombinacionFormaPlazaModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
+                },
+                id: 'permisoPlazas'
+            }
+        },
+        PlazasLocalStore: {
+            type: 'plazasstore',
+            model: 'Entregas100Web.model.PlazaModel',
+            filters: {
+                filterFn: function(item) {
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("id"));
+                },
+                id: 'permisoPlazas'
+            }
         }
     }
 

@@ -53,6 +53,7 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
                 resizable: false,
                 draggable: false,
                 sortable: false,
+                disabled: !Ext.Array.contains(Ext._.usuario.permisos, 18),
                 // se usa un renderer para evitar que el cruce de la misma forma de pago renderice un checkbox
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                     var me = this,
@@ -102,6 +103,65 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
             true
         );
         recordHomonimo.set("forma_pago_" + record.get("id"), checked);
+    },
+
+    armarPlazasGrid: function() {
+        var me = this,
+            combinacionesGrid = me.view.down("#plazasGrid"),
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            plazasLocalStore = me.getStore("PlazasLocalStore"),
+            combinacionesFormaPlazaLocalStore = me.getStore("CombinacionesFormaPlazaLocalStore"),
+            combinacionesStore = new Ext.data.Store(),
+            columnas = [{
+                dataIndex: "descripcion",
+                text: "",
+                menuDisabled: true,
+                resizable: false,
+                draggable: false,
+                sortable: false,
+                width: 180
+            }],
+            combinacionModel, i, combinacionIndex;
+
+        // crea el store para el grid de plazas
+        formasPagoLocalStore.each(function(forma) {
+            // crea una fila por cada forma de pago
+            combinacionModel = new Ext.data.Model({
+                id: forma.get("id"),
+                descripcion: forma.get("descripcion")
+            });
+
+            // agrega un campo por cada plaza
+            plazasLocalStore.each(function(plaza) {
+                // busca la si la combinacion ya existe y la asigna como true
+                combinacionIndex = combinacionesFormaPlazaLocalStore.findBy(function(item) {
+                    return item.get("forma_pago_id") == forma.get("id") &&
+                        item.get("plaza_id") == plaza.get("id");
+                });
+                combinacionModel.set("plaza_" + plaza.get("id"), combinacionIndex != -1);
+            });
+            combinacionesStore.add(combinacionModel);
+        });
+        // se hace commit al store para evitar que el estado inicial se marcado como modificado
+        combinacionesStore.commitChanges();
+
+        // crea una columna por cada plaza
+        plazasLocalStore.each(function(plaza) {
+            columnas.push({
+                xtype: "checkcolumn",
+                dataIndex: "plaza_" + plaza.get("id"),
+                text: plaza.get("ciudad"),
+                verticalHeader: true,
+                width: 35,
+                menuDisabled: true,
+                resizable: false,
+                draggable: false,
+                sortable: false,
+                disabled: !Ext.Array.contains(Ext._.usuario.permisos, 20)
+            });
+        });
+
+        combinacionesGrid.reconfigure(combinacionesStore, columnas);
     },
 
     onBtnRefrescarFormasPagoClick: function(button, e, eOpts) {
@@ -235,12 +295,147 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
         }
     },
 
+    onBtnRefrescarPlazasClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#plazasGrid").getStore(),
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            plazasLocalStore = me.getStore("PlazasLocalStore"),
+            combinacionesFormaPlazaLocalStore = me.getStore("CombinacionesFormaPlazaLocalStore"),
+            promesaFormasPagoLoad = new Ext.Deferred(),
+            promesaPlazasLoad = new Ext.Deferred(),
+            promesaCombinacionesFormasPlazaLoad = new Ext.Deferred();
+
+        if (combinacionesStore.isDirty()) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.WARNING,
+                fn: function(result) {
+                    if (result == "yes") {
+                        refrescar();
+                    }
+                }
+            });
+        } else {
+            refrescar();
+        }
+
+        function refrescar() {
+            // revierte los cambios
+            combinacionesStore.rejectChanges();
+            me.view.mask("Cargando...");
+
+            // carga los stores necesarios antes de habilitar el panel
+            formasPagoLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaFormasPagoLoad.resolve();
+                } else {
+                    promesaFormasPagoLoad.reject();
+                }
+            });
+            plazasLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaPlazasLoad.resolve();
+                } else {
+                    promesaPlazasLoad.reject();
+                }
+            });
+            combinacionesFormaPlazaLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaCombinacionesFormasPlazaLoad.resolve();
+                } else {
+                    promesaCombinacionesFormasPlazaLoad.reject();
+                }
+            });
+
+            // al terminar de cargar los stores habilita el panel
+            Ext.Deferred.all([
+            promesaFormasPagoLoad,
+            promesaPlazasLoad,
+            promesaCombinacionesFormasPlazaLoad
+            ]).then(onStoresLoad, onStoresLoad);
+        }
+
+        function onStoresLoad() {
+            me.armarPlazasGrid();
+            me.view.unmask();
+        }
+    },
+
+    onBtnGuardarPlazasClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#plazasGrid").getStore(),
+            plazasLocalStore = me.getStore("PlazasLocalStore"),
+            combinacionesFormaPlazaLocalStore = me.getStore("CombinacionesFormaPlazaLocalStore"),
+            indices = {},
+            recordIndex, waitWindow;
+
+        if (!combinacionesStore.isDirty()) {
+            return;
+        }
+
+        waitWindow = Ext.Msg.wait("Guardando combinaciones...");
+
+        // crea un objeto con todos los indices y ids de las columnas para buscarlos en los records
+        plazasLocalStore.each(function(plaza) {
+            indices["plaza_" + plaza.get("id")] = plaza.get("id");
+        });
+
+        combinacionesStore.each(function(combinacion) {
+            Ext.Object.each(indices, function(indice, id) {
+                recordIndex = combinacionesFormaPlazaLocalStore.findBy(function(record) {
+                    return record.get("forma_pago_id") == combinacion.get("id") &&
+                    record.get("plaza_id") == id;
+                });
+                if (combinacion.get(indice) && recordIndex == -1) {
+                    // si la combinacion es true y no esta agregada esta debe ser agregada
+                    combinacionesFormaPlazaLocalStore.add({
+                        forma_pago_id: combinacion.get("id"),
+                        plaza_id: id
+                    });
+                } else if (!combinacion.get(indice) && recordIndex != -1) {
+                    // si la combincion es false y esta agregada esta debe ser eliminada
+                    combinacionesFormaPlazaLocalStore.removeAt(recordIndex);
+                }
+            });
+        });
+        combinacionesFormaPlazaLocalStore.sync({
+            success: function() {
+                combinacionesStore.commitChanges();
+                waitWindow.close();
+            }
+        });
+    },
+
+    onBtnRevertirPlazasClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#plazasGrid").getStore();
+
+        if (combinacionesStore.isDirty()) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.WARNING,
+                fn: function(result) {
+                    if (result == "yes") {
+                        // revierte los cambios
+                        combinacionesStore.rejectChanges();
+                    }
+                }
+            });
+        }
+    },
+
     onFormasPagoPanelAfterRender: function(component, eOpts) {
         var me = this,
             formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            plazasLocalStore = me.getStore("PlazasLocalStore"),
             combinacionesFormaPagoLocalStore = me.getStore("CombinacionesFormaPagoLocalStore"),
             combinacionesFormaPlazaLocalStore = me.getStore("CombinacionesFormaPlazaLocalStore"),
             promesaFormasPagoLoad = new Ext.Deferred(),
+            promesaPlazasLoad = new Ext.Deferred(),
             promesaCombinacionesFormasPagoLoad = new Ext.Deferred(),
             promesaCombinacionesFormaPlazaLoad = new Ext.Deferred();
 
@@ -268,16 +463,25 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
                 promesaCombinacionesFormaPlazaLoad.reject();
             }
         });
+        plazasLocalStore.load(function(records, operation, success) {
+            if (success) {
+                promesaPlazasLoad.resolve();
+            } else {
+                promesaPlazasLoad.reject();
+            }
+        });
 
         // al terminar de cargar los stores habilita el panel
         Ext.Deferred.all([
         promesaFormasPagoLoad,
+        promesaPlazasLoad,
         promesaCombinacionesFormasPagoLoad,
         promesaCombinacionesFormaPlazaLoad
         ]).then(onStoresLoad, onStoresLoad);
 
         function onStoresLoad() {
             me.armarCombinacionesGrid();
+            me.armarPlazasGrid();
             me.view.unmask();
         }
     }

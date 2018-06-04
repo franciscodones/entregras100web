@@ -605,16 +605,25 @@
                                         "glyph": "f0c7@FontAwesome",
                                         "itemId": "btnGuardarCombinaciones",
                                         "layout|flex": null,
+                                        "permissionId": 18,
                                         "text": "Guardar"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
                                         "itemId": "string",
                                         "layout|flex": "number",
-                                        "text": "string"
+                                        "text": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyButton2",
                                     "designerId": "26fc802e-d65c-49d9-8d84-9753c69eddc7",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -696,16 +705,25 @@
                                         "glyph": "f0e2@FontAwesome",
                                         "itemId": "btnRevertirCombinaciones",
                                         "layout|flex": null,
+                                        "permissionId": 18,
                                         "text": "Revertir"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
                                         "itemId": "string",
                                         "layout|flex": "number",
-                                        "text": "string"
+                                        "text": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyButton3",
                                     "designerId": "fccd1a9b-b601-48b1-8ffc-4c9d4a4696b5",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",
@@ -792,21 +810,328 @@
                     ]
                 },
                 {
-                    "type": "Ext.panel.Panel",
+                    "type": "Ext.grid.Panel",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "plazasGrid",
                         "title": "Plazas"
                     },
                     "configAlternates": {
+                        "itemId": "string",
                         "title": "string"
                     },
-                    "name": "MyPanel3",
-                    "designerId": "ba88ad1d-26fe-4dc3-a655-71cad082cc92",
+                    "name": "MyGridPanel5",
+                    "designerId": "fdff9a61-9056-472b-8567-0091670656e2",
                     "cn": [
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "footer",
+                                "dock": "top",
+                                "ui": "footer"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "dock": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyToolbar2",
+                            "designerId": "bd46ebe8-a0b8-4370-a986-919facef8db2",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f021@FontAwesome",
+                                        "itemId": "btnRefrescarPlazas",
+                                        "layout|flex": null,
+                                        "text": "Refrescar"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
+                                    },
+                                    "name": "MyButton6",
+                                    "designerId": "993a8228-9f01-46e1-ac64-9a0b6d07fe07",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnRefrescarPlazasClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#plazasGrid\").getStore(),",
+                                                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                                                    "    plazasLocalStore = me.getStore(\"PlazasLocalStore\"),",
+                                                    "    combinacionesFormaPlazaLocalStore = me.getStore(\"CombinacionesFormaPlazaLocalStore\"),",
+                                                    "    promesaFormasPagoLoad = new Ext.Deferred(),",
+                                                    "    promesaPlazasLoad = new Ext.Deferred(),",
+                                                    "    promesaCombinacionesFormasPlazaLoad = new Ext.Deferred();",
+                                                    "",
+                                                    "if (combinacionesStore.isDirty()) {",
+                                                    "    Ext.Msg.show({",
+                                                    "        title: \"Mensaje del sistema\",",
+                                                    "        message: \"Se perderan los cambios que ha realizado, ¿Desea continuar?\",",
+                                                    "        buttons: Ext.Msg.YESNO,",
+                                                    "        icon: Ext.Msg.WARNING,",
+                                                    "        fn: function(result) {",
+                                                    "            if (result == \"yes\") {",
+                                                    "                refrescar();",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "} else {",
+                                                    "    refrescar();",
+                                                    "}",
+                                                    "",
+                                                    "function refrescar() {",
+                                                    "    // revierte los cambios",
+                                                    "    combinacionesStore.rejectChanges();",
+                                                    "    me.view.mask(\"Cargando...\");",
+                                                    "",
+                                                    "    // carga los stores necesarios antes de habilitar el panel",
+                                                    "    formasPagoLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaFormasPagoLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaFormasPagoLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "    plazasLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaPlazasLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaPlazasLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "    combinacionesFormaPlazaLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaCombinacionesFormasPlazaLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaCombinacionesFormasPlazaLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "",
+                                                    "    // al terminar de cargar los stores habilita el panel",
+                                                    "    Ext.Deferred.all([",
+                                                    "        promesaFormasPagoLoad,",
+                                                    "        promesaPlazasLoad,",
+                                                    "        promesaCombinacionesFormasPlazaLoad",
+                                                    "    ]).then(onStoresLoad, onStoresLoad);",
+                                                    "}",
+                                                    "",
+                                                    "function onStoresLoad() {",
+                                                    "    me.armarPlazasGrid();",
+                                                    "    me.view.unmask();",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnRefrescarPlazasClick",
+                                            "designerId": "75ef4d42-fa60-4304-b7b7-fe91627aa601"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0c7@FontAwesome",
+                                        "itemId": "btnGuardarPlazas",
+                                        "layout|flex": null,
+                                        "permissionId": 20,
+                                        "text": "Guardar"
+                                    },
+                                    "configAlternates": {
+                                        "permissionId": "number",
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
+                                    },
+                                    "name": "MyButton7",
+                                    "designerId": "33a37fb0-57ea-402f-8626-2f91540d0108",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnGuardarPlazasClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#plazasGrid\").getStore(),",
+                                                    "    plazasLocalStore = me.getStore(\"PlazasLocalStore\"),",
+                                                    "    combinacionesFormaPlazaLocalStore = me.getStore(\"CombinacionesFormaPlazaLocalStore\"),",
+                                                    "    indices = {},",
+                                                    "    recordIndex, waitWindow;",
+                                                    "",
+                                                    "if (!combinacionesStore.isDirty()) {",
+                                                    "    return;",
+                                                    "}",
+                                                    "",
+                                                    "waitWindow = Ext.Msg.wait(\"Guardando combinaciones...\");",
+                                                    "",
+                                                    "// crea un objeto con todos los indices y ids de las columnas para buscarlos en los records",
+                                                    "plazasLocalStore.each(function(plaza) {",
+                                                    "    indices[\"plaza_\" + plaza.get(\"id\")] = plaza.get(\"id\");",
+                                                    "});",
+                                                    "",
+                                                    "combinacionesStore.each(function(combinacion) {",
+                                                    "    Ext.Object.each(indices, function(indice, id) {",
+                                                    "        recordIndex = combinacionesFormaPlazaLocalStore.findBy(function(record) {",
+                                                    "            return record.get(\"forma_pago_id\") == combinacion.get(\"id\") &&",
+                                                    "                record.get(\"plaza_id\") == id;",
+                                                    "        });",
+                                                    "        if (combinacion.get(indice) && recordIndex == -1) {",
+                                                    "            // si la combinacion es true y no esta agregada esta debe ser agregada",
+                                                    "            combinacionesFormaPlazaLocalStore.add({",
+                                                    "                forma_pago_id: combinacion.get(\"id\"),",
+                                                    "                plaza_id: id",
+                                                    "            });",
+                                                    "        } else if (!combinacion.get(indice) && recordIndex != -1) {",
+                                                    "            // si la combincion es false y esta agregada esta debe ser eliminada",
+                                                    "            combinacionesFormaPlazaLocalStore.removeAt(recordIndex);",
+                                                    "        }",
+                                                    "    });",
+                                                    "});",
+                                                    "combinacionesFormaPlazaLocalStore.sync({",
+                                                    "    success: function() {",
+                                                    "        combinacionesStore.commitChanges();",
+                                                    "        waitWindow.close();",
+                                                    "    }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnGuardarPlazasClick",
+                                            "designerId": "2992c048-ac6f-46a0-8ec7-8713ec0e7768"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0e2@FontAwesome",
+                                        "itemId": "btnRevertirPlazas",
+                                        "layout|flex": null,
+                                        "permissionId": 20,
+                                        "text": "Revertir"
+                                    },
+                                    "configAlternates": {
+                                        "permissionId": "number",
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
+                                    },
+                                    "name": "MyButton8",
+                                    "designerId": "14d2306b-46e3-4b0c-8167-367611e4f0ce",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnRevertirPlazasClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#plazasGrid\").getStore();",
+                                                    "",
+                                                    "if (combinacionesStore.isDirty()) {",
+                                                    "    Ext.Msg.show({",
+                                                    "        title: \"Mensaje del sistema\",",
+                                                    "        message: \"Se perderan los cambios que ha realizado, ¿Desea continuar?\",",
+                                                    "        buttons: Ext.Msg.YESNO,",
+                                                    "        icon: Ext.Msg.WARNING,",
+                                                    "        fn: function(result) {",
+                                                    "            if (result == \"yes\") {",
+                                                    "                // revierte los cambios",
+                                                    "                combinacionesStore.rejectChanges();",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnRevertirPlazasClick",
+                                            "designerId": "3d5f4aba-2adf-427b-a867-5aa6fc88d5d3"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
                         {
                             "type": "Ext.tab.Tab",
                             "reference": {
@@ -814,8 +1139,36 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "name": "TabConfig4",
-                            "designerId": "9e276b20-5fa9-4b68-8de7-f454b02bcf91"
+                            "name": "TabConfig1",
+                            "designerId": "e077a470-948e-43ea-92d3-6c1adae06555"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "descripcion",
+                                "text": "Descripcion"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn",
+                            "designerId": "d746101d-a57a-4acf-87e4-df0715355d66"
+                        },
+                        {
+                            "type": "Ext.view.Table",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTable4",
+                            "designerId": "ceea786a-6111-4dd0-ac4c-809cc8d90067"
                         }
                     ]
                 }
@@ -833,9 +1186,11 @@
                 "implHandler": [
                     "var me = this,",
                     "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                    "    plazasLocalStore = me.getStore(\"PlazasLocalStore\"),",
                     "    combinacionesFormaPagoLocalStore = me.getStore(\"CombinacionesFormaPagoLocalStore\"),",
                     "    combinacionesFormaPlazaLocalStore = me.getStore(\"CombinacionesFormaPlazaLocalStore\"),",
                     "    promesaFormasPagoLoad = new Ext.Deferred(),",
+                    "    promesaPlazasLoad = new Ext.Deferred(),",
                     "    promesaCombinacionesFormasPagoLoad = new Ext.Deferred(),",
                     "    promesaCombinacionesFormaPlazaLoad = new Ext.Deferred();",
                     "",
@@ -863,16 +1218,25 @@
                     "        promesaCombinacionesFormaPlazaLoad.reject();",
                     "    }",
                     "});",
+                    "plazasLocalStore.load(function(records, operation, success) {",
+                    "    if (success) {",
+                    "        promesaPlazasLoad.resolve();",
+                    "    } else {",
+                    "        promesaPlazasLoad.reject();",
+                    "    }",
+                    "});",
                     "",
                     "// al terminar de cargar los stores habilita el panel",
                     "Ext.Deferred.all([",
                     "    promesaFormasPagoLoad,",
+                    "    promesaPlazasLoad,",
                     "    promesaCombinacionesFormasPagoLoad,",
                     "    promesaCombinacionesFormaPlazaLoad",
                     "]).then(onStoresLoad, onStoresLoad);",
                     "",
                     "function onStoresLoad() {",
                     "    me.armarCombinacionesGrid();",
+                    "    me.armarPlazasGrid();",
                     "    me.view.unmask();",
                     "}"
                 ],
