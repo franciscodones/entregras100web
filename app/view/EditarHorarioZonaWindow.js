@@ -200,7 +200,7 @@ Ext.define('Entregas100Web.view.EditarHorarioZonaWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarHorarioZonaWindowAfterRender'
+        beforerender: 'onEditarHorarioZonaWindowBeforeRender'
     }
 
 });

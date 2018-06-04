@@ -388,11 +388,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarOperadorWindowAfterRender",
+                "fn": "onEditarOperadorWindowBeforeRender",
                 "implHandler": [
                     "this.getStore(\"PlazasLocalStore\").load();"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -401,8 +401,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarOperadorWindowAfterRender",
-            "designerId": "fae57035-6fc8-48a2-aa68-0a077518bb88"
+            "name": "onEditarOperadorWindowBeforeRender",
+            "designerId": "b26f8fa3-54f8-46b1-bbb4-e953e6ffa7ea"
         }
     ]
 }

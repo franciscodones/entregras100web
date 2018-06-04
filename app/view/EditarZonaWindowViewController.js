@@ -52,7 +52,7 @@ Ext.define('Entregas100Web.view.EditarZonaWindowViewController', {
         }
     },
 
-    onEditarZonaWindowAfterRender: function(component, eOpts) {
+    onEditarZonaWindowBeforeRender: function(component, eOpts) {
         var me = this;
 
         me.getStore("PlazasLocalStore").load();

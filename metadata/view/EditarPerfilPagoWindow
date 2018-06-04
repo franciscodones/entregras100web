@@ -84,6 +84,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Descripcion",
+                        "labelWidth": 150,
                         "layout|anchor": "100%",
                         "name": "descripcion"
                     },
@@ -95,10 +96,47 @@
                         "maskRe": "regex",
                         "maxLength": "number",
                         "minLength": "number",
-                        "name": "string"
+                        "name": "string",
+                        "labelWidth": "number"
                     },
                     "name": "MyTextField14",
                     "designerId": "a7879cc0-e4ea-479b-b357-312bf7377e59"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "descripcion",
+                        "editable": false,
+                        "fieldLabel": "Forma de pago default",
+                        "forceSelection": true,
+                        "labelWidth": 150,
+                        "layout|anchor": "100%",
+                        "matchFieldWidth": false,
+                        "name": "forma_pago_id",
+                        "store": [
+                            "{FormasPagoLocalStore}"
+                        ],
+                        "valueField": "id"
+                    },
+                    "configAlternates": {
+                        "store": "binding",
+                        "displayField": "datafield",
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "labelWidth": "number",
+                        "layout|anchor": "string",
+                        "matchFieldWidth": "boolean",
+                        "name": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "60b65af0-b011-4fdd-b338-90e3699452f6"
                 },
                 {
                     "type": "Ext.form.FieldContainer",
@@ -263,6 +301,32 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onEditarPerfilPagoWindowBeforeRender",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "me.getStore(\"FormasPagoLocalStore\").load();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onEditarPerfilPagoWindowBeforeRender",
+            "designerId": "44c8a815-fcb6-410d-8456-13f622df49e9"
         }
     ]
 }

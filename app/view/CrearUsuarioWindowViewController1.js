@@ -60,7 +60,7 @@ Ext.define('Entregas100Web.view.CrearUsuarioWindowViewController1', {
         }
     },
 
-    onEditarUsuarioWindowAfterRender: function(component, eOpts) {
+    onEditarUsuarioWindowBeforeRender: function(component, eOpts) {
         this.getStore("TiposSesionLocalStore").load();
     }
 

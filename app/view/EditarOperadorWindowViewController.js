@@ -55,7 +55,7 @@ Ext.define('Entregas100Web.view.EditarOperadorWindowViewController', {
         }
     },
 
-    onEditarOperadorWindowAfterRender: function(component, eOpts) {
+    onEditarOperadorWindowBeforeRender: function(component, eOpts) {
         this.getStore("PlazasLocalStore").load();
     }
 

@@ -22,7 +22,7 @@ Ext.define('Entregas100Web.view.EditarPerfilPagoWindow', {
         'Entregas100Web.view.EditarPerfilPagoWindowViewController',
         'Ext.form.Panel',
         'Ext.form.field.Hidden',
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
         'Ext.button.Button',
         'Ext.toolbar.Spacer'
@@ -54,8 +54,24 @@ Ext.define('Entregas100Web.view.EditarPerfilPagoWindow', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: 'Descripcion',
+                    labelWidth: 150,
                     name: 'descripcion',
                     allowBlank: false
+                },
+                {
+                    xtype: 'combobox',
+                    anchor: '100%',
+                    fieldLabel: 'Forma de pago default',
+                    labelWidth: 150,
+                    name: 'forma_pago_id',
+                    editable: false,
+                    matchFieldWidth: false,
+                    displayField: 'descripcion',
+                    forceSelection: true,
+                    valueField: 'id',
+                    bind: {
+                        store: '{FormasPagoLocalStore}'
+                    }
                 },
                 {
                     xtype: 'fieldcontainer',
@@ -94,6 +110,9 @@ Ext.define('Entregas100Web.view.EditarPerfilPagoWindow', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        beforerender: 'onEditarPerfilPagoWindowBeforeRender'
+    }
 
 });

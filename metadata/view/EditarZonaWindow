@@ -378,13 +378,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarZonaWindowAfterRender",
+                "fn": "onEditarZonaWindowBeforeRender",
                 "implHandler": [
                     "var me = this;",
                     "",
                     "me.getStore(\"PlazasLocalStore\").load();"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -393,8 +393,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarZonaWindowAfterRender",
-            "designerId": "4a75a31e-8d14-4a47-afab-e9db53acc000"
+            "name": "onEditarZonaWindowBeforeRender",
+            "designerId": "7a5264d2-3fd4-48d8-a898-56990627c137"
         }
     ]
 }

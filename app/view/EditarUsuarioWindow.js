@@ -136,7 +136,7 @@ Ext.define('Entregas100Web.view.EditarUsuarioWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarUsuarioWindowAfterRender'
+        beforerender: 'onEditarUsuarioWindowBeforeRender'
     }
 
 });

@@ -14,5 +14,34 @@
         "designer|userClassName": "string"
     },
     "name": "EditarFormaPagoWindowViewModel1",
-    "designerId": "eeddee72-025f-4e76-ae78-311337966599"
+    "designerId": "eeddee72-025f-4e76-ae78-311337966599",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "FormaPagoModel",
+                "name": "FormasPagoLocalStore",
+                "type": "formaspagostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore",
+            "designerId": "a9cfed74-2ed9-4c07-8fe3-7cc56e182131",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
 }

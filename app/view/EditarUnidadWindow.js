@@ -361,7 +361,7 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarUnidadWindowAfterRender'
+        beforerender: 'onEditarUnidadWindowBeforeRender'
     }
 
 });

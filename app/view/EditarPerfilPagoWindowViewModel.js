@@ -15,6 +15,17 @@
 
 Ext.define('Entregas100Web.view.EditarPerfilPagoWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.editarperfilpagowindow'
+    alias: 'viewmodel.editarperfilpagowindow',
+
+    requires: [
+        'Ext.data.Store'
+    ],
+
+    stores: {
+        FormasPagoLocalStore: {
+            type: 'formaspagostore',
+            model: 'Entregas100Web.model.FormaPagoModel'
+        }
+    }
 
 });

@@ -233,7 +233,7 @@ Ext.define('Entregas100Web.view.EditarTablaPuntosWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarTablaPuntosWindowAfterRender'
+        beforerender: 'onEditarTablaPuntosWindowBeforeRender'
     }
 
 });

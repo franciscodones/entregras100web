@@ -676,14 +676,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarTablaPuntosWindowAfterRender",
+                "fn": "onEditarTablaPuntosWindowBeforeRender",
                 "implHandler": [
-                    "var me = this,",
-                    "    plazasLocalStore = me.getStore(\"PlazasLocalStore\");",
+                    "var me = this;",
                     "",
-                    "plazasLocalStore.load();"
+                    "me.getStore(\"PlazasLocalStore\").load();"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -692,8 +691,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarTablaPuntosWindowAfterRender",
-            "designerId": "178a596d-db1c-42d3-87bb-be3a651be07f"
+            "name": "onEditarTablaPuntosWindowBeforeRender",
+            "designerId": "488872c0-bc37-49d3-88b4-cbe3fda0adee"
         }
     ]
 }

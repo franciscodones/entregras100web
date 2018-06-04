@@ -151,7 +151,7 @@ Ext.define('Entregas100Web.view.EditarOperadorWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarOperadorWindowAfterRender'
+        beforerender: 'onEditarOperadorWindowBeforeRender'
     }
 
 });

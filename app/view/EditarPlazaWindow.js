@@ -383,7 +383,7 @@ Ext.define('Entregas100Web.view.EditarPlazaWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarPlazaWindowAfterRender'
+        beforerender: 'onEditarPlazaWindowBeforeRender'
     }
 
 });

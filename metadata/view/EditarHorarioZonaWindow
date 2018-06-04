@@ -627,7 +627,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarHorarioZonaWindowAfterRender",
+                "fn": "onEditarHorarioZonaWindowBeforeRender",
                 "implHandler": [
                     "var me = this,",
                     "    plazasLocalStore = me.getStore(\"PlazasLocalStore\"),",
@@ -646,7 +646,7 @@
                     "    exactMatch: true",
                     "}]);"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -655,8 +655,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarHorarioZonaWindowAfterRender",
-            "designerId": "0334d677-accd-4ed1-88fe-5f73826982bd"
+            "name": "onEditarHorarioZonaWindowBeforeRender",
+            "designerId": "9ceaaa98-f05b-42cc-b87b-0db9ac69f635"
         }
     ]
 }

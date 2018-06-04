@@ -74,7 +74,7 @@ Ext.define('Entregas100Web.view.EditarUnidadWindowViewController', {
         }
     },
 
-    onEditarUnidadWindowAfterRender: function(component, eOpts) {
+    onEditarUnidadWindowBeforeRender: function(component, eOpts) {
         var me = this,
             zonasLocalStore = me.getStore("ZonasLocalStore"),
             plazaId = me.view.down("#cmbPlaza").getValue();

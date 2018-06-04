@@ -89,7 +89,7 @@ Ext.define('Entregas100Web.view.EditarHorarioZonaWindowViewController', {
         }
     },
 
-    onEditarHorarioZonaWindowAfterRender: function(component, eOpts) {
+    onEditarHorarioZonaWindowBeforeRender: function(component, eOpts) {
         var me = this,
             plazasLocalStore = me.getStore("PlazasLocalStore"),
             zonasLocalStore = me.getStore("ZonasLocalStore"),

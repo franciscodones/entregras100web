@@ -1123,23 +1123,23 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarPlazaWindowAfterRender",
+                "fn": "onEditarPlazaWindowBeforeRender",
                 "implHandler": [
                     "var me = this;",
                     "",
                     "me.getStore(\"EmpresasLocalStore\").load();"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
                 "fn": "string",
+                "implHandler": "code",
                 "name": "string",
-                "scope": "string",
-                "implHandler": "code"
+                "scope": "string"
             },
-            "name": "onEditarPlazaWindowAfterRender",
-            "designerId": "945320b8-289b-4a7d-b3bd-c09ac9593340"
+            "name": "onEditarPlazaWindowBeforeRender",
+            "designerId": "e012ff06-1514-42ad-bb85-8904e077becc"
         }
     ]
 }

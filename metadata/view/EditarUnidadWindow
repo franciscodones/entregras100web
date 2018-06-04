@@ -1036,7 +1036,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarUnidadWindowAfterRender",
+                "fn": "onEditarUnidadWindowBeforeRender",
                 "implHandler": [
                     "var me = this,",
                     "    zonasLocalStore = me.getStore(\"ZonasLocalStore\"),",
@@ -1054,7 +1054,7 @@
                     "    exactMatch: true",
                     "}]);"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -1063,8 +1063,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarUnidadWindowAfterRender",
-            "designerId": "eaff561d-69bb-4745-9a4e-616421aa8413"
+            "name": "onEditarUnidadWindowBeforeRender",
+            "designerId": "53780473-9770-4e4f-8927-3973dd69faf6"
         }
     ]
 }

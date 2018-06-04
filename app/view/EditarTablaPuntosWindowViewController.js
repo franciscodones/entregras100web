@@ -68,11 +68,10 @@ Ext.define('Entregas100Web.view.EditarTablaPuntosWindowViewController', {
         }
     },
 
-    onEditarTablaPuntosWindowAfterRender: function(component, eOpts) {
-        var me = this,
-            plazasLocalStore = me.getStore("PlazasLocalStore");
+    onEditarTablaPuntosWindowBeforeRender: function(component, eOpts) {
+        var me = this;
 
-        plazasLocalStore.load();
+        me.getStore("PlazasLocalStore").load();
     }
 
 });

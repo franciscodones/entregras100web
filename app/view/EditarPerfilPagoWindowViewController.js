@@ -49,6 +49,12 @@ Ext.define('Entregas100Web.view.EditarPerfilPagoWindowViewController', {
             waitWindow.close();
             me.view.close();
         }
+    },
+
+    onEditarPerfilPagoWindowBeforeRender: function(component, eOpts) {
+        var me = this;
+
+        me.getStore("FormasPagoLocalStore").load();
     }
 
 });

@@ -413,11 +413,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onEditarUsuarioWindowAfterRender",
+                "fn": "onEditarUsuarioWindowBeforeRender",
                 "implHandler": [
                     "this.getStore(\"TiposSesionLocalStore\").load();"
                 ],
-                "name": "afterrender",
+                "name": "beforerender",
                 "scope": "me"
             },
             "configAlternates": {
@@ -426,8 +426,8 @@
                 "name": "string",
                 "scope": "string"
             },
-            "name": "onEditarUsuarioWindowAfterRender",
-            "designerId": "323fb3fc-fedf-4c67-9159-2bd72af3d6cd"
+            "name": "onEditarUsuarioWindowBeforeRender",
+            "designerId": "f770ef65-87fa-4b59-8794-76113b31e5ea"
         }
     ]
 }

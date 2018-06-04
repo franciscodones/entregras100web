@@ -138,7 +138,7 @@ Ext.define('Entregas100Web.view.EditarZonaWindow', {
         }
     ],
     listeners: {
-        afterrender: 'onEditarZonaWindowAfterRender'
+        beforerender: 'onEditarZonaWindowBeforeRender'
     }
 
 });
