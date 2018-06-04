@@ -14,5 +14,83 @@
         "designer|userClassName": "string"
     },
     "name": "FormasPagoPanelViewController1",
-    "designerId": "c872f671-ec04-48c9-b59d-5462b06ef61e"
+    "designerId": "c872f671-ec04-48c9-b59d-5462b06ef61e",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "armarCombinacionesGrid",
+                "implHandler": [
+                    "var me = this,",
+                    "    combinacionesGrid = me.view.down(\"#combinacionesGrid\"),",
+                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                    "    perfilesPagoLocalStore = me.getStore(\"PerfilesPagoLocalStore\"),",
+                    "    combinacionFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\"),",
+                    "    combinacionesStore = new Ext.data.Store(),",
+                    "    columnas = [{",
+                    "        dataIndex: \"descripcion\",",
+                    "        text: \"\",",
+                    "        menuDisabled: true,",
+                    "        resizable: false,",
+                    "        draggable: false,",
+                    "        sortable: false,",
+                    "        width: 180",
+                    "    }],",
+                    "    combinacionModel, i, combinacionIndex;",
+                    "",
+                    "// crea el store para el grid de las formas de pago",
+                    "perfilesPagoLocalStore.each(function(perfil) {",
+                    "    // crea una fila por cada perfil",
+                    "    combinacionModel = new Ext.data.Model({",
+                    "        id: perfil.get(\"id\"),",
+                    "        descripcion: perfil.get(\"descripcion\")",
+                    "    });",
+                    "",
+                    "    // agrega un campo por cada forma de pago",
+                    "    formasPagoLocalStore.each(function(forma) {",
+                    "        // busca la si la combinacion ya existe y la asigna como true",
+                    "        combinacionIndex = combinacionFormaPerfilLocalStore.findBy(function(item) {",
+                    "            return item.get(\"tipo_cliente_id\") == perfil.get(\"id\") &&",
+                    "                item.get(\"forma_pago_id\") == forma.get(\"id\");",
+                    "        });",
+                    "        combinacionModel.set(\"forma_pago_\" + forma.get(\"id\"), combinacionIndex != -1);",
+                    "    });",
+                    "    combinacionesStore.add(combinacionModel);",
+                    "});",
+                    "// se hace commit al store para evitar que el estado inicial se marcado como modificado",
+                    "combinacionesStore.commitChanges();",
+                    "",
+                    "// crea una columna por cada plaza",
+                    "formasPagoLocalStore.each(function(forma) {",
+                    "    columnas.push({",
+                    "        xtype: \"checkcolumn\",",
+                    "        dataIndex: \"forma_pago_\" + forma.get(\"id\"),",
+                    "        text: forma.get(\"descripcion\"),",
+                    "        verticalHeader: true,",
+                    "        width: 35,",
+                    "        menuDisabled: true,",
+                    "        resizable: false,",
+                    "        draggable: false,",
+                    "        sortable: false,",
+                    "        notPermitedAction: \"disable\",",
+                    "        permissionId: 23",
+                    "    });",
+                    "});",
+                    "",
+                    "combinacionesGrid.reconfigure(combinacionesStore, columnas);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "armarCombinacionesGrid",
+            "designerId": "db76f9f6-18df-46d0-9995-8299729ed2d9"
+        }
+    ]
 }

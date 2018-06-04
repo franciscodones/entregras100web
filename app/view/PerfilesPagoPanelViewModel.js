@@ -29,6 +29,10 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewModel', {
         CombinacionesFormaPerfilLocalStore: {
             type: 'combinacionesformaperfilstore',
             model: 'Entregas100Web.model.CombinacionFormaPerfilModel'
+        },
+        FormasPagoLocalStore: {
+            type: 'formaspagostore',
+            model: 'Entregas100Web.model.FormaPagoModel'
         }
     }
 

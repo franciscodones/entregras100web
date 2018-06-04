@@ -48,6 +48,7 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
         {
             xtype: 'tabpanel',
             flex: 1,
+            activeTab: 0,
             items: [
                 {
                     xtype: 'gridpanel',
@@ -57,7 +58,6 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                     scrollable: true,
                     width: 500,
                     title: 'Perfiles de Pago',
-                    autoLoad: true,
                     columnLines: true,
                     enableColumnHide: false,
                     enableColumnMove: false,
@@ -126,9 +126,62 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanel', {
                             ptype: 'gridfilters'
                         }
                     ]
+                },
+                {
+                    xtype: 'gridpanel',
+                    itemId: 'combinacionesGrid',
+                    title: 'Formas de Pago',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            ui: 'footer',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    itemId: 'btnRefrescarCombinaciones',
+                                    glyph: 'f021@FontAwesome',
+                                    text: 'Refrescar',
+                                    listeners: {
+                                        click: 'onBtnRefrescarCombinacionesClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    permissionId: 23,
+                                    itemId: 'btnGuardarCombinaciones',
+                                    glyph: 'f0c7@FontAwesome',
+                                    text: 'Guardar',
+                                    listeners: {
+                                        click: 'onBtnGuardarCombinacionesClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'button',
+                                    permissionId: 23,
+                                    itemId: 'btnRevertirCombinaciones',
+                                    glyph: 'f0e2@FontAwesome',
+                                    text: 'Revertir',
+                                    listeners: {
+                                        click: 'onBtnRevertirCombinacionesClick'
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'descripcion',
+                            text: 'Descripcion'
+                        }
+                    ]
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onPerfilesPagoPanelAfterRender'
+    }
 
 });

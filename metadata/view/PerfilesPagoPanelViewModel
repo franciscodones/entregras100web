@@ -69,6 +69,33 @@
                     "type": "string"
                 }
             ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "FormaPagoModel",
+                "name": "FormasPagoLocalStore",
+                "type": "formaspagostore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore2",
+            "designerId": "85543095-ee1e-4fa8-8443-13e08fa1de97",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
         }
     ]
 }

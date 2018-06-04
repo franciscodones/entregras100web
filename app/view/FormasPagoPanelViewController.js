@@ -53,7 +53,8 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
                 resizable: false,
                 draggable: false,
                 sortable: false,
-                disabled: !Ext.Array.contains(Ext._.usuario.permisos, 18),
+                notPermitedAction: "disable",
+                permissionId: 18,
                 // se usa un renderer para evitar que el cruce de la misma forma de pago renderice un checkbox
                 renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
                     var me = this,
@@ -157,7 +158,8 @@ Ext.define('Entregas100Web.view.FormasPagoPanelViewController', {
                 resizable: false,
                 draggable: false,
                 sortable: false,
-                disabled: !Ext.Array.contains(Ext._.usuario.permisos, 20)
+                notPermitedAction: "disable",
+                permissionId: 20
             });
         });
 

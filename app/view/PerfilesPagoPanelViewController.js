@@ -17,11 +17,251 @@ Ext.define('Entregas100Web.view.PerfilesPagoPanelViewController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.perfilespagopanel',
 
+    armarCombinacionesGrid: function() {
+        var me = this,
+            combinacionesGrid = me.view.down("#combinacionesGrid"),
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            perfilesPagoLocalStore = me.getStore("PerfilesPagoLocalStore"),
+            combinacionFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore"),
+            combinacionesStore = new Ext.data.Store(),
+            columnas = [{
+                dataIndex: "descripcion",
+                text: "",
+                menuDisabled: true,
+                resizable: false,
+                draggable: false,
+                sortable: false,
+                width: 180
+            }],
+            combinacionModel, i, combinacionIndex;
+
+        // crea el store para el grid de las formas de pago
+        perfilesPagoLocalStore.each(function(perfil) {
+            // crea una fila por cada perfil
+            combinacionModel = new Ext.data.Model({
+                id: perfil.get("id"),
+                descripcion: perfil.get("descripcion")
+            });
+
+            // agrega un campo por cada forma de pago
+            formasPagoLocalStore.each(function(forma) {
+                // busca la si la combinacion ya existe y la asigna como true
+                combinacionIndex = combinacionFormaPerfilLocalStore.findBy(function(item) {
+                    return item.get("tipo_cliente_id") == perfil.get("id") &&
+                        item.get("forma_pago_id") == forma.get("id");
+                });
+                combinacionModel.set("forma_pago_" + forma.get("id"), combinacionIndex != -1);
+            });
+            combinacionesStore.add(combinacionModel);
+        });
+        // se hace commit al store para evitar que el estado inicial se marcado como modificado
+        combinacionesStore.commitChanges();
+
+        // crea una columna por cada plaza
+        formasPagoLocalStore.each(function(forma) {
+            columnas.push({
+                xtype: "checkcolumn",
+                dataIndex: "forma_pago_" + forma.get("id"),
+                text: forma.get("descripcion"),
+                verticalHeader: true,
+                width: 35,
+                menuDisabled: true,
+                resizable: false,
+                draggable: false,
+                sortable: false,
+                notPermitedAction: "disable",
+                permissionId: 23
+            });
+        });
+
+        combinacionesGrid.reconfigure(combinacionesStore, columnas);
+    },
+
     onBtnRefrescarClick: function(button, e, eOpts) {
         var me = this;
 
         me.getStore("PerfilesPagoLocalStore").load();
         me.getStore("CombinacionesFormaPerfilLocalStore").load();
+    },
+
+    onBtnRefrescarCombinacionesClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#combinacionesGrid").getStore(),
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            perfilesPagoLocalStore = me.getStore("PerfilesPagoLocalStore"),
+            combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore"),
+            promesaFormasPagoLoad = new Ext.Deferred(),
+            promesaPerfilesLoad = new Ext.Deferred(),
+            promesaCombinacionesFormasPerfilLoad = new Ext.Deferred();
+
+        if (combinacionesStore.isDirty()) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.WARNING,
+                fn: function(result) {
+                    if (result == "yes") {
+                        refrescar();
+                    }
+                }
+            });
+        } else {
+            refrescar();
+        }
+
+        function refrescar() {
+            // revierte los cambios
+            combinacionesStore.rejectChanges();
+            me.view.mask("Cargando...");
+
+            // carga los stores necesarios antes de habilitar el panel
+            formasPagoLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaFormasPagoLoad.resolve();
+                } else {
+                    promesaFormasPagoLoad.reject();
+                }
+            });
+            perfilesPagoLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaPerfilesLoad.resolve();
+                } else {
+                    promesaPerfilesLoad.reject();
+                }
+            });
+            combinacionesFormaPerfilLocalStore.load(function(records, operation, success) {
+                if (success) {
+                    promesaCombinacionesFormasPerfilLoad.resolve();
+                } else {
+                    promesaCombinacionesFormasPerfilLoad.reject();
+                }
+            });
+
+            // al terminar de cargar los stores habilita el panel
+            Ext.Deferred.all([
+            promesaFormasPagoLoad,
+            promesaPerfilesLoad,
+            promesaCombinacionesFormasPerfilLoad
+            ]).then(onStoresLoad, onStoresLoad);
+        }
+
+        function onStoresLoad() {
+            me.armarCombinacionesGrid();
+            me.view.unmask();
+        }
+    },
+
+    onBtnGuardarCombinacionesClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#combinacionesGrid").getStore(),
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore"),
+            indices = {},
+            recordIndex, waitWindow;
+
+        if (!combinacionesStore.isDirty()) {
+            return;
+        }
+
+        waitWindow = Ext.Msg.wait("Guardando combinaciones...");
+
+        // crea un objeto con todos los indices y ids de las columnas para buscarlos en los records
+        formasPagoLocalStore.each(function(forma) {
+            indices["forma_pago_" + forma.get("id")] = forma.get("id");
+        });
+
+        combinacionesStore.each(function(combinacion) {
+            Ext.Object.each(indices, function(indice, id) {
+                recordIndex = combinacionesFormaPerfilLocalStore.findBy(function(record) {
+                    return record.get("tipo_cliente_id") == combinacion.get("id") &&
+                    record.get("forma_pago_id") == id;
+                });
+                if (combinacion.get(indice) && recordIndex == -1) {
+                    // si la combinacion es true y no esta agregada esta debe ser agregada
+                    combinacionesFormaPerfilLocalStore.add({
+                        tipo_cliente_id: combinacion.get("id"),
+                        forma_pago_id: id
+                    });
+                } else if (!combinacion.get(indice) && recordIndex != -1) {
+                    // si la combincion es false y esta agregada esta debe ser eliminada
+                    combinacionesFormaPerfilLocalStore.removeAt(recordIndex);
+                }
+            });
+        });
+        combinacionesFormaPerfilLocalStore.sync({
+            success: function() {
+                combinacionesStore.commitChanges();
+                waitWindow.close();
+            }
+        });
+    },
+
+    onBtnRevertirCombinacionesClick: function(button, e, eOpts) {
+        var me = this,
+            combinacionesStore = me.view.down("#combinacionesGrid").getStore();
+
+        if (combinacionesStore.isDirty()) {
+            Ext.Msg.show({
+                title: "Mensaje del sistema",
+                message: "Se perderan los cambios que ha realizado, ¿Desea continuar?",
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.Msg.WARNING,
+                fn: function(result) {
+                    if (result == "yes") {
+                        // revierte los cambios
+                        combinacionesStore.rejectChanges();
+                    }
+                }
+            });
+        }
+    },
+
+    onPerfilesPagoPanelAfterRender: function(component, eOpts) {
+        var me = this,
+            formasPagoLocalStore = me.getStore("FormasPagoLocalStore"),
+            perfilesPagoLocalStore = me.getStore("PerfilesPagoLocalStore"),
+            combinacionesFormaPerfilLocalStore = me.getStore("CombinacionesFormaPerfilLocalStore"),
+            promesaFormasPagoLoad = new Ext.Deferred(),
+            promesaPerfilesPagoLoad = new Ext.Deferred(),
+            promesaCombinacionesFormasPerfilLoad = new Ext.Deferred();
+
+        me.view.mask("Cargando...");
+
+        // carga los stores necesarios antes de habilitar el panel
+        formasPagoLocalStore.load(function(records, operation, success) {
+            if (success) {
+                promesaFormasPagoLoad.resolve();
+            } else {
+                promesaFormasPagoLoad.reject();
+            }
+        });
+        perfilesPagoLocalStore.load(function(records, operation, success) {
+            if (success) {
+                promesaPerfilesPagoLoad.resolve();
+            } else {
+                promesaPerfilesPagoLoad.reject();
+            }
+        });
+        combinacionesFormaPerfilLocalStore.load(function(records, operation, success) {
+            if (success) {
+                promesaCombinacionesFormasPerfilLoad.resolve();
+            } else {
+                promesaCombinacionesFormasPerfilLoad.reject();
+            }
+        });
+
+        // al terminar de cargar los stores habilita el panel
+        Ext.Deferred.all([
+        promesaFormasPagoLoad,
+        promesaPerfilesPagoLoad,
+        promesaCombinacionesFormasPerfilLoad
+        ]).then(onStoresLoad, onStoresLoad);
+
+        function onStoresLoad() {
+            me.armarCombinacionesGrid();
+            me.view.unmask();
+        }
     }
 
 });

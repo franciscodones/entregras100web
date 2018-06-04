@@ -39,10 +39,12 @@
             },
             "codeClass": null,
             "userConfig": {
+                "activeTab": 0,
                 "layout|flex": 1
             },
             "configAlternates": {
-                "layout|flex": "number"
+                "layout|flex": "number",
+                "activeTab": "auto"
             },
             "name": "MyTabPanel1",
             "designerId": "fd5e00a7-5c44-424e-8fa2-88458d4138e8",
@@ -55,7 +57,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "autoLoad": true,
                         "columnLines": true,
                         "designer|uiInterfaceName": "default",
                         "enableColumnHide": false,
@@ -350,8 +351,438 @@
                             "designerId": "67d20254-74ea-4742-8922-695ee136d6d9"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "combinacionesGrid",
+                        "title": "Formas de Pago"
+                    },
+                    "configAlternates": {
+                        "title": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyGridPanel3",
+                    "designerId": "fc97ae55-2228-4fa0-bb0c-e9f48b56ee3e",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Toolbar",
+                            "reference": {
+                                "name": "dockedItems",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "footer",
+                                "dock": "top",
+                                "ui": "footer"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "dock": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyToolbar4",
+                            "designerId": "c869e507-e22d-4131-9538-6b38a2f596a5",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f021@FontAwesome",
+                                        "itemId": "btnRefrescarCombinaciones",
+                                        "layout|flex": null,
+                                        "text": "Refrescar"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string"
+                                    },
+                                    "name": "MyButton11",
+                                    "designerId": "76500229-ae15-458d-8503-835e4f0c401b",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnRefrescarCombinacionesClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#combinacionesGrid\").getStore(),",
+                                                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                                                    "    perfilesPagoLocalStore = me.getStore(\"PerfilesPagoLocalStore\"),",
+                                                    "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\"),",
+                                                    "    promesaFormasPagoLoad = new Ext.Deferred(),",
+                                                    "    promesaPerfilesLoad = new Ext.Deferred(),",
+                                                    "    promesaCombinacionesFormasPerfilLoad = new Ext.Deferred();",
+                                                    "",
+                                                    "if (combinacionesStore.isDirty()) {",
+                                                    "    Ext.Msg.show({",
+                                                    "        title: \"Mensaje del sistema\",",
+                                                    "        message: \"Se perderan los cambios que ha realizado, ¿Desea continuar?\",",
+                                                    "        buttons: Ext.Msg.YESNO,",
+                                                    "        icon: Ext.Msg.WARNING,",
+                                                    "        fn: function(result) {",
+                                                    "            if (result == \"yes\") {",
+                                                    "                refrescar();",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "} else {",
+                                                    "    refrescar();",
+                                                    "}",
+                                                    "",
+                                                    "function refrescar() {",
+                                                    "    // revierte los cambios",
+                                                    "    combinacionesStore.rejectChanges();",
+                                                    "    me.view.mask(\"Cargando...\");",
+                                                    "",
+                                                    "    // carga los stores necesarios antes de habilitar el panel",
+                                                    "    formasPagoLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaFormasPagoLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaFormasPagoLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "    perfilesPagoLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaPerfilesLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaPerfilesLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "    combinacionesFormaPerfilLocalStore.load(function(records, operation, success) {",
+                                                    "        if (success) {",
+                                                    "            promesaCombinacionesFormasPerfilLoad.resolve();",
+                                                    "        } else {",
+                                                    "            promesaCombinacionesFormasPerfilLoad.reject();",
+                                                    "        }",
+                                                    "    });",
+                                                    "",
+                                                    "    // al terminar de cargar los stores habilita el panel",
+                                                    "    Ext.Deferred.all([",
+                                                    "        promesaFormasPagoLoad,",
+                                                    "        promesaPerfilesLoad,",
+                                                    "        promesaCombinacionesFormasPerfilLoad",
+                                                    "    ]).then(onStoresLoad, onStoresLoad);",
+                                                    "}",
+                                                    "",
+                                                    "function onStoresLoad() {",
+                                                    "    me.armarCombinacionesGrid();",
+                                                    "    me.view.unmask();",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnRefrescarCombinacionesClick",
+                                            "designerId": "8e7bebb5-e901-4fde-b3d7-628fdd443399"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0c7@FontAwesome",
+                                        "itemId": "btnGuardarCombinaciones",
+                                        "layout|flex": null,
+                                        "permissionId": 23,
+                                        "text": "Guardar"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyButton12",
+                                    "designerId": "396e0f38-794f-4f47-b510-ab5fefc2de87",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnGuardarCombinacionesClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#combinacionesGrid\").getStore(),",
+                                                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                                                    "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\"),",
+                                                    "    indices = {},",
+                                                    "    recordIndex, waitWindow;",
+                                                    "",
+                                                    "if (!combinacionesStore.isDirty()) {",
+                                                    "    return;",
+                                                    "}",
+                                                    "",
+                                                    "waitWindow = Ext.Msg.wait(\"Guardando combinaciones...\");",
+                                                    "",
+                                                    "// crea un objeto con todos los indices y ids de las columnas para buscarlos en los records",
+                                                    "formasPagoLocalStore.each(function(forma) {",
+                                                    "    indices[\"forma_pago_\" + forma.get(\"id\")] = forma.get(\"id\");",
+                                                    "});",
+                                                    "",
+                                                    "combinacionesStore.each(function(combinacion) {",
+                                                    "    Ext.Object.each(indices, function(indice, id) {",
+                                                    "        recordIndex = combinacionesFormaPerfilLocalStore.findBy(function(record) {",
+                                                    "            return record.get(\"tipo_cliente_id\") == combinacion.get(\"id\") &&",
+                                                    "                record.get(\"forma_pago_id\") == id;",
+                                                    "        });",
+                                                    "        if (combinacion.get(indice) && recordIndex == -1) {",
+                                                    "            // si la combinacion es true y no esta agregada esta debe ser agregada",
+                                                    "            combinacionesFormaPerfilLocalStore.add({",
+                                                    "                tipo_cliente_id: combinacion.get(\"id\"),",
+                                                    "                forma_pago_id: id",
+                                                    "            });",
+                                                    "        } else if (!combinacion.get(indice) && recordIndex != -1) {",
+                                                    "            // si la combincion es false y esta agregada esta debe ser eliminada",
+                                                    "            combinacionesFormaPerfilLocalStore.removeAt(recordIndex);",
+                                                    "        }",
+                                                    "    });",
+                                                    "});",
+                                                    "combinacionesFormaPerfilLocalStore.sync({",
+                                                    "    success: function() {",
+                                                    "        combinacionesStore.commitChanges();",
+                                                    "        waitWindow.close();",
+                                                    "    }",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnGuardarCombinacionesClick",
+                                            "designerId": "85b9434a-8f1e-492c-b9c8-9a9ceb23d3fa"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0e2@FontAwesome",
+                                        "itemId": "btnRevertirCombinaciones",
+                                        "layout|flex": null,
+                                        "permissionId": 23,
+                                        "text": "Revertir"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "layout|flex": "number",
+                                        "text": "string",
+                                        "permissionId": "number"
+                                    },
+                                    "name": "MyButton13",
+                                    "designerId": "d6936f7e-eb48-4dfc-ba47-5287b8a13b52",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onBtnRevertirCombinacionesClick",
+                                                "implHandler": [
+                                                    "var me = this,",
+                                                    "    combinacionesStore = me.view.down(\"#combinacionesGrid\").getStore();",
+                                                    "",
+                                                    "if (combinacionesStore.isDirty()) {",
+                                                    "    Ext.Msg.show({",
+                                                    "        title: \"Mensaje del sistema\",",
+                                                    "        message: \"Se perderan los cambios que ha realizado, ¿Desea continuar?\",",
+                                                    "        buttons: Ext.Msg.YESNO,",
+                                                    "        icon: Ext.Msg.WARNING,",
+                                                    "        fn: function(result) {",
+                                                    "            if (result == \"yes\") {",
+                                                    "                // revierte los cambios",
+                                                    "                combinacionesStore.rejectChanges();",
+                                                    "            }",
+                                                    "        }",
+                                                    "    });",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onBtnRevertirCombinacionesClick",
+                                            "designerId": "256c0156-c376-4b1d-897a-559f01aa3cfd"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.tab.Tab",
+                            "reference": {
+                                "name": "tabConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "TabConfig3",
+                            "designerId": "9bb56138-3900-4384-8e8c-1c8d6e507b31"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "descripcion",
+                                "text": "Descripcion"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn4",
+                            "designerId": "4c91acd6-947d-4709-925c-47f2f3b80f1e"
+                        },
+                        {
+                            "type": "Ext.view.Table",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTable2",
+                            "designerId": "e2e7d674-8585-4a1f-811e-726ac4572e9b"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPerfilesPagoPanelAfterRender",
+                "implHandler": [
+                    "var me = this,",
+                    "    formasPagoLocalStore = me.getStore(\"FormasPagoLocalStore\"),",
+                    "    perfilesPagoLocalStore = me.getStore(\"PerfilesPagoLocalStore\"),",
+                    "    combinacionesFormaPerfilLocalStore = me.getStore(\"CombinacionesFormaPerfilLocalStore\"),",
+                    "    promesaFormasPagoLoad = new Ext.Deferred(),",
+                    "    promesaPerfilesPagoLoad = new Ext.Deferred(),",
+                    "    promesaCombinacionesFormasPerfilLoad = new Ext.Deferred();",
+                    "",
+                    "me.view.mask(\"Cargando...\");",
+                    "",
+                    "// carga los stores necesarios antes de habilitar el panel",
+                    "formasPagoLocalStore.load(function(records, operation, success) {",
+                    "    if (success) {",
+                    "        promesaFormasPagoLoad.resolve();",
+                    "    } else {",
+                    "        promesaFormasPagoLoad.reject();",
+                    "    }",
+                    "});",
+                    "perfilesPagoLocalStore.load(function(records, operation, success) {",
+                    "    if (success) {",
+                    "        promesaPerfilesPagoLoad.resolve();",
+                    "    } else {",
+                    "        promesaPerfilesPagoLoad.reject();",
+                    "    }",
+                    "});",
+                    "combinacionesFormaPerfilLocalStore.load(function(records, operation, success) {",
+                    "    if (success) {",
+                    "        promesaCombinacionesFormasPerfilLoad.resolve();",
+                    "    } else {",
+                    "        promesaCombinacionesFormasPerfilLoad.reject();",
+                    "    }",
+                    "});",
+                    "",
+                    "// al terminar de cargar los stores habilita el panel",
+                    "Ext.Deferred.all([",
+                    "    promesaFormasPagoLoad,",
+                    "    promesaPerfilesPagoLoad,",
+                    "    promesaCombinacionesFormasPerfilLoad",
+                    "]).then(onStoresLoad, onStoresLoad);",
+                    "",
+                    "function onStoresLoad() {",
+                    "    me.armarCombinacionesGrid();",
+                    "    me.view.unmask();",
+                    "}"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onPerfilesPagoPanelAfterRender",
+            "designerId": "b368ab73-4e07-4e60-bd9c-dfaaca6bbc44"
         }
     ]
 }
