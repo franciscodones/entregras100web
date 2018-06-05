@@ -422,40 +422,66 @@
                     ]
                 },
                 {
-                    "type": "Ext.grid.column.Boolean",
+                    "type": "Ext.grid.column.Column",
                     "reference": {
                         "name": "columns",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "online",
-                        "falseText": "EMULACION",
-                        "text": "Modo",
-                        "trueText": "ONLINE",
-                        "undefinedText": "DESCONOCIDO",
-                        "width": 110
+                        "dataIndex": "aditivo_obligatorio",
+                        "text": "Como cobrar AD+",
+                        "width": 270
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
-                        "falseText": "string",
                         "text": "string",
-                        "trueText": "string",
-                        "undefinedText": "string",
                         "width": "auto"
                     },
-                    "name": "MyBooleanColumn2",
-                    "designerId": "a4549d51-068d-4e70-9e91-2364f04a2302",
+                    "name": "MyColumn3",
+                    "designerId": "3264d924-0f85-4740-bda2-f422ba50bde1",
                     "cn": [
                         {
-                            "type": "Ext.grid.filters.filter.Boolean",
+                            "type": "fixedfunction",
                             "reference": {
-                                "name": "filter",
-                                "type": "object"
+                                "name": "items",
+                                "type": "array"
                             },
                             "codeClass": null,
-                            "name": "MyBooleanFilter3",
-                            "designerId": "782b54e9-84b9-44f3-82e9-d235ed0eb0b8"
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if (record.get(\"cobro_aditivo\")) {",
+                                    "    if (record.get(\"aditivo_obligatorio\")) {",
+                                    "        return \"COBRAR A TODOS LOS CLIENTES\";",
+                                    "    } else {",
+                                    "        return \"COBRAR DEPENDIENDO DEL CLIENTE\";",
+                                    "    }",
+                                    "} else {",
+                                    "    if (record.get(\"aditivo_obligatorio\")) {",
+                                    "        return \"NO COBRAR A NINGUN CLIENTE\";",
+                                    "    } else {",
+                                    "        return \"COBRAR DEPENDIENDO DEL CLIENTE\";",
+                                    "    }",
+                                    "}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "b61af034-35ca-4a44-acf9-639abc08abdf"
                         }
                     ]
                 },

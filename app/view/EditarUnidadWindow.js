@@ -282,15 +282,16 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
                     ]
                 },
                 {
-                    xtype: 'fieldcontainer',
+                    xtype: 'fieldset',
+                    title: 'AD+',
                     layout: {
                         type: 'hbox',
-                        align: 'stretch',
-                        pack: 'center'
+                        align: 'stretch'
                     },
                     items: [
                         {
                             xtype: 'checkboxfield',
+                            itemId: 'chkCobroAditivo',
                             width: 130,
                             hideEmptyLabel: false,
                             labelWidth: 0,
@@ -298,8 +299,48 @@ Ext.define('Entregas100Web.view.EditarUnidadWindow', {
                             boxLabel: 'Contiene AD+',
                             checked: true,
                             inputValue: 'true',
-                            uncheckedValue: 'false'
+                            uncheckedValue: 'false',
+                            listeners: {
+                                change: 'onChkCobroAditivoChange'
+                            }
                         },
+                        {
+                            xtype: 'tbspacer',
+                            width: 20
+                        },
+                        {
+                            xtype: 'combobox',
+                            flex: 1,
+                            itemId: 'cmbAditivoObligatorio',
+                            fieldLabel: 'Como cobrar',
+                            name: 'aditivo_obligatorio',
+                            allowBlank: false,
+                            editable: false,
+                            forceSelection: true,
+                            store: [
+                                [
+                                    false,
+                                    'COBRAR DEPENDIENDO DEL CLIENTE'
+                                ],
+                                [
+                                    true,
+                                    'COBRAR A TODOS LOS CLIENTES'
+                                ]
+                            ],
+                            listeners: {
+                                select: 'onCmbAditivoObligatorioSelect'
+                            }
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldcontainer',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch',
+                        pack: 'center'
+                    },
+                    items: [
                         {
                             xtype: 'checkboxfield',
                             width: 130,

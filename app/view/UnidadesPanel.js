@@ -155,16 +155,25 @@ Ext.define('Entregas100Web.view.UnidadesPanel', {
                     }
                 },
                 {
-                    xtype: 'booleancolumn',
-                    width: 110,
-                    dataIndex: 'online',
-                    text: 'Modo',
-                    falseText: 'EMULACION',
-                    trueText: 'ONLINE',
-                    undefinedText: 'DESCONOCIDO',
-                    filter: {
-                        type: 'boolean'
-                    }
+                    xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        if (record.get("cobro_aditivo")) {
+                            if (record.get("aditivo_obligatorio")) {
+                                return "COBRAR A TODOS LOS CLIENTES";
+                            } else {
+                                return "COBRAR DEPENDIENDO DEL CLIENTE";
+                            }
+                        } else {
+                            if (record.get("aditivo_obligatorio")) {
+                                return "NO COBRAR A NINGUN CLIENTE";
+                            } else {
+                                return "COBRAR DEPENDIENDO DEL CLIENTE";
+                            }
+                        }
+                    },
+                    width: 270,
+                    dataIndex: 'aditivo_obligatorio',
+                    text: 'Como cobrar AD+'
                 },
                 {
                     xtype: 'booleancolumn',

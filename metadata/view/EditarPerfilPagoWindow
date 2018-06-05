@@ -110,6 +110,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "displayField": "descripcion",
                         "editable": false,
                         "fieldLabel": "Forma de pago default",
@@ -133,7 +134,8 @@
                         "layout|anchor": "string",
                         "matchFieldWidth": "boolean",
                         "name": "string",
-                        "valueField": "datafield"
+                        "valueField": "datafield",
+                        "allowBlank": "boolean"
                     },
                     "name": "MyComboBox1",
                     "designerId": "60b65af0-b011-4fdd-b338-90e3699452f6"

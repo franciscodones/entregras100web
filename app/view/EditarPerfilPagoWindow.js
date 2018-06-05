@@ -64,6 +64,7 @@ Ext.define('Entregas100Web.view.EditarPerfilPagoWindow', {
                     fieldLabel: 'Forma de pago default',
                     labelWidth: 150,
                     name: 'forma_pago_id',
+                    allowBlank: false,
                     editable: false,
                     matchFieldWidth: false,
                     displayField: 'descripcion',

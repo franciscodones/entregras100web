@@ -38,6 +38,136 @@ Ext.define('Entregas100Web.view.CrearUnidadWindowViewController', {
         }
     },
 
+    onChkCobroAditivoChange: function(field, newValue, oldValue, eOpts) {
+        var me = this,
+            cmbAditivoObligatorio = me.view.down("#cmbAditivoObligatorio");
+
+        if (newValue) {
+            // si la pipa contiene AD+, se actualizan las opciones del combo
+            // de como cobrar el AD+
+            cmbAditivoObligatorio.setStore([
+            [false, "COBRAR DEPENDIENDO DEL CLIENTE"],
+            [true, "COBRAR A TODOS LOS CLIENTES"]
+            ]);
+        } else {
+            // si la pipa NO contiene AD+, se actualizan las opciones del combo
+            // de como cobrar el AD+
+            cmbAditivoObligatorio.setStore([
+            [false, "COBRAR DEPENDIENDO DEL CLIENTE"],
+            [true, "NO COBRAR A NINGUN CLIENTE"]
+            ]);
+        }
+        cmbAditivoObligatorio.clearValue();
+        if (cmbAditivoObligatorio.tip) {
+            cmbAditivoObligatorio.tip.destroy();
+        }
+    },
+
+    onCmbAditivoObligatorioSelect: function(combo, record, eOpts) {
+        var me = this,
+            chkCobroAditivo = me.view.down("#chkCobroAditivo"),
+            contieneAD = chkCobroAditivo.getValue(),
+            forzarSegunAD = combo.getValue(),
+            tpl, datos, i;
+
+        tpl = new Ext.XTemplate(
+        "<p>" +
+        "{mensaje}" +
+        "</p>" +
+        "<table border=\"1\" style=\"border-color: #fff; border-spacing: 0px;\">" +
+        "<thead>" +
+        "<tpl for='headers'>" +
+        "<th>{.}</th>" +
+        "</tpl>" +
+        "</thead>" +
+        "<tbody>" +
+        "<tpl for='clientes'>" +
+        "<tr>" +
+        "<td>{nombre}</td>" +
+        "<td>{normal}</td>" +
+        "<td>{ahora}</td>" +
+        "</tr>" +
+        "</tpl>" +
+        "</tbody>" +
+        "</table>" +
+        "<tpl if='nota'>" +
+        "<p style=\"text-decoration: underline; font-weight: bold;\">" +
+        "NOTA: {nota}" +
+        "</p>" +
+        "</tpl>"
+        );
+
+        // destruye el tooltip en caso que exista para que no existan mas de uno a la ves
+        if (combo.tip) {
+            combo.tip.destroy();
+        }
+
+        datos = {
+            headers: [
+            "CLIENTE",
+            "NORMALMENTE SE LE COBRA AD+ AL CLIENTE?",
+            "ESTA UNIDAD LE COBRARA AD+ AL CLIENTE?"
+            ],
+            clientes: [
+            {
+                nombre: "COCA COLA",
+                normal: "NO - $0.00"
+            },
+            {
+                nombre: "JUAN LOPEZ",
+                normal: "SI - $0.17"
+            },
+            {
+                nombre: "NUEVOS CLIENTES (TARIFA BASE)",
+                normal: "SI - $0.17"
+            }
+            ]
+        };
+
+        if (contieneAD) {
+            if (forzarSegunAD) {
+                // la pipa CONTIENE AD+ y COBRAR A TODOS LOS CLIENTES
+                datos.mensaje = "El AD+ <strong>SERA COBRADO A TODOS LOS CLIENTES</strong>, " +
+                "sin importar si al cliente no se le cobra. Ejemplo:";
+                datos.clientes[0].ahora = "<strong>SI - $0.17</strong>";
+                datos.clientes[1].ahora = "<strong>SI - $0.17</strong>";
+                datos.clientes[2].ahora = "<strong>SI - $0.17</strong>";
+                datos.nota = "El precio del AD+ que se le asignara sera el de la TARIFA BASE.";
+            } else {
+                // la pipa CONTIENE AD+ y COBRAR DEPENDIENDE EL CLIENTE
+                datos.mensaje = "El AD+ <strong>SERA COBRADO DEPENDIENDO DEL CLIENTE</strong>, " +
+                "sin importar si la unidad maneja AD+. Ejemplo:";
+                datos.clientes[0].ahora = "<strong>NO - $0.00</strong>";
+                datos.clientes[1].ahora = "<strong>SI - $0.17</strong>";
+                datos.clientes[2].ahora = "<strong>SI - $0.17</strong>";
+            }
+        } else {
+            if (forzarSegunAD) {
+                // la pipa NO CONTIENE AD+ y NO COBRAR A NINGUN CLIENTE
+                datos.mensaje = "El AD+ <strong>NO SE LE COBRARA A NINGUN CLIENTE</strong>, " +
+                "sin importar si al cliente se le cobra. Ejemplo:";
+                datos.clientes[0].ahora = "<strong>NO - $0.00</strong>";
+                datos.clientes[1].ahora = "<strong>NO - $0.00</strong>";
+                datos.clientes[2].ahora = "<strong>NO - $0.00</strong>";
+            } else {
+                // la pipa NO CONTIENE AD+ y COBRAR DEPENDIENDE EL CLIENTE
+                datos.mensaje = "El AD+ <strong>SERA COBRADO DEPENDIENDO DEL CLIENTE</strong>, " +
+                "sin importar si la unidad no maneja AD+. Ejemplo:";
+                datos.clientes[0].ahora = "<strong>NO - $0.00</strong>";
+                datos.clientes[1].ahora = "<strong>SI - $0.17</strong>";
+                datos.clientes[2].ahora = "<strong>SI - $0.17</strong>";
+            }
+        }
+
+        combo.tip = Ext.create('Ext.tip.ToolTip', {
+            target: combo,
+            html: tpl.apply(datos),
+            dismissDelay: 30 * 1000,
+            hideDelay: 30 * 1000
+        });
+        combo.tip.show();
+    },
+
     onBtnCancelarClick: function(button, e, eOpts) {
         this.view.close();
     },
