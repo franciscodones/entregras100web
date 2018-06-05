@@ -4,7 +4,7 @@ namespace App\Controller\Entregas100;
 
 use Exception;
 
-class DescuentosPromocionAppGaseraController extends AppGaseraController {
+class DescuentospromocionAppGaseraController extends AppGaseraController {
 
     /**
      * Funcion utilizada para la aplicacion Entregas100.

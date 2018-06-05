@@ -62,6 +62,7 @@ class CalleAppGaseraController extends AppGaseraController {
                 "1 AS colonia_id " .
             "FROM calles " .
             "INNER JOIN calles_app ON calles.cvecall = calles_app.cvecall " .
+            "GROUP BY id " .
             "ORDER BY id";
         $aCalles = $oConexionPlaza->query($sQuery);
 

@@ -52,14 +52,17 @@ class ConfiguracionAppGaseraController extends AppGaseraController {
         // se agrega la configuracion de descuentos promocion para que no interfiera con las versiones anteriores
         // este bloque de codigo se debera eliminar al terminar de actualizar toda la plaza y se debera agregar
         // la configuracion de manera normal
-        $aPlazasPromocion = array();
+        $aPlazasPromocion = array(
+    		2, // culiacan
+    		13 // obregon
+    	);
         if (in_array($aUnidad["plaza_id"], $aPlazasPromocion)) {
             $aConfiguracionesProcesadas[] = array(
                 "id" => 25,
                 "descripcion" => "Descuentos promocion",
                 "respaldo" => 0,
                 "aplica" => 1,
-                "requerido" => 1
+                "requerido" => 0
             );
         }
 

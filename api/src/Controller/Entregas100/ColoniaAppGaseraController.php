@@ -61,6 +61,7 @@ class ColoniaAppGaseraController extends AppGaseraController {
                 "nompob AS descripcion " .
             "FROM poblac " .
             "INNER JOIN colonias_app ON poblac.cvepob = colonias_app.cvepob " .
+            "GROUP BY id " .
             "ORDER BY id";
         $aColonias = $oConexionPlaza->query($sQuery);
 
