@@ -40,7 +40,20 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
         );
 
         $nTotalLista = 0;
-        $dFechaLista = date("Y-m-d");
+        $dFechaLista = $aUnidad["fecha_operacion"];
+
+        // selecciona la fecha de lista en base a la fecha de operacion de la unidad.
+        // Si existe lista de la fecha que se selecciono, se descarga esa lista.
+        // En caso contrario se descarga la lista de la fecha de hoy
+        $sQuery = "SELECT * " .
+            "FROM listas " .
+            "WHERE fecha = ? " .
+            "LIMIT 1";
+        $aQueryParams = array($dFechaLista);
+        $aResultado = $oConexion->query($sQuery, $aQueryParams);
+        if (count($aResultado) <= 0) {
+            $dFechaLista = date("Y-m-d");
+        }
 
         // obtiene el horario nocturno de la zona en caso que tenga
         $sQuery = "SELECT * " .
