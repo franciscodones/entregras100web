@@ -67,8 +67,8 @@ class SurtidoAppGaseraController extends AppGaseraController {
         $tHoraInicio = $aDatos['hora_inicio'];
         $tHoraFinal = $aDatos['hora_final'];
         $nCapacidad = $aDatos['capacidad'];
-        $nPorcentajeInicial = $aDatos['porcentaje_inicial'];
-        $nPorcentajeFinal = $aDatos['porcentaje_final'];
+        $nPorcentajeInicial = max(min(99, $aDatos['porcentaje_inicial']), 0);
+        $nPorcentajeFinal = max(min(99, $aDatos['porcentaje_final']), 0);
         $nLatitud = $aDatos['latitud'];
         $nLongitud = $aDatos['longitud'];
         $aFormaDePago = json_decode($aDatos['forma_de_pago'], TRUE);
