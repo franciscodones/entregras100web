@@ -57,6 +57,15 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
         $aResultado = $oConexionPlaza->query($sQuery, $aQueryParams);
         $bExisteTablaPadronApp = $aResultado[0]["existe"];
 
+        // si existe la tabla padron_app_<unidad> y es la pagina 0, se elimina la tabla para crearla de nuevo
+        // esto para refrescar la tabla que por casualidad no se haya eliminado al terminar de descargar
+        // el padron
+        if ($bExisteTablaPadronApp && $nPagina == 0) {
+            $sQuery = "DROP TABLE IF EXISTS padron_app_" . $aUnidad["unidad"];
+            $oConexionPlaza->query($sQuery);
+            $bExisteTablaPadronApp = false;
+        }
+
         // si no existe la tabla padron_app_<unidad> se crea, es una tabla real
         // la cual debera eliminarse al terminar de descargar el padron
         if (!$bExisteTablaPadronApp) {
