@@ -57,24 +57,26 @@ class NosurtidoAppGaseraController extends AppGaseraController {
         $nNipChofer = $aDatos["nip_chofer"];
         $nNipAyudante = !empty($aDatos["nip_ayudante"]) ? $aDatos["nip_ayudante"] : null;
 
-        // actualiza en la lista el estado del servicio
-        $sQuery = "UPDATE listas " .
-            "SET unidad = ?, " .
-                "idmotivo = ?, " .
-                "surtido = ?, " .
-                "estado = ?, " .
-                "horasurtido = ? " .
-            "WHERE ncontrol = ? " .
-            "AND fecha = CURDATE()";
-        $aQueryParams = array(
-            $aUnidad["unidad"],
-            $nMotivoId,
-            "N",
-            "V",
-            $dFechaSurtido . " " . $tHoraSurtido,
-            $nNumeroControl
-        );
-        $oConexionPlaza->query($sQuery, $aQueryParams);
+        // actualiza en la lista el estado del servicio si no es fuera de turno
+        if ($nMotivoId != 5) {
+            $sQuery = "UPDATE listas " .
+                "SET unidad = ?, " .
+                    "idmotivo = ?, " .
+                    "surtido = ?, " .
+                    "estado = ?, " .
+                    "horasurtido = ? " .
+                "WHERE ncontrol = ? " .
+                "AND fecha = CURDATE()";
+            $aQueryParams = array(
+                $aUnidad["unidad"],
+                $nMotivoId,
+                "N",
+                "V",
+                $dFechaSurtido . " " . $tHoraSurtido,
+                $nNumeroControl
+            );
+            $oConexionPlaza->query($sQuery, $aQueryParams);
+        }
 
         // agrega el servicio a la tabla servicio_atendido
         $sQuery = "INSERT INTO servicio_atendido (" .
@@ -110,6 +112,27 @@ class NosurtidoAppGaseraController extends AppGaseraController {
 
         // se guarda el servicio en la bd de entregas100
         $aResultado = $oConexion->query($sQuery, $aQueryParams);
+
+        // se obtiene el registro de la lista
+        $sQuery = "SELECT * " .
+            "FROM listas " .
+            "WHERE ncontrol = ?" .
+            "AND fecha = ?";
+        $aQueryParams = array($nNumeroControl, $dFechaSurtido);
+        $aResultado = $oConexionPlaza->query($sQuery, $aQueryParams);
+        $aRegistroLista = !empty($aResultado) ? $aResultado[0] : null;
+
+        // si existe un registro de lista entonces se agrega un registro a la tabla de servicios
+        // para constatar la visita
+        if ($aRegistroLista) {
+            $sQuery = "INSERT INTO servicios (" .
+                    implode(", ", array_keys($aRegistroLista)) // inserta los cmapos que esten en lista
+                ") VALUES (" .
+                    implode(", ", str_split(str_repeat("?", count($aRegistroLista))))
+                ")";
+            $aQueryParams = array_values($aRegistroLista);
+            $oConexionPlaza->query($sQuery, $aQueryParams);
+        }
 
         return $this->asJson(array(
             "success" => true,

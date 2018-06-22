@@ -332,7 +332,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 "_25" => (!empty($aServicio['clave_credito'])) ? $aServicio['clave_credito'] : '', //clave de autorizacion
                 "_26" => $aServicio["tipo_cliente"], //tipo de cliente, identificando si es domestico o comercial
                 "_27" => (!empty($aServicio['cuenta_credito'])) ? $aServicio['cuenta_credito'] : '', //cuenta de crédito
-                "_28" => (!empty($aServicio['fecha_clave'])) ? $aServicio['fecha_clave'] : '', //date('Y-m-d') //Fecha de uso de clave de autorización
+                "_28" => (empty($aServicio['fecha_clave']) || $aServicio['fecha_clave'] == "0000-00-00") ? "" : $aServicio['fecha_clave'],//Fecha de uso de clave de autorizacion
                 "_29" => (!empty($aServicio['zona_id'])) ? $aServicio['zona_id'] : '',
                 "_30" => (!empty($aServicio['tarifa_id'])) ? $aServicio['tarifa_id'] : '',
                 "_31" => (!empty($aServicio['tipo_compromiso_id'])) ? $aServicio['tipo_compromiso_id'] : 2,
