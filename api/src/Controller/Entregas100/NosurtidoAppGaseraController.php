@@ -3,6 +3,7 @@
 namespace App\Controller\Entregas100;
 
 use Exception;
+use Cake\Core\Configure;
 
 class NosurtidoAppGaseraController extends AppGaseraController {
 
@@ -116,7 +117,7 @@ class NosurtidoAppGaseraController extends AppGaseraController {
         // se obtiene el registro de la lista
         $sQuery = "SELECT * " .
             "FROM listas " .
-            "WHERE ncontrol = ?" .
+            "WHERE ncontrol = ? " .
             "AND fecha = ?";
         $aQueryParams = array($nNumeroControl, $dFechaSurtido);
         $aResultado = $oConexionPlaza->query($sQuery, $aQueryParams);
@@ -124,13 +125,46 @@ class NosurtidoAppGaseraController extends AppGaseraController {
 
         // si existe un registro de lista entonces se agrega un registro a la tabla de servicios
         // para constatar la visita
+        $aRegistroListaProcesado = array();
         if ($aRegistroLista) {
+            // obtiene los campos de la tabla servicios
+            $sQuery = "SELECT column_name " .
+                "FROM information_schema.columns " .
+                "WHERE table_schema = ? " .
+                "AND table_name = ? " .
+                "AND column_name != ?";
+            $aQueryParams = array($aPlaza["base_te"], "servicios", "id");
+            $aCampos = $oConexionPlaza->query($sQuery, $aQueryParams);
+            $aCampos = array_map(function($item) {
+                return $item["column_name"];
+            }, $aCampos);
+
+            //Configure::write("debug", true);
+            // elimina los campos que no se encuentran en la tabla servicios
+            foreach ($aRegistroLista as $key => $value) {
+                if (in_array($key, $aCampos)) {
+                    $aRegistroListaProcesado[$key] = $value;
+                }
+            }
+
+            // cambia algunos datos por los enviados por la tablet
+            $aRegistroListaProcesado["surtido"] = "N";
+            $aRegistroListaProcesado["estado"] = "V";
+            $aRegistroListaProcesado["horasurtido"] = $dFechaSurtido . " " . $tHoraSurtido;
+            $aRegistroListaProcesado["idmotivo"] = $nMotivoId;
+            $aRegistroListaProcesado["porcentaje_tanque"] = $nPorcetanjeTanque;
+            $aRegistroListaProcesado["fecha_compromiso"] = $dFechaCompromiso;
+            $aRegistroListaProcesado["unidad"] = $aUnidad["unidad"];
+            $aRegistroListaProcesado["fecha"] = $dFechaSurtido;
+
+            // inserta el servicio
             $sQuery = "INSERT INTO servicios (" .
-                    implode(", ", array_keys($aRegistroLista)) // inserta los cmapos que esten en lista
+                    implode(", ", array_keys($aRegistroListaProcesado)) .
                 ") VALUES (" .
-                    implode(", ", str_split(str_repeat("?", count($aRegistroLista))))
-                ")";
-            $aQueryParams = array_values($aRegistroLista);
+                    implode(", ", str_split(str_repeat("?", count($aRegistroListaProcesado)))) .
+                ") " .
+                "ON DUPLICATE KEY UPDATE ncontrol = ncontrol";
+            $aQueryParams = array_values($aRegistroListaProcesado);
             $oConexionPlaza->query($sQuery, $aQueryParams);
         }
 
