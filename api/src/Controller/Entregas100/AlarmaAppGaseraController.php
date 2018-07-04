@@ -21,8 +21,8 @@ class AlarmaAppGaseraController extends AppGaseraController {
         $sAlarmas = !empty($aDatos['alarma_id']) ? $aDatos['alarma_id'] : $aDatos['alarmas'];
         $nNumeroControl = !empty($aDatos['numero_control']) ? $aDatos['numero_control'] : null;
         $nNumeroServicio = !empty($aDatos['servicio']) ? $aDatos['servicio'] : null;
-        $nLitros = !empty($aDatos['litros']) ? $aDatos['litros'] : null;
-        $nLitrosNoAutorizados = !empty($aDatos['litros_no']) ? $aDatos['litros_no'] : null;
+        $nLitros = !empty($aDatos['litros']) ? $aDatos['litros'] / 100: null;
+        $nLitrosNoAutorizados = !empty($aDatos['litros_no']) ? $aDatos['litros_no'] / 100 : null;
         $dFecha = $aDatos['fecha'];
         $tHora = $aDatos['hora'];
 
@@ -42,7 +42,7 @@ class AlarmaAppGaseraController extends AppGaseraController {
                 "fecha_registro" .
             ") VALUES (" .
                 "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
-            ")";
+            ") ON DUPLICATE KEY UPDATE alarma = alarma";
         $aQueryParams = array(
             $aUnidad["id"],
             $nNumeroControl,

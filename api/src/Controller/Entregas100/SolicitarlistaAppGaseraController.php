@@ -224,6 +224,7 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             "listas.calle AS calle_id, " .
             "listas.colonia AS colonia_id, " .
             "listas.ncasa AS numero_exterior, " .
+            "50 AS distancia_permitir_surtir, " .
             "listas.clave_surtido AS clave_credito, " .
             "padron.cuenta_cxc AS cuenta_credito, " .
             "listas.fecvta AS fecha_clave, " .
@@ -384,7 +385,8 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
                 "_31" => (!empty($aServicio['tipo_compromiso_id'])) ? $aServicio['tipo_compromiso_id'] : 0,
                 "_32" => $aServicio['numero_interior'], //ncasa
                 "_33" => $aServicio["nombre_facturacion"], // nombre facturacion
-                "_34" => $aServicio["domicilio_facturacion"] // domicilio facturacion
+                "_34" => $aServicio["domicilio_facturacion"], // domicilio facturacion
+                "_35" => $aServicio["distancia_permitir_surtir"] // distancia para permitir surtir
             );
         }
         unset($aServicio);
