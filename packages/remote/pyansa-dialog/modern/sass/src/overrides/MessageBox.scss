@@ -1,0 +1,64 @@
+.#{$prefix}messagebox .#{$prefix}body-wrap-el {
+    background-color: $messagebox-body-background-color;
+}
+
+.#{$prefix}message-box-info, .#{$prefix}msgbox-info,
+.#{$prefix}message-box-warning, .#{$prefix}msgbox-warning,
+.#{$prefix}message-box-question, .#{$prefix}msgbox-question,
+.#{$prefix}message-box-error, .#{$prefix}msgbox-error,
+.#{$prefix}message-box-loading, .#{$prefix}msgbox-loading {
+    background-position: $messagebox-icon-background-position;
+    background-repeat: no-repeat;
+}
+
+.#{$prefix}messagebox .#{$prefix}body-wrap-el .#{$prefix}icon {
+    height: $messagebox-icon-size;
+    width: $messagebox-icon-size;
+    margin: auto 0 auto $messagebox-icon-spacing;
+}
+
+.#{$prefix}message-box-info, .#{$prefix}msgbox-info {
+    @if $enable-font-icons and ($messagebox-info-glyph != null) {
+        @include font-icon($messagebox-info-glyph);
+        color: $messagebox-info-glyph-color;
+    } @else {
+        background-image: theme-background-image('shared/icon-info');
+    }
+}
+
+.#{$prefix}message-box-warning, .#{$prefix}msgbox-warning {
+    @if $enable-font-icons and ($messagebox-warning-glyph != null) {
+        @include font-icon($messagebox-warning-glyph);
+        color: $messagebox-warning-glyph-color;
+    } @else {
+        background-image: theme-background-image('shared/icon-warning');
+    }
+}
+
+.#{$prefix}message-box-question, .#{$prefix}msgbox-question {
+    @if $enable-font-icons and ($messagebox-question-glyph != null) {
+        @include font-icon($messagebox-question-glyph);
+        color: $messagebox-question-glyph-color;
+    } @else {
+        background-image: theme-background-image('shared/icon-question');
+    }
+}
+
+.#{$prefix}message-box-error, .#{$prefix}msgbox-error {
+    @if $enable-font-icons and ($messagebox-error-glyph != null) {
+        @include font-icon($messagebox-error-glyph);
+        color: $messagebox-error-glyph-color;
+    } @else {
+        background-image: theme-background-image('shared/icon-error');
+    }
+}
+
+.#{$prefix}message-box-loading::before, .#{$prefix}msgbox-loading::before {
+    content: " ";
+    background-image: theme-background-image("loading", "gif");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    display: block;
+}

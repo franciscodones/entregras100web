@@ -1,0 +1,185 @@
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1522 */
+.x-button-alt.x-button-decline {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1525 */
+.x-button-alt.x-button-decline .x-inner-el {
+    background-color: #c62828;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1529 */
+.x-button-alt.x-button-decline .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1533 */
+.x-button-alt.x-button-decline.x-hovered {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1536 */
+.x-button-alt.x-button-decline.x-hovered .x-inner-el {
+    background-color: #c62828;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1540 */
+.x-button-alt.x-button-decline.x-hovered .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1545 */
+.x-button-alt.x-button-decline.x-pressing,
+.x-button-alt.x-button-decline.x-pressed {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1548 */
+.x-button-alt.x-button-decline.x-pressing .x-inner-el,
+.x-button-alt.x-button-decline.x-pressed .x-inner-el {
+    background-color: #c62828;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1552 */
+.x-button-alt.x-button-decline.x-pressing .x-icon-el,
+.x-button-alt.x-button-decline.x-pressed .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1558 */
+.x-keyboard-mode .x-button-alt.x-button-decline.x-focused {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1561 */
+.x-keyboard-mode .x-button-alt.x-button-decline.x-focused .x-inner-el {
+    background-color: #c62828;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1565 */
+.x-keyboard-mode .x-button-alt.x-button-decline.x-focused .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1522 */
+.x-button-alt.x-button-confirm {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1525 */
+.x-button-alt.x-button-confirm .x-inner-el {
+    background-color: #7cb342;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1529 */
+.x-button-alt.x-button-confirm .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1533 */
+.x-button-alt.x-button-confirm.x-hovered {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1536 */
+.x-button-alt.x-button-confirm.x-hovered .x-inner-el {
+    background-color: #7cb342;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1540 */
+.x-button-alt.x-button-confirm.x-hovered .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1545 */
+.x-button-alt.x-button-confirm.x-pressing,
+.x-button-alt.x-button-confirm.x-pressed {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1548 */
+.x-button-alt.x-button-confirm.x-pressing .x-inner-el,
+.x-button-alt.x-button-confirm.x-pressed .x-inner-el {
+    background-color: #7cb342;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1552 */
+.x-button-alt.x-button-confirm.x-pressing .x-icon-el,
+.x-button-alt.x-button-confirm.x-pressed .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1558 */
+.x-keyboard-mode .x-button-alt.x-button-confirm.x-focused {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1561 */
+.x-keyboard-mode .x-button-alt.x-button-confirm.x-focused .x-inner-el {
+    background-color: #7cb342;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-neptune/sass/var/Button.scss:1565 */
+.x-keyboard-mode .x-button-alt.x-button-confirm.x-focused .x-icon-el {
+    color: #fff;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:1 */
+.x-messagebox .x-body-wrap-el {
+    background-color: #fafafa;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:5 */
+.x-message-box-info,
+.x-msgbox-info,
+.x-message-box-warning,
+.x-msgbox-warning,
+.x-message-box-question,
+.x-msgbox-question,
+.x-message-box-error,
+.x-msgbox-error,
+.x-message-box-loading,
+.x-msgbox-loading {
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:14 */
+.x-messagebox .x-body-wrap-el .x-icon {
+    height: 40px;
+    width: 40px;
+    margin: auto 0 auto 10px;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:20 */
+.x-message-box-info,
+.x-msgbox-info {
+    font: 40px/1 "FontAwesome";
+    color: grey;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-info:before,
+.x-msgbox-info:before {
+    content: "\f05a";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:29 */
+.x-message-box-warning,
+.x-msgbox-warning {
+    font: 40px/1 "FontAwesome";
+    color: #f8d400;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-warning:before,
+.x-msgbox-warning:before {
+    content: "\f071";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:38 */
+.x-message-box-question,
+.x-msgbox-question {
+    font: 40px/1 "FontAwesome";
+    color: grey;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-question:before,
+.x-msgbox-question:before {
+    content: "\f059";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:47 */
+.x-message-box-error,
+.x-msgbox-error {
+    font: 40px/1 "FontAwesome";
+    color: #ee611f;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-error:before,
+.x-msgbox-error:before {
+    content: "\f057";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-dialog/packages/local/pyansa-dialog/modern/sass/src/overrides/MessageBox.scss:56 */
+.x-message-box-loading::before,
+.x-msgbox-loading::before {
+    content: " ";
+    background-image: url(images/loading.gif);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    display: block;
+}

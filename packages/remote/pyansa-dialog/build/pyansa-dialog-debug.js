@@ -1719,26 +1719,4 @@ try {
   }
 } catch (e) {
 }
-Ext.define('Pyansa.window.dialog.Dialog', {alias:'pyansa.window.dialog.dialog', extend:'Ext.window.Window', acceptText:'Aceptar', cancelText:'Cancelar', title:'Ingrese un valor', constructor:function(config) {
-  var me = this;
-  if (!config.field) {
-    Ext.raise('Es necesario especificar la configuracion del campo a utilizar');
-  }
-  config = Ext.merge({autoShow:true, width:300, height:200, modal:true, closable:false, items:[{xtype:'form', bodyPadding:10, items:[config.field]}, {xtype:'container', layout:{type:'hbox', align:'stretch', pack:'center'}, items:[{xtype:'button', minWidth:100, text:me.cancelText, listeners:{click:{fn:me.onCancelButtonClick, scope:me}}}, {xtype:'tbspacer', width:20}, {xtype:'button', minWidth:100, text:me.acceptText, listeners:{click:{fn:me.onAcceptButtonClick, scope:me}}}]}], listeners:{cancel:me.onDialogCancel, 
-  accept:me.onDialogAccept}}, config);
-  me.callParent([config]);
-}, onDialogCancel:function() {
-  this.close();
-}, onDialogAccept:Ext.emptyFn, onCancelButtonClick:function() {
-  this.fireEvent('cancel');
-}, onAcceptButtonClick:function() {
-  var me = this, form = me.down('form'), field = me.down('field');
-  if (form.isValid()) {
-    me.fireEvent('accept', field.getValue(), field);
-  }
-}});
-Ext.define('Pyansa.window.dialog.ComboBox', {alias:'pyansa.window.dialog.combobox', extend:'Pyansa.window.dialog.Dialog', title:'Seleccione un valor', constructor:function(config) {
-  var me = this;
-  config = Ext.merge({field:{xtype:'combobox', anchor:'100%', fieldLabel:'Label', labelAlign:'top', labelStyle:'text-align: center;', allowBlank:false, editable:false, forceSelection:true, emptyText:'Seleccione una opción'}}, config);
-  me.callParent([config]);
-}});
+Ext.define('Pyansa.overrides.MessageBox', {override:'Ext.MessageBox'});

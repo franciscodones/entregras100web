@@ -173,6 +173,7 @@ class UnidadesController extends AppController {
                     "letra = ?, " .
                     "online = ?, " .
                     "cobro_aditivo = ?, " .
+                    "aditivo_obligatorio = ?, " .
                     "permitir_ruta_nocturna = ?, " .
                     "estado = ? " .
                 "WHERE id = ?";
@@ -182,6 +183,7 @@ class UnidadesController extends AppController {
                 $aRecord["letra"],
                 $aRecord["online"],
                 $aRecord["cobro_aditivo"],
+                $aRecord["aditivo_obligatorio"],
                 $aRecord["permitir_ruta_nocturna"],
                 $aRecord["estado"],
                 $aRecord["id"]

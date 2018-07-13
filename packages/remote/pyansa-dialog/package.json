@@ -2,7 +2,7 @@
   "name": "pyansa-dialog",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0.3",
+  "version": "6.5.0.5",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa dialog",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-05-08T16:07:31Z",
+      "created": "2018-06-15T16:29:35Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "JylebXER9yg\u003d",
-      "signature": "IYg0eZwd0uvxr0nDLONT6JRsVtSd28yb5lpnCnUwoWIDFI8baF19HlUSDcXNlxfis1t6mWTJCn8c/r3uDU/OpEwe3Bl7hs9jFVbZdpXiDhdKfGqkr1uDxDCV2RYxVslhZ9BL5ucwoGhIhoqj2JmA+Qhs4O5jpwhZopVqvmZxRvsGBVM4/aQQeC8BhhPOHJSAOr/Yl5sTgtQEO+EA98Ad411TdRnL7Eq3w7AJXgVhMZcavABs8xROYA7Qxqwo3l4vMDGPJbLaiTsqKCFzLDknzwaGviWciexTr+356Pmx8jdZphywLngtaZM/o64k8mbK6Kyw0Moqulpox8Uz0FO9rg\u003d\u003d"
+      "nonce": "+C+T3UgcN5Y\u003d",
+      "signature": "VgHjjFsH0LOmqDOkyvN5K1x+3VzIbEmFKnDQsCXwxLQ862heCwNe+F4XbDnZ14PnPqs5oV3aamDhYd6NJT+Iin2zWqepMXk+vjnhUTa25oUPXH8Jc2WPYkeZsO8zsYagwEzz3mGdyxe7lkSZAgvcOue6l9Lie8Utb0ubNKVTfHnIiC08C1Pfs/swF3LcwKICBBigx5FcDNhsTTgjQV6AAaZKX/D3usTl7exzzTFvdYIZATyLmFWbGIHjWa3aDiFboHIQ/a2zeZTmR/eEWOmbqTMEk7R5MgrvuZovVwAr+qXR7UzuJqOOdCyXul/TRKwDPLrcRXvnyIzSOazkaPPnNg\u003d\u003d"
     }
   ],
   "architect": {
@@ -45,6 +45,10 @@
     "triton": {
       "toolkit": "classic",
       "theme": "theme-triton"
+    },
+    "material": {
+      "toolkit": "modern",
+      "theme": "theme-material"
     }
   },
   "output": "${package.dir}/build",
@@ -72,7 +76,5 @@
     "${package.dir}/${toolkit.name}/overrides"
   ],
   "framework": "ext",
-  "properties": {
-    "skip.style": 1
-  }
+  "properties": {}
 }
