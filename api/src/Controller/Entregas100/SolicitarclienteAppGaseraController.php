@@ -4,9 +4,9 @@ namespace App\Controller\Entregas100;
 
 use Exception;
 
-class SolicitarpadronAppGaseraController extends AppGaseraController {
+class SolicitarclienteAppGaseraController extends AppGaseraController {
 
-    public function solicitarpadron_fn() {
+    public function solicitarcliente_fn() {
         $nParametrosFn = 1;
         $aData = func_get_args();
         $aDatos = $aData[1];
@@ -86,7 +86,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
             ));
         }
 
-        $aCliente = $this->procesarClientesPadron($aPadron);
+        $aCliente = $this->procesarClientesPadron($aResultado);
 
         return $this->asJson(array(
             "success" => true,
