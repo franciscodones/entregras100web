@@ -5,7 +5,7 @@
   ],
   "namespace": "Ext",
   "format": "1",
-  "version": "6.5.0.3",
+  "version": "6.5.0.4",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa exporter",
@@ -15,10 +15,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-05-08T16:09:34Z",
+      "created": "2018-06-14T19:27:38Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "PNEFtOnLFek\u003d",
-      "signature": "n3E58jkPcS2Ky1G7rMJU8/Ep1DZTt40cemf9LwpXjL6m+f4tPfRvByzn8fnAs2XnC5h45FlAhrgUhr1wavysY0nx0fcWDMPNDehadZns+Z9VJ60wWhicoz0Q3SIFOlJ4RAFeD1qu4G3E2lWoCvUSsvix7EO9TbWHeb9s1Oc+P/Jm5y2L2GwsG9s2Uu8hAO9NqvthPRMnoVI4p2wWOEJMUGUylo8Naz0ZjzQn6Q/b+JwrubjCr+Kj0hXyWtHk3Qqpo14QceZZ57ZaVHcxNXqFshWZYcqFqWcpulDY6+M823DncINZ5wiy9ilA5VOpPfmRHngr7L3jR67rUSstwo9Igg\u003d\u003d"
+      "nonce": "UgxAasPfv38\u003d",
+      "signature": "n75UnHkDxZDCLWO7Q2nyq6OT+YXAChS9s8vspyMHlANDgY7M8R2kULC7eXgOoy2gAy+UUIq7NPSNJQ+G3XKjm604VUtPzh28iCDjuhiqhyEhH1TXx2NZmNTWKlGqqUVlYIzOqVm2xwMWaOwh2sq24O3y+1cjFEMPR/GPuW6c1Ns7CiimlfbrTjCVYBsKvvS7Q03UbyBTudbYsp1H5bA7/Q2f2fykurJUORFwRlucPEPtVT12k94oEcZh6EVRjvXyq2zIB9OcGS4cwegBl1LM5o02t3r+Yl6kUiRVhpaBGNuzpIvTrt4t1BoleaRSvAtaFF6jBWz4+PrfZT8c7VZhkA\u003d\u003d"
     }
   ],
   "architect": {
@@ -48,6 +48,10 @@
     "triton": {
       "toolkit": "classic",
       "theme": "theme-triton"
+    },
+    "material": {
+      "toolkit": "modern",
+      "theme": "theme-material"
     }
   },
   "output": "${package.dir}/build",

@@ -1,0 +1,647 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "designer|userAlias": "reportesalarmaspanel",
+        "designer|userClassName": "ReportesAlarmasPanel",
+        "glyph": "f0f3@FontAwesome",
+        "id": "reportesAlarmasPanel",
+        "layout": "fit",
+        "title": "Reportes - Alarmas"
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "glyph": "auto",
+        "id": "string",
+        "title": "string",
+        "layout": "string"
+    },
+    "name": "MyPanel1",
+    "designerId": "206ed734-ff79-4763-ace4-a39c42cc1b4b",
+    "viewControllerInstanceId": "d37f8676-f96f-4c78-a70b-946c82e23f03",
+    "viewModelInstanceId": "1dec7b6a-d5b5-4b8e-939c-a12679ef61d5",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "footer",
+                "dock": "top",
+                "ui": "footer"
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "dock": "string",
+                "ui": "string"
+            },
+            "name": "MyToolbar3",
+            "designerId": "a9f002a8-e3d1-4da8-af82-7455d717bc62",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f021@FontAwesome",
+                        "itemId": "btnRefrescar",
+                        "layout|flex": null,
+                        "text": "Refrescar"
+                    },
+                    "configAlternates": {
+                        "glyph": "auto",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "ff9d9998-0d02-45dc-bdf3-25a07ed1c52c",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnRefrescarClick",
+                                "implHandler": [
+                                    "this.getStore(\"LogsAlarmasLocalStore\").load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnRefrescarClick",
+                            "designerId": "88a30a6e-071f-4459-946e-1f42fcdc315e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "glyph": "f019@FontAwesome",
+                        "layout|flex": null,
+                        "text": "Exportar"
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "glyph": "auto"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "e55be2ae-2086-42db-8735-ab3531066404",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "width": "auto"
+                            },
+                            "name": "MyMenu4",
+                            "designerId": "6bff3080-90ba-4623-a06e-4a26c546bc12",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f1c3@FontAwesome",
+                                        "itemId": "mItemExportarExcel",
+                                        "text": "Excel"
+                                    },
+                                    "configAlternates": {
+                                        "itemId": "string",
+                                        "text": "string",
+                                        "glyph": "auto"
+                                    },
+                                    "name": "MyMenuItem15",
+                                    "designerId": "457a06dd-7bb9-4fb6-a775-8476fa962915",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemExportarExcelClick",
+                                                "implHandler": [
+                                                    "var me = this;",
+                                                    "",
+                                                    "me.view.down(\"#logsAlarmasGrid\").saveDocumentAs({",
+                                                    "    type: \"excel\",",
+                                                    "    title: \"Reporte de Alarmas\",",
+                                                    "    author: \"Entregas100\",",
+                                                    "    fileName: \"reporte_alarmas.xlsx\",",
+                                                    "    includeGroups: true",
+                                                    "});"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemExportarExcelClick",
+                                            "designerId": "32aa3953-9cdc-46d8-abb2-b9a7b8e519a2"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "itemId": "logsAlarmasGrid",
+                "scrollable": true,
+                "showMenuHint": true,
+                "showMenuTriggers": true,
+                "store": [
+                    "{LogsAlarmasLocalStore}"
+                ]
+            },
+            "configAlternates": {
+                "store": "binding",
+                "showMenuHint": "boolean",
+                "showMenuTriggers": "boolean",
+                "autoLoad": "boolean",
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "itemId": "string",
+                "columnLines": "boolean",
+                "scrollable": "auto"
+            },
+            "name": "MyGridPanel2",
+            "designerId": "ea1498a9-52a2-48dc-9f01-b3b1209834a9",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuHint",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuTriggers",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "unidad",
+                        "text": "Unidad",
+                        "width": 85
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "e8f24134-c78c-4121-be7e-dd7c927af866",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter2",
+                            "designerId": "0675f812-fa4b-4e5f-816b-f39b54634bad"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "numero_servicio",
+                        "exportStyle": [
+                            "{",
+                            "    width: 150",
+                            "}"
+                        ],
+                        "format": "0",
+                        "text": "No. de servicio",
+                        "width": 125
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto",
+                        "exportStyle": "object"
+                    },
+                    "name": "MyNumberColumn9",
+                    "designerId": "84b3fdeb-3e6c-4610-9627-2a9f11e87078"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "fecha",
+                        "exportStyle": [
+                            "{",
+                            "    format: \"Medium Date\",",
+                            "    width: 120",
+                            "}"
+                        ],
+                        "format": "d/F/Y",
+                        "itemId": "fechaColumn",
+                        "text": "Fecha",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto",
+                        "exportStyle": "object",
+                        "itemId": "string"
+                    },
+                    "name": "MyDateColumn4",
+                    "designerId": "54cc5159-b5b3-4a6a-b208-6ff14cfc8e31",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Date",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "logs_alarmas.fecha",
+                                "dateFormat": "Y-m-d"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "string",
+                                "dateFormat": "string"
+                            },
+                            "name": "MyDateFilter1",
+                            "designerId": "6049dba3-532d-4518-ac9c-32b7019c0a0d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "hora",
+                        "exportStyle": [
+                            "{",
+                            "    format: \"Short Time\",",
+                            "    width: 100",
+                            "}"
+                        ],
+                        "format": "H:i:s",
+                        "text": "Hora",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto",
+                        "exportStyle": "object"
+                    },
+                    "name": "MyDateColumn3",
+                    "designerId": "2f77697c-f740-493c-a694-df8e29fb849a"
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTable5",
+                    "designerId": "fd088d22-90e7-4221-9fca-19f4cc5c6343"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidad",
+                        "format": "0",
+                        "text": "Cantidad",
+                        "width": 95
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn10",
+                    "designerId": "d6cdff5e-9629-4c11-9f8c-ff69054882f5"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "litros",
+                        "format": "0,000.##",
+                        "text": "Litros",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn11",
+                    "designerId": "3124fd6c-01fc-4344-95fc-d53af277ba3e"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "litros_no_autorizados",
+                        "exportStyle": [
+                            "{",
+                            "    width: 220",
+                            "}"
+                        ],
+                        "format": "0,000.##",
+                        "text": "Litros no autorizados",
+                        "width": 160
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto",
+                        "exportStyle": "object"
+                    },
+                    "name": "MyNumberColumn13",
+                    "designerId": "7e0c57b1-5366-4196-af16-286589d7a7e2",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter",
+                            "designerId": "9eec1ddd-642f-49c9-bbd8-8fac82fb3dca"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "numero_control",
+                        "format": "0",
+                        "text": "Control",
+                        "width": 90
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyNumberColumn12",
+                    "designerId": "535983de-eb9f-49d4-a9ed-c3e05317a79c",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter3",
+                            "designerId": "48713be3-cf02-4cca-9a55-7da448ff2906"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "plaza",
+                        "exportStyle": [
+                            "{",
+                            "    width: 200",
+                            "}"
+                        ],
+                        "text": "Plaza",
+                        "width": 160
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "format": "string",
+                        "width": "auto",
+                        "exportStyle": "object"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "cbc80610-c273-480f-a90e-2988f91bd11b",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "plaza_id"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "string"
+                            },
+                            "name": "MyListFilter",
+                            "designerId": "c9c171a7-9280-4ac8-a149-2c3946c26d0e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin1",
+                    "designerId": "47d7397d-17a8-4a17-999a-9936b603c2a9"
+                },
+                {
+                    "type": "Ext.grid.feature.Grouping",
+                    "reference": {
+                        "name": "features",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableGroupingMenu": false,
+                        "startCollapsed": true
+                    },
+                    "configAlternates": {
+                        "enableGroupingMenu": "boolean",
+                        "startCollapsed": "boolean"
+                    },
+                    "name": "MyGroupingFeature",
+                    "designerId": "991db7a4-cc40-456f-a8a0-f2de3927d412",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "groupHeaderTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "groupHeaderTpl",
+                                "implHandler": [
+                                    "{[values.rows[0].get(\"alarma\")]}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|displayName": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "groupHeaderTpl",
+                            "designerId": "5d4cde5c-f47c-4aad-9169-c710f87fde50"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.Exporter",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridExporterPlugin1",
+                    "designerId": "e340feb8-44f3-486f-a43c-411c7f6aefc0"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onReportesAlarmasPanelBeforeRender",
+                "implHandler": [
+                    "var me = this,",
+                    "    fechaColumn = me.view.down(\"#fechaColumn\");",
+                    "",
+                    "// activa el filtro de fecha con valor de la fecha de ayer",
+                    "fechaColumn.filter.filter.eq.setValue(Ext.Date.subtract(new Date(), Ext.Date.DAY, 1));",
+                    "fechaColumn.filter.setActive(true);"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onReportesAlarmasPanelBeforeRender",
+            "designerId": "c614fb56-28de-40fb-b807-b479370af6f8"
+        }
+    ]
+}

@@ -162,6 +162,12 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
         this.abrirPanel("widget.horarioszonapanel");
     },
 
+    onMItemReportesAlarmasClick: function(item, e, eOpts) {
+        var me = this;
+
+        me.abrirPanel("widget.reportesalarmaspanel");
+    },
+
     onMItemConfigurarCuentaClick: function(item, e, eOpts) {
         this.abrirPanel("widget.configurarcuentapanel");
     },

@@ -202,6 +202,25 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             cls: 'menu-flechas',
                             floating: false,
                             margin: 0,
+                            width: 120,
+                            title: 'Reportes',
+                            items: [
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemReportesAlarmas',
+                                    glyph: 'f0f3@FontAwesome',
+                                    text: 'Alarmas',
+                                    listeners: {
+                                        click: 'onMItemReportesAlarmasClick'
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'menu',
+                            cls: 'menu-flechas',
+                            floating: false,
+                            margin: 0,
                             title: 'Mi Cuenta',
                             items: [
                                 {

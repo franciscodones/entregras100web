@@ -5,10 +5,6 @@
 Ext.define('Pyansa.overrides.data.Store', {
     override: 'Ext.data.Store',
 
-    requires: [
-        "Pyansa.overrides.data.proxy.Ajax"
-    ],
-
     /**
      * Revertir las operaciones en caso que la funcion `sync` presente excepciones
      * @type {Boolean}

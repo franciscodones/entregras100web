@@ -1,0 +1,69 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportesalarmaspanel",
+        "designer|userClassName": "ReportesAlarmasPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "1dec7b6a-d5b5-4b8e-939c-a12679ef61d5",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "LogAlarmaModel",
+                "name": "LogsAlarmasLocalStore",
+                "remoteFilter": true,
+                "type": "logsalarmasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string",
+                "groupField": "datafield",
+                "remoteFilter": "boolean"
+            },
+            "name": "MyStore6",
+            "designerId": "8b0b4e42-9c98-4e72-8ff6-349da3f1da5f",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Grouper",
+                    "reference": {
+                        "name": "grouper",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "property": "alarma",
+                        "sortProperty": "alarma_id"
+                    },
+                    "configAlternates": {
+                        "property": "string",
+                        "sortProperty": "string"
+                    },
+                    "name": "MyGrouper",
+                    "designerId": "aae3d69a-1a21-4b8e-81d8-b88abfe164b0"
+                }
+            ]
+        }
+    ]
+}

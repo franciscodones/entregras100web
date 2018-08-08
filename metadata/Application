@@ -24,7 +24,8 @@
             "PivotePermisoModel",
             "HorarioZonaModel",
             "DescuentoPromocionModel",
-            "TablaPuntosModel"
+            "TablaPuntosModel",
+            "LogAlarmaModel"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -45,7 +46,8 @@
             "PivotePermisosStore",
             "HorariosZonaStore",
             "DescuentosPromocionStore",
-            "TablaPuntosStore"
+            "TablaPuntosStore",
+            "LogsAlarmasStore"
         ],
         "views": [
             "MainViewport",
@@ -80,7 +82,8 @@
             "EditarDescuentoPromocionWindow",
             "TablaPuntosPanel",
             "CrearTablaPuntosWindow",
-            "EditarTablaPuntosWindow"
+            "EditarTablaPuntosWindow",
+            "ReportesAlarmasPanel"
         ]
     },
     "configAlternates": {

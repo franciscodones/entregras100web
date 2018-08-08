@@ -25,6 +25,23 @@ class AlarmaAppGaseraController extends AppGaseraController {
         $nLitrosNoAutorizados = !empty($aDatos['litros_no']) ? $aDatos['litros_no'] / 100 : null;
         $dFecha = $aDatos['fecha'];
         $tHora = $aDatos['hora'];
+        $aAlarmasArray = array(
+            "1" => 0,
+            "2" => 0,
+            "3" => 0,
+            "4" => 0,
+            "5" => 0,
+            "6" => 0,
+            "7" => 0,
+            "8" => 0
+        );
+
+        // hack para normalizar las alarmas que son individuales en el json
+        // usado para guardar varias alarmas a la vez
+        if (preg_match("/\d+/", $sAlarmas)) {
+            $aAlarmasArray[$sAlarmas] = 1;
+            $sAlarmas = json_encode($aAlarmasArray);
+        }
 
         // agrega el registro de la alarma
         $oConexion = $this->getConexion();

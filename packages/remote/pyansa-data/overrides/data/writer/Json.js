@@ -13,18 +13,23 @@ Ext.define('Pyansa.overrides.data.writer.Json', {
      * @param  {Object} config
      */
     constructor: function(config) {
-        var me = this;
+        var me = this,
+            defaults;
 
-        // se encadena la configuracion para evitar mutar la inicial
-        config = config || {}
-        config = Ext.Object.chain(config);
-
-        config = Ext.apply({
+        // Inicializa las variables de tal manera que la prioridad que toman las propiedades son:
+        // - config
+        // - prototipo (variables declaradas en la clase)
+        // - defaults
+        config = config || {};
+        defaults = {
             writeAllFields: true,
             allowSingle: false,
             encode: true,
             rootProperty: 'records'
-        }, config);
+        };
+        Ext.Object.each(defaults, function(key, value) {
+            config[key] = config[key] || me[key] || value;
+        });
 
         me.callParent([config]);
     }

@@ -916,6 +916,82 @@
                                 ],
                                 "floating": false,
                                 "margin": 0,
+                                "title": "Reportes",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "cls": "typedarray",
+                                "floating": "boolean",
+                                "margin": "auto",
+                                "title": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyMenu2",
+                            "designerId": "9bb6198f-91b9-451e-876f-3f80ecc16c33",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f0f3@FontAwesome",
+                                        "itemId": "mItemReportesAlarmas",
+                                        "text": "Alarmas"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem14",
+                                    "designerId": "62fd1d50-0ad2-44c7-a7f7-8558a6b7d0a9",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemReportesAlarmasClick",
+                                                "implHandler": [
+                                                    "var me = this;",
+                                                    "",
+                                                    "me.abrirPanel(\"widget.reportesalarmaspanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemReportesAlarmasClick",
+                                            "designerId": "b288c0f8-bbc9-494d-820a-7edd136299e0"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "cls": [
+                                    "menu-flechas"
+                                ],
+                                "floating": false,
+                                "margin": 0,
                                 "title": "Mi Cuenta"
                             },
                             "configAlternates": {

@@ -38,7 +38,8 @@ Ext.application({
         'PivotePermisoModel',
         'HorarioZonaModel',
         'DescuentoPromocionModel',
-        'TablaPuntosModel'
+        'TablaPuntosModel',
+        'LogAlarmaModel'
     ],
     stores: [
         'PlazasStore',
@@ -58,7 +59,8 @@ Ext.application({
         'PivotePermisosStore',
         'HorariosZonaStore',
         'DescuentosPromocionStore',
-        'TablaPuntosStore'
+        'TablaPuntosStore',
+        'LogsAlarmasStore'
     ],
     views: [
         'MainViewport',
@@ -93,7 +95,8 @@ Ext.application({
         'EditarDescuentoPromocionWindow',
         'TablaPuntosPanel',
         'CrearTablaPuntosWindow',
-        'EditarTablaPuntosWindow'
+        'EditarTablaPuntosWindow',
+        'ReportesAlarmasPanel'
     ],
     name: 'Entregas100Web',
 

@@ -2,7 +2,7 @@
   "name": "pyansa-grid",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0.3",
+  "version": "6.5.0.5",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa grid",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-05-08T16:14:46Z",
+      "created": "2018-06-14T19:49:18Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "T1EsLtir+ZA\u003d",
-      "signature": "R/bjxZ1CLpGazWQOUDhC6ttnf/MWXMq1eaaG45oZscrVaG7MqCwVhTfQBIWPTWmo3BUNSsqEgGNOKsP4ON1luv3ALzBL3Abr6gY8KrEQMgAsdMt5pGXpKiOGSUuzgkXp66kzkQUJa4Ze+JV1TMltfX2M34t4GMrik58an4AjJrYZrJQlOziRFeYgRfCvkyJsjpoM4BtQ6g6AjCy4/iV98mZT2cV7nN6DzZZz9qn1mBhaO9kmIXqIH8bL4CzD27F7U6GgQRWkSFWjeUxGrP/TrRSGQ5+DmiGr+I4hjio9Rbdybb5nUzJG7eg0yhiedv+Jk/7FlBMVK7qvbDNEFv8zKA\u003d\u003d"
+      "nonce": "IFtS0QcNBiI\u003d",
+      "signature": "W0xAENCM4JnI8PSn7vwmVoNW/RYdTBxWeYh7VNgkn0R7PfOSSCX8g/Cqzs8XeSbmPnKcwHfDaDo59047PUIFUS5dLGoaooUI911dUwzZD0ltOpVgya8Ffjra9d41KrhZTofG0RtsQ6ar1uiVLAOqFCF/XOdFRy4TtaqSFk8dHx4EeBdcniH5UzjmO0vSIFdG2SsXZGdmAP7RZ67e+jRVt9xZoKHSeZswM6H+eTQfdsyEKp9fEV+m2DhacyZ8LYI7gfPVtRvCDr0uGBoWrq+kHOHEq0WwSaL6ahrPtRTvJEcAK9IuIG0YUv91aOYC8Lpkbn84DEYiPqieE2J9+tFYYA\u003d\u003d"
     }
   ],
   "architect": {

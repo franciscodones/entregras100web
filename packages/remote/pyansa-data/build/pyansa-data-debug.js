@@ -1765,20 +1765,24 @@ Ext.define('Pyansa.overrides.data.proxy.Ajax', {override:'Ext.data.proxy.Ajax', 
   Ext.Msg.show({title:'Mensaje del Sistema', message:message, icon:Ext.Msg.ERROR, buttons:Ext.Msg.OK});
 }});
 Ext.define('Pyansa.overrides.data.reader.Json', {override:'Ext.data.reader.Json', requires:['Ext.Object'], constructor:function(config) {
-  var me = this;
+  var me = this, defaults;
   config = config || {};
-  config = Ext.Object.chain(config);
-  config = Ext.apply({messageProperty:'message', rootProperty:'records', metaProperty:'metadata'}, config);
+  defaults = {messageProperty:'message', rootProperty:'records', metaProperty:'metadata'};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
   me.callParent([config]);
 }});
 Ext.define('Pyansa.overrides.data.writer.Json', {override:'Ext.data.writer.Json', requires:['Ext.Object'], constructor:function(config) {
-  var me = this;
+  var me = this, defaults;
   config = config || {};
-  config = Ext.Object.chain(config);
-  config = Ext.apply({writeAllFields:true, allowSingle:false, encode:true, rootProperty:'records'}, config);
+  defaults = {writeAllFields:true, allowSingle:false, encode:true, rootProperty:'records'};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
   me.callParent([config]);
 }});
-Ext.define('Pyansa.overrides.data.Store', {override:'Ext.data.Store', requires:['Pyansa.overrides.data.proxy.Ajax'], rejectOnExceptions:false, onBatchComplete:function(batch, operation) {
+Ext.define('Pyansa.overrides.data.Store', {override:'Ext.data.Store', rejectOnExceptions:false, onBatchComplete:function(batch, operation) {
   var me = this, proxy = me.getProxy(), batchExceptions = batch.getExceptions(), operationException;
   if (me.rejectOnExceptions) {
     if (batchExceptions.length > 0) {

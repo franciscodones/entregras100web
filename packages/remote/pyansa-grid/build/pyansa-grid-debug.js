@@ -1743,9 +1743,17 @@ Ext.define('Pyansa.overrides.grid.Panel', {override:'Ext.grid.Panel', requires:[
     }, me, {single:true});
   }
 }});
-Ext.define('Pyansa.overrides.grid.column.Column', {override:'Ext.grid.column.Column', showMenuTrigger:false, renderTpl:['\x3cdiv id\x3d"{id}-titleEl" data-ref\x3d"titleEl" role\x3d"presentation"', '{tipMarkup}class\x3d"', Ext.baseCSSPrefix, 'column-header-inner\x3ctpl if\x3d"!$comp.isContainer"\x3e ', Ext.baseCSSPrefix, 'leaf-column-header\x3c/tpl\x3e', '\x3ctpl if\x3d"$comp.showMenuTrigger"\x3e ', Ext.baseCSSPrefix, 'column-header-show-trigger\x3c/tpl\x3e', '\x3ctpl if\x3d"empty"\x3e ', Ext.baseCSSPrefix, 
-'column-header-inner-empty\x3c/tpl\x3e"\x3e', '\x3cdiv id\x3d"{id}-textContainerEl" data-ref\x3d"textContainerEl" role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text-container"\x3e', '\x3cdiv role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text-wrapper"\x3e', '\x3cdiv id\x3d"{id}-textEl" data-ref\x3d"textEl" role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text', '{childElCls}"\x3e', '\x3cspan id\x3d"{id}-textInnerEl" data-ref\x3d"textInnerEl" role\x3d"presentation" class\x3d"', 
-Ext.baseCSSPrefix, 'column-header-text-inner"\x3e{text}\x3c/span\x3e', '\x3c/div\x3e', '{%', 'values.$comp.afterText(out, values);', '%}', '\x3c/div\x3e', '\x3c/div\x3e', '\x3ctpl if\x3d"!menuDisabled"\x3e', '\x3cdiv id\x3d"{id}-triggerEl" data-ref\x3d"triggerEl" role\x3d"presentation" unselectable\x3d"on" class\x3d"', Ext.baseCSSPrefix, 'column-header-trigger', '{childElCls}" style\x3d"{triggerStyle}"\x3e\x3c/div\x3e', '\x3c/tpl\x3e', '\x3c/div\x3e', '{%this.renderContainer(out,values)%}']});
+Ext.define('Pyansa.overrides.grid.column.Column', {override:'Ext.grid.column.Column', showMenuTrigger:false, verticalHeader:false, renderTpl:['\x3cdiv id\x3d"{id}-titleEl" data-ref\x3d"titleEl" role\x3d"presentation"', '{tipMarkup}class\x3d"', Ext.baseCSSPrefix, 'column-header-inner\x3ctpl if\x3d"!$comp.isContainer"\x3e ', Ext.baseCSSPrefix, 'leaf-column-header\x3c/tpl\x3e', '\x3ctpl if\x3d"$comp.showMenuTrigger"\x3e ', Ext.baseCSSPrefix, 'column-header-show-trigger\x3c/tpl\x3e', '\x3ctpl if\x3d"$comp.verticalHeader"\x3e ', 
+Ext.baseCSSPrefix, 'column-vertical-header\x3c/tpl\x3e', '\x3ctpl if\x3d"empty"\x3e ', Ext.baseCSSPrefix, 'column-header-inner-empty\x3c/tpl\x3e"\x3e', '\x3cdiv id\x3d"{id}-textContainerEl" data-ref\x3d"textContainerEl" role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text-container"\x3e', '\x3cdiv role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text-wrapper"\x3e', '\x3cdiv id\x3d"{id}-textEl" data-ref\x3d"textEl" role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 
+'column-header-text', '{childElCls}"\x3e', '\x3cspan id\x3d"{id}-textInnerEl" data-ref\x3d"textInnerEl" role\x3d"presentation" class\x3d"', Ext.baseCSSPrefix, 'column-header-text-inner"\x3e{text}\x3c/span\x3e', '\x3c/div\x3e', '{%', 'values.$comp.afterText(out, values);', '%}', '\x3c/div\x3e', '\x3c/div\x3e', '\x3ctpl if\x3d"!menuDisabled"\x3e', '\x3cdiv id\x3d"{id}-triggerEl" data-ref\x3d"triggerEl" role\x3d"presentation" unselectable\x3d"on" class\x3d"', Ext.baseCSSPrefix, 'column-header-trigger', 
+'{childElCls}" style\x3d"{triggerStyle}"\x3e\x3c/div\x3e', '\x3c/tpl\x3e', '\x3c/div\x3e', '{%this.renderContainer(out,values)%}'], initComponent:function() {
+  var me = this, textMetrics = new Ext.util.TextMetrics, suggestedHeight;
+  if (me.verticalHeader && me.columns !== null) {
+    suggestedHeight = textMetrics.getWidth(me.text) + textMetrics.getHeight(me.text) + 10;
+    me.height = Math.max(suggestedHeight, me.height || suggestedHeight);
+  }
+  this.callParent(arguments);
+}});
 Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {override:'Ext.grid.filters.filter.Boolean', requires:['Ext.grid.column.Boolean'], constructor:function(config) {
   var me = this;
   me.callParent(arguments);

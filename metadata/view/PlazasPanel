@@ -191,11 +191,11 @@
                 "enableColumnMove": "boolean",
                 "itemId": "string",
                 "scrollable": "auto",
-                "store": "binding",
                 "autoLoad": "boolean",
                 "layout|flex": "number",
                 "showMenuTriggers": "boolean",
-                "showMenuHint": "boolean"
+                "showMenuHint": "boolean",
+                "store": "binding"
             },
             "name": "MyGridPanel",
             "designerId": "0fb230f4-3e26-4de7-b231-473d2b35281d",

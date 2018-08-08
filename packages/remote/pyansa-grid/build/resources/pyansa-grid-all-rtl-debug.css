@@ -1,32 +1,42 @@
-/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:3 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:3 */
 .x-column-header-show-trigger .x-column-header-trigger {
     display: block;
     background-color: #fff;
 }
-/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:10 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:10 */
 .x-column-header-show-trigger.x-column-header-over .x-column-header-trigger {
     background-color: #eaeff4;
 }
-/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:16 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:16 */
 .x-column-header-show-trigger.x-column-header-open .x-column-header-trigger {
     background-color: #dee3e8;
 }
-/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:21 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:21 */
 .x-column-header-show-trigger .x-column-header-trigger {
     width: 24px;
     cursor: pointer;
     font: 16px/1 FontAwesome;
     color: #919191;
 }
-/* C:/xampp54/htdocs/sencha-packages/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:126 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/ext/classic/theme-neutral/sass/etc/mixins/font-icon.scss:126 */
 .x-column-header-show-trigger .x-column-header-trigger:before {
     content: "\f0d7";
 }
-/* C:/xampp54/htdocs/sencha-packages/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:28 */
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:28 */
 .x-column-header-show-trigger .x-column-header-trigger:before {
     top: 50%;
     margin-top: -8px;
     text-align: center;
     position: relative;
     display: block;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:42 */
+.x-column-header:not(.x-group-header) .x-column-vertical-header .x-column-header-text-wrapper {
+    vertical-align: top;
+}
+/* C:/xampp54/htdocs/sencha-packages/pyansa-grid/packages/local/pyansa-grid/classic/sass/src/overrides/grid/column/Column.scss:45 */
+.x-column-header:not(.x-group-header) .x-column-vertical-header .x-column-header-text {
+    transform: rotate(90deg) translateX(50%);
+    text-overflow: clip;
+    overflow: visible;
 }

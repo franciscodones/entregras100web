@@ -1719,22 +1719,6 @@ try {
   }
 } catch (e) {
 }
-Ext.define('Pyansa.locale.panel.Panel', {override:'Ext.panel.Panel', collapseToolText:'Colapsar panel', expandToolText:'Expandir panel', closeToolText:'Cerrar panel'});
-Ext.define('Pyansa.locale.window.Window', {override:'Ext.window.Window', closeToolText:'Cerrar ventana'});
-Ext.define('Pyansa.locale.form.field.Number', {override:'Ext.form.field.Number', negativeText:'El valor no puede ser negativo'});
-Ext.define('Pyansa.locale.form.field.Date', {override:'Ext.form.field.Date', ariaDisabledDatesText:'Esta fecha no puede ser seleccionada', ariaDisabledDaysText:'Este dia de la semana esta deshabilitado', ariaMaxText:'La fecha debe ser igual o anterior a {0}', ariaMinText:'La fecha debe ser igual o posterior a {0}', formatText:'El formato de fecha esperado es {0}'});
-Ext.define('Pyansa.locale.form.field.Tag', {override:'Ext.form.field.Tag', ariaAvailableListLabel:'Valores disponibles', ariaDeselectedText:'{0} removido de la seleccion', ariaHelpText:'Use las flechas ARRIBA y ABAJO para ver los valores disponibles, ENTER para seleccionar. ' + 'Use las flechas IZQUIERDA y DERECHA para ver los valores seleccionados, la tecla DEL para deseleccionar.', ariaHelpTextEditable:'Use las flechas ARRIBA y ABAJO para ver los valores disponibles, ENTER para seleccionar. ' + 
-'Escriba y presione ENTER para crear un nuevo valor. Use las flechas IZQUIERDA y DERECHA para ver los valores ' + 'seleccionados, la tecla DEL para deseleccionar.', ariaNoneSelectedText:'Valor no seleccionado', ariaSelectedListLabel:'Valores seleccionados', ariaSelectedText:'Seleccionado {0}'});
-Ext.define('Pyansa.locale.form.field.Time', {override:'Ext.form.field.Time', formatText:'Formato de tiempo esperado HH:MM espacio AM o PM'});
-Ext.define('Pyansa.locale.grid.RowEditor', {override:'Ext.grid.RowEditor', saveBtnText:'Guardar', cancelBtnText:'Cancelar', errorsText:'Errores', dirtyText:'Debe confirmar o cancelar sus cambios'});
-Ext.define('Pyansa.locale.grid.feature.Grouping', {override:'Ext.grid.feature.Grouping', groupByText:'Agrupar por este campo', showGroupsText:'Mostrar en grupos', expandTip:'Click para expandir. Tecla CTRL para colapsar los demás', collapseTip:'Click para colapsar. Tecla CTRL/click colapsa los demás'});
-Ext.define('Pyansa.locale.grid.filters.filter.Date', {override:'Ext.grid.filters.filter.Date', requires:['Ext.Object'], constructor:function(config) {
-  var me = this;
-  config = config || {};
-  config = Ext.Object.chain(config);
-  config.fields = Ext.apply({lt:{text:'Antes de'}, gt:{text:'Despues de'}, eq:{text:'En'}}, config.fields);
-  me.callParent(arguments);
-}});
-Ext.define('Pyansa.locale.grid.filters.filter.Number', {override:'Ext.grid.filters.filter.Number', emptyText:'Ingrese el número...'});
-Ext.define('Pyansa.locale.grid.filters.filter.String', {override:'Ext.grid.filters.filter.String', emptyText:'Ingrese el texto del filtro...'});
-Ext.define('Pyansa.locale.grid.filters.Filters', {override:'Ext.grid.filters.Filters', menuFilterText:'Filtros'});
+Ext.define('Pyansa.locale.field.Field', {override:'Ext.field.Field', requiredMessage:'Este campo es obligatorio', validationMessage:'Esta en el formato incorrecto'});
+Ext.define('Pyansa.locale.field.Text', {override:'Ext.field.Text', inputMaskMessage:'El valor no concuerda con el formato requerido'});
+Ext.define('Pyansa.locale.field.Date', {override:'Ext.field.Date', minDateMessage:'La fecha en este campo debe ser igual o posterior a {0}', maxDateMessage:'La fecha en este campo debe ser igual o anterior a {0}'});

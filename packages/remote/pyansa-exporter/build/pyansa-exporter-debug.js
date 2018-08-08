@@ -5564,52 +5564,48 @@ Ext.define('Ext.grid.plugin.BaseExporter', {extend:'Ext.exporter.Plugin', prepar
     }
   }
 }});
-Ext.define('Ext.grid.plugin.Exporter', {alias:['plugin.gridexporter'], extend:'Ext.grid.plugin.BaseExporter', lockableScope:'top', getGridColumns:function() {
-  var grid = this.cmp, columns = [];
-  if (grid.lockedGrid) {
-    Ext.Array.insert(columns, columns.length, grid.lockedGrid.headerCt.items.items);
-    Ext.Array.insert(columns, columns.length, grid.normalGrid.headerCt.items.items);
-  } else {
-    Ext.Array.insert(columns, columns.length, grid.headerCt.items.items);
-  }
-  return columns;
+Ext.define('Ext.grid.plugin.Exporter', {alias:['plugin.gridexporter'], extend:'Ext.grid.plugin.BaseExporter', getGridColumns:function() {
+  return this.cmp.getHeaderContainer().innerItems;
 }, getColumnHeader:function(config, column) {
-  var dataIndexes = [], obj, result, style, width;
-  if (!column.hidden && !column.ignoreExport) {
-    style = this.getExportStyle(column.exportStyle, config);
-    width = column.getWidth();
-    if (style) {
-      width = style.width || width;
-    }
-    obj = {text:column.text, width:width, style:style};
-    if (column.isGroupHeader) {
-      result = this.getColumnHeaders(config, column.items.items);
-      obj.columns = result.headers;
-      if (obj.columns.length === 0) {
-        obj = null;
-      } else {
-        Ext.Array.insert(dataIndexes, dataIndexes.length, result.dataIndexes);
-      }
+  var dataIndexes = [], obj, result, style;
+  obj = {text:column.getText(), width:column.getWidth()};
+  if (column.isHeaderGroup) {
+    result = this.getColumnHeaders(config, column.innerItems);
+    obj.columns = result.headers;
+    if (obj.columns.length === 0) {
+      obj = null;
     } else {
+      Ext.Array.insert(dataIndexes, dataIndexes.length, result.dataIndexes);
+    }
+  } else {
+    if (!column.getHidden() && !column.getIgnoreExport()) {
+      style = this.getExportStyle(column.getExportStyle(), config);
+      obj.style = style;
+      obj.width = obj.width || column.getComputedWidth();
+      if (style) {
+        obj.width = style.width || obj.width;
+      }
       dataIndexes.push(column);
+    } else {
+      obj = null;
     }
   }
   if (obj) {
     return {header:obj, dataIndexes:dataIndexes};
   }
 }, prepareDataIndexColumn:function(config, column) {
-  var fn = Ext.identityFn, summaryFn = Ext.identityFn, style = this.getExportStyle(column.exportStyle, config);
+  var fn = Ext.identityFn, summaryFn = Ext.identityFn, style = this.getExportStyle(column.getExportStyle(), config);
   if (!style || style && !style.format) {
-    fn = this.getSpecialFn({renderer:'renderer', exportRenderer:'exportRenderer', formatter:'formatter'}, column);
-    summaryFn = this.getSpecialFn({renderer:'summaryRenderer', exportRenderer:'exportSummaryRenderer', formatter:'summaryFormatter'}, column);
+    fn = this.getSpecialFn({renderer:'renderer', exportRenderer:'exportRenderer', formatter:'formatter'}, column) || fn;
+    summaryFn = this.getSpecialFn({renderer:'summaryRenderer', exportRenderer:'exportSummaryRenderer', formatter:'summaryFormatter'}, column) || fn;
   }
-  return {dataIndex:column.dataIndex, column:column, fn:fn, summaryType:column.summaryType, summaryFn:summaryFn, colIndex:Ext.Array.indexOf(this.cmp.getVisibleColumns(), column)};
+  return {dataIndex:column.getDataIndex(), column:column, fn:fn, summary:column.getSummary(), summaryType:column.getSummaryType(), summaryIndex:column.getSummaryDataIndex() || column.getDataIndex(), summaryFn:summaryFn};
 }, getSpecialFn:function(names, column) {
-  var fn = Ext.identityFn, exportRenderer = column[names.exportRenderer], renderer = column[names.renderer], formatter = column[names.formatter], scope, tempFn;
-  scope = column.rendererScope || column.scope || column;
+  var exportRenderer = column['get' + Ext.String.capitalize(names.exportRenderer)](), renderer = column['get' + Ext.String.capitalize(names.renderer)](), formatter = column['get' + Ext.String.capitalize(names.formatter)](), fn, scope, tempFn;
+  scope = column.getScope() || column.resolveListenerScope() || column;
   tempFn = exportRenderer;
-  if (column.initialConfig[names.formatter] && !formatter && !tempFn) {
-    fn = renderer;
+  if (formatter && !tempFn) {
+    fn = formatter;
   } else {
     if (tempFn === true) {
       tempFn = renderer;
@@ -5628,9 +5624,9 @@ Ext.define('Ext.grid.plugin.Exporter', {alias:['plugin.gridexporter'], extend:'E
   }
   return fn;
 }, getCell:function(store, record, colDef) {
-  var v = record.get(colDef.dataIndex);
-  return {value:colDef.fn(v, null, record, store.indexOf(record), colDef.colIndex, store, this.cmp.getView())};
+  var dataIndex = colDef.dataIndex, v = record.get(dataIndex);
+  return {value:colDef.fn(v, record, dataIndex, null, colDef.column)};
 }, getSummaryCell:function(collection, record, colDef) {
-  var v = record.get(colDef.dataIndex);
-  return {value:colDef.summaryFn(v, null, record, -1, colDef.colIndex, collection, this.cmp.getView())};
+  var dataIndex = colDef.summaryIndex, v = record.get(dataIndex);
+  return {value:colDef.summaryFn(v, record, dataIndex, null, colDef.column)};
 }});
