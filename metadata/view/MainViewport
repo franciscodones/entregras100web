@@ -916,6 +916,7 @@
                                 ],
                                 "floating": false,
                                 "margin": 0,
+                                "permissionId": 57,
                                 "title": "Reportes",
                                 "width": 120
                             },
@@ -924,10 +925,18 @@
                                 "floating": "boolean",
                                 "margin": "auto",
                                 "title": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "permissionId": "number"
                             },
                             "name": "MyMenu2",
                             "designerId": "9bb6198f-91b9-451e-876f-3f80ecc16c33",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "permissionId",
+                                    "type": "string"
+                                }
+                            ],
                             "cn": [
                                 {
                                     "type": "Ext.menu.Item",
@@ -939,15 +948,24 @@
                                     "userConfig": {
                                         "glyph": "f0f3@FontAwesome",
                                         "itemId": "mItemReportesAlarmas",
+                                        "permissionId": 58,
                                         "text": "Alarmas"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
                                         "itemId": "string",
-                                        "text": "string"
+                                        "text": "string",
+                                        "permissionId": "number"
                                     },
                                     "name": "MyMenuItem14",
                                     "designerId": "62fd1d50-0ad2-44c7-a7f7-8558a6b7d0a9",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "permissionId",
+                                            "type": "string"
+                                        }
+                                    ],
                                     "cn": [
                                         {
                                             "type": "viewcontrollereventbinding",

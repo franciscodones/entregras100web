@@ -106,16 +106,25 @@
                     "userConfig": {
                         "glyph": "f019@FontAwesome",
                         "layout|flex": null,
+                        "permissionId": 59,
                         "text": "Exportar"
                     },
                     "configAlternates": {
                         "itemId": "string",
                         "layout|flex": "number",
                         "text": "string",
-                        "glyph": "auto"
+                        "glyph": "auto",
+                        "permissionId": "number"
                     },
                     "name": "MyButton5",
                     "designerId": "e55be2ae-2086-42db-8735-ab3531066404",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "permissionId",
+                            "type": "string"
+                        }
+                    ],
                     "cn": [
                         {
                             "type": "Ext.menu.Menu",

@@ -65,6 +65,7 @@ Ext.define('Entregas100Web.view.ReportesAlarmasPanel', {
                 },
                 {
                     xtype: 'button',
+                    permissionId: 59,
                     glyph: 'f019@FontAwesome',
                     text: 'Exportar',
                     menu: {

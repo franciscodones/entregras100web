@@ -199,6 +199,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                         },
                         {
                             xtype: 'menu',
+                            permissionId: 57,
                             cls: 'menu-flechas',
                             floating: false,
                             margin: 0,
@@ -207,6 +208,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             items: [
                                 {
                                     xtype: 'menuitem',
+                                    permissionId: 58,
                                     itemId: 'mItemReportesAlarmas',
                                     glyph: 'f0f3@FontAwesome',
                                     text: 'Alarmas',
