@@ -49,6 +49,7 @@ use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 use App\Error\ExceptionHandler;
+use App\Routing\Filter\SubnamespacedControllerFactoryFilter;
 
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {
@@ -195,6 +196,9 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
+
+//
+DispatcherFactory::add(new SubnamespacedControllerFactoryFilter());
 
 /**
  * Enable default locale format parsing.

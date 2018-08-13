@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Cron;
 
-class LogsEntregas100Controller extends AppController {
+use App\Controller\AppController;
+
+class LogsCronController extends AppController {
 
     public function eliminar() {
         set_time_limit(300);

@@ -39,7 +39,9 @@ class AlarmaAppGaseraController extends AppGaseraController {
         // hack para normalizar las alarmas que son individuales en el json
         // usado para guardar varias alarmas a la vez
         if (preg_match("/\d+/", $sAlarmas)) {
-            $aAlarmasArray[$sAlarmas] = 1;
+            if (array_key_exists($sAlarmas, $aAlarmasArray)) {
+                $aAlarmasArray[$sAlarmas] = 1;
+            }
             $sAlarmas = json_encode($aAlarmasArray);
         }
 

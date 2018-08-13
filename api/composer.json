@@ -10,7 +10,8 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
-        "hraq/cake-intl": "dev-master"
+        "hraq/cake-intl": "dev-master",
+        "phpoffice/phpexcel": "^1.8"
     },
     "require-dev": {
         "psy/psysh": "@stable",
