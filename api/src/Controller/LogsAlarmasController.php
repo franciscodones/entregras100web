@@ -8,7 +8,7 @@ class LogsAlarmasController extends AppController {
 
     /**
      * Lee los logs_alarmas de una plaza
-     * @return [type] [description]
+     * @return JsonResponse
      */
     public function read() {
         $oConexion = $this->getConexion();

@@ -17,6 +17,8 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Datasource\ConnectionManager;
 use Exception;
+use Cake\Network\Request;
+use App\Network\CorsBuilder;
 
 /**
  * Application Controller
@@ -94,5 +96,63 @@ class AppController extends Controller
         $this->response->type('json');
         $this->response->body(json_encode($data, JSON_NUMERIC_CHECK));
         return $this->response;
+    }
+
+    /**
+     * Setup access for origin and methods on cross origin requests
+     *
+     * This method allow multiple ways to setup the domains, see the examples
+     *
+     * ### Full URI
+     * ```
+     * cors($request, 'http://www.cakephp.org');
+     * ```
+     *
+     * ### URI with wildcard
+     * ```
+     * cors($request, 'http://*.cakephp.org');
+     * ```
+     *
+     * ### Ignoring the requested protocol
+     * ```
+     * cors($request, 'www.cakephp.org');
+     * ```
+     *
+     * ### Any URI
+     * ```
+     * cors($request, '*');
+     * ```
+     *
+     * ### Whitelist of URIs
+     * ```
+     * cors($request, ['http://www.cakephp.org', '*.google.com', 'https://myproject.github.io']);
+     * ```
+     *
+     * *Note* The `$allowedDomains`, `$allowedMethods`, `$allowedHeaders` parameters are deprecated.
+     * Instead the builder object should be used.
+     *
+     * @param \Cake\Network\Request $request Request object
+     * @param string|array $allowedDomains List of allowed domains, see method description for more details
+     * @param string|array $allowedMethods List of HTTP verbs allowed
+     * @param string|array $allowedHeaders List of HTTP headers allowed
+     * @return \Cake\Network\CorsBuilder A builder object the provides a fluent interface for defining
+     *   additional CORS headers.
+     */
+    public function cors(Request $request, $allowedDomains = [], $allowedMethods = [], $allowedHeaders = [])
+    {
+        $origin = $request->header('Origin');
+        $ssl = $request->is('ssl');
+        $builder = new CorsBuilder($this->response, $origin, $ssl);
+        if (!$origin) {
+            return $builder;
+        }
+        if (empty($allowedDomains) && empty($allowedMethods) && empty($allowedHeaders)) {
+            return $builder;
+        }
+        $builder->allowOrigin($allowedDomains)
+            ->allowMethods((array)$allowedMethods)
+            ->allowHeaders((array)$allowedHeaders)
+            ->build();
+        return $builder;
     }
 }
