@@ -34,6 +34,14 @@ class LogsCronController extends AppController {
         );
         $oConexion->query($sQuery, $aQueryParams);
 
+        // elimina los logs_alarmas
+        $sQuery = "DELETE FROM logs_alarmas " .
+            "WHERE fecha < DATE_SUB(CURDATE(), INTERVAL ? DAY)";
+        $aQueryParams = array(
+            7
+        );
+        $oConexion->query($sQuery, $aQueryParams);
+
         $json = array(
             "success" => true,
             "message" => "Logs eliminados"
