@@ -1141,7 +1141,7 @@
                         "height": 20,
                         "labelStyle": "color: #fff; padding-left: 10px;",
                         "style": "background: #007888; color: #fff;",
-                        "value": "2.2"
+                        "value": "2.3"
                     },
                     "configAlternates": {
                         "fieldLabel": "string",
