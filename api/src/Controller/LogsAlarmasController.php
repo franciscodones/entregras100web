@@ -103,8 +103,8 @@ class LogsAlarmasController extends AppController {
         array_unshift(
             $aFiltros,
             array(
-                "value" => "\"[1-8]\":[1-9][0-9]?",
-                "query" => "alarma REGEXP ?"
+                "value" => array("\"[1-8]\":[1-9][0-9]?", 5),
+                "query" => "(alarma REGEXP ? OR litros_no_autorizados >= ?)"
             )
         );
 

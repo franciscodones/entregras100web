@@ -167,15 +167,15 @@ return [
      */
     'EmailTransport' => [
         'default' => [
-            'className' => 'Mail',
+            'className' => 'Smtp',
             // The following keys are used in SMTP transports
-            'host' => 'localhost',
-            'port' => 25,
-            'timeout' => 30,
-            'username' => 'user',
-            'password' => 'secret',
-            'client' => null,
-            'tls' => null,
+            'host' => 'pyansa.com.mx',
+            'port' => 85,
+            'timeout' => 60,
+            'username' => 'importaserv@pyansa.com.mx',
+            'password' => 'cal93a',
+            //'client' => null,
+            //'tls' => null,
         ],
     ],
 
@@ -191,7 +191,7 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'you@localhost',
+            'from' => ['noreply@pyansa.com.mx' => "Entregas100"],
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],

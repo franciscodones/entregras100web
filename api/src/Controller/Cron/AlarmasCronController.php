@@ -14,15 +14,180 @@ use PHPExcel_Style_Border;
 
 class AlarmasCronController extends AppController {
 
+    public $aDestinatarios = array(
+        "MZT" => array(
+            "josemaria@gaspasa.com.mx",
+            "plantamz@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "CLN" => array(
+            "operacionescln@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "LCR" => array(
+            "gerencialc@gaspasa.com.mx",
+            "josemaria@gaspasa.com.mx",
+            "plantalacruz@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "ESC" => array(
+            "gpaes1@gaspasa.com.mx",
+            "josemaria@gaspasa.com.mx",
+            "plantaesc@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "SAL" => array(
+            "jcuevas@diesgas.com.mx",
+            "plantagdl@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "LPZ" => array(
+            "jurias@caligas.com.mx",
+            "plantalp@caligas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "GVE" => array(
+            "jorgezazueta@gaspasa.com.mx",
+            "plantagve@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "GME" => array(
+            "neubojorquez@gaspasa.com.mx",
+            "plantagm@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "QRE" => array(
+            "ibojorquez@caligas.com.mx",
+            "plantaqro@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "CYE" => array(
+            "gilbertol@diesgas.com.mx",
+            "avaldez@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "IRE" => array(
+            "gerenciairapuato@diesgas.com.mx",
+            "operacionirp@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "HME" => array(
+            "armandohiguera@diesgas.com.mx",
+            "plantahermosillo@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "LMS" => array(
+            "javierapodaca@gaspasa.com.mx",
+            "plantalm@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "OBR" => array(
+            "edgarquintero@gaspasa.com.mx",
+            "plantahq@diesgas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "NVJ" => array(
+            "administrativohq@gaspasa.com.mx",
+            "operacionesnav@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "SJC" => array(
+            "smoreno@caligas.com.mx",
+            "plantasj@caligas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "SLE" => array(
+            "smoreno@caligas.com.mx",
+            "plantasl@caligas.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "SRE" => array(
+            "jurias@caligas.com.mx",
+            "operacionesbcs@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "LOE" => array(
+            "jurias@caligas.com.mx",
+            "operacionesbcs@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "CCE" => array(
+            "jurias@caligas.com.mx",
+            "operacionesbcs@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "GNE" => array(
+            "jurias@caligas.com.mx",
+            "operacionesbcs@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "ENE" => array(
+            "kfigueroa@gaspasa.com.mx",
+            "operativoens@gaspasa.com.mx",
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        ),
+        "TJE" => array(
+            "luisrodriguez@gaspasa.com.mx",
+            "rquintero@gaspasa.com.mx",
+            "b.venegas@pyansa.com.mx"
+        )
+    );
+
     public function enviarEmailReporteAlarmas() {
         set_time_limit(300);
         $oConexion = $this->getConexion();
-        $dFechaAlarmas = "2018-08-10";//date("Y-m-d");
-        $nLitrosNoAutorizados = 5;
+        $dFechaAlarmas = new DateTime();
         $sRegexAlarma = "\"[1-8]\":[1-9][0-9]?";
         $aAlarmasPlaza = null;
-        $aExcels = null;
-
+        $aExcel = null;
+        $oEmail = null;
+        $oExcelWriter = null;
+        $sExcelString = null;
+        $aEmails = array();
 
         // se obtiene el catalogo de plazas
         $sQuery = "SELECT id, " .
@@ -48,46 +213,55 @@ class AlarmasCronController extends AppController {
             "AND (alarma REGEXP ? OR litros_no_autorizados >= ?) " .
             "ORDER BY plaza, unidad.unidad, hora";
         $aQueryParams = array(
-            $dFechaAlarmas,
+            $dFechaAlarmas->format("Y-m-d"),
             $sRegexAlarma,
-            $nLitrosNoAutorizados
+            5
         );
         $aLogsAlarmas = $oConexion->query($sQuery, $aQueryParams);
 
         // por cada plaza se creara un archivo excel solo si la plaza tiene alarmas
-        $aExcels = array();
         foreach ($aPlazas as $aPlaza) {
             // filtra las alarmas de la plaza
             $aLogsAlarmasPlaza = array_filter($aLogsAlarmas, function($item) use ($aPlaza) {
                 return $item["plaza_id"] == $aPlaza["id"];
             });
-            if (empty($aLogsAlarmasPlaza)) {
+            if (empty($aLogsAlarmasPlaza) || empty($this->aDestinatarios[$aPlaza["plaza"]])) {
                 continue;
             }
 
             // genera el archivo excel con las alarmas
             $oExcel = $this->generarExcelPlaza($aPlaza, $aCatalogoAlarmas, $aLogsAlarmasPlaza);
+            // guarda el excel en un archivto temporal el cual es impriso en el output buffer de php,
+            // el output buffer es leido y el contenido es guardado en una variable.
+            // En otras palabras se parsea el excel a un string
+            $oExcelWriter = PHPExcel_IOFactory::createWriter($oExcel, 'Excel2007');
+            @ob_start();
+            $oExcelWriter->save("php://output");
+            $sExcelString = @ob_get_contents();
+            @ob_end_clean();
 
-            // se guarda en el array de excels
-            $aExcels[$aPlaza["plaza"]] = $oExcel;
+            // se guarda el string en el array de excels
+            $oEmail = new Email();
+            $oEmail->addTo($this->aDestinatarios[$aPlaza["plaza"]])
+                ->subject("REPORTE DE ALARMAS DE " . $aPlaza["ciudad"] . " " . $dFechaAlarmas->format("d/m/Y"))
+                ->attachments(array(
+                    "REPORTE ALARMAS " . $aPlaza["ciudad"] . " " . $dFechaAlarmas->format("d-m-Y") . ".xlsx" => array(
+                        "data" => $sExcelString,
+                        "mimetype" => $this->response->getMimeType("xlsx")
+                    )
+                ));
+            $aEmails[] = $oEmail;
         }
 
-        // guarda el excel en un archivto temporal el cual es impriso en el output buffer de php,
-        // el output buffer es leido y el contenido es guardado en una variable.
-        // En otras palabras se parsea el excel a un string
-        $oExcelWriter = PHPExcel_IOFactory::createWriter(reset($aExcels), 'Excel2007');
-        @ob_start();
-        $oExcelWriter->save("php://output");
-        $sExcelString = @ob_get_contents();
-        @ob_end_clean();
+        // se configuran los correos y se envian
+        foreach ($aEmails as $oEmail) {
+            $oEmail->send("Reporte de alarmas detectadas el dia " . date("d/m/Y"));
+        }
 
-        // DEBUG
-        // decarga el excel
-        $this->response->body($sExcelString);
-        $this->response->type("xlsx");
-        $this->response->download("reporte_alarmas.xlsx");
-
-        return $this->response;
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Reporte enviado"
+        ));
     }
 
     /**
@@ -116,7 +290,7 @@ class AlarmasCronController extends AppController {
 
         // procesa y agrupa las alarmas
         foreach ($aLogsAlarmasPlaza as $key => $aLogAlarma) {
-            if ($aLogAlarma["litros_no_autorizados"]) {
+            if ($aLogAlarma["litros_no_autorizados"] && $aLogAlarma["litros_no_autorizados"] >= 5) {
                 $aLogsProcesados[0][] = array(
                     "alarma_id" => 0,
                     "alarma" => "LITROS NO AUTORIZADOS",
