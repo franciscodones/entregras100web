@@ -72,9 +72,9 @@ class SubnamespacedControllerFactoryFilter extends DispatcherFilter
             }
         }
         if ($controllerFile) {
-            $controller = preg_replace(
-                "/^" . addslashes(APP) . "(.+)\\.php$/",
-                Configure::read("App.namespace") . "\\\\$1",
+            $controller = str_replace(
+                array(APP, ".php", "/"),
+                array(Configure::read("App.namespace") . "\\", "", "\\"),
                 $controllerFile->getPathName()
             );
         }
