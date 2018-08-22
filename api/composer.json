@@ -11,7 +11,8 @@
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
         "hraq/cake-intl": "dev-master",
-        "phpoffice/phpexcel": "^1.8"
+        "phpoffice/phpexcel": "^1.8",
+        "pyansa/pyansaphp": "3.1.*@dev"
     },
     "require-dev": {
         "psy/psysh": "@stable",
@@ -38,5 +39,11 @@
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "git",
+            "url": "http://git.pyansa.com.mx/pyansa/pyansaphp.git"
+        }
+    ]
 }

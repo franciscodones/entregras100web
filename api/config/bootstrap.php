@@ -48,8 +48,8 @@ use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
-use App\Error\ExceptionHandler;
-use App\Routing\Filter\SubnamespacedControllerFactoryFilter;
+use Pyansa\Error\ExceptionHandler;
+use Pyansa\Routing\Filter\SubnamespacedControllerFactoryFilter;
 
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {

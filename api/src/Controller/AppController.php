@@ -15,7 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-use Pyansa\Controller\BaseControllerTrait;
+//use Pyansa\Controller\BaseControllerTrait;
 
 
 /**

@@ -205,7 +205,7 @@ return [
      */
     'Datasources' => [
         'default' => [
-            'className' => 'App\Database\Connection',
+            'className' => 'Pyansa\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
             'host' => '10.1.1.18',
@@ -247,7 +247,7 @@ return [
          * The test connection is used during the test suite.
          */
         'test' => [
-            'className' => 'Cake\Database\Connection',
+            'className' => 'Pyansa\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
             'host' => 'localhost',
@@ -323,4 +323,13 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+
+    "Cors" => [
+        //"allowOrigins" => ["*"],
+        //"allowMethods" => ["*"],
+        //"allowHeaders" => ["*"],
+        //"allowCredentials" => false,
+        //"exposeHeaders" => [],
+        //"maxAge" => 0
+    ]
 ];
