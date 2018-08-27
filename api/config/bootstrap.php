@@ -45,11 +45,10 @@ use Cake\Error\ErrorHandler;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
-use Cake\Routing\DispatcherFactory;
+use Pyansa\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
 use Pyansa\Error\ExceptionHandler;
-use Pyansa\Routing\Filter\SubnamespacedControllerFactoryFilter;
 
 // You can remove this if you are confident you have intl installed.
 if (!extension_loaded('intl')) {
@@ -197,8 +196,7 @@ DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
 
-//
-DispatcherFactory::add(new SubnamespacedControllerFactoryFilter());
+DispatcherFactory::registerFilters();
 
 /**
  * Enable default locale format parsing.
