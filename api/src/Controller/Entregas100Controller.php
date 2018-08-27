@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\Entregas100\AppGaseraController;
 use Exception;
 use Cake\Routing\Router;
-use App\Error\ExceptionHandler;
+use Pyansa\Error\ExceptionHandler;
 
 class Entregas100Controller extends AppGaseraController {
 

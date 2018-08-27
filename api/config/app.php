@@ -325,9 +325,9 @@ return [
     ],
 
     "Cors" => [
-        //"allowOrigins" => ["*"],
-        //"allowMethods" => ["*"],
-        //"allowHeaders" => ["*"],
+        "allowOrigins" => ["*"],
+        "allowMethods" => ['GET', 'POST'],
+        "allowHeaders" => ["x-requested-with"],
         //"allowCredentials" => false,
         //"exposeHeaders" => [],
         //"maxAge" => 0

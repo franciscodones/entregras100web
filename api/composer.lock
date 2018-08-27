@@ -561,11 +561,11 @@
         },
         {
             "name": "pyansa/pyansaphp",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "http://git.pyansa.com.mx/pyansa/pyansaphp.git",
-                "reference": "c12ac4ec80cf90178e7aa639e97de5bebc5b5fbb"
+                "reference": "5132052c83e2854b3cf40b7b82c56be26f20dc19"
             },
             "require": {
                 "cakephp/cakephp": "~3.1",
@@ -584,7 +584,7 @@
                 }
             ],
             "description": "Libreria custon de PHP con arreglos para CakePHP",
-            "time": "2018-08-22T17:16:50+00:00"
+            "time": "2018-08-24T23:41:08+00:00"
         },
         {
             "name": "robmorgan/phinx",
