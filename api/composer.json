@@ -45,5 +45,10 @@
             "type": "git",
             "url": "http://git.pyansa.com.mx/pyansa/pyansaphp.git"
         }
-    ]
+    ],
+    "config": {
+        "platform": {
+            "ext-intl": "1"
+        }
+    }
 }
