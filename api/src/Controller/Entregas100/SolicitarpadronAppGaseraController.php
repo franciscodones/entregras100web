@@ -297,6 +297,27 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 $aServicio["tipo_programado"] :
                 $aServicio["tipo_emergencia"];
 
+            // asigna tipo_compromiso_id de acuerdo a los criterios
+            if ($aServicio["es_programado"]) {
+                switch ($aServicio["tipo_programado"]) {
+                    case "OPERADORA":
+                        $aServicio["tipo_compromiso_id"] = 4;
+                        break;
+                    case "CHOFER":
+                        $aServicio["tipo_compromiso_id"] = 1;
+                        break;
+                    case "TELEMARKETING":
+                        $aServicio["tipo_compromiso_id"] = 6;
+                        break;
+                    default: // EMERGENCIA
+                        $aServicio["tipo_compromiso_id"] = 2;
+                        break;
+                }
+            } else {
+                // EMERGENCIA
+                $aServicio["tipo_compromiso_id"] = 2;
+            }
+
             // asigna otorga_puntos de acuerdo a los criterios
             if ($aServicio["plaza_otorga_puntos"] && $aServicio["es_programado"] && $aServicio["tipo_cliente"] == 0) {
                 $aServicio["otorga_puntos"] = 1;
