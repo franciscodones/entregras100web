@@ -76,6 +76,17 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
             $aQueryParams = array($aPlaza["otorga_puntos"], $dFechaPadron, $dFechaPadron);
             $oConexionPlaza->query($sQuery, $aQueryParams);
 
+            // genera una copia temporal de listas_padron, en esta copia no se repetiran controles en caso
+            // que la listas_padron tenga demasiados registros
+            $sQuery = "CREATE TEMPORARY TABLE listas_padron_unificado AS " .
+                "SELECT DISTINCT * " .
+                "FROM listas_padron " .
+                "WHERE ncontrol = ncontrol " .
+                "AND fecha = (SELECT MAX(fecha) FROM listas_padron WHERE ncontrol = ncontrol) " .
+                "GROUP BY ncontrol " .
+                "ORDER BY ncontrol";
+            $oConexionPlaza->query($sQuery);
+
             // genera el padron combinado con la lista en una tabla
             $sQuery = "CREATE TABLE padron_app_" . $aUnidad["unidad"] . " AS (" .
                 self::getPadronQueryString() .
@@ -272,7 +283,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 "0, " .
                 "tarifas.cvetar" .
             ") AS tarifa_id " .
-        "FROM listas_padron " .
+        "FROM listas_padron_unificado AS listas_padron " .
         "LEFT JOIN lista_app ON listas_padron.ncontrol = lista_app.numero_control " .
         "LEFT JOIN padron ON listas_padron.ncontrol = padron.ncontrol " .
         "LEFT JOIN tarifas ON tarifas.cvetar = padron.tarifa " .
