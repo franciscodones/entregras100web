@@ -5,6 +5,8 @@
 Ext.define('Pyansa.locale.field.Field', {
     override: 'Ext.field.Field',
 
-    requiredMessage: 'Este campo es obligatorio',
-    validationMessage: 'Esta en el formato incorrecto'
+    config: {
+        requiredMessage: 'Este campo es obligatorio',
+        validationMessage: 'Esta en el formato incorrecto'
+    }
 });

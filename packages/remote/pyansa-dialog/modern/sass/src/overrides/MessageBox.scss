@@ -1,4 +1,5 @@
-.#{$prefix}messagebox .#{$prefix}body-wrap-el {
+.#{$prefix}messagebox,
+.#{$prefix}messagebox .#{$prefix}toolbar {
     background-color: $messagebox-body-background-color;
 }
 

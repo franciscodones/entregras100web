@@ -2,7 +2,7 @@
   "name": "pyansa-form",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0.5",
+  "version": "6.5.0.6",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa form",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-06-14T19:36:44Z",
+      "created": "2018-09-17T17:53:28Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "vz1TMRWtQW4\u003d",
-      "signature": "lnjZH7jJMPC9K0JQxzgMaWVHJ4BVzT267F1YBhU0gfZ2vM0R+rnTCtXYJYBsjFoqQUdd/luA0WVbS34JxSxsgCCz6Rr3eyGVUE6pbMZba6bxzlYjMPAt2yR+tPhu6EEcczvXzYODxtr8yRyqN+WQ1aP/PANODykP89bxFrXGt5KPHp/oo2Lyaieu7k+1Nl9yEOLY1ARZMFSUvdAim5Vpl15YLRw5eNXmaiGZAnNiguDs3Ze1/GSxzDZgt6YaHJ9xVwqLTO8UnSlZZZx47ZjfsIIQZmt1BstcjRdsvs6D4MZX60+PAXToO7I/G9OLdrcLZMvaCGy2IPnYnwpTpetBiQ\u003d\u003d"
+      "nonce": "LWIL15bqJmU\u003d",
+      "signature": "ohNcXYAmT2Dw+B9OvHMcnBRhhbt2TFKBuMlXBtXegCmVfkS6zKY2rlCkXXjMZpHNAdix2pWI9Fu4ai6fod7q3L3lIYeS5cCzmRTqVkXtwPayHh6aPoON4SbnFQXitlYW+cdfwdkVEeRmWt50IbCyf00lf6ZhT3OMMg7FIr7hNu7zDhyJkKo1LrHgrot57NCEt0+SX6L9kvKU9iHr1bvQcwDRibShTQxB3rP+8vsttQKun5PZmFte0Omzy+6pbc3knSQdyQFBTJ9N1c1EkGrvBAupwah8D19rbsyyrLettpLtB+V6WIFULS/KaiWlnEgmewxPqjvIpZ6mSx5GSCp+yA\u003d\u003d"
     }
   ],
   "architect": {
@@ -45,9 +45,17 @@
     "triton": {
       "toolkit": "classic",
       "theme": "theme-triton"
+    },
+    "material": {
+      "toolkit": "modern",
+      "theme": "theme-material"
     }
   },
-  "output": "${package.dir}/build",
+  "output": {
+    "base": "${package.dir}/build/${toolkit.name}/${build.id}",
+    "js": "..",
+    "sass": ""
+  },
   "sass": {
     "namespace": "Pyansa",
     "etc": [

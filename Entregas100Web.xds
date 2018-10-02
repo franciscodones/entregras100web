@@ -3,11 +3,11 @@
     "settings": {
         "cmd": {
             "license": "commercial",
-            "cmdVersion": "6.5.1.240",
-            "frameworkVersion": "6.5.0.775"
+            "cmdVersion": "6.6.0.13",
+            "frameworkVersion": "6.5.3.57"
         },
         "urlPrefixTemplate": "http://localhost:{port}/{path}",
-        "urlPrefix": "http://localhost:60352/",
+        "urlPrefix": "http://localhost:52805/",
         "canvasControls": {
             "viewportSize": {
                 "name": "Large",
@@ -31,8 +31,8 @@
             "buildPlatform": false
         }
     },
-    "xdsVersion": "4.2.2",
-    "xdsBuild": 282,
+    "xdsVersion": "4.2.4",
+    "xdsBuild": 389,
     "schemaVersion": 1,
     "upgradeVersion": 310000000001,
     "framework": "ext65",
@@ -185,6 +185,7 @@
             "3b365496-9cd9-4a97-8cb7-c51a39ebd2e1"
         ],
         "resource": [
+            "1afc7f39-0895-4323-b148-555651b229c3",
             "eeea5342-405b-4cc3-b300-0364ab6fff3b",
             "bededc52-2f39-44f8-9a11-4d8f26eca495"
         ],

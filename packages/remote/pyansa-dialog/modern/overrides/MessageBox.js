@@ -5,5 +5,13 @@
  * @override
  */
 Ext.define("Pyansa.overrides.MessageBox", {
-    override: "Ext.MessageBox"
+    override: "Ext.MessageBox",
+
+    config: {
+        maxWidth: 500
+    },
+
+    statics: {
+        LOADING : Ext.baseCSSPrefix + 'msgbox-loading'
+    }
 });
