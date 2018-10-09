@@ -1,2 +1,0 @@
-# pyansa-permissible - Read Me
-

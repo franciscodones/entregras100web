@@ -1,2 +1,0 @@
-# pyansa-grid - Read Me
-

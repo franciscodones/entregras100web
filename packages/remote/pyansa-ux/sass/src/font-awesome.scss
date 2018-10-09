@@ -1,0 +1,31 @@
+// All rule-generating imports go here vs in etc/all.scss so that they will
+// cascade after the framework rules.  This ensures that where the framework provides
+// a default icon, but also provides an iconCls to override it (for example tree icons)
+// the fa rules will override the framework ones (assuming specificity of fa rules is
+// the same or greater than the framework rules)
+@import "../etc/font-awesome/_path.scss";
+@import "../etc/font-awesome/_core.scss";
+@import "../etc/font-awesome/_larger.scss";
+@import "../etc/font-awesome/_fixed-width.scss";
+@import "../etc/font-awesome/_list.scss";
+@import "../etc/font-awesome/_bordered-pulled.scss";
+@import "../etc/font-awesome/_animated.scss";
+@import "../etc/font-awesome/_rotated-flipped.scss";
+@import "../etc/font-awesome/_stacked.scss";
+@import "../etc/font-awesome/_icons.scss";
+
+// The "x-fa" class should be used in Ext JS applications instead
+// of "fa".  The "fa" class sets some properties that may collide
+// with theme properties, whereas "x-fa" sets only the font-family.
+.#{$prefix}fa:before,
+.#{$prefix}far:before {
+    font-family: FontAwesome !important;
+}
+
+.#{$prefix}fas:before {
+    font-family: FontAwesomeSolid !important;
+}
+
+.#{$prefix}fab:before {
+    font-family: FontAwesomeBrands !important;
+}

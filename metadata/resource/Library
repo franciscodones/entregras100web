@@ -10,15 +10,11 @@
         "designer|userClassName": "Library",
         "libraryRequires": [
             "exporter",
-            "pyansa-form",
-            "pyansa-dialog",
             "pyansa-locale",
             "pyansa-data",
-            "pyansa-grid",
-            "pyansa-permissible",
-            "pyansa-font-awesome",
             "font-awesome",
-            "ext-locale"
+            "ext-locale",
+            "pyansa-ux"
         ],
         "theme": "MyTritonTheme"
     },

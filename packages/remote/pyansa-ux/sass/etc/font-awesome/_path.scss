@@ -1,0 +1,53 @@
+/* FONT PATH
+ * -------------------------- */
+
+//# fashion -inline
+@font-face {
+  font-family: 'PyansaFontAwesome';
+  src: url('#{$pfa-font-path}/fa-regular-400.eot?v=#{$pfa-version}');
+  src: url('#{$pfa-font-path}/fa-regular-400.eot?#iefix&v=#{$pfa-version}') format('embedded-opentype'),
+    url('#{$pfa-font-path}/fa-regular-400.woff2?v=#{$pfa-version}') format('woff2'),
+    url('#{$pfa-font-path}/fa-regular-400.woff?v=#{$pfa-version}') format('woff'),
+    url('#{$pfa-font-path}/fa-regular-400.ttf?v=#{$pfa-version}') format('truetype'),
+    url('#{$pfa-font-path}/fa-regular-400.svg?v=#{$pfa-version}#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.#{$pfa-css-prefix}, .far {
+  font-family: 'PyansaFontAwesome';
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'PyansaFontAwesomeSolid';
+  src: url('#{$pfa-font-path}/fa-solid-900.eot?v=#{$pfa-version}');
+  src: url('#{$pfa-font-path}/fa-solid-900.eot?#iefix&v=#{$pfa-version}') format('embedded-opentype'),
+    url('#{$pfa-font-path}/fa-solid-900.woff2?v=#{$pfa-version}') format('woff2'),
+    url('#{$pfa-font-path}/fa-solid-900.woff?v=#{$pfa-version}') format('woff'),
+    url('#{$pfa-font-path}/fa-solid-900.ttf?v=#{$pfa-version}') format('truetype'),
+    url('#{$pfa-font-path}/fa-solid-900.svg?v=#{$pfa-version}#fontawesomeregular') format('svg');
+  font-weight: 900;
+  font-style: normal;
+}
+
+.fas {
+  font-family: 'PyansaFontAwesomeSolid';
+  font-weight: 900;
+}
+
+@font-face {
+  font-family: 'PyansaFontAwesomeBrands';
+  src: url('#{$pfa-font-path}/fa-brands-400.eot?v=#{$pfa-version}');
+  src: url('#{$pfa-font-path}/fa-brands-400.eot?#iefix&v=#{$pfa-version}') format('embedded-opentype'),
+    url('#{$pfa-font-path}/fa-brands-400.woff2?v=#{$pfa-version}') format('woff2'),
+    url('#{$pfa-font-path}/fa-brands-400.woff?v=#{$pfa-version}') format('woff'),
+    url('#{$pfa-font-path}/fa-brands-400.ttf?v=#{$pfa-version}') format('truetype'),
+    url('#{$pfa-font-path}/fa-brands-400.svg?v=#{$pfa-version}#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fab {
+  font-family: 'PyansaFontAwesomeBrands';
+}

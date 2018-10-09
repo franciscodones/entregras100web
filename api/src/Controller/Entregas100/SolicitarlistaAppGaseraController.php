@@ -289,7 +289,9 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
                     "THEN 6 " . // donativo
                 "WHEN listas.tipo_cte = 16 " .
                     "THEN 5 " . // cortesia
-                "ELSE 1 " . // general
+                "WHEN listas.tipo_cte IN (1, 7, 17) " .
+                    "THEN 1 " . // general domestico
+                "ELSE 10 " . // general comercial
             "END " .
             "AS tipo_cv_id, " .
             // se verifica si el cliente tiene nombre para facturacion
@@ -306,7 +308,7 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             ") AS domicilio_facturacion, " .
             // se verifica si el tipo de cliente es comercial
             "IF(" .
-                "listas.tipo_cte IN (1, 7), " .
+                "listas.tipo_cte IN (1, 7, 17), " .
                 "0, " .
                 "1" .
             ") AS tipo_cliente, " .

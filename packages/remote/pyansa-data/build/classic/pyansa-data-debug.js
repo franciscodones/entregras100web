@@ -1719,6 +1719,20 @@ try {
   }
 } catch (e) {
 }
+Ext.define('Pyansa.overrides.data.Connection', {override:'Ext.data.Connection', config:{sendTimeoutAsHeader:false}, setOptions:function(options, scope) {
+  var me = this, sendTimeoutAsHeader = options.sendTimeoutAsHeader || me.getSendTimeoutAsHeader(), timeout = options.timeout || me.getTimeout();
+  console.log('sendTimeoutAsHeader', sendTimeoutAsHeader);
+  if (sendTimeoutAsHeader) {
+    options.headers = options.headers || {};
+    options.headers['X-Request-Timeout'] = timeout;
+    console.log(options);
+  }
+  return me.callParent(arguments);
+}});
+Ext.define('Pyansa.overrides.Ajax', {override:'Ext.Ajax', requires:['Pyansa.overrides.data.Connection']}, function() {
+  var me = this;
+  me.setConfig('sendTimeoutAsHeader', me.config.sendTimeoutAsHeader);
+});
 Ext.define('Pyansa.overrides.data.AbstractStore', {override:'Ext.data.AbstractStore', requires:['Ext.data.identifier.Sequential'], constructor:function(config) {
   var me = this, identifier = me.self.identifier;
   storeId = me.getStoreId();
@@ -1867,4 +1881,415 @@ Ext.define('Pyansa.overrides.data.TreeStore', {override:'Ext.data.TreeStore', ge
       return fn.call(scope || node, node, i++);
     }
   });
+}});
+Ext.define('Pyansa.data.proxy.Sql', {extend:'Ext.data.proxy.Client', alias:'pyansa.data.proxy.sql', requires:['Ext.XTemplate'], config:{reader:null, writer:null, defaultDateFormat:'Y-m-d H:i:s'}, connection:null, table:null, selectStatementTpl:['SELECT', "\x3ctpl if\x3d'columns'\x3e", ' {[ values.columns.join(", ") ]}', '\x3ctpl else\x3e', ' *', '\x3c/tpl\x3e', ' FROM {table}'], insertStatementTpl:['INSERT INTO `{table}` (', '{[ values.columns.join(", ") ]}', ') VALUES (', '{[ Ext.String.repeat("?", values.columns.length, ", ") ]}', 
+')'], updateStatementTpl:['UPDATE `{table}` SET ', '{[', 'values.columns.map(function(column) {', 'return column + " \x3d ?";', '}).join(", ")', ']}', ' WHERE {idProperty} \x3d ?'], deleteStatementTpl:['DELETE FROM `{table}`', ' WHERE {idProperty} \x3d ?'], constructor:function(config) {
+  var me = this;
+  config = config || {};
+  defaults = {connection:me.connection, table:me.table};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
+  this.callParent([config]);
+}, create:function(operation) {
+  var me = this, connection = me.connection, records = operation.getRecords(), modelClass = me.getModel(), clientIdProperty = (new modelClass).clientIdProperty || 'clientId', resultSet = new Ext.data.ResultSet, insertedRecords = [], i, ln, data, record;
+  operation.setStarted();
+  connection.transaction(function(transaction) {
+    me.insertRecords(transaction, records, function(rows, error) {
+      if (error) {
+        operation.setException(error);
+        return;
+      }
+      for (i = 0, ln = rows.length; i < ln; i++) {
+        data = rows[i];
+        record = {id:data.id};
+        record[clientIdProperty] = data[clientIdProperty];
+        insertedRecords.push(record);
+      }
+      resultSet.setRecords(insertedRecords);
+      resultSet.setTotal(ln);
+      resultSet.setCount(ln);
+      resultSet.setSuccess(true);
+      operation.process(resultSet);
+    });
+  });
+}, read:function(operation) {
+  var me = this, connection = me.connection, params = operation.getParams() || {}, recordCreator = operation.getRecordCreator(), modelClass = me.getModel(), idProperty = (new modelClass).getIdProperty(), resultSet = new Ext.data.ResultSet, records = [], record, i, ln, data;
+  operation.setStarted();
+  connection.transaction(function(transaction) {
+    me.selectRecords(transaction, params, function(rows, error) {
+      if (error) {
+        operation.setException(error);
+        return;
+      }
+      for (i = 0, ln = rows.length; i < ln; i++) {
+        data = rows[i];
+        record = recordCreator ? recordCreator(data, modelClass) : new modelClass(data);
+        records.push(record);
+      }
+      resultSet.setRecords(records);
+      resultSet.setTotal(ln);
+      resultSet.setCount(ln);
+      resultSet.setSuccess(true);
+      operation.process(resultSet);
+    });
+  });
+}, update:function(operation) {
+  var me = this, connection = me.connection, records = operation.getRecords(), resultSet = new Ext.data.ResultSet, updatedRecords = [], i, ln, data, record;
+  operation.setStarted();
+  connection.transaction(function(transaction) {
+    me.updateRecords(transaction, records, function(rows, error) {
+      if (error) {
+        operation.setException(error);
+        return;
+      }
+      resultSet.setRecords(rows);
+      resultSet.setTotal(ln);
+      resultSet.setCount(ln);
+      resultSet.setSuccess(true);
+      operation.process(resultSet);
+    });
+  });
+}, erase:function(operation) {
+  var me = this, connection = me.connection, records = operation.getRecords(), resultSet = new Ext.data.ResultSet, updatedRecords = [], i, ln, data, record;
+  operation.setStarted();
+  connection.transaction(function(transaction) {
+    me.deleteRecords(transaction, records, function(rows, error) {
+      if (error) {
+        operation.setException(error);
+        return;
+      }
+      resultSet.setRecords(rows);
+      resultSet.setTotal(ln);
+      resultSet.setCount(ln);
+      resultSet.setSuccess(true);
+      operation.process(resultSet);
+    });
+  });
+}, selectRecords:function(transaction, params, callback) {
+  var me = this, table = me.table, records = [], query, rows, i, ln, data;
+  query = (new Ext.XTemplate(me.selectStatementTpl)).apply({table:table.name});
+  transaction.executeSql(query, [], function(transaction, resultSet) {
+    rows = resultSet.rows;
+    for (i = 0, ln = rows.length; i < ln; i++) {
+      data = rows.item(i);
+      records.push(data);
+    }
+    if (typeof callback == 'function') {
+      callback.call(me, records);
+    }
+  }, function(transaction, error) {
+    if (typeof callback == 'function') {
+      callback.call(me, null, error);
+    }
+  });
+}, insertRecords:function(transaction, records, callback) {
+  var me = this, table = me.table, columns = table.getColumns().collect('name'), insertedRecords = [], errors = [], totalRecords = records.length, executed = 0, record = records[0], idProperty = record.getIdProperty(), modelIdentifierPrefix = record.self.identifier.getPrefix(), queryWithIdProperty, queryWithoutIdProperty, columnsWithoutIdProperty;
+  columnsWithoutIdProperty = columns.filter(function(column) {
+    return column != idProperty;
+  });
+  queryWithIdProperty = (new Ext.XTemplate(me.insertStatementTpl)).apply({table:table.name, columns:columns});
+  queryWithoutIdProperty = (new Ext.XTemplate(me.insertStatementTpl)).apply({table:table.name, columns:columnsWithoutIdProperty});
+  records.sort(function(a, b) {
+    var aIsAutogenerated = Ext.String.startsWith(a.getId(), modelIdentifierPrefix), bIsAutogenerated = Ext.String.startsWith(b.getId(), modelIdentifierPrefix);
+    if (aIsAutogenerated && !bIsAutogenerated) {
+      return 1;
+    } else {
+      if (!aIsAutogenerated && bIsAutogenerated) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
+  });
+  Ext.Array.each(records, function(record) {
+    var id = record.getId(), data = me.getRecordData(record), clientIdProperty = record.clientIdProperty || 'clientId', query, values;
+    if (Ext.String.startsWith(id, modelIdentifierPrefix)) {
+      query = queryWithoutIdProperty;
+      values = me.getColumnValues(columnsWithoutIdProperty, data);
+    } else {
+      query = queryWithIdProperty;
+      values = me.getColumnValues(columns, data);
+    }
+    transaction.executeSql(query, values, function(transaction, resultSet) {
+      executed++;
+      record = {id:resultSet.insertId};
+      record[clientIdProperty] = id;
+      insertedRecords.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, insertedRecords, errors.length > 0 ? errors : null);
+      }
+    }, function(transaction, error) {
+      executed++;
+      record = {id:id, error:error};
+      record[clientIdProperty] = id;
+      errors.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, insertedRecords, errors);
+      }
+    });
+  });
+}, updateRecords:function(transaction, records, callback) {
+  var me = this, table = me.table, columns = table.getColumns().collect('name'), updatedRecords = [], errors = [], totalRecords = records.length, idProperty = records[0].getIdProperty(), executed = 0;
+  query = (new Ext.XTemplate(me.updateStatementTpl)).apply({table:table.name, columns:columns, idProperty:idProperty});
+  Ext.Array.each(records, function(record) {
+    var id = record.getId(), data = me.getRecordData(record), values = me.getColumnValues(columns, data), clientIdProperty = record.clientIdProperty || 'clientId';
+    transaction.executeSql(query, values.concat(id), function(transaction, resultSet) {
+      executed++;
+      record = {id:id};
+      record[clientIdProperty] = id;
+      updatedRecords.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, updatedRecords, errors.length > 0 ? errors : null);
+      }
+    }, function(transaction, error) {
+      executed++;
+      record = {error:error};
+      record[clientIdProperty] = id;
+      errors.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, updatedRecords, errors);
+      }
+    });
+  });
+}, deleteRecords:function(transaction, records, callback) {
+  var me = this, table = me.table, columns = table.getColumns().collect('name'), deletedRecords = [], errors = [], totalRecords = records.length, idProperty = records[0].getIdProperty(), executed = 0;
+  query = (new Ext.XTemplate(me.deleteStatementTpl)).apply({table:table.name, idProperty:idProperty});
+  Ext.Array.each(records, function(record) {
+    var id = record.getId(), clientIdProperty = record.clientIdProperty || 'clientId';
+    transaction.executeSql(query, [id], function(transaction, resultSet) {
+      executed++;
+      record = {id:id};
+      record[clientIdProperty] = id;
+      deletedRecords.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, deletedRecords, errors.length > 0 ? errors : null);
+      }
+    }, function(transaction, error) {
+      executed++;
+      record = {error:error};
+      record[clientIdProperty] = id;
+      errors.push(record);
+      if (executed === totalRecords && typeof callback === 'function') {
+        callback.call(me, deletedRecords, errors);
+      }
+    });
+  });
+}, getRecordData:function(record) {
+  var me = this, fields = record.getFields(), data = {}, name, value, i, ln, field;
+  for (i = 0, ln = fields.length; i < ln; i++) {
+    field = fields[i];
+    if (field.persist) {
+      name = field.name;
+      value = record.get(name);
+      if (field.isDateField) {
+        value = me.parseDate(field, value);
+      } else {
+        if (field.isBooleanField) {
+          value = me.parseBoolean(field, value);
+        }
+      }
+      data[name] = value;
+    }
+  }
+  return data;
+}, parseDate:function(field, date) {
+  if (Ext.isEmpty(date)) {
+    return null;
+  }
+  var dateFormat = field.getDateFormat() || this.getDefaultDateFormat();
+  switch(dateFormat) {
+    case 'timestamp':
+      return date.getTime() / 1000;
+    case 'time':
+      return date.getTime();
+    default:
+      return Ext.Date.format(date, dateFormat);
+  }
+}, parseBoolean:function(field, value) {
+  return value == null ? null : !!value ? 1 : 0;
+}, getColumnValues:function(columns, data) {
+  var ln = columns.length, values = [], i, column, value;
+  for (i = 0; i < ln; i++) {
+    column = columns[i];
+    value = data[column];
+    if (value !== undefined) {
+      values.push(value);
+    } else {
+      values.push(null);
+    }
+  }
+  return values;
+}});
+Ext.define('Pyansa.database.sqlite.Column', {alias:'pyansa.database.sqlite.column', requires:['Ext.XTemplate'], statementTpl:['`{name}` ', '{[values.type.toUpperCase()]} ', "\x3ctpl if\x3d'!acceptsNull'\x3eNOT \x3c/tpl\x3e", 'NULL', "\x3ctpl if\x3d'defaultValue !\x3d\x3d null \x26\x26 defaultValue !\x3d\x3d undefined'\x3e", ' DEFAULT ', "\x3ctpl switch\x3d'typeof values.defaultValue'\x3e", "\x3ctpl case\x3d'number'\x3e", '{defaultValue}', '\x3ctpl default\x3e', '"{defaultValue}"', '\x3c/tpl\x3e', 
+'\x3c/tpl\x3e'], isColumn:true, name:null, type:null, isPrimaryKey:false, acceptsNull:false, defaultValue:null, constructor:function(config) {
+  var me = this, defaults;
+  config = config || {};
+  defaults = {name:me.name, type:me.type, isPrimaryKey:me.isPrimaryKey, acceptsNull:me.acceptsNull, defaultValue:me.defaultValue};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
+  this.initConfig(config);
+}, buildStatement:function(tpl) {
+  var me = this;
+  tpl = tpl || me.statementTpl;
+  if (!tpl) {
+    Ext.raise('No existe un template para generar la sentencia');
+  }
+  if (Ext.isArray(tpl)) {
+    tpl = tpl.join('');
+  }
+  if (!tpl.isXTemplate) {
+    tpl = new Ext.XTemplate(tpl);
+  }
+  return tpl.apply(me);
+}});
+Ext.define('Pyansa.database.sqlite.Connection', {alias:'pyansa.database.sqlite.connection', isConnection:true, name:null, version:'1.0', description:'WebSQL Database', size:0, connection:null, constructor:function(config) {
+  var me = this, tables, defaults;
+  config = config || {};
+  defaults = {name:me.name, version:me.version, description:me.description, size:me.size, connection:me.connection};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
+  this.initConfig(config);
+  if (me.size <= 0) {
+    Ext.raise('El tamaño de la base de datos debe ser mayor a 0');
+  }
+  me.connection = me.databaseObject = openDatabase(me.name, me.version, me.description, me.size);
+}, transaction:function() {
+  var me = this;
+  me.connection.transaction.apply(me.connection, arguments);
+}});
+Ext.define('Pyansa.database.sqlite.Table', {alias:'pyansa.database.sqlite.table', requires:['Pyansa.database.sqlite.Column', 'Ext.XTemplate', 'Ext.util.Collection', 'Ext.Deferred'], createStatementTpl:['CREATE', "\x3ctpl if\x3d'isTemporary'\x3e", ' TEMPORARY', '\x3c/tpl\x3e', ' TABLE', "\x3ctpl if\x3d'checkExistence'\x3e", ' IF NOT EXISTS', '\x3c/tpl\x3e', ' `{name}` (', '{[', 'values.columns.items.map(function(item) { ', 'return item.buildStatement();', '}).join(", ")', ']}', '\x3ctpl if\x3d\'columns.findIndex("isPrimaryKey", true) !\x3d -1\'\x3e', 
+', PRIMARY KEY (', '{[', 'values.columns.items.filter(function(item) {', 'return item.isPrimaryKey;', '}).map(function(item) { ', 'return "`" + item.name + "`";', '}).join(", ")', ']}', ')', '\x3c/tpl\x3e', ')'], dropStatementTpl:['DROP', "\x3ctpl if\x3d'isTemporary'\x3e", ' TEMPORARY', '\x3c/tpl\x3e', ' TABLE', "\x3ctpl if\x3d'checkExistence'\x3e", ' IF EXISTS', '\x3c/tpl\x3e', ' `{name}`'], isTable:true, name:null, isTemporary:false, checkExistence:false, columns:null, constructor:function(config) {
+  var me = this, columns, defaults;
+  config = config || {};
+  defaults = {name:me.name, isTemporary:me.isTemporary, checkExistence:me.checkExistence, columns:me.columns};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
+  this.initConfig(config);
+  columns = me.columns;
+  me.columns = new Ext.util.Collection({keyFn:function(item) {
+    return item.name;
+  }, decoder:me.createColumn});
+  me.setColumns(columns);
+}, getColumns:function() {
+  return this.columns;
+}, setColumns:function(columns) {
+  var me = this, columnsCollection = me.columns, i;
+  columns = columns || [];
+  columnsCollection.clear();
+  for (i = 0; i < columns.length; i++) {
+    columnsCollection.add(columns[i]);
+  }
+}, createColumn:function(column) {
+  if (!column.isColumn) {
+    column = Ext.create('pyansa.database.sqlite.column', column);
+  }
+  return column;
+}, buildStatement:function(tpl) {
+  var me = this;
+  if (!tpl) {
+    Ext.raise('No existe un template para generar la sentencia');
+  }
+  if (Ext.isArray(tpl)) {
+    tpl = tpl.join('');
+  }
+  if (!tpl.isXTemplate) {
+    tpl = new Ext.XTemplate(tpl);
+  }
+  return tpl.apply(me);
+}, create:function() {
+  var me = this;
+  return me.schema.query(me.buildStatement(me.createStatementTpl));
+}, drop:function() {
+  var me = this;
+  return me.schema.query(me.buildStatement(me.dropStatementTpl));
+}, truncate:function() {
+  var me = this, deferred = new Ext.Deferred;
+  me.schema.transaction(function(tx) {
+    tx.executeSql(me.buildStatement(me.dropStatementTpl));
+    tx.executeSql(me.buildStatement(me.createStatementTpl));
+  }, function(sqlError) {
+    deferred.reject(sqlError);
+  }, function() {
+    deferred.resolve();
+  });
+  return deferred.promise;
+}});
+Ext.define('Pyansa.database.sqlite.Schema', {alias:'pyansa.database.sqlite.schema.', requires:['Pyansa.database.sqlite.Connection', 'Pyansa.database.sqlite.Table', 'Ext.Deferred'], isSchema:true, name:null, version:'1.0', description:'WebSQL Database', size:0, connection:null, tables:null, constructor:function(config) {
+  var me = this, tables, defaults;
+  config = config || {};
+  defaults = {name:me.name, version:me.version, description:me.description, size:me.size, connection:me.connection, tables:me.tables};
+  Ext.Object.each(defaults, function(key, value) {
+    config[key] = config[key] || me[key] || value;
+  });
+  this.initConfig(config);
+  me.connection = new Pyansa.database.sqlite.Connection({name:me.name, version:me.version, description:me.description, size:me.size});
+  tables = me.tables;
+  me.tables = new Ext.util.Collection({keyFn:function(item) {
+    return item.name;
+  }, decoder:me.createTable.bind(me)});
+  me.setTables(tables);
+}, getTables:function() {
+  return this.tables;
+}, setTables:function(tables) {
+  var me = this, tableCollection = me.tables, i, table;
+  tables = tables || [];
+  tableCollection.clear();
+  for (i = 0; i < tables.length; i++) {
+    table = tables[i];
+    tableCollection.add(tables[i]);
+  }
+}, createTable:function(table) {
+  var me = this;
+  if (typeof table === 'string') {
+    table = {type:table};
+  }
+  if (!table.isTable) {
+    table = Ext.create(table.type || 'Pyansa.database.sqlite.Table', table);
+    table.schema = me;
+  }
+  return table;
+}, query:function(query, params) {
+  var me = this, deferred = new Ext.Deferred;
+  if (!me.connection) {
+    Ext.raise('No existe una conexion a la base de datos');
+  }
+  me.connection.transaction(function(tx) {
+    tx.executeSql(query, params);
+  }, function(sqlError) {
+    deferred.reject(sqlError);
+  }, function() {
+    deferred.resolve();
+  });
+  return deferred.promise;
+}, transaction:function() {
+  var me = this;
+  me.connection.transaction.apply(me.connection, arguments);
+}, create:function() {
+  var me = this, deferred = new Ext.Deferred;
+  me.connection.transaction(function(tx) {
+    me.tables.each(function(item) {
+      tx.executeSql(item.buildStatement(item.createStatementTpl));
+    });
+  }, function(sqlError) {
+    deferred.reject(sqlError);
+  }, function() {
+    deferred.resolve();
+  });
+  return deferred.promise;
+}, drop:function() {
+  var me = this, deferred = new Ext.Deferred;
+  me.transaction(function(tx) {
+    me.tables.each(function(item) {
+      tx.executeSql(item.buildStatement(item.dropStatementTpl));
+    });
+  }, function(sqlError) {
+    deferred.reject(sqlError);
+  }, function() {
+    deferred.resolve();
+  });
+  return deferred.promise;
 }});

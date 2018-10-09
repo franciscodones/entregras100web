@@ -1,0 +1,82 @@
+{
+  "name": "pyansa-ux",
+  "namespace": "Pyansa",
+  "format": "1",
+  "version": "6.5.0.5",
+  "compatVersion": "6.5.0",
+  "creator": "Pyansa",
+  "summary": "Pyansa ux",
+  "detailedDescription": "Paquete ux con todas los overrides y clases custome de los componentes visibles",
+  "type": "code",
+  "signatures": [
+    {
+      "name": "Pyansa",
+      "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
+      "created": "2018-10-09T19:54:01Z",
+      "algorithm": "SHA1withRSA",
+      "nonce": "9FWE50p7dDg\u003d",
+      "signature": "KEiX754AhUwQB9kGJNhsXWSn1v32Buzswz/5E/fP+Lr7ehEzDf52nG4SZS1SdxfICK2MGYVeYhY3nK33JsfZ6EKFFIEs7wFtsJC9QfT+5xaAQROEFMfIxbAOeG8+hZkUVXN3UDcifcM844javEf/QbWwygYtX8kyiuI/tRhDHOYO03dwHIr+LnApQk6bNEByo7L0UFEJmWh0QENPstrUo5yFanGOKeWrXuHDRPzbTdWon7O9PSVkxSsaUaXlbkPKzjmIUQokvzNGHI1MUOBzC6hmYjrQYorb9wfRRHiI/mi6m0GnQ/7EdmjBjVrz1qBpHySyeuO+mG1ySAgmjvdpow\u003d\u003d"
+    }
+  ],
+  "architect": {
+    "compatFrameworks": [
+      "ext65",
+      "modern65"
+    ],
+    "classes": []
+  },
+  "resources": [
+    {
+      "path": "resources"
+    },
+    {
+      "path": "${toolkit.name}/resources"
+    }
+  ],
+  "builds": {
+    "neptune": {
+      "toolkit": "classic",
+      "theme": "ext-theme-neptune"
+    },
+    "triton": {
+      "toolkit": "classic",
+      "theme": "theme-triton"
+    },
+    "material": {
+      "toolkit": "modern",
+      "theme": "theme-material"
+    }
+  },
+  "output": {
+    "base": "${package.dir}/build/${toolkit.name}/${build.id}",
+    "js": "..",
+    "sass": ""
+  },
+  "sass": {
+    "namespace": "Pyansa",
+    "etc": [
+      "${package.dir}/sass/etc/all.scss",
+      "${package.dir}/${toolkit.name}/sass/etc/all.scss"
+    ],
+    "var": [
+      "${package.dir}/sass/var",
+      "${package.dir}/${toolkit.name}/sass/var"
+    ],
+    "src": [
+      "${package.dir}/sass/src",
+      "${package.dir}/sass/src/all.scss",
+      "${package.dir}/${toolkit.name}/sass/src",
+      "${package.dir}/${toolkit.name}/sass/src/all.scss"
+    ]
+  },
+  "classpath": [
+    "${package.dir}/src",
+    "${package.dir}/${toolkit.name}/src"
+  ],
+  "overrides": [
+    "${package.dir}/overrides",
+    "${package.dir}/${toolkit.name}/overrides"
+  ],
+  "framework": "ext",
+  "properties": {}
+}

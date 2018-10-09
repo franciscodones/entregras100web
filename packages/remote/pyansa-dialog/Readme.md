@@ -1,2 +1,0 @@
-# pyansa-dialog - Read Me
-
