@@ -81,10 +81,8 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
             $sQuery = "CREATE TEMPORARY TABLE listas_padron_unificado AS " .
                 "SELECT DISTINCT * " .
                 "FROM listas_padron " .
-                "WHERE ncontrol = ncontrol " .
-                "AND fecha = (SELECT MAX(fecha) FROM listas_padron WHERE ncontrol = ncontrol) " .
                 "GROUP BY ncontrol " .
-                "ORDER BY ncontrol";
+                "ORDER BY ncontrol ASC, fecha DESC " .;
             $oConexionPlaza->query($sQuery);
 
             // genera el padron combinado con la lista en una tabla
