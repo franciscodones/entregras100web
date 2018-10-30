@@ -11,10 +11,10 @@
         "libraryRequires": [
             "exporter",
             "pyansa-locale",
-            "pyansa-data",
             "font-awesome",
             "ext-locale",
-            "pyansa-ux"
+            "pyansa-ux",
+            "pyansa-lang"
         ],
         "theme": "MyTritonTheme"
     },

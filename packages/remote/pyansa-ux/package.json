@@ -2,7 +2,7 @@
   "name": "pyansa-ux",
   "namespace": "Pyansa",
   "format": "1",
-  "version": "6.5.0.5",
+  "version": "6.5.0.9",
   "compatVersion": "6.5.0",
   "creator": "Pyansa",
   "summary": "Pyansa ux",
@@ -12,10 +12,10 @@
     {
       "name": "Pyansa",
       "uuid": "70acf076-be0e-44a6-8dbe-08a64dbdb232",
-      "created": "2018-10-09T19:54:01Z",
+      "created": "2018-10-29T20:19:58Z",
       "algorithm": "SHA1withRSA",
-      "nonce": "9FWE50p7dDg\u003d",
-      "signature": "KEiX754AhUwQB9kGJNhsXWSn1v32Buzswz/5E/fP+Lr7ehEzDf52nG4SZS1SdxfICK2MGYVeYhY3nK33JsfZ6EKFFIEs7wFtsJC9QfT+5xaAQROEFMfIxbAOeG8+hZkUVXN3UDcifcM844javEf/QbWwygYtX8kyiuI/tRhDHOYO03dwHIr+LnApQk6bNEByo7L0UFEJmWh0QENPstrUo5yFanGOKeWrXuHDRPzbTdWon7O9PSVkxSsaUaXlbkPKzjmIUQokvzNGHI1MUOBzC6hmYjrQYorb9wfRRHiI/mi6m0GnQ/7EdmjBjVrz1qBpHySyeuO+mG1ySAgmjvdpow\u003d\u003d"
+      "nonce": "eMjU3+eijhw\u003d",
+      "signature": "mo0GiW7t0Ugs3IBbqRwBn1VyyumLEixQMoRTNpHDXE2OFONLXj8iNN8qUr8D6sPsq8RqCzGDtx965MIZFsoPR7WXJ2tp8GJ/LsLgu+/0pDzgguSFdmn1jOHZm7Ao9Nq9El3pqR1HimiU4DQRJvrsrIIUl0Z5n7NQLuoA0ueBusWNaIt9rukqmiOv4mIMXEn3hUnPABso/bjjmnJu2NB3jwTeAtX01URvs30LkR7a6q291+vFrjbY1Wb/LX8iOnW9U7aNCOBpgkPAARryTJ2hieXlaVqlMdmOELSit5k4JxhbdS2MCka3FKHoTJt7Rf3JBzISOUxbZuyKrU8U6Hg3RQ\u003d\u003d"
     }
   ],
   "architect": {

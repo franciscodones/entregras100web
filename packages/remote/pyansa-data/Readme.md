@@ -1,2 +1,0 @@
-# pyansa-data - Read Me
-

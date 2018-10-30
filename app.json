@@ -8,10 +8,10 @@
    "requires": [
       "exporter",
       "pyansa-locale",
-      "pyansa-data",
       "font-awesome",
       "ext-locale",
-      "pyansa-ux"
+      "pyansa-ux",
+      "pyansa-lang"
    ],
    "locale": "es",
    "indexHtmlPath": "index.html",

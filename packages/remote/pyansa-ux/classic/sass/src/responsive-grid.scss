@@ -1,6 +1,25 @@
 // responsive-grid estilo bootstrap 3
 .row {
-    @include make-row();
+    &.#{$prefix}container { // container y viewport
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @include make-row();
+        }
+    }
+
+    &.#{$prefix}panel > .#{$prefix}panel-bodyWrap > .#{$prefix}panel-body{
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @include make-row();
+        }
+    }
+
+    &.#{$prefix}window > .#{$prefix}window-bodyWrap > .#{$prefix}window-body{
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @include make-row();
+        }
+    }
 }
 
 @include make-grid-columns();

@@ -1854,6 +1854,82 @@ Ext.define('Pyansa.overrides.grid.plugin.RowEditing', {override:'Ext.grid.plugin
     store.sync();
   }
 }});
+Ext.define('Pyansa.lib.leaflet', function() {
+  var resourcesPath = Ext.manifest.resources.path;
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/leaflet.css');
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/leaflet-routing-machine.css');
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/L.Icon.Pulse.css');
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/leaflet.js');
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/leaflet-routing-machine.min.js');
+  Ext.Boot.loadSync(resourcesPath + '/pyansa-ux/leaflet/L.Icon.Pulse.js');
+  return {};
+});
+Ext.define('Pyansa.map.Map', {alias:'pyansa.map.map', requires:['Pyansa.lib.leaflet'], config:{center:[23.0999442125314, -102.96386718750001], zoom:6}, isMap:true, map:null, renderTo:null, url:'', attribution:'Map data \x26copy; \x3ca href\x3d"http://openstreetmap.org"\x3eOpenStreetMap\x3c/a\x3e contributors, ' + '\x3ca href\x3d"http://creativecommons.org/licenses/by-sa/2.0/"\x3eCC-BY-SA\x3c/a\x3e', constructor:function(config) {
+  var me = this;
+  me.initProperties(config);
+  me.initConfig(config);
+  me.createMap();
+  me.createTileLayer();
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  me.initProperties = Ext.emptyFn;
+  me.map = config.map || me.config.map || me.map || null;
+  me.renderTo = config.renderTo || me.config.renderTo || me.renderTo || null;
+  me.url = config.url || me.config.url || me.url;
+  me.attribution = config.attribution || me.config.attribution || me.attribution;
+}, invalidateSize:function(animate) {
+  var me = this;
+  me.map.invalidateSize(animate);
+}, createMap:function() {
+  var me = this;
+  me.map = L.map(me.renderTo, {center:me.getCenter(), zoom:me.getZoom()});
+}, createTileLayer:function() {
+  var me = this;
+  Ext.raise('Por el momento es necesario sobreescribir esta funcion en una subclase');
+}});
+Ext.define('Pyansa.map.MapboxMap', {extend:'Pyansa.map.Map', alias:'pyansa.map.mapboxmap', requires:['Pyansa.lib.leaflet'], url:'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token\x3d{accessToken}', mapId:'mapbox.streets', attribution:'Map data \x26copy; \x3ca href\x3d"http://openstreetmap.org"\x3eOpenStreetMap\x3c/a\x3e contributors, ' + '\x3ca href\x3d"http://creativecommons.org/licenses/by-sa/2.0/"\x3eCC-BY-SA\x3c/a\x3e, ' + 'Imagery © \x3ca href\x3d"http://mapbox.com"\x3eMapbox\x3c/a\x3e', 
+accessToken:'', constructor:function(config) {
+  var me = this;
+  me.initProperties(config);
+  me.initConfig(config);
+  me.callParent(arguments);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  me.initProperties = Ext.emptyFn;
+  me.callParent(arguments);
+  me.url = config.url || me.config.url || me.url;
+  me.mapId = config.mapId || me.config.mapId || me.mapId;
+  me.attribution = config.attribution || me.config.attribution || me.attribution;
+  me.accessToken = config.accessToken || me.config.accessToken || me.accessToken;
+}, createTileLayer:function() {
+  var me = this;
+  L.tileLayer(me.url, {id:me.mapId, attribution:me.attribution, accessToken:me.accessToken}).addTo(me.map);
+}});
+Ext.define('Pyansa.map.OpenStreetMapPanel', {extend:'Ext.container.Container', alias:'widget.pyansa.map.openstreetmappanel', requires:['Pyansa.map.Map', 'Pyansa.map.MapboxMap'], config:{layout:'fit'}, map:null, accessToken:null, constructor:function(config) {
+  var me = this;
+  me.initProperties(config);
+  me.callParent([config]);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  me.initProperties = Ext.emptyFn;
+  me.map = config.map || me.config.map || me.map || null;
+  me.accessToken = config.accessToken || me.config.accessToken || me.accessToken || null;
+}, onBoxReady:function() {
+  var me = this, map;
+  me.callParent();
+  me.createMap();
+}, afterLayout:function() {
+  var me = this;
+  if (me.map) {
+    me.map.invalidateSize(true);
+  }
+}, createMap:function() {
+  var me = this;
+  me.map = new Pyansa.map.MapboxMap({renderTo:me.el.dom, accessToken:me.accessToken});
+}});
 Ext.define('Pyansa.window.dialog.Dialog', {alias:'pyansa.window.dialog.dialog', extend:'Ext.window.Window', acceptText:'Aceptar', cancelText:'Cancelar', title:'Ingrese un valor', constructor:function(config) {
   var me = this;
   if (!config.field) {
