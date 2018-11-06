@@ -113,12 +113,6 @@
     font-style: normal;
 }
 /* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:17 */
-.fa,
-.far {
-    font-family: 'PyansaFontAwesome';
-    font-weight: normal;
-}
-/* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:22 */
 @font-face {
     font-family: 'PyansaFontAwesomeSolid';
     src: url('font-awesome/fonts/fa-solid-900.eot?v=5.4.1');
@@ -126,12 +120,7 @@
     font-weight: 900;
     font-style: normal;
 }
-/* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:34 */
-.fas {
-    font-family: 'PyansaFontAwesomeSolid';
-    font-weight: 900;
-}
-/* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:39 */
+/* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:29 */
 @font-face {
     font-family: 'PyansaFontAwesomeBrands';
     src: url('font-awesome/fonts/fa-brands-400.eot?v=5.4.1');
@@ -139,15 +128,11 @@
     font-weight: normal;
     font-style: normal;
 }
-/* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_path.scss:51 */
-.fab {
-    font-family: 'PyansaFontAwesomeBrands';
-}
 /* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_core.scss:4 */
 .fa,
 .far {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 14px/1 PyansaFontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -156,7 +141,7 @@
 /* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_core.scss:14 */
 .fas {
     display: inline-block;
-    font: normal normal 900 14px/1 FontAwesomeSolid;
+    font: normal normal 900 14px/1 PyansaFontAwesomeSolid;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -165,7 +150,7 @@
 /* C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/etc/font-awesome/_core.scss:24 */
 .fab {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesomeBrands;
+    font: normal normal normal 14px/1 PyansaFontAwesomeBrands;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;

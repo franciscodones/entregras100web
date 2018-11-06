@@ -14,11 +14,6 @@
   font-style: normal;
 }
 
-.#{$pfa-css-prefix}, .far {
-  font-family: 'PyansaFontAwesome';
-  font-weight: normal;
-}
-
 @font-face {
   font-family: 'PyansaFontAwesomeSolid';
   src: url('#{$pfa-font-path}/fa-solid-900.eot?v=#{$pfa-version}');
@@ -31,11 +26,6 @@
   font-style: normal;
 }
 
-.fas {
-  font-family: 'PyansaFontAwesomeSolid';
-  font-weight: 900;
-}
-
 @font-face {
   font-family: 'PyansaFontAwesomeBrands';
   src: url('#{$pfa-font-path}/fa-brands-400.eot?v=#{$pfa-version}');
@@ -46,8 +36,4 @@
     url('#{$pfa-font-path}/fa-brands-400.svg?v=#{$pfa-version}#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
-}
-
-.fab {
-  font-family: 'PyansaFontAwesomeBrands';
 }
