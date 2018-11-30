@@ -82,7 +82,7 @@ class SolicitarpadronAppGaseraController extends AppGaseraController {
                 "SELECT DISTINCT * " .
                 "FROM listas_padron " .
                 "GROUP BY ncontrol " .
-                "ORDER BY ncontrol ASC, fecha DESC " .;
+                "ORDER BY ncontrol ASC, fecha DESC ";
             $oConexionPlaza->query($sQuery);
 
             // genera el padron combinado con la lista en una tabla

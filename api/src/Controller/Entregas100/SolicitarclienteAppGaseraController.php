@@ -54,14 +54,14 @@ class SolicitarclienteAppGaseraController extends AppGaseraController {
         $sQuery = "CREATE TEMPORARY TABLE lista_app AS (" .
             SolicitarlistaAppGaseraController::getListaQueryString() .
             ")";
-        $aQueryParams = array($aPlaza["otorga_puntos"], $dFechaPadron, $dFechaPadron);
+        $aQueryParams = array($aPlaza["otorga_puntos"], $aUnidad["plaza_id"], $dFechaPadron, $dFechaPadron);
         $oConexionPlaza->query($sQuery, $aQueryParams);
 
         // genera el padron combinado con la lista en una tabla
         $sQuery = "CREATE TABLE padron_app_" . $aUnidad["unidad"] . " AS (" .
             self::getPadronQueryString() .
             ")";
-        $aQueryParams = array($aPlaza["otorga_puntos"], $nNumeroControl);
+        $aQueryParams = array($aPlaza["otorga_puntos"], $aUnidad["plaza_id"], $nNumeroControl);
         $oConexionPlaza->query($sQuery, $aQueryParams);
 
         // obtiene la pagina del padron

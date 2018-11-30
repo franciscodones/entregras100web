@@ -65,12 +65,11 @@ class CalleAppGaseraController extends AppGaseraController {
             "GROUP BY id " .
             "ORDER BY id";
         $aCalles = $oConexionPlaza->query($sQuery);
-
+	
         // si no existen calles se termina el proceso
         if (count($aCalles) <= 0) {
             throw new Exception("No existe un catalogo de calles");
         }
-
         // se agrega una calle default
         array_unshift(
             $aCalles,
