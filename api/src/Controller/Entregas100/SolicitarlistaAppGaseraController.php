@@ -67,7 +67,7 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
         $sQuery = "CREATE TEMPORARY TABLE lista_app AS (" .
             self::getListaQueryString() .
             ")";
-        $aQueryParams = array($aPlaza["otorga_puntos"], $dFechaLista, $dFechaLista);
+        $aQueryParams = array($aPlaza["otorga_puntos"], $aUnidad["plaza_id"], $dFechaLista, $dFechaLista);
         $oConexionPlaza->query($sQuery, $aQueryParams);
 
         /**
@@ -230,6 +230,7 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             "listas.zona AS zona, " .
             "0 AS tipo_compromiso_id, " .
             "? AS plaza_otorga_puntos, " .
+            "? AS plaza_id, " .
             "IF(" .
                 "padron.interior IS NULL, " .
                 "\"\", " .
@@ -366,7 +367,15 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
             }
 
             // asigna otorga_puntos de acuerdo a los criterios
-            if ($aServicio["plaza_otorga_puntos"] && $aServicio["es_programado"] && $aServicio["tipo_cliente"] == 0) {
+            if (
+                $aServicio["plaza_otorga_puntos"] &&    // la plaza otorga puntos
+                $aServicio["es_programado"] &&          // es servicios programado
+                $aServicio["tipo_cliente"] == 0 &&      // es cliente domestico
+                (
+                    !in_array($aServicio["plaza_id"], [16, 17]) ||    // si las plaza no es san jose o san lucas
+                    $aServicio['capacidad_tanque'] <= 300           // si es san jose o san lucas, la capacidad debera ser menor a 300 litros
+                )
+            ) {
                 $aServicio["otorga_puntos"] = 1;
             } else {
                 $aServicio["otorga_puntos"] = 0;
