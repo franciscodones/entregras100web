@@ -33,6 +33,12 @@ require ROOT . DS . 'vendor' . DS . 'autoload.php';
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
+// You can remove this if you are confident you have intl installed.
+// Se comenta esta linea para evitar el error al no contar con la extension intl
+/*if (!extension_loaded('intl')) {
+    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
+}*/
+
 use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\App;
@@ -41,16 +47,15 @@ use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
-use Cake\Error\ErrorHandler;
+use Pyansa\Error\ErrorHandler;    // se cambia a Pyansa\Error\ErrorHandler
 use Cake\Log\Log;
 use Cake\Mailer\Email;
 use Cake\Network\Request;
-use Pyansa\Routing\DispatcherFactory;
+use Pyansa\Routing\DispatcherFactory;   // Se cambia a Pyansa\Routing\DispatcherFactory
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
-use Pyansa\Error\ExceptionHandler;
 
-// You can remove this if you are confident you have intl installed.
+// en caso que no se cargue la extension intl, se carga el plugin para compatibilidad
 if (!extension_loaded('intl')) {
     Plugin::load('CakeIntl', ['bootstrap' => true]);
 }
@@ -87,6 +92,7 @@ if (!Configure::read('debug')) {
  * Set server timezone to UTC. You can change it to another timezone of your
  * choice but using UTC makes time calculations / conversions easier.
  */
+// Se asigna la zona horaria de mazatlan por default
 date_default_timezone_set('America/Mazatlan');
 
 /**
@@ -107,7 +113,7 @@ $isCli = PHP_SAPI === 'cli';
 if ($isCli) {
     (new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
-    (new ExceptionHandler(Configure::read('Error')))->register();
+    (new ErrorHandler(Configure::read('Error')))->register();
 }
 
 // Include the CLI bootstrap overrides.
@@ -196,6 +202,7 @@ DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
 
+// se agrega esta linea para registrar filtros adicionales
 DispatcherFactory::registerFilters();
 
 /**

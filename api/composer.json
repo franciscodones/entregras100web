@@ -12,11 +12,11 @@
         "cakephp/plugin-installer": "*",
         "hraq/cake-intl": "dev-master",
         "phpoffice/phpexcel": "^1.8",
-        "pyansa/pyansaphp": "3.1.*@dev"
+        "pyansaphp/pyansaphp": "3.1.*@dev"
     },
     "require-dev": {
         "psy/psysh": "@stable",
-        "cakephp/debug_kit": "3.7.0",
+        "cakephp/debug_kit": "3.5.*",
         "cakephp/bake": "~1.1"
     },
     "suggest": {
@@ -43,11 +43,22 @@
     "repositories": [
         {
             "type": "git",
-            "url": "http://git.pyansa.com.mx/pyansa/pyansaphp.git"
+            "url": "http://git.pyansa.com.mx/pyansaphp/pyansaphp.git"
+        },
+        {
+            "type": "git",
+            "url": "http://git.pyansa.com.mx/pyansaphp/intl.git"
+        },
+        {
+            "type": "git",
+            "url": "http://git.pyansa.com.mx/pyansaphp/phpexcel.git"
         }
     ],
     "config": {
+        "disable-tls": true,
+        "secure-http": false,
         "platform": {
+            "php": "5.4.37",
             "ext-intl": "1"
         }
     }

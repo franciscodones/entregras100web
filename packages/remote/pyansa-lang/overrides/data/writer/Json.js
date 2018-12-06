@@ -17,7 +17,7 @@ Ext.define('Pyansa.overrides.data.writer.Json', {
 
         config = config || {};
         config.writeAllFields = config.writeAllFields || true;
-        config.allowSingle = config.allowSingle || true;
+        config.allowSingle = config.allowSingle || false;
         config.encode = config.encode || true;
         config.rootProperty = config.rootProperty || "records";
 
