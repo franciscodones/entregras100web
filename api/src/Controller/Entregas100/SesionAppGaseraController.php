@@ -28,7 +28,10 @@ class SesionAppGaseraController extends AppGaseraController {
 
         // si ambos nip son iguales se marca error
         if ($nNip1 == $nNip2) {
-            throw new Exception("Error de nip de ayudante, no puede ser igual al del chofer");
+            return $this->asJson([
+                "success" => false,
+                "message" => "Error de nip de ayudante, no puede ser igual al del chofer"
+            ]);
         }
 
         // obtiene el registro del chofer|supervisor|jefe operativo|tecnico
@@ -42,9 +45,15 @@ class SesionAppGaseraController extends AppGaseraController {
 
         // si no existe el usuario1 se marca error
         if ($aUsuario1 == null) {
-            throw new Exception("Error de nip de chofer, no exite este nip");
+            return $this->asJson([
+                "success" => false,
+                "message" => "Error de nip de chofer, no exite este nip"
+            ]);
         } else if ($aUsuario1["tipo_usuario_id"] == 1 && !$aUsuario1["plazas"] && $aUsuario1["sesion"]) {
-            throw new Exception("Error de nip de chofer, su sesion ya fue iniciada");
+            return $this->asJson([
+                "success" => false,
+                "message" => "Error de nip de chofer, su sesion ya fue iniciada"
+            ]);
         }
 
         $bRequiereAyudante = $aUsuario1["tipo_usuario_id"] == 1 && (bool)$aUnidad["ayudante"];
@@ -61,9 +70,15 @@ class SesionAppGaseraController extends AppGaseraController {
 
             // si no existe el usuario2 se marca error
             if ($aUsuario2 == null) {
-                throw new Exception("Error de nip de ayudante, no exite este nip");
+                return $this->asJson([
+                    "success" => false,
+                    "message" => "Error de nip de ayudante, no exite este nip"
+                ]);
             } else if ($aUsuario1["tipo_usuario_id"] && !$aUsuario2["plazas"] && $aUsuario2["sesion"]) {
-                throw new Exception("Error de nip de ayudante, su sesion ya fue iniciada");
+                return $this->asJson([
+                    "success" => false,
+                    "message" => "Error de nip de ayudante, su sesion ya fue iniciada"
+                ]);
             }
         }
 
