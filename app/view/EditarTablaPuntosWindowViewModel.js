@@ -28,7 +28,7 @@ Ext.define('Entregas100Web.view.EditarTablaPuntosWindowViewModel', {
             model: 'Entregas100Web.model.PlazaModel',
             filters: {
                 filterFn: function(item) {
-                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("plaza_id"));
+                    return Ext.isEmpty(Ext._.usuario.plaza_id) || Ext.Array.contains(Ext._.usuario.plaza_id, item.get("id"));
                 },
                 id: 'permisoPlazas'
             }
