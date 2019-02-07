@@ -235,11 +235,6 @@ class SurtidoAppGaseraController extends AppGaseraController {
         );
         $aResultado = $oConexionPlaza->query($sQueryInsertarServicio, $aQueryParamsInsertarServicio);
 
-        // si el servicio no fue insertado se termina el proceso
-        if ($aResultado < 1) {
-            throw new Exception("Error al guardar el servicio en la plaza");
-        }
-
         // obtiene el registro del servicio recien insertado en la plaza
         $sQuerySelecionarServicio = "SELECT id " .
             "FROM servicio_atendido " .
@@ -458,13 +453,14 @@ class SurtidoAppGaseraController extends AppGaseraController {
                             "plaza, " .
                             "precio_gas, " .
                             "precio_aditivo, " .
+                            "descuento_centavos, " .
                             "colonia, " .
                             "calle, " .
                             "tipo_surt) " .
                         "VALUES (" .
                             "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " .
                             "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " .
-                            "?, ?, ?" .
+                            "?, ?, ?, ?" .
                         ")";
                     $aQueryParams = array(
                         $nCvecia,
@@ -507,6 +503,7 @@ class SurtidoAppGaseraController extends AppGaseraController {
                         $aPlaza["plaza2"],
                         $nPrecioGas,
                         $nPrecioAditivo,
+                        $nDescuento,
                         $nColonia,
                         $nCalle,
                         $sLetraCompromiso
