@@ -20,13 +20,15 @@ class AlarmasCronController extends AppController {
             "plantamz@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "CLN" => array(
             "operacionescln@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "LCR" => array(
             "gerencialc@gaspasa.com.mx",
@@ -34,7 +36,8 @@ class AlarmasCronController extends AppController {
             "plantalacruz@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "ESC" => array(
             "gpaes1@gaspasa.com.mx",
@@ -42,138 +45,158 @@ class AlarmasCronController extends AppController {
             "plantaesc@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "SAL" => array(
             "jcuevas@diesgas.com.mx",
             "plantagdl@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "LPZ" => array(
             "jurias@caligas.com.mx",
             "plantalp@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "GVE" => array(
             "jorgezazueta@gaspasa.com.mx",
             "plantagve@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "GME" => array(
             "neubojorquez@gaspasa.com.mx",
             "plantagm@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "QRE" => array(
             "ibojorquez@caligas.com.mx",
             "plantaqro@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "CYE" => array(
             "gilbertol@diesgas.com.mx",
             "avaldez@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "IRE" => array(
             "gerenciairapuato@diesgas.com.mx",
             "operacionirp@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "HME" => array(
             "armandohiguera@diesgas.com.mx",
             "plantahermosillo@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "LMS" => array(
             "javierapodaca@gaspasa.com.mx",
             "plantalm@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "OBR" => array(
             "edgarquintero@gaspasa.com.mx",
             "plantahq@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "NVJ" => array(
             "administrativohq@gaspasa.com.mx",
             "operacionesnav@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "SJC" => array(
             "smoreno@caligas.com.mx",
             "plantasj@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "SLE" => array(
             "smoreno@caligas.com.mx",
             "plantasl@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "SRE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "LOE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "CCE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "GNE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "ENE" => array(
             "kfigueroa@gaspasa.com.mx",
             "operativoens@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         ),
         "TJE" => array(
             "luisrodriguez@gaspasa.com.mx",
             "rquintero@gaspasa.com.mx",
-            "b.venegas@pyansa.com.mx"
+            "b.venegas@pyansa.com.mx",
+            "rgalaviz@pyansa.com.mx"
         )
     );
 
@@ -197,8 +220,18 @@ class AlarmasCronController extends AppController {
         $aPlazas = $oConexion->query($sQuery);
 
         // se obtiene el catalogo de alarmas
-        $sQuery = "SELECT * FROM alarma";
+        $sQuery = "SELECT * FROM alarma ORDER BY id";
         $aCatalogoAlarmas = $oConexion->query($sQuery);
+        // procesa el array para que los indices sean los id
+        $aCatalogoAlarmas = array_combine(
+            array_map(
+                function($item) {
+                    return $item["id"];
+                },
+                $aCatalogoAlarmas
+            ),
+            $aCatalogoAlarmas
+        );
 
         // obtiene los logs de las alarmas
         $sQuery = "SELECT logs_alarmas.*, " .

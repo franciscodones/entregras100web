@@ -79,7 +79,7 @@ class UnidadesController extends AppController {
                     "permitir_ruta_nocturna, " .
                     "estado " .
                 ") VALUES (" .
-                    "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?" .
                 ")";
             $aQueryParams = array(
                 $aRecord["zona_id"],

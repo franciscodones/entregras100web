@@ -117,7 +117,7 @@ class OperadoresController extends AppController {
 
         $aDatos = $this->request->data;
         $aDatos["records"] = json_decode($aDatos["records"], true);
-
+        
         // actualiza el registro del operador
         $sQuery = "UPDATE operador SET " .
                 "nombre = ?, " .

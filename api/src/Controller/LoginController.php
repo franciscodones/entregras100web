@@ -11,8 +11,10 @@ class LoginController extends AppController {
      * @return JsonResponse
      */
     public function login() {
+
         $sUsuario = $this->request->data["usuario"];
         $sContrasena = $this->request->data["contrasena"];
+
         $oConexion = $this->getConexion();
 
         // busca el usuario con las credenciales proporcionadas

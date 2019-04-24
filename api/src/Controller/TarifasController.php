@@ -105,11 +105,11 @@ class TarifasController extends AppController {
         );
 
         // actualiza el registro de la tarifa
-        $sQuery = "UPDATE tarifas SET " .
-                "precio2 = ?, " .
-                "aditivo2 = ? " .
-            "WHERE cvetar = ?";
         foreach ($aRecords as $aRecord) {
+            $sQuery = "UPDATE tarifas SET " .
+                    "precio2 = ?, " .
+                    "aditivo2 = ? " .
+                "WHERE cvetar = ?";
             $aQueryParams = array(
                 $aRecord["precio2"],
                 $aRecord["aditivo2"],

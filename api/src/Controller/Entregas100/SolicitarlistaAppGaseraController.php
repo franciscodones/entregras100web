@@ -395,8 +395,8 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
                 "_10" => (!empty($aServicio['credito_disponible'])) ? $aServicio['credito_disponible'] : 0, //credito_disponible
                 "_11" => $aServicio['tipo_carburacion'], //tipo_carburacion
                 "_12" => $aServicio['puntos_acumulados'], //puntos_acumulados
-                "_13" => $aServicio['latitud'], //latitud
-                "_14" => $aServicio['longitud'], //longitud
+                "_13" => 0, // $aServicio['latitud'], //latitud
+                "_14" => 0, // $aServicio['longitud'], //longitud
                 "_15" => $aServicio['fecha_fabricacion'], //fecha_fabricacion
                 "_16" => $aServicio['factor_calibracion'], //factor_calibracion
                 "_17" => $aServicio["compromiso"], //tipo_cliente
