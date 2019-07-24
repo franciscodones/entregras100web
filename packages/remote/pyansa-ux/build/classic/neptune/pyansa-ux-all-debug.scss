@@ -1,4 +1,4 @@
-$image-search-path: 'C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/build/classic/neptune/resources' !default;
+$image-search-path: 'C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/build/classic/neptune/resources' !default;
 $theme-name:  'ext-theme-neptune' !default;
 $include-ext-abstractcomponent: dynamic(false);;
 $include-ext-abstractcontainer: dynamic(false);;
@@ -928,6 +928,7 @@ $include-pyansa-overrides-grid-panel: dynamic(true);;
 $include-pyansa-overrides-grid-column-column: dynamic(true);;
 $include-pyansa-overrides-grid-filters-filter-boolean: dynamic(true);;
 $include-pyansa-overrides-grid-plugin-rowediting: dynamic(true);;
+$include-pyansa-overrides-mixin-responsive: dynamic(true);;
 $include-pyansa-window-dialog-combobox: dynamic(true);;
 $include-pyansa-window-dialog-dialog: dynamic(true);;
 
@@ -1123,6 +1124,14 @@ $relative-image-path-for-uis: $theme-neptune-resource-path;
 @import '../../../../../../ext/classic/theme-neptune/sass/var/toolbar/Breadcrumb';
 @import '../../../../../../ext/classic/theme-neptune/sass/var/tree/View';
 @import '../../../../../../ext/classic/theme-neptune/sass/var/window/Toast';
+
+/* including package pyansa-ux */
+$pyansa-ux-resource-root: '' !default;
+$pyansa-ux-resource-path: 'images' !default;
+$current-package: 'pyansa-ux';
+$current-resource-root: $pyansa-ux-resource-root;
+$relative-image-path-for-uis: $pyansa-ux-resource-path;
+@import '../../../sass/var/all';
 
 /* including package pyansa-ux */
 $pyansa-ux-resource-root: '' !default;

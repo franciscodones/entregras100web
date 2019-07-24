@@ -1,0 +1,2367 @@
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 1600px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+    .flex-xxl-row.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-row.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-direction: row !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+    .flex-xxl-column.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-column.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-direction: column !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+    .flex-xxl-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-row-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-row-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-direction: row-reverse !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+    .flex-xxl-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-column-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-column-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-direction: column-reverse !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+    .flex-xxl-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-wrap.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-wrap: wrap !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+    .flex-xxl-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-nowrap.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-nowrap.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-wrap: nowrap !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+    .flex-xxl-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .flex-xxl-wrap-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .flex-xxl-wrap-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        flex-wrap: wrap-reverse !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+    .justify-content-xxl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        justify-content: flex-start !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+    .justify-content-xxl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        justify-content: flex-end !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+    .justify-content-xxl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        justify-content: center !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+    .justify-content-xxl-between.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-between.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-between.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        justify-content: space-between !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+    .justify-content-xxl-around.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .justify-content-xxl-around.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .justify-content-xxl-around.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        justify-content: space-around !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+    .align-items-xxl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-items: flex-start !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+    .align-items-xxl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-items: flex-end !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+    .align-items-xxl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-items: center !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+    .align-items-xxl-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-baseline.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-baseline.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-items: baseline !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+    .align-items-xxl-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-items-xxl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-items-xxl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-items: stretch !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+    .align-content-xxl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: flex-start !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+    .align-content-xxl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: flex-end !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+    .align-content-xxl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: center !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+    .align-content-xxl-between.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-between.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-between.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: space-between !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+    .align-content-xxl-around.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-around.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-around.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: space-around !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+    .align-content-xxl-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
+    .align-content-xxl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
+    .align-content-xxl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
+        align-content: stretch !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:3 */
+    .flex-xxl-fill {
+        flex: 1 1 auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:4 */
+    .flex-xxl-grow-0 {
+        flex-grow: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:5 */
+    .flex-xxl-grow-1 {
+        flex-grow: 1 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:6 */
+    .flex-xxl-shrink-0 {
+        flex-shrink: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:7 */
+    .flex-xxl-shrink-1 {
+        flex-shrink: 1 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:9 */
+    .align-self-xxl-auto {
+        align-self: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:10 */
+    .align-self-xxl-start {
+        align-self: flex-start !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:11 */
+    .align-self-xxl-end {
+        align-self: flex-end !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:12 */
+    .align-self-xxl-center {
+        align-self: center !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:13 */
+    .align-self-xxl-baseline {
+        align-self: baseline !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:14 */
+    .align-self-xxl-stretch {
+        align-self: stretch !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-0 {
+    margin: 0 !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-0,
+.my-0 {
+    margin-top: 0 !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-0,
+.mx-0 {
+    margin-right: 0 !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-0,
+.my-0 {
+    margin-bottom: 0 !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-0,
+.mx-0 {
+    margin-left: 0 !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-1 {
+    margin: 0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-1,
+.my-1 {
+    margin-top: 0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-1,
+.mx-1 {
+    margin-right: 0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-1,
+.my-1 {
+    margin-bottom: 0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-1,
+.mx-1 {
+    margin-left: 0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-2 {
+    margin: 0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-2,
+.my-2 {
+    margin-top: 0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-2,
+.mx-2 {
+    margin-right: 0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-2,
+.my-2 {
+    margin-bottom: 0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-2,
+.mx-2 {
+    margin-left: 0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-3 {
+    margin: 1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-3,
+.my-3 {
+    margin-top: 1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-3,
+.mx-3 {
+    margin-right: 1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-3,
+.my-3 {
+    margin-bottom: 1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-3,
+.mx-3 {
+    margin-left: 1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-4 {
+    margin: 1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-4,
+.my-4 {
+    margin-top: 1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-4,
+.mx-4 {
+    margin-right: 1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-4,
+.my-4 {
+    margin-bottom: 1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-4,
+.mx-4 {
+    margin-left: 1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+.m-5 {
+    margin: 3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+.mt-5,
+.my-5 {
+    margin-top: 3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+.mr-5,
+.mx-5 {
+    margin-right: 3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+.mb-5,
+.my-5 {
+    margin-bottom: 3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+.ml-5,
+.mx-5 {
+    margin-left: 3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+.m-n1 {
+    margin: -0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+.mt-n1,
+.my-n1 {
+    margin-top: -0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+.mr-n1,
+.mx-n1 {
+    margin-right: -0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+.mb-n1,
+.my-n1 {
+    margin-bottom: -0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+.ml-n1,
+.mx-n1 {
+    margin-left: -0.25rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+.m-n2 {
+    margin: -0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+.mt-n2,
+.my-n2 {
+    margin-top: -0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+.mr-n2,
+.mx-n2 {
+    margin-right: -0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+.mb-n2,
+.my-n2 {
+    margin-bottom: -0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+.ml-n2,
+.mx-n2 {
+    margin-left: -0.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+.m-n3 {
+    margin: -1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+.mt-n3,
+.my-n3 {
+    margin-top: -1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+.mr-n3,
+.mx-n3 {
+    margin-right: -1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+.mb-n3,
+.my-n3 {
+    margin-bottom: -1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+.ml-n3,
+.mx-n3 {
+    margin-left: -1rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+.m-n4 {
+    margin: -1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+.mt-n4,
+.my-n4 {
+    margin-top: -1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+.mr-n4,
+.mx-n4 {
+    margin-right: -1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+.mb-n4,
+.my-n4 {
+    margin-bottom: -1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+.ml-n4,
+.mx-n4 {
+    margin-left: -1.5rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+.m-n5 {
+    margin: -3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+.mt-n5,
+.my-n5 {
+    margin-top: -3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+.mr-n5,
+.mx-n5 {
+    margin-right: -3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+.mb-n5,
+.my-n5 {
+    margin-bottom: -3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+.ml-n5,
+.mx-n5 {
+    margin-left: -3rem !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+.m-auto {
+    margin: auto !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+.mt-auto,
+.my-auto {
+    margin-top: auto !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+.mr-auto,
+.mx-auto {
+    margin-right: auto !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+.mb-auto,
+.my-auto {
+    margin-bottom: auto !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+.ml-auto,
+.mx-auto {
+    margin-left: auto !important;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 320px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-0,
+    .my-xs-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-0,
+    .mx-xs-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-0,
+    .my-xs-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-0,
+    .mx-xs-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-1,
+    .my-xs-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-1,
+    .mx-xs-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-1,
+    .my-xs-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-1,
+    .mx-xs-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-2,
+    .my-xs-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-2,
+    .mx-xs-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-2,
+    .my-xs-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-2,
+    .mx-xs-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-3,
+    .my-xs-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-3,
+    .mx-xs-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-3,
+    .my-xs-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-3,
+    .mx-xs-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-4,
+    .my-xs-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-4,
+    .mx-xs-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-4,
+    .my-xs-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-4,
+    .mx-xs-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xs-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xs-5,
+    .my-xs-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xs-5,
+    .mx-xs-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xs-5,
+    .my-xs-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xs-5,
+    .mx-xs-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xs-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xs-n1,
+    .my-xs-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xs-n1,
+    .mx-xs-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xs-n1,
+    .my-xs-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xs-n1,
+    .mx-xs-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xs-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xs-n2,
+    .my-xs-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xs-n2,
+    .mx-xs-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xs-n2,
+    .my-xs-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xs-n2,
+    .mx-xs-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xs-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xs-n3,
+    .my-xs-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xs-n3,
+    .mx-xs-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xs-n3,
+    .my-xs-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xs-n3,
+    .mx-xs-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xs-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xs-n4,
+    .my-xs-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xs-n4,
+    .mx-xs-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xs-n4,
+    .my-xs-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xs-n4,
+    .mx-xs-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xs-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xs-n5,
+    .my-xs-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xs-n5,
+    .mx-xs-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xs-n5,
+    .my-xs-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xs-n5,
+    .mx-xs-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-xs-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-xs-auto,
+    .my-xs-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-xs-auto,
+    .mx-xs-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-xs-auto,
+    .my-xs-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-xs-auto,
+    .mx-xs-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 540px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-0,
+    .my-sm-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-0,
+    .mx-sm-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-0,
+    .my-sm-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-0,
+    .mx-sm-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-1,
+    .my-sm-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-1,
+    .mx-sm-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-1,
+    .my-sm-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-1,
+    .mx-sm-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-2,
+    .my-sm-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-2,
+    .mx-sm-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-2,
+    .my-sm-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-2,
+    .mx-sm-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-3,
+    .my-sm-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-3,
+    .mx-sm-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-3,
+    .my-sm-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-3,
+    .mx-sm-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-4,
+    .my-sm-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-4,
+    .mx-sm-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-4,
+    .my-sm-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-4,
+    .mx-sm-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-sm-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-sm-5,
+    .my-sm-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-sm-5,
+    .mx-sm-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-sm-5,
+    .my-sm-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-sm-5,
+    .mx-sm-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-sm-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-sm-n1,
+    .my-sm-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-sm-n1,
+    .mx-sm-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-sm-n1,
+    .my-sm-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-sm-n1,
+    .mx-sm-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-sm-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-sm-n2,
+    .my-sm-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-sm-n2,
+    .mx-sm-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-sm-n2,
+    .my-sm-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-sm-n2,
+    .mx-sm-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-sm-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-sm-n3,
+    .my-sm-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-sm-n3,
+    .mx-sm-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-sm-n3,
+    .my-sm-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-sm-n3,
+    .mx-sm-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-sm-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-sm-n4,
+    .my-sm-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-sm-n4,
+    .mx-sm-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-sm-n4,
+    .my-sm-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-sm-n4,
+    .mx-sm-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-sm-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-sm-n5,
+    .my-sm-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-sm-n5,
+    .mx-sm-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-sm-n5,
+    .my-sm-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-sm-n5,
+    .mx-sm-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-sm-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-sm-auto,
+    .my-sm-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-sm-auto,
+    .mx-sm-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-sm-auto,
+    .my-sm-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-sm-auto,
+    .mx-sm-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 720px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-0,
+    .my-md-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-0,
+    .mx-md-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-0,
+    .my-md-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-0,
+    .mx-md-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-1,
+    .my-md-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-1,
+    .mx-md-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-1,
+    .my-md-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-1,
+    .mx-md-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-2,
+    .my-md-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-2,
+    .mx-md-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-2,
+    .my-md-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-2,
+    .mx-md-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-3,
+    .my-md-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-3,
+    .mx-md-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-3,
+    .my-md-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-3,
+    .mx-md-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-4,
+    .my-md-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-4,
+    .mx-md-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-4,
+    .my-md-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-4,
+    .mx-md-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-md-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-md-5,
+    .my-md-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-md-5,
+    .mx-md-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-md-5,
+    .my-md-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-md-5,
+    .mx-md-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-md-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-md-n1,
+    .my-md-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-md-n1,
+    .mx-md-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-md-n1,
+    .my-md-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-md-n1,
+    .mx-md-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-md-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-md-n2,
+    .my-md-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-md-n2,
+    .mx-md-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-md-n2,
+    .my-md-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-md-n2,
+    .mx-md-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-md-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-md-n3,
+    .my-md-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-md-n3,
+    .mx-md-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-md-n3,
+    .my-md-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-md-n3,
+    .mx-md-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-md-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-md-n4,
+    .my-md-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-md-n4,
+    .mx-md-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-md-n4,
+    .my-md-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-md-n4,
+    .mx-md-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-md-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-md-n5,
+    .my-md-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-md-n5,
+    .mx-md-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-md-n5,
+    .my-md-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-md-n5,
+    .mx-md-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-md-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-md-auto,
+    .my-md-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-md-auto,
+    .mx-md-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-md-auto,
+    .my-md-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-md-auto,
+    .mx-md-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 1024px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-0,
+    .my-lg-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-0,
+    .mx-lg-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-0,
+    .my-lg-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-0,
+    .mx-lg-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-1,
+    .my-lg-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-1,
+    .mx-lg-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-1,
+    .my-lg-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-1,
+    .mx-lg-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-2,
+    .my-lg-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-2,
+    .mx-lg-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-2,
+    .my-lg-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-2,
+    .mx-lg-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-3,
+    .my-lg-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-3,
+    .mx-lg-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-3,
+    .my-lg-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-3,
+    .mx-lg-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-4,
+    .my-lg-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-4,
+    .mx-lg-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-4,
+    .my-lg-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-4,
+    .mx-lg-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-lg-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-lg-5,
+    .my-lg-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-lg-5,
+    .mx-lg-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-lg-5,
+    .my-lg-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-lg-5,
+    .mx-lg-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-lg-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-lg-n1,
+    .my-lg-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-lg-n1,
+    .mx-lg-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-lg-n1,
+    .my-lg-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-lg-n1,
+    .mx-lg-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-lg-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-lg-n2,
+    .my-lg-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-lg-n2,
+    .mx-lg-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-lg-n2,
+    .my-lg-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-lg-n2,
+    .mx-lg-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-lg-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-lg-n3,
+    .my-lg-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-lg-n3,
+    .mx-lg-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-lg-n3,
+    .my-lg-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-lg-n3,
+    .mx-lg-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-lg-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-lg-n4,
+    .my-lg-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-lg-n4,
+    .mx-lg-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-lg-n4,
+    .my-lg-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-lg-n4,
+    .mx-lg-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-lg-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-lg-n5,
+    .my-lg-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-lg-n5,
+    .mx-lg-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-lg-n5,
+    .my-lg-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-lg-n5,
+    .mx-lg-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-lg-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-lg-auto,
+    .my-lg-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-lg-auto,
+    .mx-lg-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-lg-auto,
+    .my-lg-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-lg-auto,
+    .mx-lg-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 1280px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-0,
+    .my-xl-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-0,
+    .mx-xl-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-0,
+    .my-xl-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-0,
+    .mx-xl-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-1,
+    .my-xl-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-1,
+    .mx-xl-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-1,
+    .my-xl-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-1,
+    .mx-xl-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-2,
+    .my-xl-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-2,
+    .mx-xl-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-2,
+    .my-xl-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-2,
+    .mx-xl-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-3,
+    .my-xl-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-3,
+    .mx-xl-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-3,
+    .my-xl-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-3,
+    .mx-xl-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-4,
+    .my-xl-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-4,
+    .mx-xl-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-4,
+    .my-xl-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-4,
+    .mx-xl-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xl-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xl-5,
+    .my-xl-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xl-5,
+    .mx-xl-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xl-5,
+    .my-xl-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xl-5,
+    .mx-xl-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xl-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xl-n1,
+    .my-xl-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xl-n1,
+    .mx-xl-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xl-n1,
+    .my-xl-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xl-n1,
+    .mx-xl-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xl-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xl-n2,
+    .my-xl-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xl-n2,
+    .mx-xl-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xl-n2,
+    .my-xl-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xl-n2,
+    .mx-xl-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xl-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xl-n3,
+    .my-xl-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xl-n3,
+    .mx-xl-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xl-n3,
+    .my-xl-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xl-n3,
+    .mx-xl-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xl-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xl-n4,
+    .my-xl-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xl-n4,
+    .mx-xl-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xl-n4,
+    .my-xl-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xl-n4,
+    .mx-xl-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xl-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xl-n5,
+    .my-xl-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xl-n5,
+    .mx-xl-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xl-n5,
+    .my-xl-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xl-n5,
+    .mx-xl-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-xl-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-xl-auto,
+    .my-xl-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-xl-auto,
+    .mx-xl-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-xl-auto,
+    .my-xl-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-xl-auto,
+    .mx-xl-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
+@media (min-width: 1600px) {
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-0 {
+        margin: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-0,
+    .my-xxl-0 {
+        margin-top: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-0,
+    .mx-xxl-0 {
+        margin-right: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-0,
+    .my-xxl-0 {
+        margin-bottom: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-0,
+    .mx-xxl-0 {
+        margin-left: 0 !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-1 {
+        margin: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-1,
+    .my-xxl-1 {
+        margin-top: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-1,
+    .mx-xxl-1 {
+        margin-right: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-1,
+    .my-xxl-1 {
+        margin-bottom: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-1,
+    .mx-xxl-1 {
+        margin-left: 0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-2 {
+        margin: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-2,
+    .my-xxl-2 {
+        margin-top: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-2,
+    .mx-xxl-2 {
+        margin-right: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-2,
+    .my-xxl-2 {
+        margin-bottom: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-2,
+    .mx-xxl-2 {
+        margin-left: 0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-3 {
+        margin: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-3,
+    .my-xxl-3 {
+        margin-top: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-3,
+    .mx-xxl-3 {
+        margin-right: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-3,
+    .my-xxl-3 {
+        margin-bottom: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-3,
+    .mx-xxl-3 {
+        margin-left: 1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-4 {
+        margin: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-4,
+    .my-xxl-4 {
+        margin-top: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-4,
+    .mx-xxl-4 {
+        margin-right: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-4,
+    .my-xxl-4 {
+        margin-bottom: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-4,
+    .mx-xxl-4 {
+        margin-left: 1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:3 */
+    .m-xxl-5 {
+        margin: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:7 */
+    .mt-xxl-5,
+    .my-xxl-5 {
+        margin-top: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:12 */
+    .mr-xxl-5,
+    .mx-xxl-5 {
+        margin-right: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:17 */
+    .mb-xxl-5,
+    .my-xxl-5 {
+        margin-bottom: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:22 */
+    .ml-xxl-5,
+    .mx-xxl-5 {
+        margin-left: 3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xxl-n1 {
+        margin: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xxl-n1,
+    .my-xxl-n1 {
+        margin-top: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xxl-n1,
+    .mx-xxl-n1 {
+        margin-right: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xxl-n1,
+    .my-xxl-n1 {
+        margin-bottom: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xxl-n1,
+    .mx-xxl-n1 {
+        margin-left: -0.25rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xxl-n2 {
+        margin: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xxl-n2,
+    .my-xxl-n2 {
+        margin-top: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xxl-n2,
+    .mx-xxl-n2 {
+        margin-right: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xxl-n2,
+    .my-xxl-n2 {
+        margin-bottom: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xxl-n2,
+    .mx-xxl-n2 {
+        margin-left: -0.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xxl-n3 {
+        margin: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xxl-n3,
+    .my-xxl-n3 {
+        margin-top: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xxl-n3,
+    .mx-xxl-n3 {
+        margin-right: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xxl-n3,
+    .my-xxl-n3 {
+        margin-bottom: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xxl-n3,
+    .mx-xxl-n3 {
+        margin-left: -1rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xxl-n4 {
+        margin: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xxl-n4,
+    .my-xxl-n4 {
+        margin-top: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xxl-n4,
+    .mx-xxl-n4 {
+        margin-right: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xxl-n4,
+    .my-xxl-n4 {
+        margin-bottom: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xxl-n4,
+    .mx-xxl-n4 {
+        margin-left: -1.5rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:30 */
+    .m-xxl-n5 {
+        margin: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:31 */
+    .mt-xxl-n5,
+    .my-xxl-n5 {
+        margin-top: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:36 */
+    .mr-xxl-n5,
+    .mx-xxl-n5 {
+        margin-right: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:41 */
+    .mb-xxl-n5,
+    .my-xxl-n5 {
+        margin-bottom: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:46 */
+    .ml-xxl-n5,
+    .mx-xxl-n5 {
+        margin-left: -3rem !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:54 */
+    .m-xxl-auto {
+        margin: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:55 */
+    .mt-xxl-auto,
+    .my-xxl-auto {
+        margin-top: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:60 */
+    .mr-xxl-auto,
+    .mx-xxl-auto {
+        margin-right: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:65 */
+    .mb-xxl-auto,
+    .my-xxl-auto {
+        margin-bottom: auto !important;
+    }
+    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/spacing.scss:70 */
+    .ml-xxl-auto,
+    .mx-xxl-auto {
+        margin-left: auto !important;
+    }
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:6 */
+.x-message-box-info,
+.x-msgbox-info,
+.x-message-box-warning,
+.x-msgbox-warning,
+.x-message-box-question,
+.x-msgbox-question,
+.x-message-box-error,
+.x-msgbox-error,
+.x-message-box-loading,
+.x-msgbox-loading {
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:15 */
+.x-messagebox .x-body-wrap-el .x-icon {
+    height: 40px;
+    width: 40px;
+    margin: auto 0 auto 10px;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:21 */
+.x-message-box-info,
+.x-msgbox-info {
+    font: 40px/1 "FontAwesome";
+    color: grey;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-info:before,
+.x-msgbox-info:before {
+    content: "\f05a";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:30 */
+.x-message-box-warning,
+.x-msgbox-warning {
+    font: 40px/1 "FontAwesome";
+    color: #f8d400;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-warning:before,
+.x-msgbox-warning:before {
+    content: "\f071";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:39 */
+.x-message-box-question,
+.x-msgbox-question {
+    font: 40px/1 "FontAwesome";
+    color: grey;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-question:before,
+.x-msgbox-question:before {
+    content: "\f059";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:48 */
+.x-message-box-error,
+.x-msgbox-error {
+    font: 40px/1 "FontAwesome";
+    color: #ee611f;
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/ext/modern/theme-base/sass/etc/mixins/font-icon.scss:130 */
+.x-message-box-error:before,
+.x-msgbox-error:before {
+    content: "\f057";
+    font-feature-settings: 'liga';
+}
+/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/modern/sass/src/overrides/MessageBox.scss:57 */
+.x-message-box-loading::before,
+.x-msgbox-loading::before {
+    content: " ";
+    background-image: url(images/loading.gif);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    display: block;
+}

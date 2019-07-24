@@ -1,32 +1,27 @@
 // Base Class Definition
 // -------------------------
-
-.#{$pfa-css-prefix}, .far {
-  display: inline-block;
-  font: normal normal normal #{$pfa-font-size-base}/#{$pfa-line-height-base} PyansaFontAwesome; // shortening font declaration
-  font-size: inherit; // can't have font-size inherit on line above, so need to override
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  -webkit-font-smoothing: antialiased;
+.#{$fa-css-prefix}, .#{$prefix}#{$fa-css-prefix},
+.fas, .#{$prefix}fas,
+.far, .#{$prefix}far,
+.fal, .#{$prefix}fal,
+.fab, .#{$prefix}fab {
   -moz-osx-font-smoothing: grayscale;
-
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
 }
 
-.fas {
-  display: inline-block;
-  font: normal normal 900 #{$pfa-font-size-base}/#{$pfa-line-height-base} PyansaFontAwesomeSolid; // shortening font declaration
-  font-size: inherit; // can't have font-size inherit on line above, so need to override
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
+.far, .#{$prefix}far {
+    font-family: "PyansaFontAwesome";
 }
 
-.fab {
-  display: inline-block;
-  font: normal normal normal #{$pfa-font-size-base}/#{$pfa-line-height-base} PyansaFontAwesomeBrands; // shortening font declaration
-  font-size: inherit; // can't have font-size inherit on line above, so need to override
-  text-rendering: auto; // optimizelegibility throws things off #1094
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.#{$fa-css-prefix}, .#{$prefix}#{$fa-css-prefix},
+.fas, .#{$prefix}fas {
+    font-family: "PyansaFontAwesomeSolid"
+}
 
+.fab, .#{$prefix}fab {
+    font-family: "PyansaFontAwesomeBrands"
 }

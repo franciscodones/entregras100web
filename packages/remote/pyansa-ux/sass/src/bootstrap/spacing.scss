@@ -1,0 +1,21 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        // Margin and Padding
+        @each $prop, $abbrev in (margin: m, padding: p) {
+            @each $size, $length in $spacers {
+                @include make-spacing-utilities($infix, $prop, $abbrev, $size, $length);
+            }
+        }
+
+        // Negative margins
+        @each $size, $length in $spacers {
+            @if $size != 0 {
+                @include make-negative-margin-utilities($infix, $size, $length);
+            }
+        }
+
+        @include make-special-margin-utilities($infix);
+    }
+}

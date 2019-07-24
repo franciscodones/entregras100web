@@ -14,71 +14,64 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Esta propiedad es `true` para identificar instancias que son Schema
+     *
      * @type {Boolean}
      */
     isSchema: true,
 
     /**
      * Nombre de la base de datos
+     *
      * @type {String}
      */
     name: null,
 
     /**
      * Version de la base de datos
+     *
      * @type {String}
      */
     version: "1.0",
 
     /**
      * Descripcion de la base de datos
+     *
      * @type {String}
      */
     description: "WebSQL Database",
 
     /**
      * Tamaño de la base de datos
+     *
      * @type {Number}
      */
     size: 0,
 
     /**
      * Conexion a la base de datos
+     *
      * @type {Pyansa.database.sqlite.Connection}
      */
     connection: null,
 
     /**
      * Tablas del schema
+     *
      * @type {Ext.util.Collection}
      */
     tables: null,
 
     /**
      * Constructor
+     *
      * @param  {Object} config
      */
     constructor: function(config) {
         var me = this,
             tables, defaults;
 
-        // Inicializa las variables de tal manera que la prioridad que toman las propiedades son:
-        // - config
-        // - prototipo (variables declaradas en la clase)
-        // - defaults
-        config = config || {};
-        defaults = {
-            name: me.name,
-            version: me.version,
-            description: me.description,
-            size: me.size,
-            connection: me.connection,
-            tables: me.tables
-        };
-        Ext.Object.each(defaults, function(key, value) {
-            config[key] = config[key] || me[key] || value;
-        });
-        this.initConfig(config);
+        config = me.initProperties(config);
+        me.initConfig(config);
 
         me.connection = new Pyansa.database.sqlite.Connection({
             name: me.name,
@@ -98,7 +91,28 @@ Ext.define("Pyansa.database.sqlite.Schema", {
     },
 
     /**
+     * Inicializa las propiedades que esta clase utiliza
+     *
+     * @param  {Object} config
+     * @return {Object}
+     */
+    initProperties: function(config) {
+        var me = this;
+
+        config = config || {};
+        config.name = config.name || me.name;
+        config.version = config.version || me.version;
+        config.description = config.description || me.description;
+        config.size = config.size || me.size;
+        config.connection = config.connection || me.connection;
+        config.tables = config.tables || me.tables;
+
+        return config;
+    },
+
+    /**
      * Obtiene las tablas del schema
+     *
      * @return {Ext.util.Collection}
      */
     getTables: function() {
@@ -107,6 +121,7 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Asigna las tablas del schema
+     *
      * @param {Pyansa.database.sqlite.Table[]|Object[]|String[]} tables
      */
     setTables: function(tables) {
@@ -125,6 +140,7 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Construye una tabla
+     *
      * @return {Pyansa.database.sqlite.Table|Object|String} table
      */
     createTable: function(table) {
@@ -143,6 +159,7 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Ejecuta una query
+     *
      * @param  {String} query  [description]
      * @param  {Array} params [description]
      * @return {Ext.promise.Promise}
@@ -177,6 +194,7 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Crea el schema
+     *
      * @return {Ext.promise.Promise}
      */
     create: function() {
@@ -198,6 +216,7 @@ Ext.define("Pyansa.database.sqlite.Schema", {
 
     /**
      * Crea el schema
+     *
      * @return {Ext.promise.Promise}
      */
     drop: function() {

@@ -1,4 +1,4 @@
-$image-search-path: 'C:/xampp54/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/build/modern/material/resources' !default;
+$image-search-path: 'C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/build/modern/material/resources' !default;
 $theme-name:  'theme-material' !default;
 $include-ext-abstractcomponent: dynamic(false);;
 $include-ext-abstractmanager: dynamic(false);;
@@ -738,6 +738,7 @@ $include-ext-window-window: dynamic(false);;
 $include-pyansa-lib-leaflet: dynamic(true);;
 $include-pyansa-overrides-messagebox: dynamic(true);;
 $include-pyansa-overrides-field-date: dynamic(true);;
+$include-pyansa-overrides-mixin-responsive: dynamic(true);;
 
 
 /* ======================== ETC ======================== */
@@ -987,6 +988,14 @@ $relative-image-path-for-uis: $theme-material-resource-path;
 @import '../../../../../../ext/modern/theme-material/sass/var/tab/Tab';
 @import '../../../../../../ext/modern/theme-material/sass/var/tab/Bar';
 @import '../../../../../../ext/modern/theme-material/sass/var/grid/cell/Tree';
+
+/* including package pyansa-ux */
+$pyansa-ux-resource-root: '' !default;
+$pyansa-ux-resource-path: 'images' !default;
+$current-package: 'pyansa-ux';
+$current-resource-root: $pyansa-ux-resource-root;
+$relative-image-path-for-uis: $pyansa-ux-resource-path;
+@import '../../../sass/var/all';
 
 /* including package pyansa-ux */
 $pyansa-ux-resource-root: '' !default;

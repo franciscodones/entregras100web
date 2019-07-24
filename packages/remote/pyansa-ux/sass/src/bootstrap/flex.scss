@@ -1,0 +1,11 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        // se crean las utilidades flex compatibles con los contenedores de extjs
+        @include make-containers-flex-utilities($infix);
+
+        // se crean las utilidades flex en general
+        @include make-flex-utilities($infix);
+    }
+}

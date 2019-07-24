@@ -15,6 +15,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Template para generar la sentencia create de la tabla
+     *
      * @type {String|Array}
      */
     createStatementTpl: [
@@ -48,6 +49,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Template para generar la sentencia drop de la tabla
+     *
      * @type {String|Array}
      */
     dropStatementTpl: [
@@ -64,60 +66,52 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Esta propiedad es `true` para identificar instancias que son Table
+     *
      * @type {Boolean}
      */
     isTable: true,
 
     /**
      * Nombre de la tabla
+     *
      * @type {String}
      */
     name: null,
 
     /**
      * Es tabla temporal
+     *
      * @type {Boolean}
      */
     isTemporary: false,
 
     /**
      * Si no existe
+     *
      * @type {Boolean}
      */
     checkExistence: false,
 
     /**
      * Columnas
+     *
      * @type {Ext.util.Collection}
      */
     columns: null,
 
     /**
      * Constructor de la clase
+     *
      * @param  {Object} config
      */
     constructor: function(config) {
         var me = this,
-            columns, defaults;
+            columns;
 
-        // Inicializa las variables de tal manera que la prioridad que toman las propiedades son:
-        // - config
-        // - prototipo (variables declaradas en la clase)
-        // - defaults
-        config = config || {};
-        defaults = {
-            name: me.name,
-            isTemporary: me.isTemporary,
-            checkExistence: me.checkExistence,
-            columns: me.columns
-        };
-        Ext.Object.each(defaults, function(key, value) {
-            config[key] = config[key] || me[key] || value;
-        });
-        this.initConfig(config);
+        config = me.initProperties(config);
+        me.initConfig(config);
 
         columns = me.columns;
-
         me.columns = new Ext.util.Collection({
             keyFn: function(item) {
                 return item.name;
@@ -128,7 +122,26 @@ Ext.define("Pyansa.database.sqlite.Table", {
     },
 
     /**
+     * Inicializa las propiedades que esta clase utiliza
+     *
+     * @param  {Object} config
+     * @return {Object}
+     */
+    initProperties: function(config) {
+        var me = this;
+
+        config = config || {};
+        config.name = config.name || me.name;
+        config.isTemporary = config.isTemporary || me.isTemporary;
+        config.checkExistence = config.checkExistence || me.checkExistence;
+        config.columns = config.columns || me.columns;
+
+        return config;
+    },
+
+    /**
      * Obtiene las columnas de la tabla
+     *
      * @return {Ext.util.Collection}
      */
     getColumns: function() {
@@ -137,6 +150,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Asigna las columnas de la tabla
+     *
      * @param {Pyansa.database.sqlite.Column[]|Object[]} columns
      */
     setColumns: function(columns) {
@@ -154,6 +168,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Construye una columna
+     *
      * @return {Pyansa.database.sqlite.Column|Object} column
      */
     createColumn: function(column) {
@@ -166,6 +181,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Genera el string statement con los valores de la tabla
+     *
      * @param  {String|Array|Ext.XTemplate} tpl
      * @return {String}
      */
@@ -189,6 +205,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Crea la tabla en la base de datos
+     *
      * @return {Ext.promise.Promise}
      */
     create: function() {
@@ -199,6 +216,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
 
     /**
      * Elimina la tabla de la base de datos
+     *
      * @return {Ext.promise.Promise}
      */
     drop: function() {
@@ -211,6 +229,7 @@ Ext.define("Pyansa.database.sqlite.Table", {
      * Trunca la tabla de la base de datos.
      * En SQLite no existe una setencia para truncar tablas. Por lo tanto, se ejecuta un drop y un create
      * para simular este comportamiento.
+     *
      * @return {Ext.promise.Promise}
      */
     truncate: function() {

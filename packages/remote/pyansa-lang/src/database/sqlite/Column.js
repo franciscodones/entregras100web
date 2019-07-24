@@ -12,6 +12,7 @@ Ext.define("Pyansa.database.sqlite.Column", {
 
     /**
      * Template relacionado al constraint
+     *
      * @type {String|Array}
      */
     statementTpl: [
@@ -32,68 +33,80 @@ Ext.define("Pyansa.database.sqlite.Column", {
 
     /**
      * Esta propiedad es `true` para identificar instancias que son Column
+     *
      * @type {Boolean}
      */
     isColumn: true,
 
     /**
      * Nombre de la columna
+     *
      * @type {String}
      */
     name: null,
 
     /**
      * Tipo de columna
+     *
      * @type {String}
      */
     type: null,
 
     /**
      * Es llave primaria
+     *
      * @type {Boolean}
      */
     isPrimaryKey: false,
 
     /**
      * Acepta valores NULL
+     *
      * @type {Boolean}
      */
     acceptsNull: false,
 
     /**
      * Valor por default
+     *
      * @type {Object}
      */
     defaultValue: null,
 
     /**
      * Constructor de la clase
+     *
      * @param  {Object} config
      */
     constructor: function(config) {
-        var me = this,
-            defaults;
+        var me = this;
 
-        // Inicializa las variables de tal manera que la prioridad que toman las propiedades son:
-        // - config
-        // - prototipo (variables declaradas en la clase)
-        // - defaults
-        config = config || {};
-        defaults = {
-            name: me.name,
-            type: me.type,
-            isPrimaryKey: me.isPrimaryKey,
-            acceptsNull: me.acceptsNull,
-            defaultValue: me.defaultValue
-        };
-        Ext.Object.each(defaults, function(key, value) {
-            config[key] = config[key] || me[key] || value;
-        });
+        config = me.initProperties(config);
         this.initConfig(config);
     },
 
     /**
+     * Inicializa las propiedades que esta clase utiliza
+     *
+     * @param  {Object} config
+     * @return {Object}
+     */
+    initProperties: function(config) {
+        var me = this;
+
+        config = config || {};
+        config.name = config.name || me.name;
+        config.type = config.type || me.type;
+        config.isPrimaryKey = config.isPrimaryKey || me.isPrimaryKey;
+        config.acceptsNull = config.acceptsNull || me.acceptsNull;
+        config.defaultValue = config.defaultValue || me.defaultValue;
+
+        return config;
+    },
+
+    /**
      * Genera el string statement con los valores de la columna
+     *
      * @param  {String|Array|Ext.XTemplate} [tpl]
      * @return {String}
      */

@@ -17,6 +17,7 @@ Ext.define('Pyansa.overrides.data.Connection', {
      * Sobreescritura de la funcion `setOptions`
      *
      * @param {Object} options
+     * @param {Object} [scope]
      * @return {Ext.data.request.Base}
      */
     setOptions: function(options, scope) {

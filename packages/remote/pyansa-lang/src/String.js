@@ -7,8 +7,6 @@
  * @singleton
  */
 Ext.define("Pyansa.String", {}, function() {
-    var prop;
-
     Pyansa.String = {
         /**
          * Rellena por la derecha un string con el caracter especificado
@@ -152,9 +150,4 @@ Ext.define("Pyansa.String", {}, function() {
             return paragraphs;
         }
     };
-
-    // se crean alias en Ext.String
-    for (prop in Pyansa.String) {
-        Ext.String[prop] = Pyansa.String[prop];
-    }
 });

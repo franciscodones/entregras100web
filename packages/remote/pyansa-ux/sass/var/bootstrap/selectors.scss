@@ -1,0 +1,23 @@
+// selectores auxiliares para los containers de extjs
+@mixin containers-selectors() {
+    &.#{$prefix}container {
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @content;
+        }
+    }
+
+    &.#{$prefix}panel > .#{$prefix}panel-bodyWrap > .#{$prefix}panel-body{
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @content;
+        }
+    }
+
+    &.#{$prefix}window > .#{$prefix}window-bodyWrap > .#{$prefix}window-body{
+        > [class*="outerCt"] > [class*="innerCt"],
+        > [data-ref="outerCt"] > [data-ref="innerCt"] {
+            @content;
+        }
+    }
+}

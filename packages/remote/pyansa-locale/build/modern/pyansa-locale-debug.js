@@ -1,7 +1,10 @@
 var $jscomp = $jscomp || {};
 $jscomp.scope = {};
-$jscomp.defineProperty = typeof Object.defineProperties == 'function' ? Object.defineProperty : function(target, property, descriptor) {
-  descriptor = (descriptor);
+$jscomp.ASSUME_ES5 = false;
+$jscomp.ASSUME_NO_NATIVE_MAP = false;
+$jscomp.ASSUME_NO_NATIVE_SET = false;
+$jscomp.defineProperty = $jscomp.ASSUME_ES5 || typeof Object.defineProperties == 'function' ? Object.defineProperty : function(target, property, descriptor) {
+  descriptor = descriptor;
   if (target == Array.prototype || target == Object.prototype) {
     return;
   }
@@ -65,7 +68,7 @@ $jscomp.polyfill('Array.prototype.copyWithin', function(orig) {
     return this;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.SYMBOL_PREFIX = 'jscomp_symbol_';
 $jscomp.initSymbol = function() {
   $jscomp.initSymbol = function() {
@@ -74,10 +77,13 @@ $jscomp.initSymbol = function() {
     $jscomp.global['Symbol'] = $jscomp.Symbol;
   }
 };
-$jscomp.symbolCounter_ = 0;
-$jscomp.Symbol = function(opt_description) {
-  return ($jscomp.SYMBOL_PREFIX + (opt_description || '') + $jscomp.symbolCounter_++);
-};
+$jscomp.Symbol = function() {
+  var counter = 0;
+  function Symbol(opt_description) {
+    return $jscomp.SYMBOL_PREFIX + (opt_description || '') + counter++;
+  }
+  return Symbol;
+}();
 $jscomp.initSymbolIterator = function() {
   $jscomp.initSymbol();
   var symbolIterator = $jscomp.global['Symbol'].iterator;
@@ -108,7 +114,7 @@ $jscomp.iteratorPrototype = function(next) {
   iterator[$jscomp.global['Symbol'].iterator] = function() {
     return this;
   };
-  return (iterator);
+  return iterator;
 };
 $jscomp.iteratorFromArray = function(array, transform) {
   $jscomp.initSymbolIterator();
@@ -141,7 +147,7 @@ $jscomp.polyfill('Array.prototype.entries', function(orig) {
     });
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.prototype.fill', function(orig) {
   if (orig) {
     return orig;
@@ -149,7 +155,7 @@ $jscomp.polyfill('Array.prototype.fill', function(orig) {
   var polyfill = function(value, opt_start, opt_end) {
     var length = this.length || 0;
     if (opt_start < 0) {
-      opt_start = Math.max(0, length + (opt_start));
+      opt_start = Math.max(0, length + opt_start);
     }
     if (opt_end == null || opt_end > length) {
       opt_end = length;
@@ -164,10 +170,10 @@ $jscomp.polyfill('Array.prototype.fill', function(orig) {
     return this;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.findInternal = function(array, callback, thisArg) {
   if (array instanceof String) {
-    array = (String(array));
+    array = String(array);
   }
   var len = array.length;
   for (var i = 0; i < len; i++) {
@@ -186,7 +192,7 @@ $jscomp.polyfill('Array.prototype.find', function(orig) {
     return $jscomp.findInternal(this, callback, opt_thisArg).v;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.prototype.findIndex', function(orig) {
   if (orig) {
     return orig;
@@ -195,7 +201,7 @@ $jscomp.polyfill('Array.prototype.findIndex', function(orig) {
     return $jscomp.findInternal(this, callback, opt_thisArg).i;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.from', function(orig) {
   if (orig) {
     return orig;
@@ -206,36 +212,36 @@ $jscomp.polyfill('Array.from', function(orig) {
       return x;
     };
     var result = [];
-    var iteratorFunction = (arrayLike)[Symbol.iterator];
+    var iteratorFunction = arrayLike[Symbol.iterator];
     if (typeof iteratorFunction == 'function') {
       arrayLike = iteratorFunction.call(arrayLike);
       var next;
       while (!(next = arrayLike.next()).done) {
-        result.push(opt_mapFn.call((opt_thisArg), next.value));
+        result.push(opt_mapFn.call(opt_thisArg, next.value));
       }
     } else {
       var len = arrayLike.length;
       for (var i = 0; i < len; i++) {
-        result.push(opt_mapFn.call((opt_thisArg), arrayLike[i]));
+        result.push(opt_mapFn.call(opt_thisArg, arrayLike[i]));
       }
     }
     return result;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Object.is', function(orig) {
   if (orig) {
     return orig;
   }
   var polyfill = function(left, right) {
     if (left === right) {
-      return left !== 0 || 1 / left === 1 / (right);
+      return left !== 0 || 1 / left === 1 / right;
     } else {
       return left !== left && right !== right;
     }
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.prototype.includes', function(orig) {
   if (orig) {
     return orig;
@@ -243,7 +249,7 @@ $jscomp.polyfill('Array.prototype.includes', function(orig) {
   var includes = function(searchElement, opt_fromIndex) {
     var array = this;
     if (array instanceof String) {
-      array = (String(array));
+      array = String(array);
     }
     var len = array.length;
     for (var i = opt_fromIndex || 0; i < len; i++) {
@@ -265,7 +271,7 @@ $jscomp.polyfill('Array.prototype.keys', function(orig) {
     });
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.of', function(orig) {
   if (orig) {
     return orig;
@@ -274,7 +280,7 @@ $jscomp.polyfill('Array.of', function(orig) {
     return Array.from(arguments);
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Array.prototype.values', function(orig) {
   if (orig) {
     return orig;
@@ -288,10 +294,9 @@ $jscomp.polyfill('Array.prototype.values', function(orig) {
 }, 'es6', 'es3');
 $jscomp.makeIterator = function(iterable) {
   $jscomp.initSymbolIterator();
-  var iteratorFunction = (iterable)[Symbol.iterator];
-  return iteratorFunction ? iteratorFunction.call(iterable) : $jscomp.arrayIterator((iterable));
+  var iteratorFunction = iterable[Symbol.iterator];
+  return iteratorFunction ? iteratorFunction.call(iterable) : $jscomp.arrayIterator(iterable);
 };
-$jscomp.EXPOSE_ASYNC_EXECUTOR = true;
 $jscomp.FORCE_POLYFILL_PROMISE = false;
 $jscomp.polyfill('Promise', function(NativePromise) {
   if (NativePromise && !$jscomp.FORCE_POLYFILL_PROMISE) {
@@ -369,10 +374,10 @@ $jscomp.polyfill('Promise', function(NativePromise) {
       this.reject_(new TypeError('A Promise cannot resolve to itself'));
     } else {
       if (value instanceof PolyfillPromise) {
-        this.settleSameAsPromise_((value));
+        this.settleSameAsPromise_(value);
       } else {
         if (isObject(value)) {
-          this.resolveToNonPromiseObj_((value));
+          this.resolveToNonPromiseObj_(value);
         } else {
           this.fulfill_(value);
         }
@@ -388,7 +393,7 @@ $jscomp.polyfill('Promise', function(NativePromise) {
       return;
     }
     if (typeof thenMethod == 'function') {
-      this.settleSameAsThenable_(thenMethod, (obj));
+      this.settleSameAsThenable_(thenMethod, obj);
     } else {
       this.fulfill_(obj);
     }
@@ -421,7 +426,7 @@ $jscomp.polyfill('Promise', function(NativePromise) {
     if (this.onSettledCallbacks_ != null) {
       var callbacks = this.onSettledCallbacks_;
       for (var i = 0; i < callbacks.length; ++i) {
-        (callbacks[i]).call();
+        callbacks[i].call();
         callbacks[i] = null;
       }
       this.onSettledCallbacks_ = null;
@@ -488,7 +493,7 @@ $jscomp.polyfill('Promise', function(NativePromise) {
       });
     }
   };
-  PolyfillPromise.resolve = function(opt_value) {
+  function resolvingPromise(opt_value) {
     if (opt_value instanceof PolyfillPromise) {
       return opt_value;
     } else {
@@ -496,25 +501,26 @@ $jscomp.polyfill('Promise', function(NativePromise) {
         resolve(opt_value);
       });
     }
-  };
-  PolyfillPromise.reject = function(opt_reason) {
+  }
+  PolyfillPromise['resolve'] = resolvingPromise;
+  PolyfillPromise['reject'] = function(opt_reason) {
     return new PolyfillPromise(function(resolve, reject) {
       reject(opt_reason);
     });
   };
-  PolyfillPromise.race = function(thenablesOrValues) {
+  PolyfillPromise['race'] = function(thenablesOrValues) {
     return new PolyfillPromise(function(resolve, reject) {
       var iterator = $jscomp.makeIterator(thenablesOrValues);
       for (var iterRec = iterator.next(); !iterRec.done; iterRec = iterator.next()) {
-        PolyfillPromise.resolve(iterRec.value).callWhenSettled_(resolve, reject);
+        resolvingPromise(iterRec.value).callWhenSettled_(resolve, reject);
       }
     });
   };
-  PolyfillPromise.all = function(thenablesOrValues) {
+  PolyfillPromise['all'] = function(thenablesOrValues) {
     var iterator = $jscomp.makeIterator(thenablesOrValues);
     var iterRec = iterator.next();
     if (iterRec.done) {
-      return PolyfillPromise.resolve([]);
+      return resolvingPromise([]);
     } else {
       return new PolyfillPromise(function(resolveAll, rejectAll) {
         var resultsArray = [];
@@ -531,19 +537,14 @@ $jscomp.polyfill('Promise', function(NativePromise) {
         do {
           resultsArray.push(undefined);
           unresolvedCount++;
-          PolyfillPromise.resolve(iterRec.value).callWhenSettled_(onFulfilled(resultsArray.length - 1), rejectAll);
+          resolvingPromise(iterRec.value).callWhenSettled_(onFulfilled(resultsArray.length - 1), rejectAll);
           iterRec = iterator.next();
         } while (!iterRec.done);
       });
     }
   };
-  if ($jscomp.EXPOSE_ASYNC_EXECUTOR) {
-    PolyfillPromise['$jscomp$new$AsyncExecutor'] = function() {
-      return new AsyncExecutor;
-    };
-  }
   return PolyfillPromise;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.executeAsyncGenerator = function(generator) {
   function passValueToGenerator(value) {
     return generator.next(value);
@@ -573,7 +574,7 @@ $jscomp.polyfill('WeakMap', function(NativeWeakMap) {
     try {
       var x = Object.seal({});
       var y = Object.seal({});
-      var map = new (NativeWeakMap)([[x, 2], [y, 3]]);
+      var map = new NativeWeakMap([[x, 2], [y, 3]]);
       if (map.get(x) != 2 || map.get(y) != 3) {
         return false;
       }
@@ -616,7 +617,7 @@ $jscomp.polyfill('WeakMap', function(NativeWeakMap) {
       var entry;
       while (!(entry = iter.next()).done) {
         var item = entry.value;
-        this.set((item[0]), (item[1]));
+        this.set(item[0], item[1]);
       }
     }
   };
@@ -641,7 +642,7 @@ $jscomp.polyfill('WeakMap', function(NativeWeakMap) {
     return delete key[prop][this.id_];
   };
   return PolyfillWeakMap;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.MapEntry = function() {
   this.previous;
   this.next;
@@ -649,14 +650,13 @@ $jscomp.MapEntry = function() {
   this.key;
   this.value;
 };
-$jscomp.ASSUME_NO_NATIVE_MAP = false;
 $jscomp.polyfill('Map', function(NativeMap) {
   var isConformant = !$jscomp.ASSUME_NO_NATIVE_MAP && function() {
     if (!NativeMap || !NativeMap.prototype.entries || typeof Object.seal != 'function') {
       return false;
     }
     try {
-      NativeMap = (NativeMap);
+      NativeMap = NativeMap;
       var key = Object.seal({x:4});
       var map = new NativeMap($jscomp.makeIterator([[key, 's']]));
       if (map.get(key) != 's' || map.size != 1 || map.get({x:4}) || map.set({x:4}, 't') != map || map.size != 2) {
@@ -690,8 +690,8 @@ $jscomp.polyfill('Map', function(NativeMap) {
       var iter = $jscomp.makeIterator(opt_iterable);
       var entry;
       while (!(entry = iter.next()).done) {
-        var item = (entry).value;
-        this.set((item[0]), (item[1]));
+        var item = entry.value;
+        this.set(item[0], item[1]);
       }
     }
   };
@@ -736,7 +736,7 @@ $jscomp.polyfill('Map', function(NativeMap) {
   };
   PolyfillMap.prototype.get = function(key) {
     var entry = maybeGetEntry(this, key).entry;
-    return (entry && (entry.value));
+    return entry && entry.value;
   };
   PolyfillMap.prototype.entries = function() {
     return makeIterator(this, function(entry) {
@@ -758,10 +758,10 @@ $jscomp.polyfill('Map', function(NativeMap) {
     var item;
     while (!(item = iter.next()).done) {
       var entry = item.value;
-      callback.call((opt_thisArg), (entry[1]), (entry[0]), this);
+      callback.call(opt_thisArg, entry[1], entry[0], this);
     }
   };
-  (PolyfillMap.prototype)[Symbol.iterator] = PolyfillMap.prototype.entries;
+  PolyfillMap.prototype[Symbol.iterator] = PolyfillMap.prototype.entries;
   var maybeGetEntry = function(map, key) {
     var id = getId(key);
     var list = map.data_[id];
@@ -800,7 +800,7 @@ $jscomp.polyfill('Map', function(NativeMap) {
   var getId = function(obj) {
     var type = obj && typeof obj;
     if (type == 'object' || type == 'function') {
-      obj = (obj);
+      obj = obj;
       if (!idMap.has(obj)) {
         var id = '' + ++mapIndex;
         idMap.set(obj, id);
@@ -811,7 +811,7 @@ $jscomp.polyfill('Map', function(NativeMap) {
     return 'p_' + obj;
   };
   return PolyfillMap;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.acosh', function(orig) {
   if (orig) {
     return orig;
@@ -821,7 +821,7 @@ $jscomp.polyfill('Math.acosh', function(orig) {
     return Math.log(x + Math.sqrt(x * x - 1));
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.asinh', function(orig) {
   if (orig) {
     return orig;
@@ -835,7 +835,7 @@ $jscomp.polyfill('Math.asinh', function(orig) {
     return x < 0 ? -y : y;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.log1p', function(orig) {
   if (orig) {
     return orig;
@@ -858,7 +858,7 @@ $jscomp.polyfill('Math.log1p', function(orig) {
     return Math.log(1 + x);
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.atanh', function(orig) {
   if (orig) {
     return orig;
@@ -869,7 +869,7 @@ $jscomp.polyfill('Math.atanh', function(orig) {
     return (log1p(x) - log1p(-x)) / 2;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.cbrt', function(orig) {
   if (orig) {
     return orig;
@@ -883,7 +883,7 @@ $jscomp.polyfill('Math.cbrt', function(orig) {
     return x < 0 ? -y : y;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.clz32', function(orig) {
   if (orig) {
     return orig;
@@ -916,7 +916,7 @@ $jscomp.polyfill('Math.clz32', function(orig) {
     return result;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.cosh', function(orig) {
   if (orig) {
     return orig;
@@ -927,7 +927,7 @@ $jscomp.polyfill('Math.cosh', function(orig) {
     return (exp(x) + exp(-x)) / 2;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.expm1', function(orig) {
   if (orig) {
     return orig;
@@ -948,7 +948,7 @@ $jscomp.polyfill('Math.expm1', function(orig) {
     return Math.exp(x) - 1;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.hypot', function(orig) {
   if (orig) {
     return orig;
@@ -980,7 +980,7 @@ $jscomp.polyfill('Math.hypot', function(orig) {
     }
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.imul', function(orig) {
   if (orig) {
     return orig;
@@ -996,7 +996,7 @@ $jscomp.polyfill('Math.imul', function(orig) {
     return al * bl + lh | 0;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.log10', function(orig) {
   if (orig) {
     return orig;
@@ -1005,7 +1005,7 @@ $jscomp.polyfill('Math.log10', function(orig) {
     return Math.log(x) / Math.LN10;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.log2', function(orig) {
   if (orig) {
     return orig;
@@ -1014,7 +1014,7 @@ $jscomp.polyfill('Math.log2', function(orig) {
     return Math.log(x) / Math.LN2;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.sign', function(orig) {
   if (orig) {
     return orig;
@@ -1024,7 +1024,7 @@ $jscomp.polyfill('Math.sign', function(orig) {
     return x === 0 || isNaN(x) ? x : x > 0 ? 1 : -1;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.sinh', function(orig) {
   if (orig) {
     return orig;
@@ -1038,7 +1038,7 @@ $jscomp.polyfill('Math.sinh', function(orig) {
     return (exp(x) - exp(-x)) / 2;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.tanh', function(orig) {
   if (orig) {
     return orig;
@@ -1053,7 +1053,7 @@ $jscomp.polyfill('Math.tanh', function(orig) {
     return x < 0 ? -z : z;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Math.trunc', function(orig) {
   if (orig) {
     return orig;
@@ -1067,16 +1067,16 @@ $jscomp.polyfill('Math.trunc', function(orig) {
     return x < 0 ? -y : y;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.EPSILON', function(orig) {
   return Math.pow(2, -52);
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.MAX_SAFE_INTEGER', function() {
   return 9007199254740991;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.MIN_SAFE_INTEGER', function() {
   return -9007199254740991;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.isFinite', function(orig) {
   if (orig) {
     return orig;
@@ -1088,7 +1088,7 @@ $jscomp.polyfill('Number.isFinite', function(orig) {
     return !isNaN(x) && x !== Infinity && x !== -Infinity;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.isInteger', function(orig) {
   if (orig) {
     return orig;
@@ -1100,7 +1100,7 @@ $jscomp.polyfill('Number.isInteger', function(orig) {
     return x === Math.floor(x);
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.isNaN', function(orig) {
   if (orig) {
     return orig;
@@ -1109,7 +1109,7 @@ $jscomp.polyfill('Number.isNaN', function(orig) {
     return typeof x === 'number' && isNaN(x);
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Number.isSafeInteger', function(orig) {
   if (orig) {
     return orig;
@@ -1118,7 +1118,7 @@ $jscomp.polyfill('Number.isSafeInteger', function(orig) {
     return Number.isInteger(x) && Math.abs(x) <= Number.MAX_SAFE_INTEGER;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Object.assign', function(orig) {
   if (orig) {
     return orig;
@@ -1138,7 +1138,7 @@ $jscomp.polyfill('Object.assign', function(orig) {
     return target;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('Object.entries', function(orig) {
   if (orig) {
     return orig;
@@ -1161,7 +1161,7 @@ $jscomp.polyfill('Object.getOwnPropertySymbols', function(orig) {
   return function() {
     return [];
   };
-}, 'es6-impl', 'es5');
+}, 'es6', 'es5');
 $jscomp.polyfill('Reflect.ownKeys', function(orig) {
   if (orig) {
     return orig;
@@ -1195,21 +1195,25 @@ $jscomp.polyfill('Object.getOwnPropertyDescriptors', function(orig) {
   };
   return getOwnPropertyDescriptors;
 }, 'es8', 'es5');
+$jscomp.underscoreProtoCanBeSet = function() {
+  var x = {a:true};
+  var y = {};
+  try {
+    y.__proto__ = x;
+    return y.a;
+  } catch (e) {
+  }
+  return false;
+};
+$jscomp.setPrototypeOf = typeof Object.setPrototypeOf == 'function' ? Object.setPrototypeOf : $jscomp.underscoreProtoCanBeSet() ? function(target, proto) {
+  target.__proto__ = proto;
+  if (target.__proto__ !== proto) {
+    throw new TypeError(target + ' is not extensible');
+  }
+  return target;
+} : null;
 $jscomp.polyfill('Object.setPrototypeOf', function(orig) {
-  if (orig) {
-    return orig;
-  }
-  if (typeof ''.__proto__ != 'object') {
-    return null;
-  }
-  var polyfill = function(target, proto) {
-    target.__proto__ = proto;
-    if (target.__proto__ !== proto) {
-      throw new TypeError(target + ' is not extensible');
-    }
-    return target;
-  };
-  return polyfill;
+  return orig || $jscomp.setPrototypeOf;
 }, 'es6', 'es5');
 $jscomp.polyfill('Object.values', function(orig) {
   if (orig) {
@@ -1236,21 +1240,51 @@ $jscomp.polyfill('Reflect.apply', function(orig) {
   };
   return polyfill;
 }, 'es6', 'es3');
-$jscomp.polyfill('Reflect.construct', function(orig) {
-  if (orig) {
-    return orig;
+$jscomp.objectCreate = $jscomp.ASSUME_ES5 || typeof Object.create == 'function' ? Object.create : function(prototype) {
+  var ctor = function() {
+  };
+  ctor.prototype = prototype;
+  return new ctor;
+};
+$jscomp.construct = function() {
+  function reflectConstructWorks() {
+    function Base() {
+    }
+    function Derived() {
+    }
+    new Base;
+    Reflect.construct(Base, [], Derived);
+    return new Base instanceof Base;
   }
-  var polyfill = function(target, argList, opt_newTarget) {
+  if (typeof Reflect != 'undefined' && Reflect.construct) {
+    if (reflectConstructWorks()) {
+      return Reflect.construct;
+    }
+    var brokenConstruct = Reflect.construct;
+    var patchedConstruct = function(target, argList, opt_newTarget) {
+      var out = brokenConstruct(target, argList);
+      if (opt_newTarget) {
+        Reflect.setPrototypeOf(out, opt_newTarget.prototype);
+      }
+      return out;
+    };
+    return patchedConstruct;
+  }
+  function construct(target, argList, opt_newTarget) {
     if (opt_newTarget === undefined) {
       opt_newTarget = target;
     }
     var proto = opt_newTarget.prototype || Object.prototype;
-    var obj = Object.create(proto);
-    var out = Reflect.apply(target, obj, argList);
+    var obj = $jscomp.objectCreate(proto);
+    var apply = Function.prototype.apply;
+    var out = apply.call(target, obj, argList);
     return out || obj;
-  };
-  return polyfill;
-}, 'es6', 'es5');
+  }
+  return construct;
+}();
+$jscomp.polyfill('Reflect.construct', function(orig) {
+  return $jscomp.construct;
+}, 'es6', 'es3');
 $jscomp.polyfill('Reflect.defineProperty', function(orig) {
   if (orig) {
     return orig;
@@ -1331,7 +1365,7 @@ $jscomp.polyfill('Reflect.isExtensible', function(orig) {
   if (orig) {
     return orig;
   }
-  if (typeof Object.isExtensible == 'function') {
+  if ($jscomp.ASSUME_ES5 || typeof Object.isExtensible == 'function') {
     return Object.isExtensible;
   }
   return function() {
@@ -1342,7 +1376,7 @@ $jscomp.polyfill('Reflect.preventExtensions', function(orig) {
   if (orig) {
     return orig;
   }
-  if (typeof Object.preventExtensions != 'function') {
+  if (!($jscomp.ASSUME_ES5 || typeof Object.preventExtensions == 'function')) {
     return function() {
       return false;
     };
@@ -1382,28 +1416,30 @@ $jscomp.polyfill('Reflect.set', function(orig) {
 $jscomp.polyfill('Reflect.setPrototypeOf', function(orig) {
   if (orig) {
     return orig;
-  }
-  if (typeof ''.__proto__ != 'object') {
-    return null;
-  }
-  var polyfill = function(target, proto) {
-    try {
-      target.__proto__ = proto;
-      return target.__proto__ === proto;
-    } catch (err) {
-      return false;
+  } else {
+    if ($jscomp.setPrototypeOf) {
+      var setPrototypeOf = $jscomp.setPrototypeOf;
+      var polyfill = function(target, proto) {
+        try {
+          setPrototypeOf(target, proto);
+          return true;
+        } catch (e) {
+          return false;
+        }
+      };
+      return polyfill;
+    } else {
+      return null;
     }
-  };
-  return polyfill;
+  }
 }, 'es6', 'es5');
-$jscomp.ASSUME_NO_NATIVE_SET = false;
 $jscomp.polyfill('Set', function(NativeSet) {
   var isConformant = !$jscomp.ASSUME_NO_NATIVE_SET && function() {
     if (!NativeSet || !NativeSet.prototype.entries || typeof Object.seal != 'function') {
       return false;
     }
     try {
-      NativeSet = (NativeSet);
+      NativeSet = NativeSet;
       var value = Object.seal({x:4});
       var set = new NativeSet($jscomp.makeIterator([value]));
       if (!set.has(value) || set.size != 1 || set.add(value) != set || set.size != 1 || set.add({x:4}) != set || set.size != 2) {
@@ -1434,7 +1470,7 @@ $jscomp.polyfill('Set', function(NativeSet) {
       var iter = $jscomp.makeIterator(opt_iterable);
       var entry;
       while (!(entry = iter.next()).done) {
-        var item = (entry).value;
+        var item = entry.value;
         this.add(item);
       }
     }
@@ -1464,15 +1500,15 @@ $jscomp.polyfill('Set', function(NativeSet) {
     return this.map_.values();
   };
   PolyfillSet.prototype.keys = PolyfillSet.prototype.values;
-  (PolyfillSet.prototype)[Symbol.iterator] = PolyfillSet.prototype.values;
+  PolyfillSet.prototype[Symbol.iterator] = PolyfillSet.prototype.values;
   PolyfillSet.prototype.forEach = function(callback, opt_thisArg) {
     var set = this;
     this.map_.forEach(function(value) {
-      return callback.call((opt_thisArg), value, value, set);
+      return callback.call(opt_thisArg, value, value, set);
     });
   };
   return PolyfillSet;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.checkStringArgs = function(thisArg, arg, func) {
   if (thisArg == null) {
     throw new TypeError("The 'this' value for String.prototype." + func + ' must not be null or undefined');
@@ -1505,7 +1541,7 @@ $jscomp.polyfill('String.prototype.codePointAt', function(orig) {
     return (first - 55296) * 1024 + second + 9216;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('String.prototype.endsWith', function(orig) {
   if (orig) {
     return orig;
@@ -1526,7 +1562,7 @@ $jscomp.polyfill('String.prototype.endsWith', function(orig) {
     return j <= 0;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('String.fromCodePoint', function(orig) {
   if (orig) {
     return orig;
@@ -1549,7 +1585,7 @@ $jscomp.polyfill('String.fromCodePoint', function(orig) {
     return result;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('String.prototype.includes', function(orig) {
   if (orig) {
     return orig;
@@ -1559,7 +1595,7 @@ $jscomp.polyfill('String.prototype.includes', function(orig) {
     return string.indexOf(searchString, opt_position || 0) !== -1;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.polyfill('String.prototype.repeat', function(orig) {
   if (orig) {
     return orig;
@@ -1582,7 +1618,7 @@ $jscomp.polyfill('String.prototype.repeat', function(orig) {
     return result;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.stringPadding = function(padString, padLength) {
   var padding = padString !== undefined ? String(padString) : ' ';
   if (!(padLength > 0) || !padding) {
@@ -1622,7 +1658,7 @@ $jscomp.polyfill('String.prototype.startsWith', function(orig) {
     searchString = searchString + '';
     var strLen = string.length;
     var searchLen = searchString.length;
-    var i = Math.max(0, Math.min((opt_position) | 0, string.length));
+    var i = Math.max(0, Math.min(opt_position | 0, string.length));
     var j = 0;
     while (j < searchLen && i < strLen) {
       if (string[i++] != searchString[j++]) {
@@ -1632,7 +1668,7 @@ $jscomp.polyfill('String.prototype.startsWith', function(orig) {
     return j >= searchLen;
   };
   return polyfill;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 $jscomp.arrayFromIterator = function(iterator) {
   var i;
   var arr = [];
@@ -1649,22 +1685,27 @@ $jscomp.arrayFromIterable = function(iterable) {
   }
 };
 $jscomp.inherits = function(childCtor, parentCtor) {
-  function tempCtor() {
-  }
-  tempCtor.prototype = parentCtor.prototype;
-  childCtor.superClass_ = parentCtor.prototype;
-  childCtor.prototype = new tempCtor;
+  childCtor.prototype = $jscomp.objectCreate(parentCtor.prototype);
   childCtor.prototype.constructor = childCtor;
-  for (var p in parentCtor) {
-    if (Object.defineProperties) {
-      var descriptor = Object.getOwnPropertyDescriptor(parentCtor, p);
-      if (descriptor) {
-        Object.defineProperty(childCtor, p, descriptor);
+  if ($jscomp.setPrototypeOf) {
+    var setPrototypeOf = $jscomp.setPrototypeOf;
+    setPrototypeOf(childCtor, parentCtor);
+  } else {
+    for (var p in parentCtor) {
+      if (p == 'prototype') {
+        continue;
       }
-    } else {
-      childCtor[p] = parentCtor[p];
+      if (Object.defineProperties) {
+        var descriptor = Object.getOwnPropertyDescriptor(parentCtor, p);
+        if (descriptor) {
+          Object.defineProperty(childCtor, p, descriptor);
+        }
+      } else {
+        childCtor[p] = parentCtor[p];
+      }
     }
   }
+  childCtor.superClass_ = parentCtor.prototype;
 };
 $jscomp.polyfill('WeakSet', function(NativeWeakSet) {
   function isConformant() {
@@ -1674,7 +1715,7 @@ $jscomp.polyfill('WeakSet', function(NativeWeakSet) {
     try {
       var x = Object.seal({});
       var y = Object.seal({});
-      var set = new (NativeWeakSet)([x]);
+      var set = new NativeWeakSet([x]);
       if (!set.has(x) || set.has(y)) {
         return false;
       }
@@ -1712,13 +1753,18 @@ $jscomp.polyfill('WeakSet', function(NativeWeakSet) {
     return this.map_['delete'](elem);
   };
   return PolyfillWeakSet;
-}, 'es6-impl', 'es3');
+}, 'es6', 'es3');
 try {
   if (Array.prototype.values.toString().indexOf('[native code]') == -1) {
     delete Array.prototype.values;
   }
 } catch (e) {
 }
+Ext.define('Pyansa.locale.util.Format', {override:'Ext.util.Format'}, function() {
+  if (Ext.util && Ext.util.Format) {
+    Ext.apply(Ext.util.Format, {thousandSeparator:',', decimalSeparator:'.', currencySign:'$', dateFormat:'d/m/Y'});
+  }
+});
 Ext.define('Pyansa.locale.data.validator.Bound', {override:'Ext.data.validator.Bound', config:{emptyMessage:'Debe estar presente', minOnlyMessage:'El valor debe ser mayor que {0}', maxOnlyMessage:'El valor debe ser menor que {0}', bothMessage:'El valor debe estar entre {0} y {1}'}});
 Ext.define('Pyansa.locale.data.validator.Format', {override:'Ext.data.validator.Format', config:{message:'Está en el formato incorrecto'}});
 Ext.define('Pyansa.locale.data.validator.CIDRv4', {override:'Ext.data.validator.CIDRv4', message:'No es un bloque CIDR válido'});

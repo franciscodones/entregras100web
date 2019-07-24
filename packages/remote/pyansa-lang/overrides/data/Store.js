@@ -15,6 +15,9 @@ Ext.define('Pyansa.overrides.data.Store', {
 
     /**
      * Sobreescritura de la funcion `onBatchComplete`
+     *
+     * @param {Ext.data.Batch} batch
+     * @param {Ext.data.operation.Operation}
      */
     onBatchComplete: function(batch, operation) {
         var me = this,

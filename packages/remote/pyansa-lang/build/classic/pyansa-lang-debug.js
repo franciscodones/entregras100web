@@ -1760,6 +1760,137 @@ try {
   }
 } catch (e) {
 }
+Ext.define('Pyansa.String', {}, function() {
+  Pyansa.String = {rightPad:function(value, size, character) {
+    var result = String(value);
+    character = character || ' ';
+    while (result.length < size) {
+      result = result + character;
+    }
+    return result;
+  }, random:function(length, word) {
+    var str = '', i;
+    word = word || 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    for (i = 0; i < length; i++) {
+      str += word.charAt(Ext.Number.randomInt(0, word.length - 1));
+    }
+    return str;
+  }, toCamelCase:function(value, capitalize) {
+    var words = value.split(/[_.\- ]+/), camelString = '', i;
+    capitalize = capitalize || false;
+    for (i = 0; i < words.length; i++) {
+      if (i == 0) {
+        if (capitalize) {
+          camelString += words[i].charAt(0).toUpperCase();
+          camelString += words[i].substr(1);
+        } else {
+          camelString += words[i];
+        }
+      } else {
+        camelString += words[i].charAt(0).toUpperCase();
+        camelString += words[i].substr(1);
+      }
+    }
+    return camelString;
+  }, chunk:function(value, length, reverse) {
+    var pieces = [], substr = '';
+    length = length || 1;
+    reverse = reverse || false;
+    while (value != '') {
+      if (reverse) {
+        substr = value.substr(-length);
+        value = value.substring(0, value.length - length);
+        pieces.unshift(substr);
+      } else {
+        substr = value.substr(0, length);
+        value = value.substr(length);
+        pieces.push(substr);
+      }
+    }
+    return pieces;
+  }, splitParagraphs:function(value, length, word) {
+    var paragraphs = [], p = '', words;
+    word = word || true;
+    if (!word) {
+      return this.chunk(value.trim(), length);
+    }
+    words = Ext.String.splitWords(value);
+    while (words.length > 0) {
+      if (p.length + words[0].length + 1 > length) {
+        paragraphs.push(p);
+        p = '';
+      }
+      if (p == '') {
+        p = words[0];
+      } else {
+        if (p != '') {
+          p = p + ' ' + words[0];
+        }
+      }
+      words = words.slice(1);
+      if (words.length == 0) {
+        paragraphs.push(p);
+      }
+    }
+    return paragraphs;
+  }};
+});
+Ext.define('Pyansa.overrides.String', {override:'Ext.String', requires:['Pyansa.String']}, function() {
+  var prop;
+  for (prop in Pyansa.String) {
+    Ext.String[prop] = Pyansa.String[prop];
+  }
+});
+Ext.define('Pyansa.Math', {}, function() {
+  var prop;
+  Pyansa.Math = {trunc:Math.trunc || function(x) {
+    return x < 0 ? Math.ceil(x) : Math.floor(x);
+  }};
+  for (prop in Pyansa.Math) {
+    Math[prop] = Pyansa.Math[prop];
+  }
+});
+Ext.define('Pyansa.Number', {requires:['Pyansa.Math']}, function() {
+  Pyansa.Number = {decimalAdjust:function(value, n, type) {
+    n = n || 0;
+    type = type || 'round';
+    value = +value;
+    value = Ext.Number.correctFloat(value);
+    n = +n;
+    if (isNaN(value) || !(typeof n === 'number' && n % 1 === 0 && n >= 0)) {
+      return NaN;
+    }
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + ((value[1] ? +value[1] : 0) + n)));
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + ((value[1] ? +value[1] : 0) - n));
+  }, trunc:function(value, n) {
+    return this.decimalAdjust(value, n, 'trunc');
+  }, round:function(value, n) {
+    return this.decimalAdjust(value, n, 'round');
+  }, ceil:function(value, n) {
+    return this.decimalAdjust(value, n, 'ceil');
+  }, floor:function(value, n) {
+    return this.decimalAdjust(value, n, 'floor');
+  }};
+});
+Ext.define('Pyansa.overrides.Number', {override:'Ext.Number', requires:['Pyansa.Number']}, function() {
+  var prop;
+  for (prop in Pyansa.Number) {
+    Ext.Number[prop] = Pyansa.Number[prop];
+  }
+});
+Ext.define('Pyansa.overrides.data.request.Ajax', {override:'Ext.data.request.Ajax'}, function(Ajax) {
+  Ajax.$$parseStatus = Ajax.parseStatus;
+  Ajax.parseStatus = function(status, response) {
+    var ret = Ajax.$$parseStatus(status, response), type = response.responseType;
+    console.log(response);
+    if (status === 0 && (type === 'json' || type === 'document') && !response.responseURL) {
+      ret.success = false;
+    }
+    return ret;
+  };
+});
 Ext.define('Pyansa.overrides.data.Connection', {override:'Ext.data.Connection', config:{sendTimeoutAsHeader:false}, setOptions:function(options, scope) {
   var me = this, sendTimeoutAsHeader = options.sendTimeoutAsHeader || me.getSendTimeoutAsHeader(), timeout = options.timeout || me.getTimeout();
   if (sendTimeoutAsHeader) {
@@ -1772,7 +1903,154 @@ Ext.define('Pyansa.overrides.Ajax', {override:'Ext.Ajax', requires:['Pyansa.over
   var me = this;
   me.setConfig('sendTimeoutAsHeader', me.config.sendTimeoutAsHeader);
 });
+Ext.define('Pyansa.util.Format', {requires:['Ext.util.Format', 'Pyansa.Number', 'Pyansa.String']}, function() {
+  Pyansa.util.Format = {numberName:function(num) {
+    var UNIDADES = {0:'', 1:'un', 2:'dos', 3:'tres', 4:'cuatro', 5:'cinco', 6:'seis', 7:'siete', 8:'ocho', 9:'nueve'}, DECENAS = {1:'', 2:'', 3:'treinta', 4:'cuarenta', 5:'cincuenta', 6:'sesenta', 7:'setenta', 8:'ochenta', 9:'noventa'}, CENTENAS = {1:'', 2:'doscientos', 3:'trescientos', 4:'cuatrocientos', 5:'quinientos', 6:'seiscientos', 7:'setecientos', 8:'ochocientos', 9:'novecientos'}, name = '', clases, numStr, i, claseNum, millaresMillones, millones, millares, unidades;
+    num = Pyansa.Number.trunc(num);
+    if (num < 0 || num > 9.99999999999E11) {
+      throw new Error('El numero a convertir debe entrar en el rango de 0 a 999999999999');
+    }
+    if (num == 0) {
+      return 'cero';
+    }
+    numStr = Ext.String.leftPad(num.toString(), 12, '0');
+    clases = Ext.String.chunk(numStr, 3);
+    millaresMillones = getMillares(Ext.String.chunk(clases[0], 1).map(function(i) {
+      return parseInt(i);
+    }));
+    millones = getCentenas(Ext.String.chunk(clases[1], 1).map(function(i) {
+      return parseInt(i);
+    }));
+    millares = getMillares(Ext.String.chunk(clases[2], 1).map(function(i) {
+      return parseInt(i);
+    }));
+    unidades = getCentenas(Ext.String.chunk(clases[3], 1).map(function(i) {
+      return parseInt(i);
+    }));
+    millones = (millaresMillones + ' ' + millones).trim() == '' ? '' : (millaresMillones + ' ' + millones).trim() + ' millones';
+    unidades = (millares + ' ' + unidades).trim();
+    name = (millones + ' ' + unidades).trim();
+    return name;
+    function getUnidades(digito) {
+      return UNIDADES[digito];
+    }
+    function getDecenas(digitos) {
+      var decena = digitos[0], unidad = digitos[1], str;
+      switch(decena) {
+        case 0:
+          str = getUnidades(unidad);
+          break;
+        case 1:
+          switch(unidad) {
+            case 0:
+              str = 'diez';
+              break;
+            case 1:
+              str = 'once';
+              break;
+            case 2:
+              str = 'doce';
+              break;
+            case 3:
+              str = 'trece';
+              break;
+            case 4:
+              str = 'catorce';
+              break;
+            case 5:
+              str = 'quince';
+              break;
+            default:
+              str = 'dieci' + getUnidades(unidad);
+              break;
+          }break;
+        case 2:
+          switch(unidad) {
+            case 0:
+              str = 'veinte';
+              break;
+            default:
+              str = 'veinti' + getUnidades(unidad);
+              break;
+          }break;
+        default:
+          switch(unidad) {
+            case 0:
+              str = DECENAS[decena];
+              break;
+            default:
+              str = DECENAS[decena] + ' y ' + getUnidades(unidad);
+              break;
+          }break;
+      }
+      return str;
+    }
+    function getCentenas(digitos) {
+      var centena = digitos[0], decena = digitos[1], unidad = digitos[2], str;
+      switch(centena) {
+        case 0:
+          str = getDecenas([decena, unidad]);
+          break;
+        case 1:
+          switch(decena) {
+            case 0:
+              switch(unidad) {
+                case 0:
+                  str = 'cien';
+                  break;
+                default:
+                  str = 'ciento ' + getUnidades(unidad);
+                  break;
+              }break;
+            default:
+              str = 'ciento ' + getDecenas([decena, unidad]);
+              break;
+          }break;
+        default:
+          switch(decena) {
+            case 0:
+              switch(unidad) {
+                case 0:
+                  str = CENTENAS[centena];
+                  break;
+                default:
+                  str = CENTENAS[centena] + ' ' + getUnidades(unidad);
+                  break;
+              }break;
+            default:
+              str = CENTENAS[centena] + ' ' + getDecenas([decena, unidad]);
+              break;
+          }break;
+      }
+      return str;
+    }
+    function getMillares(digitos) {
+      var centena = digitos[0], decena = digitos[1], unidad = digitos[2], str;
+      str = getCentenas([centena, decena, unidad]);
+      if (str == '') {
+        str = '';
+      } else {
+        if (str == 'un') {
+          str = 'mil';
+        } else {
+          str = str + ' mil';
+        }
+      }
+      return str;
+    }
+  }};
+});
+Ext.define('Pyansa.overrides.util.Format', {override:'Ext.util.Format', requires:['Pyansa.util.Format']}, function() {
+  var prop;
+  for (prop in Pyansa.util.Format) {
+    Ext.util.Format[prop] = Pyansa.util.Format[prop];
+  }
+});
 Ext.define('Pyansa.overrides.data.AbstractStore', {override:'Ext.data.AbstractStore', requires:['Ext.data.identifier.Sequential'], constructor:function(config) {
+  var me = this;
+  config = me.initProperties(config);
+  me.callParent([config]);
+}, initProperties:function(config) {
   var me = this, identifier = me.self.identifier;
   storeId = me.getStoreId();
   if (!storeId && (config && config.storeId)) {
@@ -1793,7 +2071,7 @@ Ext.define('Pyansa.overrides.data.AbstractStore', {override:'Ext.data.AbstractSt
       config.id = storeId;
     }
   }
-  me.callParent([config]);
+  return config;
 }, initIdentifier:function(storeId) {
   var identifier = new Ext.data.identifier.Sequential({prefix:storeId + '-'});
   this.self.identifier = identifier;
@@ -1811,39 +2089,61 @@ Ext.define('Pyansa.overrides.data.Model', {override:'Ext.data.Model', requires:[
     }
   }
 }});
-Ext.define('Pyansa.overrides.data.proxy.Ajax', {override:'Ext.data.proxy.Ajax', requires:['Ext.Object', 'Ext.window.MessageBox'], constructor:function(config) {
-  var me = this, acceptHeader;
-  config = config || {};
-  config.headers = config.headers || {};
-  config.headers['Accept'] = 'application/json, */*';
-  config.listeners = config.listeners || {};
-  config.listeners.exception = config.listeners.exception || 'onAjaxException';
+Ext.define('Pyansa.overrides.data.proxy.Ajax', {override:'Ext.data.proxy.Ajax', requires:['Ext.window.MessageBox'], constructor:function(config) {
+  var me = this;
+  config = me.initProperties(config);
   me.callParent([config]);
-}, onAjaxException:function(proxy, response, operation, eOpts) {
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config = me.prepareConfig(config);
+  return config;
+}, prepareJsonReaderConfig:function(reader) {
+  reader.messageProperty = reader.messageProperty || 'message';
+  reader.rootProperty = reader.rootProperty || 'records';
+  return reader;
+}, prepareJsonWriterConfig:function(writer) {
+  writer.rootProperty = writer.rootProperty || 'records';
+  return writer;
+}, prepareConfig:function(config) {
+  var me = this, headers = config.headers, reader = config.reader, writer = config.writer, listeners = config.listeners || {};
+  if (reader && reader.type == 'json') {
+    config.headers = me.prepareAcceptHeader(headers);
+    config.reader = me.prepareJsonReaderConfig(reader);
+  }
+  if (writer && writer.type == 'json') {
+    config.headers = me.prepareAcceptHeader(headers);
+    config.writer = me.prepareJsonWriterConfig(writer);
+  }
+  if (config.autoHandleException && !listeners.exception) {
+    listeners.exception = 'exceptionHandler';
+    config.listeners = listeners;
+  }
+  return config;
+}, prepareAcceptHeader:function(headers) {
+  var acceptHeader;
+  headers = headers || {};
+  if (headers['Accept']) {
+    acceptHeader = headers['Accept'];
+    if (acceptHeader.indexOf('application/json') == -1) {
+      acceptHeader = 'application/json, ' + acceptHeader;
+    }
+  } else {
+    headers['Accept'] = 'application/json, */*';
+  }
+  return headers;
+}, exceptionHandler:function(proxy, response, operation, eOpts) {
   var me = this, message;
   if (typeof operation.error === 'string') {
     message = operation.error;
   } else {
-    message = operation.error.status + ' ' + operation.error.statusText + '. ' + operation.error.response.responseText;
+    if (operation.error && operation.error.response) {
+      message = operation.error.status + ' ' + operation.error.statusText + '. ' + operation.error.response.responseText;
+    } else {
+      message = 'Ha ocurrido un error desconocido al comunicarse con el servidor';
+    }
   }
   Ext.Msg.show({title:'Mensaje del Sistema', message:message, icon:Ext.Msg.ERROR, buttons:Ext.Msg.OK});
-}});
-Ext.define('Pyansa.overrides.data.reader.Json', {override:'Ext.data.reader.Json', requires:['Ext.Object'], constructor:function(config) {
-  var me = this;
-  config = config || {};
-  config.messageProperty = config.messageProperty || 'message';
-  config.rootProperty = config.rootProperty || 'records';
-  config.metaProperty = config.metaProperty || 'metadata';
-  me.callParent([config]);
-}});
-Ext.define('Pyansa.overrides.data.writer.Json', {override:'Ext.data.writer.Json', requires:['Ext.Object'], constructor:function(config) {
-  var me = this;
-  config = config || {};
-  config.writeAllFields = config.writeAllFields || true;
-  config.allowSingle = config.allowSingle || false;
-  config.encode = config.encode || true;
-  config.rootProperty = config.rootProperty || 'records';
-  me.callParent([config]);
 }});
 Ext.define('Pyansa.overrides.data.Store', {override:'Ext.data.Store', rejectOnExceptions:false, onBatchComplete:function(batch, operation) {
   var me = this, proxy = me.getProxy(), batchExceptions = batch.getExceptions(), operationException;
@@ -1920,131 +2220,17 @@ Ext.define('Pyansa.overrides.data.TreeStore', {override:'Ext.data.TreeStore', ge
     }
   });
 }});
-Ext.define('Pyansa.Math', {}, function() {
-  var prop;
-  Pyansa.Math = {trunc:Math.trunc || function(x) {
-    return x < 0 ? Math.ceil(x) : Math.floor(x);
-  }};
-  for (prop in Pyansa.Math) {
-    Math[prop] = Pyansa.Math[prop];
-  }
-});
-Ext.define('Pyansa.Number', {requires:['Pyansa.Math']}, function() {
-  var prop;
-  Pyansa.Number = {decimalAdjust:function(value, n, type) {
-    n = n || 0;
-    type = type || 'round';
-    value = +value;
-    value = Ext.Number.correctFloat(value);
-    n = +n;
-    if (isNaN(value) || !(typeof n === 'number' && n % 1 === 0 && n >= 0)) {
-      return NaN;
-    }
-    value = value.toString().split('e');
-    value = Math[type](+(value[0] + 'e' + ((value[1] ? +value[1] : 0) + n)));
-    value = value.toString().split('e');
-    return +(value[0] + 'e' + ((value[1] ? +value[1] : 0) - n));
-  }, trunc:function(value, n) {
-    return this.decimalAdjust(value, n, 'trunc');
-  }, round:function(value, n) {
-    return this.decimalAdjust(value, n, 'round');
-  }, ceil:function(value, n) {
-    return this.decimalAdjust(value, n, 'ceil');
-  }, floor:function(value, n) {
-    return this.decimalAdjust(value, n, 'floor');
-  }};
-  for (prop in Pyansa.Number) {
-    Ext.Number[prop] = Pyansa.Number[prop];
-  }
-});
-Ext.define('Pyansa.String', {}, function() {
-  var prop;
-  Pyansa.String = {rightPad:function(value, size, character) {
-    var result = String(value);
-    character = character || ' ';
-    while (result.length < size) {
-      result = result + character;
-    }
-    return result;
-  }, random:function(length, word) {
-    var str = '', i;
-    word = word || 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    for (i = 0; i < length; i++) {
-      str += word.charAt(Ext.Number.randomInt(0, word.length - 1));
-    }
-    return str;
-  }, toCamelCase:function(value, capitalize) {
-    var words = value.split(/[_.\- ]+/), camelString = '', i;
-    capitalize = capitalize || false;
-    for (i = 0; i < words.length; i++) {
-      if (i == 0) {
-        if (capitalize) {
-          camelString += words[i].charAt(0).toUpperCase();
-          camelString += words[i].substr(1);
-        } else {
-          camelString += words[i];
-        }
-      } else {
-        camelString += words[i].charAt(0).toUpperCase();
-        camelString += words[i].substr(1);
-      }
-    }
-    return camelString;
-  }, chunk:function(value, length, reverse) {
-    var pieces = [], substr = '';
-    length = length || 1;
-    reverse = reverse || false;
-    while (value != '') {
-      if (reverse) {
-        substr = value.substr(-length);
-        value = value.substring(0, value.length - length);
-        pieces.unshift(substr);
-      } else {
-        substr = value.substr(0, length);
-        value = value.substr(length);
-        pieces.push(substr);
-      }
-    }
-    return pieces;
-  }, splitParagraphs:function(value, length, word) {
-    var paragraphs = [], p = '', words;
-    word = word || true;
-    if (!word) {
-      return this.chunk(value.trim(), length);
-    }
-    words = Ext.String.splitWords(value);
-    while (words.length > 0) {
-      if (p.length + words[0].length + 1 > length) {
-        paragraphs.push(p);
-        p = '';
-      }
-      if (p == '') {
-        p = words[0];
-      } else {
-        if (p != '') {
-          p = p + ' ' + words[0];
-        }
-      }
-      words = words.slice(1);
-      if (words.length == 0) {
-        paragraphs.push(p);
-      }
-    }
-    return paragraphs;
-  }};
-  for (prop in Pyansa.String) {
-    Ext.String[prop] = Pyansa.String[prop];
-  }
-});
-Ext.define('Pyansa.data.proxy.Sql', {extend:'Ext.data.proxy.Client', alias:'pyansa.data.proxy.sql', requires:['Ext.XTemplate'], config:{reader:null, writer:null, defaultDateFormat:'Y-m-d H:i:s'}, connection:null, table:null, selectStatementTpl:['SELECT', "\x3ctpl if\x3d'columns'\x3e", ' {[ values.columns.join(", ") ]}', '\x3ctpl else\x3e', ' *', '\x3c/tpl\x3e', ' FROM {table}'], insertStatementTpl:['INSERT INTO `{table}` (', '{[ values.columns.join(", ") ]}', ') VALUES (', '{[ Ext.String.repeat("?", values.columns.length, ", ") ]}', 
+Ext.define('Pyansa.data.proxy.Sql', {extend:'Ext.data.proxy.Client', alias:'pyansa.data.proxy.sql', requires:['Ext.Object', 'Ext.XTemplate'], config:{reader:null, writer:null, defaultDateFormat:'Y-m-d H:i:s'}, connection:null, table:null, selectStatementTpl:['SELECT', "\x3ctpl if\x3d'columns'\x3e", ' {[ values.columns.join(", ") ]}', '\x3ctpl else\x3e', ' *', '\x3c/tpl\x3e', ' FROM {table}'], insertStatementTpl:['INSERT INTO `{table}` (', '{[ values.columns.join(", ") ]}', ') VALUES (', '{[ Ext.String.repeat("?", values.columns.length, ", ") ]}', 
 ')'], updateStatementTpl:['UPDATE `{table}` SET ', '{[', 'values.columns.map(function(column) {', 'return column + " \x3d ?";', '}).join(", ")', ']}', ' WHERE {idProperty} \x3d ?'], deleteStatementTpl:['DELETE FROM `{table}`', ' WHERE {idProperty} \x3d ?'], constructor:function(config) {
   var me = this;
-  config = config || {};
-  defaults = {connection:me.connection, table:me.table};
-  Ext.Object.each(defaults, function(key, value) {
-    config[key] = config[key] || me[key] || value;
-  });
+  config = me.initProperties(config);
   this.callParent([config]);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config.connection = config.connection || me.connection;
+  config.table = config.table || me.table;
+  return config;
 }, create:function(operation) {
   var me = this, connection = me.connection, records = operation.getRecords(), modelClass = me.getModel(), clientIdProperty = (new modelClass).clientIdProperty || 'clientId', resultSet = new Ext.data.ResultSet, insertedRecords = [], i, ln, data, record;
   operation.setStarted();
@@ -2277,13 +2463,18 @@ Ext.define('Pyansa.data.proxy.Sql', {extend:'Ext.data.proxy.Client', alias:'pyan
 }});
 Ext.define('Pyansa.database.sqlite.Column', {alias:'pyansa.database.sqlite.column', requires:['Ext.XTemplate'], statementTpl:['`{name}` ', '{[values.type.toUpperCase()]} ', "\x3ctpl if\x3d'!acceptsNull'\x3eNOT \x3c/tpl\x3e", 'NULL', "\x3ctpl if\x3d'defaultValue !\x3d\x3d null \x26\x26 defaultValue !\x3d\x3d undefined'\x3e", ' DEFAULT ', "\x3ctpl switch\x3d'typeof values.defaultValue'\x3e", "\x3ctpl case\x3d'number'\x3e", '{defaultValue}', '\x3ctpl default\x3e', '"{defaultValue}"', '\x3c/tpl\x3e', 
 '\x3c/tpl\x3e'], isColumn:true, name:null, type:null, isPrimaryKey:false, acceptsNull:false, defaultValue:null, constructor:function(config) {
-  var me = this, defaults;
-  config = config || {};
-  defaults = {name:me.name, type:me.type, isPrimaryKey:me.isPrimaryKey, acceptsNull:me.acceptsNull, defaultValue:me.defaultValue};
-  Ext.Object.each(defaults, function(key, value) {
-    config[key] = config[key] || me[key] || value;
-  });
+  var me = this;
+  config = me.initProperties(config);
   this.initConfig(config);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config.name = config.name || me.name;
+  config.type = config.type || me.type;
+  config.isPrimaryKey = config.isPrimaryKey || me.isPrimaryKey;
+  config.acceptsNull = config.acceptsNull || me.acceptsNull;
+  config.defaultValue = config.defaultValue || me.defaultValue;
+  return config;
 }, buildStatement:function(tpl) {
   var me = this;
   tpl = tpl || me.statementTpl;
@@ -2299,35 +2490,44 @@ Ext.define('Pyansa.database.sqlite.Column', {alias:'pyansa.database.sqlite.colum
   return tpl.apply(me);
 }});
 Ext.define('Pyansa.database.sqlite.Connection', {alias:'pyansa.database.sqlite.connection', isConnection:true, name:null, version:'1.0', description:'WebSQL Database', size:0, connection:null, constructor:function(config) {
-  var me = this, tables, defaults;
-  config = config || {};
-  defaults = {name:me.name, version:me.version, description:me.description, size:me.size, connection:me.connection};
-  Ext.Object.each(defaults, function(key, value) {
-    config[key] = config[key] || me[key] || value;
-  });
-  this.initConfig(config);
+  var me = this;
+  config = me.initProperties(config);
+  me.initConfig(config);
   if (me.size <= 0) {
     Ext.raise('El tamaño de la base de datos debe ser mayor a 0');
   }
   me.connection = me.databaseObject = openDatabase(me.name, me.version, me.description, me.size);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config.name = config.name || me.name;
+  config.version = config.version || me.version;
+  config.description = config.description || me.description;
+  config.size = config.size || me.size;
+  config.connection = config.connection || me.connection;
+  return config;
 }, transaction:function() {
   var me = this;
   me.connection.transaction.apply(me.connection, arguments);
 }});
 Ext.define('Pyansa.database.sqlite.Table', {alias:'pyansa.database.sqlite.table', requires:['Pyansa.database.sqlite.Column', 'Ext.XTemplate', 'Ext.util.Collection', 'Ext.Deferred'], createStatementTpl:['CREATE', "\x3ctpl if\x3d'isTemporary'\x3e", ' TEMPORARY', '\x3c/tpl\x3e', ' TABLE', "\x3ctpl if\x3d'checkExistence'\x3e", ' IF NOT EXISTS', '\x3c/tpl\x3e', ' `{name}` (', '{[', 'values.columns.items.map(function(item) { ', 'return item.buildStatement();', '}).join(", ")', ']}', '\x3ctpl if\x3d\'columns.findIndex("isPrimaryKey", true) !\x3d -1\'\x3e', 
 ', PRIMARY KEY (', '{[', 'values.columns.items.filter(function(item) {', 'return item.isPrimaryKey;', '}).map(function(item) { ', 'return "`" + item.name + "`";', '}).join(", ")', ']}', ')', '\x3c/tpl\x3e', ')'], dropStatementTpl:['DROP', "\x3ctpl if\x3d'isTemporary'\x3e", ' TEMPORARY', '\x3c/tpl\x3e', ' TABLE', "\x3ctpl if\x3d'checkExistence'\x3e", ' IF EXISTS', '\x3c/tpl\x3e', ' `{name}`'], isTable:true, name:null, isTemporary:false, checkExistence:false, columns:null, constructor:function(config) {
-  var me = this, columns, defaults;
-  config = config || {};
-  defaults = {name:me.name, isTemporary:me.isTemporary, checkExistence:me.checkExistence, columns:me.columns};
-  Ext.Object.each(defaults, function(key, value) {
-    config[key] = config[key] || me[key] || value;
-  });
-  this.initConfig(config);
+  var me = this, columns;
+  config = me.initProperties(config);
+  me.initConfig(config);
   columns = me.columns;
   me.columns = new Ext.util.Collection({keyFn:function(item) {
     return item.name;
   }, decoder:me.createColumn});
   me.setColumns(columns);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config.name = config.name || me.name;
+  config.isTemporary = config.isTemporary || me.isTemporary;
+  config.checkExistence = config.checkExistence || me.checkExistence;
+  config.columns = config.columns || me.columns;
+  return config;
 }, getColumns:function() {
   return this.columns;
 }, setColumns:function(columns) {
@@ -2374,18 +2574,24 @@ Ext.define('Pyansa.database.sqlite.Table', {alias:'pyansa.database.sqlite.table'
 }});
 Ext.define('Pyansa.database.sqlite.Schema', {alias:'pyansa.database.sqlite.schema.', requires:['Pyansa.database.sqlite.Connection', 'Pyansa.database.sqlite.Table', 'Ext.Deferred'], isSchema:true, name:null, version:'1.0', description:'WebSQL Database', size:0, connection:null, tables:null, constructor:function(config) {
   var me = this, tables, defaults;
-  config = config || {};
-  defaults = {name:me.name, version:me.version, description:me.description, size:me.size, connection:me.connection, tables:me.tables};
-  Ext.Object.each(defaults, function(key, value) {
-    config[key] = config[key] || me[key] || value;
-  });
-  this.initConfig(config);
+  config = me.initProperties(config);
+  me.initConfig(config);
   me.connection = new Pyansa.database.sqlite.Connection({name:me.name, version:me.version, description:me.description, size:me.size});
   tables = me.tables;
   me.tables = new Ext.util.Collection({keyFn:function(item) {
     return item.name;
   }, decoder:me.createTable.bind(me)});
   me.setTables(tables);
+}, initProperties:function(config) {
+  var me = this;
+  config = config || {};
+  config.name = config.name || me.name;
+  config.version = config.version || me.version;
+  config.description = config.description || me.description;
+  config.size = config.size || me.size;
+  config.connection = config.connection || me.connection;
+  config.tables = config.tables || me.tables;
+  return config;
 }, getTables:function() {
   return this.tables;
 }, setTables:function(tables) {

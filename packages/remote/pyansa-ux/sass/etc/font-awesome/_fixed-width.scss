@@ -1,6 +1,6 @@
 // Fixed Width Icons
 // -------------------------
 .#{$pfa-css-prefix}-fw {
-  width: (18em / 14);
+  width: $pfa-fw-width;
   text-align: center;
 }

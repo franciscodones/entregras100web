@@ -11,8 +11,6 @@ Ext.define("Pyansa.Number", {
         "Pyansa.Math"
     ]
 }, function() {
-    var prop;
-
     Pyansa.Number = {
         /**
          * Ajusta un numero a `n` decimales. Usando como opciones de ajuste los siguientes tipos:
@@ -118,9 +116,4 @@ Ext.define("Pyansa.Number", {
             return this.decimalAdjust(value, n, "floor");
         }
     };
-
-    // se crean alias en Ext.Number
-    for (prop in Pyansa.Number) {
-        Ext.Number[prop] = Pyansa.Number[prop];
-    }
 });

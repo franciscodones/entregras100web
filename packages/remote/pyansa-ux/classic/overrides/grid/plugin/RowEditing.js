@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.grid.plugin.RowEditing
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.grid.plugin.RowEditing', {
@@ -7,6 +8,7 @@ Ext.define('Pyansa.overrides.grid.plugin.RowEditing', {
 
     /**
      * Sincronizar el store despues de editar
+     *
      * @type {Boolean}
      */
     syncAfterEdit: false,

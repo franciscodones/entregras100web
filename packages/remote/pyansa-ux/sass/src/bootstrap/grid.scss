@@ -1,0 +1,14 @@
+// responsive-grid estilo bootstrap
+
+// se crea una clase la cual extender para unificar los selectores en una sola regla css
+%row {
+    @include make-row();
+}
+
+.row {
+    @include containers-selectors() {
+        @extend %row;
+    }
+}
+
+@include make-grid-columns();

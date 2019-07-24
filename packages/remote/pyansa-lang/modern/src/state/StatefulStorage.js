@@ -13,6 +13,7 @@ Ext.define("Pyansa.state.StatefulStorage", {
          * la propiedad `stateful` se debe poder acceder de las siguientes maneras:
          * - this.stateful
          * - this.getStateful()
+         *
          * @type {Boolean}
          */
         stateful: true

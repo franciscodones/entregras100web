@@ -4,6 +4,7 @@ Ext.define("Pyansa.data.proxy.Sql", {
     alias: "pyansa.data.proxy.sql",
 
     requires: [
+        "Ext.Object",
         "Ext.XTemplate"
     ],
 
@@ -29,18 +30,21 @@ Ext.define("Pyansa.data.proxy.Sql", {
 
     /**
      * Conexion a la base de datos
+     *
      * @type {Pyansa.database.sqlite.Connection}
      */
     connection: null,
 
     /**
      * Tabla a la cual hace referencia el proxy
+     *
      * @type {Pyansa.database.sqlite.Table|String}
      */
     table: null,
 
     /**
      * Template de la sentencia select para la lectura de registros
+     *
      * @type {String|Array}
      */
     selectStatementTpl: [
@@ -55,6 +59,7 @@ Ext.define("Pyansa.data.proxy.Sql", {
 
     /**
      * Template de la sentencia insert para la insercion de registros
+     *
      * @type {String|Array}
      */
     insertStatementTpl: [
@@ -67,6 +72,7 @@ Ext.define("Pyansa.data.proxy.Sql", {
 
     /**
      * Template de la sentencia insert para la insercion de registros
+     *
      * @type {String|Array}
      */
     updateStatementTpl: [
@@ -81,6 +87,7 @@ Ext.define("Pyansa.data.proxy.Sql", {
 
     /**
      * Template de la sentencia delete para la eliminacion de registros
+     *
      * @type {String|Array}
      */
     deleteStatementTpl: [
@@ -90,24 +97,30 @@ Ext.define("Pyansa.data.proxy.Sql", {
 
     /**
      * Constructor
+     *
      * @param  {Object} config
      */
     constructor: function(config) {
         var me = this;
 
-        // Inicializa las variables de tal manera que la prioridad que toman las propiedades son:
-        // - config
-        // - prototipo (variables declaradas en la clase)
-        // - defaults
-        config = config || {};
-        defaults = {
-            connection: me.connection,
-            table: me.table
-        };
-        Ext.Object.each(defaults, function(key, value) {
-            config[key] = config[key] || me[key] || value;
-        });
+        config = me.initProperties(config);
         this.callParent([config]);
+    },
+
+    /**
+     * Inicializa las propiedades que esta clase utiliza
+     *
+     * @param  {Object} config
+     * @return {Object}
+     */
+    initProperties: function(config) {
+        var me = this;
+
+        config = config || {};
+        config.connection = config.connection || me.connection;
+        config.table = config.table || me.table;
+
+        return config;
     },
 
     /**

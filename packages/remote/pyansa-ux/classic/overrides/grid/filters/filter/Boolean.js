@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.grid.filters.filter.Boolean
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {
@@ -11,6 +12,7 @@ Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {
 
     /**
      * Sobreescritura de la funcion `constructor`
+     *
      * @param  {Object} config
      */
     constructor: function(config) {

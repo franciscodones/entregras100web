@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.field.Date
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.field.Date', {

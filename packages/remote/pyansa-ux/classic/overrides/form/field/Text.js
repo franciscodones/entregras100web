@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.form.field.Text
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.form.field.Text', {
@@ -7,12 +8,14 @@ Ext.define('Pyansa.overrides.form.field.Text', {
 
     /**
      * Convierte el valor del campo a mayusculas
+     *
      * @type {Boolean}
      */
     transformToUpper: false,
 
     /**
      * Realiza un trim al valor del campo
+     *
      * @type {Boolean}
      */
     trimValue: false,
@@ -31,6 +34,7 @@ Ext.define('Pyansa.overrides.form.field.Text', {
     /**
      * Sobreescribe la funcion `getValue` para hacer trim al valor
      * en caso que la propiedad `trimValue` sea `true`
+     *
      * @return {Object}
      */
     getValue: function() {
@@ -43,6 +47,7 @@ Ext.define('Pyansa.overrides.form.field.Text', {
     /**
      * Sobreescribe la funcion `getSubmitValue` para hacer trim al valor
      * en caso que la propiedad `trimValue` sea `true`
+     *
      * @return {String}
      */
     getSubmitValue: function() {
@@ -54,6 +59,11 @@ Ext.define('Pyansa.overrides.form.field.Text', {
 
     /**
      * Funcion usada como handler para transformar a mayusculas el valor
+     *
+     * @param {Ext.form.field.Text} field
+     * @param {Object} newValue
+     * @param {Object} oldValue
+     * @param {Object} eOpts
      */
     transformValueToUpperCase: function(field, newValue, oldValue, eOpts) {
         var me = field;

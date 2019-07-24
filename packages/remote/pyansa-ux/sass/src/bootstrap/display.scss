@@ -1,0 +1,12 @@
+//
+// Utilities for common `display` values
+//
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        @each $value in $displays {
+            @include make-display-utilities($infix, $value);
+        }
+    }
+}

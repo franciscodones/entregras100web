@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.grid.Panel
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.grid.Panel', {
@@ -11,25 +12,27 @@ Ext.define('Pyansa.overrides.grid.Panel', {
 
     /**
      * Agrega la propiedad `showMenuTrigger` a las columnas que no la tengan definida
+     *
      * @type {Boolean}
      */
     showMenuTriggers: false,
 
     /**
      * Muestra un `ToolTip` con una pista acerca del menu de las columnas
+     *
      * @type {Boolean}
      */
     showMenuHint: false,
 
     /**
      * Texto utilizado para la pista acerca del menu
+     *
      * @type {String}
      */
     menuHintText: "Menu para filtrar y ordenar similar a Excel",
 
     /**
      * Sobreescribe la funcion `initComponent`
-     * @return {[type]} [description]
      */
     initComponent: function() {
         var me = this;

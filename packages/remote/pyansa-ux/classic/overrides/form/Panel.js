@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.form.Panel
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.form.Panel', {
@@ -13,6 +14,7 @@ Ext.define('Pyansa.overrides.form.Panel', {
      * Establece la propiedad `trimValue` en los componentes hijos de tipo `textfield` del formulario
      * que no lo tengan especificado. Si el componente hijo tiene especificada la propiedad `trimValue`
      * el valor de esta no se altera.
+     *
      * @type {Boolean}
      */
     trimValues: false,

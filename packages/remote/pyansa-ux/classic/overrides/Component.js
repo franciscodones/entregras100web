@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.Component
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.Component', {

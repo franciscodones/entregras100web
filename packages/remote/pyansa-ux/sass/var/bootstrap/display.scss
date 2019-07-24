@@ -1,0 +1,6 @@
+//
+// Utilities for common `display` values
+//
+@mixin make-display-utilities($infix, $value) {
+    .d#{$infix}-#{$value} { display: $value !important; }
+}

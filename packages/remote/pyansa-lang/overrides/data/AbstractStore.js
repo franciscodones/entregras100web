@@ -16,6 +16,19 @@ Ext.define('Pyansa.overrides.data.AbstractStore', {
      * @param  {Object} config
      */
     constructor: function(config) {
+        var me = this;
+
+        config = me.initProperties(config);
+        me.callParent([config]);
+    },
+
+    /**
+     * Inicializa las propiedades que esta clase utiliza
+     *
+     * @param  {Object} config
+     * @return {Object}
+     */
+    initProperties: function(config) {
         var me = this,
             identifier = me.self.identifier;
 
@@ -32,7 +45,7 @@ Ext.define('Pyansa.overrides.data.AbstractStore', {
             identifier = me.initIdentifier(storeId);
         }
 
-        // si el ya existe un store con el mismo id, se reemplaza el id
+        // si ya existe un store con el mismo id, se reemplaza el id
         if (Ext.data.StoreManager.get(storeId)) {
             me.setStoreId(storeId = identifier.generate());
             // se modifica la configuracion para que al llamar el constructor padre no reasigne el id original
@@ -44,12 +57,13 @@ Ext.define('Pyansa.overrides.data.AbstractStore', {
             }
         }
 
-        me.callParent([config]);
+        return config;
     },
 
     /**
      * Inicializa el identificador para evitar stores con id duplicados
      *
+     * @param {String} storeId
      * @return {Ext.data.identifier.Sequential}
      */
     initIdentifier: function(storeId) {

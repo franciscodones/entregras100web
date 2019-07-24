@@ -1,5 +1,6 @@
 /**
  * Sobreescritura de Ext.grid.column.Column
+ *
  * @override
  */
 Ext.define('Pyansa.overrides.grid.column.Column', {
@@ -7,14 +8,21 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
 
     /**
      * Siempre mostrar el trigger del menu de la columna
+     *
      * @type {Boolean}
      */
     showMenuTrigger: false,
 
+    /**
+     * Cambia la orientacion del header a vertical
+     *
+     * @type {Boolean}
+     */
     verticalHeader: false,
 
     /**
      * Sobreescribe el template
+     *
      * @type {Array}
      */
     renderTpl: [
@@ -48,17 +56,20 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
         '{%this.renderContainer(out,values)%}'
     ],
 
+    /**
+     * Sobreescribe la funcion `initComponent`
+     */
     initComponent: function() {
         var me = this,
             textMetrics = new Ext.util.TextMetrics(),
             suggestedHeight;
 
-        // si es verticalHeader y no es una columna padre se 
+        // si es verticalHeader y no es una columna padre se orienta el texto verticalmente
         if (me.verticalHeader && me.columns !== null) {
             suggestedHeight = textMetrics.getWidth(me.text) + textMetrics.getHeight(me.text) + 10;
             me.height = Math.max(suggestedHeight, me.height || suggestedHeight);
         }
 
-        this.callParent(arguments);
+        me.callParent(arguments);
     }
 });

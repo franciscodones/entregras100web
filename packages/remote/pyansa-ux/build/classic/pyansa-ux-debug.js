@@ -1773,6 +1773,21 @@ Ext.define('Pyansa.mixin.Permissible', {extend:'Ext.Mixin', mixinConfig:{after:{
   return true;
 }});
 Ext.define('Pyansa.overrides.Component', {override:'Ext.Component', mixins:['Pyansa.mixin.Permissible']});
+Ext.define('Pyansa.overrides.mixin.Responsive', {override:'Ext.mixin.Responsive', config:{responsiveFormulas:{xxs:function(context) {
+  return context.width < 320;
+}, xs:function(context) {
+  return context.width >= 320 && context.width < 540;
+}, sm:function(context) {
+  return context.width >= 540 && context.width < 720;
+}, md:function(context) {
+  return context.width >= 720 && context.width < 1024;
+}, lg:function(context) {
+  return context.width >= 1024 && context.width < 1280;
+}, xl:function(context) {
+  return context.width >= 1280 && context.width < 1600;
+}, xxl:function(context) {
+  return context.width >= 1600;
+}}}});
 Ext.define('Pyansa.overrides.form.field.VTypes', {override:'Ext.form.field.VTypes', IPAddress:function(value) {
   return this.IPAddressRe.test(value);
 }, IPAddressRe:/^((([1-9]|1[0-9]|2[0-4])?[0-9]|25[0-5])\.){3}(([1-9]|1[0-9]|2[0-4])?[0-9]|25[0-5])$/, IPAddressText:'Este campo debe ser una direccion IP válida', IPAddressMask:/[\d\.]/i});
@@ -1837,7 +1852,7 @@ Ext.baseCSSPrefix, 'column-vertical-header\x3c/tpl\x3e', '\x3ctpl if\x3d"empty"\
     suggestedHeight = textMetrics.getWidth(me.text) + textMetrics.getHeight(me.text) + 10;
     me.height = Math.max(suggestedHeight, me.height || suggestedHeight);
   }
-  this.callParent(arguments);
+  me.callParent(arguments);
 }});
 Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {override:'Ext.grid.filters.filter.Boolean', requires:['Ext.grid.column.Boolean'], constructor:function(config) {
   var me = this;

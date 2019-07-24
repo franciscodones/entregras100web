@@ -1,0 +1,75 @@
+// utilidades flex
+@mixin make-flex-utilities($infix) {
+    .flex#{$infix}-fill         { flex: 1 1 auto !important; }
+    .flex#{$infix}-grow-0       { flex-grow: 0 !important; }
+    .flex#{$infix}-grow-1       { flex-grow: 1 !important; }
+    .flex#{$infix}-shrink-0     { flex-shrink: 0 !important; }
+    .flex#{$infix}-shrink-1     { flex-shrink: 1 !important; }
+
+    .align-self#{$infix}-auto     { align-self: auto !important; }
+    .align-self#{$infix}-start    { align-self: flex-start !important; }
+    .align-self#{$infix}-end      { align-self: flex-end !important; }
+    .align-self#{$infix}-center   { align-self: center !important; }
+    .align-self#{$infix}-baseline { align-self: baseline !important; }
+    .align-self#{$infix}-stretch  { align-self: stretch !important; }
+}
+
+// utilidades flex compatibles con los containers de extjs
+@mixin make-containers-flex-utilities($infix) {
+    // se crean clases de las cuales extender para unificar los selectores en una sola regla css
+    %flex#{$infix}-row            { flex-direction: row !important; }
+    %flex#{$infix}-column         { flex-direction: column !important; }
+    %flex#{$infix}-row-reverse    { flex-direction: row-reverse !important; }
+    %flex#{$infix}-column-reverse { flex-direction: column-reverse !important; }
+
+    %flex#{$infix}-wrap         { flex-wrap: wrap !important; }
+    %flex#{$infix}-nowrap       { flex-wrap: nowrap !important; }
+    %flex#{$infix}-wrap-reverse { flex-wrap: wrap-reverse !important; }
+
+    %justify-content#{$infix}-start   { justify-content: flex-start !important; }
+    %justify-content#{$infix}-end     { justify-content: flex-end !important; }
+    %justify-content#{$infix}-center  { justify-content: center !important; }
+    %justify-content#{$infix}-between { justify-content: space-between !important; }
+    %justify-content#{$infix}-around  { justify-content: space-around !important; }
+
+    %align-items#{$infix}-start    { align-items: flex-start !important; }
+    %align-items#{$infix}-end      { align-items: flex-end !important; }
+    %align-items#{$infix}-center   { align-items: center !important; }
+    %align-items#{$infix}-baseline { align-items: baseline !important; }
+    %align-items#{$infix}-stretch  { align-items: stretch !important; }
+
+    %align-content#{$infix}-start   { align-content: flex-start !important; }
+    %align-content#{$infix}-end     { align-content: flex-end !important; }
+    %align-content#{$infix}-center  { align-content: center !important; }
+    %align-content#{$infix}-between { align-content: space-between !important; }
+    %align-content#{$infix}-around  { align-content: space-around !important; }
+    %align-content#{$infix}-stretch { align-content: stretch !important; }        
+
+    .flex#{$infix}-row { @include containers-selectors() { @extend %flex#{$infix}-row; } }
+    .flex#{$infix}-column { @include containers-selectors() { @extend %flex#{$infix}-column; } }
+    .flex#{$infix}-row-reverse { @include containers-selectors() { @extend %flex#{$infix}-row-reverse; } }
+    .flex#{$infix}-column-reverse { @include containers-selectors() { @extend %flex#{$infix}-column-reverse; } }
+
+    .flex#{$infix}-wrap { @include containers-selectors() { @extend %flex#{$infix}-wrap; } }
+    .flex#{$infix}-nowrap { @include containers-selectors() { @extend %flex#{$infix}-nowrap; } }
+    .flex#{$infix}-wrap-reverse { @include containers-selectors() { @extend %flex#{$infix}-wrap-reverse; } }
+
+    .justify-content#{$infix}-start { @include containers-selectors() { @extend %justify-content#{$infix}-start; } }
+    .justify-content#{$infix}-end { @include containers-selectors() { @extend %justify-content#{$infix}-end; } }
+    .justify-content#{$infix}-center { @include containers-selectors() { @extend %justify-content#{$infix}-center; } }
+    .justify-content#{$infix}-between { @include containers-selectors() { @extend %justify-content#{$infix}-between; } }
+    .justify-content#{$infix}-around { @include containers-selectors() { @extend %justify-content#{$infix}-around; } }
+
+    .align-items#{$infix}-start { @include containers-selectors() { @extend %align-items#{$infix}-start; } }
+    .align-items#{$infix}-end { @include containers-selectors() { @extend %align-items#{$infix}-end; } }
+    .align-items#{$infix}-center { @include containers-selectors() { @extend %align-items#{$infix}-center; } }
+    .align-items#{$infix}-baseline { @include containers-selectors() { @extend %align-items#{$infix}-baseline; } }
+    .align-items#{$infix}-stretch { @include containers-selectors() { @extend %align-items#{$infix}-stretch; } }
+
+    .align-content#{$infix}-start { @include containers-selectors() { @extend %align-content#{$infix}-start; } }
+    .align-content#{$infix}-end { @include containers-selectors() { @extend %align-content#{$infix}-end; } }
+    .align-content#{$infix}-center { @include containers-selectors() { @extend %align-content#{$infix}-center; } }
+    .align-content#{$infix}-between { @include containers-selectors() { @extend %align-content#{$infix}-between; } }
+    .align-content#{$infix}-around { @include containers-selectors() { @extend %align-content#{$infix}-around; } }
+    .align-content#{$infix}-stretch { @include containers-selectors() { @extend %align-content#{$infix}-stretch; } }
+}
