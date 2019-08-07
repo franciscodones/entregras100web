@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Controller\Entregas100\AppGaseraController;
 use Exception;
 use Cake\Routing\Router;
-use Pyansa\Error\ExceptionHandler;
+use Pyansa\Error\ErrorHandler;
 
 class Entregas100Controller extends AppGaseraController {
 
@@ -262,12 +262,12 @@ class Entregas100Controller extends AppGaseraController {
         }
 
         try {
-            ExceptionHandler::suspendExceptionHandler();
+            ErrorHandler::suspendExceptionHandler();
             $respuesta = $oController->$sControllerFuncion($this, $aDatos, $aUnidad);
-            ExceptionHandler::resumeExceptionHandler();
+            ErrorHandler::resumeExceptionHandler();
         } catch(Exception $e) {
             // actualiza la respuesta en el log_ws
-            ExceptionHandler::resumeExceptionHandler();
+            ErrorHandler::resumeExceptionHandler();
             $sQuery = "UPDATE logs_ws SET ".
                     "respuesta = ? " .
                 "WHERE id = ?";
@@ -275,7 +275,7 @@ class Entregas100Controller extends AppGaseraController {
                 json_encode(
                     array(
                         "success" => false,
-                        "message" => ExceptionHandler::removePathFromMessage($e->getMessage())
+                        "message" => ErrorHandler::removePathFromMessage($e->getMessage())
                     ),
                     JSON_NUMERIC_CHECK
                 ),

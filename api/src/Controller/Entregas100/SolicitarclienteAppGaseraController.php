@@ -182,12 +182,18 @@ class SolicitarclienteAppGaseraController extends AppGaseraController {
                 "\"\", " .
                 "dat_fact.nombre" .
             ") AS nombre_facturacion, " .
-            // se verifica si el cliente tiene domicilio para facturacion
+            // se verifica si el cliente tiene rfc para facturacion
             "IF (" .
-                "dat_fact.domicilio IS NULL OR TRIM(dat_fact.domicilio) = \"\", " .
+                "dat_fact.rfc IS NULL OR TRIM(dat_fact.rfc) = \"\", " .
                 "\"\", " .
-                "dat_fact.domicilio" .
-            ") AS domicilio_facturacion, " .
+                "dat_fact.rfc" .
+            ") AS rfc_facturacion, " .
+            // se verifica si el cliente tiene email para facturacion
+            "IF (" .
+                "dat_fact.correo_fac IS NULL OR TRIM(dat_fact.correo_fac) = \"\", " .
+                "\"\", " .
+                "dat_fact.correo_fac" .
+            ") AS email_facturacion, " .
             // se verifica si el tipo de cliente es comercial
             "IF(" .
                 "listas_padron.tipo_cte IN (1, 7, 17), " .
@@ -205,6 +211,7 @@ class SolicitarclienteAppGaseraController extends AppGaseraController {
         "LEFT JOIN tarifas ON tarifas.cvetar = padron.tarifa " .
         "LEFT JOIN dat_fact ON listas_padron.ncontrol = dat_fact.ncontrol " .
         "WHERE listas_padron.ncontrol = ? " .
+        "AND padron.fec_baja = '0000-00-00' " .
         "GROUP BY listas_padron.ncontrol " .
         "ORDER BY numero_control";
     }
@@ -295,8 +302,10 @@ class SolicitarclienteAppGaseraController extends AppGaseraController {
                 "_31" => (!empty($aServicio['tipo_compromiso_id'])) ? $aServicio['tipo_compromiso_id'] : 2,
                 "_32" => $aServicio['numero_interior'], //numero_interior
                 "_33" => $aServicio["nombre_facturacion"], // nombre facturacion
-                "_34" => $aServicio["domicilio_facturacion"], // domicilio facturacion
-                "_35" => $aServicio["distancia_permitir_surtir"] // distancia para permitir surtir
+                "_34" => $aServicio["rfc_facturacion"], // rfc facturacion
+                "_35" => $aServicio["distancia_permitir_surtir"], // distancia para permitir surtir
+                "_36" => $aServicio["email_facturacion"], // email facturacion
+                "_37" => 3 // uso_cfdi_id
             );
         }
         unset($aServicio);
