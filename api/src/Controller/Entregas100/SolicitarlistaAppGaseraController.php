@@ -426,7 +426,8 @@ class SolicitarlistaAppGaseraController extends AppGaseraController {
                 "_34" => $aServicio["rfc_facturacion"], // rfc facturacion
                 "_35" => $aServicio["distancia_permitir_surtir"], // distancia para permitir surtir
                 "_36" => $aServicio["email_facturacion"], // email facturacion
-                "_37" => 3 // uso_cfdi_id
+                "_37" => 3, // uso_cfdi_id
+                "_38" => 0 // is_primer_llenafacil
             );
         }
         unset($aServicio);
