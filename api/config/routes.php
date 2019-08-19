@@ -42,7 +42,7 @@ use Cake\Routing\Router;
 Router::defaultRouteClass('DashedRoute');
 
 Router::scope('/', function ($routes) {
-    $routes->connect('/', array('controller' => 'Entregas100', 'action' => 'index', ''));
+    $routes->connect('/', array('controller' => 'Home', 'action' => 'index', ''));
     /**
      * Connect catchall routes for all controllers.
      *
