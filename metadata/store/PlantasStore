@@ -1,0 +1,86 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PlantasStore",
+        "model": "PlantasModel",
+        "storeId": "PlantasStore"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f4c5de2d-6698-451d-b04e-8cc583dc537b",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "read: 'api/Mangueras/Plantas'",
+                    "}"
+                ],
+                "timeout": 300000
+            },
+            "configAlternates": {
+                "api": "object",
+                "timeout": "number"
+            },
+            "name": "MyAjaxProxy3",
+            "designerId": "7fcb68ce-aa6b-4557-818a-e6c24283df85",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader3",
+                    "designerId": "fb9bc5b7-1fff-4a3a-8816-c5e286f6b3db"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowSingle": false,
+                        "encode": true,
+                        "rootProperty": "records",
+                        "writeAllFields": true
+                    },
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter3",
+                    "designerId": "c96137ec-78c9-41b0-be76-0832620d735d"
+                }
+            ]
+        }
+    ]
+}

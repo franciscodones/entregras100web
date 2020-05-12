@@ -1,0 +1,980 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": true,
+        "designer|userAlias": "mangueraspanel",
+        "designer|userClassName": "ManguerasPanel",
+        "flex": 1,
+        "glyph": "f1a4@FontAwesome",
+        "id": "mangueraspanel",
+        "layout": "fit",
+        "title": "Mangueras"
+    },
+    "configAlternates": {
+        "closable": "boolean",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "id": "string",
+        "layout": "string",
+        "title": "string",
+        "flex": "number",
+        "glyph": "auto"
+    },
+    "name": "MyPanel1",
+    "designerId": "8200bb60-bcae-4ece-8d76-45b26dc0899d",
+    "viewControllerInstanceId": "fa816897-cc1e-4776-b158-be2d0944333c",
+    "viewModelInstanceId": "5422be9e-5946-4a3c-abea-367c4f8d011c",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "MyToolbar",
+            "designerId": "353c3e88-84be-4723-81a7-fdcd28e035a6",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nom_plaza",
+                        "fieldLabel": "Plaza",
+                        "itemId": "cmbPlaza",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": "mangueras.PlazasStore",
+                        "valueField": "id_plaza"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "a97ae8ad-b8e5-446e-bd36-42e1973ede06",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbPlazaAfterRender",
+                                "implHandler": [
+                                    "var plaza = Ext.getStore('mangueras.PlazasStore').load();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbPlazaAfterRender",
+                            "designerId": "6ecba448-7e8e-4db9-9904-398b022c1f33"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nombre",
+                        "fieldLabel": "Canal de venta",
+                        "forceSelection": true,
+                        "itemId": "cmbRubroVenta",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": "mangueras.RubrosVentasStore",
+                        "valueField": "id_rubro_venta"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "2ce0b069-4b77-415a-a28e-e06c693b58c5",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbRubroVentaAfterRender",
+                                "implHandler": [
+                                    "var store = Ext.getStore('mangueras.RubrosVentasStore').load({",
+                                    "    callback:function(){",
+                                    "        store.add({",
+                                    "            id_rubro_venta: 0,",
+                                    "            rubro_venta: 'T',",
+                                    "            nombre: 'TODOS'",
+                                    "        });",
+                                    "",
+                                    "        store.sort([",
+                                    "            {",
+                                    "                property : 'id_rubro_venta',",
+                                    "                direction: 'ASC'",
+                                    "            }",
+                                    "        ]);",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbRubroVentaAfterRender",
+                            "designerId": "aeed1a79-02ab-48ec-8625-73f4dbbe784f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-medium",
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "btnBuscar",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "ui": "default-medium"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "scale": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton",
+                    "designerId": "ad0e6246-078a-448b-a06c-a051ae69a59f",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnBuscarClick",
+                                "implHandler": [
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "var plaza = this.getView().down('#cmbPlaza').getValue(),",
+                                    "    rubroVenta = this.getView().down('#cmbRubroVenta').getValue();",
+                                    "",
+                                    "if(plaza === null){",
+                                    "    Ext.MessageBox.show({",
+                                    "        title: '<center>Mensaje de Sistema</center>',",
+                                    "        msg: '<center>Seleccione la plaza por favor!</center>',",
+                                    "        closable:false,",
+                                    "        buttons: Ext.Msg.OK,",
+                                    "        buttonText:{ok:\"Aceptar\"},",
+                                    "        icon: Ext.Msg.ERROR",
+                                    "    });",
+                                    "}else if(rubroVenta === null){",
+                                    "    Ext.MessageBox.show({",
+                                    "        title: '<center>Mensaje de Sistema</center>',",
+                                    "        msg: '<center>Seleccione un Rubro de Venta por favor!</center>',",
+                                    "        closable:false,",
+                                    "        buttons: Ext.Msg.OK,",
+                                    "        buttonText:{ok:\"Aceptar\"},",
+                                    "        icon: Ext.Msg.ERROR",
+                                    "    });",
+                                    "}else{",
+                                    "    Ext.getStore('mangueras.ManguerasStore').load({",
+                                    "        params:{",
+                                    "            plaza_id: plaza,",
+                                    "            rubro_venta_id: rubroVenta,",
+                                    "            todos:false",
+                                    "        },callback:function(){",
+                                    "            Ext.Msg.hide();",
+                                    "        }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnBuscarClick",
+                            "designerId": "91a57b8a-1791-41db-bef6-473f1158735c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-medium",
+                        "glyph": "f1c3@FontAwesome",
+                        "itemId": "btnExcel",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Excel",
+                        "ui": "default-medium"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "glyph": "auto",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "scale": "string",
+                        "text": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "2d02d30b-1288-46d1-91d9-28125d07fe7f",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnExcelClick",
+                                "implHandler": [
+                                    "try{",
+                                    "    var x = Ext.getStore('mangueras.ManguerasStore').data.items;",
+                                    "    if(x != \"\"){",
+                                    "        Ext.Msg.wait('<center>Generando Archivo Excel, espere un momento...</center>','<center>Mensaje de Sistema</center>');",
+                                    "        var json = \"\";",
+                                    "        var resp = \"\";",
+                                    "        Ext.Array.each(x, function(data,i){",
+                                    "            if(Ext.isEmpty(json)){",
+                                    "                json = Ext.JSON.encode(data.data);",
+                                    "            }else{",
+                                    "                json +=','+Ext.JSON.encode(data.data);",
+                                    "            }",
+                                    "        });",
+                                    "        Ext.Ajax.request({",
+                                    "            url:'api/Mangueras/excel',",
+                                    "            timeout:600000,",
+                                    "            params:{",
+                                    "                records:'['+json+']',",
+                                    "                plaza:this.getView().down('#cmbPlaza').rawValue",
+                                    "",
+                                    "            },",
+                                    "            success:function(response){",
+                                    "                var resp = Ext.JSON.decode(response.responseText);",
+                                    "                if(resp.success){",
+                                    "                    Ext.Msg.hide(",
+                                    "                        null,",
+                                    "                        function(){",
+                                    "                            Ext.DomHelper.append(document.body, {",
+                                    "                                tag: 'iframe',",
+                                    "                                id:'file',",
+                                    "                                frameBorder: 0,",
+                                    "                                width: 0,",
+                                    "                                height: 0,",
+                                    "                                css: 'display:none;visibility:hidden;height:0px;',",
+                                    "                                src: 'api/Mangueras/descarga?file='+resp.records",
+                                    "                            });",
+                                    "",
+                                    "                        }",
+                                    "                    );",
+                                    "                }else{",
+                                    "                    Ext.Msg.hide(",
+                                    "                        null,",
+                                    "                        function(){",
+                                    "                            Ext.MessageBox.show({",
+                                    "                                title: '<center>Mensaje de Sistema</center>',",
+                                    "                                msg: \"<center>Error al generar arhivo, intentelo de nuevo1</center>\",",
+                                    "                                icon: Ext.MessageBox.ERROR,",
+                                    "                                buttons: Ext.Msg.OK,",
+                                    "                                buttonText:{ok:\"Aceptar\"},",
+                                    "                                closable:false",
+                                    "                            });",
+                                    "                        }",
+                                    "                    );",
+                                    "                }",
+                                    "            },",
+                                    "            failure:function(error){",
+                                    "                Ext.Msg.hide(",
+                                    "                    null,",
+                                    "                    function(){",
+                                    "                        Ext.MessageBox.show({",
+                                    "                            title: '<center>Mensaje de Sistema</center>',",
+                                    "                            msg: \"<center>Error al generar arhivo, intentelo de nuevo3</center>\",",
+                                    "                            icon: Ext.MessageBox.ERROR,",
+                                    "                            buttons: Ext.Msg.OK,",
+                                    "                            buttonText:{ok:\"Aceptar\"},",
+                                    "                            closable:false",
+                                    "                        });",
+                                    "                    }",
+                                    "                );",
+                                    "",
+                                    "            }",
+                                    "        });",
+                                    "    }else{",
+                                    "        Ext.MessageBox.show({",
+                                    "            title: '<center>Mensaje de Sistema</center>',",
+                                    "            msg: \"<center>No hay datos para imprimir</center>\",",
+                                    "            icon: Ext.MessageBox.ERROR,",
+                                    "            buttons: Ext.Msg.OK,",
+                                    "            buttonText:{ok:\"Aceptar\"},",
+                                    "            closable:false",
+                                    "        });",
+                                    "    }",
+                                    "}catch(Exception){",
+                                    "    Ext.MessageBox.show({",
+                                    "        title: '<center>Mensaje de Sistema</center>',",
+                                    "        msg: Exception,",
+                                    "        icon: Ext.MessageBox.ERROR,",
+                                    "        buttons: Ext.Msg.OK,",
+                                    "        buttonText:{ok:\"Aceptar\"},",
+                                    "        closable:false",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnExcelClick",
+                            "designerId": "53dbf4e0-bbd5-4e65-b739-41db9438d3a4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "MyToolbar1",
+            "designerId": "79f3a95a-87f5-46f3-91c1-64b26d6731b8",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-medium",
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "btnAgregar",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "tooltip": "Agregar",
+                        "ui": "default-medium"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "scale": "string",
+                        "tooltip": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "0bf191dd-a02d-4006-980f-673dc52cdbd1",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnAgregarClick",
+                                "implHandler": [
+                                    "var window = this;",
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "var ventana = Ext.create('widget.windownewmanguera');",
+                                    "",
+                                    "var plaza = window.getStore('localPlazasStore');",
+                                    "plaza.load({",
+                                    "    callback:function(){",
+                                    "        var rubro = window.getStore('localRubrosVentasStore');",
+                                    "        rubro.load({",
+                                    "            callback:function(){",
+                                    "                ventana.down('#cmbPlaza').setStore(plaza);",
+                                    "                ventana.down('#cmbCanalVenta').setStore(rubro);",
+                                    "                Ext.Msg.hide();",
+                                    "                ventana.show();",
+                                    "            }",
+                                    "        });",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnAgregarClick",
+                            "designerId": "4c55360d-7909-47b8-b0e8-303b4f64f4f3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "default-medium",
+                        "itemId": "btnReInsertarInformacion",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Reinsertar información",
+                        "ui": "default-medium"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "layout|flex": "number",
+                        "scale": "string",
+                        "text": "string",
+                        "ui": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "aacb547c-46eb-4fa4-a797-cead86a3fc52",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnInsertarInformacionClick",
+                                "implHandler": [
+                                    "var window = this;",
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "var ventana = Ext.create('widget.windowreinsertarinformacionmangueras');",
+                                    "",
+                                    "var store = Ext.getStore('mangueras.ManguerasReInsertarStore');",
+                                    "store.load({",
+                                    "    callback:function(){",
+                                    "        Ext.Msg.hide();",
+                                    "        ventana.show();",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onBtnInsertarInformacionClick",
+                            "designerId": "aa979c1b-5d2d-4dbc-962d-7e444df4b040"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "default-framed",
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "frame": true,
+                "showMenuHint": true,
+                "showMenuTriggers": true,
+                "store": "mangueras.ManguerasStore",
+                "title": ""
+            },
+            "configAlternates": {
+                "showMenuHint": "boolean",
+                "showMenuTriggers": "boolean",
+                "designer|uiInterfaceName": "string",
+                "enableColumnHide": "boolean",
+                "enableColumnMove": "boolean",
+                "frame": "boolean",
+                "store": "store",
+                "title": "string"
+            },
+            "name": "MyGridPanel",
+            "designerId": "981d76c8-d3cf-4468-a7fe-ee4c31d8b7a4",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuHint",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "showMenuTriggers",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "plaza",
+                        "text": "Plazas",
+                        "width": 138
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "de59d378-4e12-4613-9c12-6eda1d0f4834"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "descrip_rubro_venta",
+                        "text": "Canal de ventas",
+                        "width": 273
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "a87a3771-e504-4646-bb58-1204eb6b035c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_manguera",
+                        "text": "Manguera",
+                        "width": 128
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "3c8eb17b-2628-4d26-9619-6e0f67d0335b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "descrip_manguera",
+                        "text": "Descripción",
+                        "width": 233
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "0f9a00e6-6ee1-4b4a-b944-e3e2d73ef797"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_eco",
+                        "text": "Num. Economico",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "defdcf4a-911c-4a4a-beac-7c2ac495298d"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_estacion",
+                        "text": "Num. Estación",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn5",
+                    "designerId": "08df5646-39b6-4c6c-bd1d-391fe58a3e09"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_bascula",
+                        "text": "Num. Bascula",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "15c2a92b-b66a-4061-a948-e7b6796abecc"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_red",
+                        "text": "Num. Red",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn7",
+                    "designerId": "1a2060f2-8fe8-48b0-895c-52e52f0a394f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "sub_red",
+                        "text": "Sub red",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn8",
+                    "designerId": "6e057513-6e10-441d-b0cc-9c400f7d7e91"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "num_bomba",
+                        "text": "Num. Bomba",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn9",
+                    "designerId": "efbdfeac-da16-42b7-8bf1-037015ff43f8"
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTable",
+                    "designerId": "2e3e3948-5bdf-41ea-a83c-fdb417d6a61d"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "width": 50
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn",
+                    "designerId": "005ed02c-7c82-4342-ae66-c50fcbcc7b0f",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyActionColumnItem",
+                            "designerId": "f9d89a6e-99b7-41a0-8466-3540362300a4",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "Ext.Msg.confirm('Mensaje de Sistema','¿Estas segur@ de darlo de Baja?',function(btn){",
+                                            "    if(btn === 'yes'){",
+                                            "        Ext.MessageBox.show({",
+                                            "            title: '<center>Mensaje de Sistema</center>',",
+                                            "            msg: '<center>No se puede eliminar, cuenta con estatus activado, verifique porfavor!</center>',",
+                                            "            closable:false,",
+                                            "            buttons: Ext.Msg.OK,",
+                                            "            buttonText:{ok:\"Aceptar\"},",
+                                            "            icon: Ext.Msg.ERROR",
+                                            "        });",
+                                            "        Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                            "        var store = Ext.getStore('mangueras.ManguerasStore');",
+                                            "        window.store = store;",
+                                            "        store.remove(record);",
+                                            "        if(store.needsSync){",
+                                            "            store.sync({",
+                                            "                success: function(batch,options){",
+                                            "                    onSyncSucess();",
+                                            "                    Ext.MessageBox.show({",
+                                            "                        title: '<center>Mensaje de Sistema</center>',",
+                                            "                        msg: '<center>Se elimino correctamente!</center>',",
+                                            "                        closable:false,",
+                                            "                        buttons: Ext.Msg.OK,",
+                                            "                        buttonText:{ok:\"Aceptar\"},",
+                                            "                        icon: Ext.MessageBox.INFO",
+                                            "                    });",
+                                            "                },",
+                                            "                failure:function(batch){",
+                                            "                    store.rejectChanges();",
+                                            "                    Ext.each(batch.exceptions, function(operation){",
+                                            "                        if(operation.error.statusText === \"\"){",
+                                            "                            Ext.Msg.hide();",
+                                            "                            Ext.MessageBox.show({",
+                                            "                                title: '<center>Mensaje de Sistema</center>',",
+                                            "                                msg: '<center>Fallo la conexión con el servidor!</center>',",
+                                            "                                closable:false,",
+                                            "                                buttons: Ext.Msg.OK,",
+                                            "                                buttonText:{ok:\"Aceptar\"},",
+                                            "                                icon: Ext.Msg.ERROR",
+                                            "                            });",
+                                            "                        }else{",
+                                            "                            Ext.Msg.hide();",
+                                            "                            var error = batch.getExceptions();",
+                                            "                            var error1 = error[0].getError();",
+                                            "                            Ext.MessageBox.show({",
+                                            "                                title: '<center>Mensaje de Sistema</center>',",
+                                            "                                msg: '<center>'+error1+'</center>',",
+                                            "                                closable:false,",
+                                            "                                buttons: Ext.Msg.OK,",
+                                            "                                buttonText:{ok:\"Aceptar\"},",
+                                            "                                icon: Ext.Msg.ERROR",
+                                            "                            });",
+                                            "",
+                                            "                        }",
+                                            "                    });",
+                                            "                }",
+                                            "            });",
+                                            "        }else{",
+                                            "            onSyncSucess();",
+                                            "        }",
+                                            "    }",
+                                            "",
+                                            "    function onSyncSucess() {",
+                                            "        Ext.Msg.hide();",
+                                            "    }",
+                                            "});"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "d752b105-faee-4140-bdd8-86a387d098c7"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "color = \"iconDelete\";",
+                                    "glyph = 'f146@fontAwesome';",
+                                    "tooltip = 'Eliminar';",
+                                    "this.items[0].tooltip = tooltip;",
+                                    "this.items[0].iconCls = color;",
+                                    "this.items[0].glyph = glyph;",
+                                    "return value;"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "a5d3db0a-8fb8-465e-a193-1dda35067464"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

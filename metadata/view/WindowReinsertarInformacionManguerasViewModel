@@ -1,0 +1,17 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "windowreinsertarinformacionmangueras",
+        "designer|userClassName": "WindowReinsertarInformacionManguerasViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "d4b13efc-3cee-43fa-afed-360d5c674743"
+}

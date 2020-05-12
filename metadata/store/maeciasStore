@@ -1,0 +1,86 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "maeciasStore",
+        "model": "MaeciasModel",
+        "storeId": "maeciasStore"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore",
+    "designerId": "520e732f-c05e-49b0-b2e8-57e689737e55",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "read: 'api/Mangueras/maecias'",
+                    "}"
+                ],
+                "timeout": 300000
+            },
+            "configAlternates": {
+                "api": "object",
+                "timeout": "number"
+            },
+            "name": "MyAjaxProxy4",
+            "designerId": "7974b007-d848-48a6-a73e-c47d01f26d98",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader4",
+                    "designerId": "4d6c891c-1344-49b2-9a2c-8a57c3860fee"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowSingle": false,
+                        "encode": true,
+                        "rootProperty": "records",
+                        "writeAllFields": true
+                    },
+                    "configAlternates": {
+                        "allowSingle": "boolean",
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter4",
+                    "designerId": "b76297b8-275e-44a5-9350-b2abba165bcc"
+                }
+            ]
+        }
+    ]
+}

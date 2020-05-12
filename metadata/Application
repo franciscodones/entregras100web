@@ -25,7 +25,13 @@
             "HorarioZonaModel",
             "DescuentoPromocionModel",
             "TablaPuntosModel",
-            "LogAlarmaModel"
+            "LogAlarmaModel",
+            "mangueras.ManguerasModel",
+            "mangueras.RubrosVentasModel",
+            "PlantasModel",
+            "MaeciasModel",
+            "mangueras.PlazasModel",
+            "mangueras.ManguerasReInsertarModel"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -47,7 +53,13 @@
             "HorariosZonaStore",
             "DescuentosPromocionStore",
             "TablaPuntosStore",
-            "LogsAlarmasStore"
+            "LogsAlarmasStore",
+            "mangueras.ManguerasStore",
+            "mangueras.RubrosVentasStore",
+            "PlantasStore",
+            "maeciasStore",
+            "mangueras.PlazasStore",
+            "mangueras.ManguerasReInsertarStore"
         ],
         "views": [
             "MainViewport",
@@ -83,7 +95,10 @@
             "TablaPuntosPanel",
             "CrearTablaPuntosWindow",
             "EditarTablaPuntosWindow",
-            "ReportesAlarmasPanel"
+            "ReportesAlarmasPanel",
+            "ManguerasPanel",
+            "WindowNewManguera",
+            "WindowReinsertarInformacionMangueras"
         ]
     },
     "configAlternates": {

@@ -1,0 +1,100 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mangueras.PlazasModel",
+        "idProperty": "id_manguera"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
+    "name": "MyModel",
+    "designerId": "cfe2a2fe-b9e4-40f4-b90a-9320b0f2b4e0",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "clave"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField21",
+            "designerId": "9a2be19e-5f14-4a28-9f02-54c525e14e63"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cvecia"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField22",
+            "designerId": "e18eab06-ad27-407b-9e67-f7fbe7f55b88"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField23",
+            "designerId": "6287132f-6c29-4ae1-8a85-6ef2befed058"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nom_plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField24",
+            "designerId": "8b283a5e-351b-48e6-b8c1-4818a5094417"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id_plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField25",
+            "designerId": "eee9ab61-1817-468f-9241-355b4ffea9a7"
+        }
+    ]
+}

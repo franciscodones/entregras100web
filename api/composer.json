@@ -10,7 +10,6 @@
         "mobiledetect/mobiledetectlib": "2.*",
         "cakephp/migrations": "~1.0",
         "cakephp/plugin-installer": "*",
-        "hraq/cake-intl": "dev-master",
         "phpoffice/phpexcel": "^1.8",
         "pyansaphp/pyansaphp": "3.1.*@dev"
     },
@@ -43,15 +42,11 @@
     "repositories": [
         {
             "type": "git",
-            "url": "http://git.pyansa.com.mx/pyansaphp/pyansaphp.git"
+            "url": "https://github.com/Pyansa/pyansaphp.git"
         },
         {
             "type": "git",
-            "url": "http://git.pyansa.com.mx/pyansaphp/intl.git"
-        },
-        {
-            "type": "git",
-            "url": "http://git.pyansa.com.mx/pyansaphp/phpexcel.git"
+            "url": "https://github.com/Pyansa/phpexcel.git"
         }
     ],
     "config": {

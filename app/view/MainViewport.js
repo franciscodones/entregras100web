@@ -194,6 +194,15 @@ Ext.define('Entregas100Web.view.MainViewport', {
                                     listeners: {
                                         click: 'onMItemHorariosListaClick'
                                     }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemMangueras',
+                                    glyph: 'f1a4@FontAwesome',
+                                    text: 'Mangueras',
+                                    listeners: {
+                                        click: 'onMItemManguerasClick'
+                                    }
                                 }
                             ]
                         },

@@ -900,6 +900,52 @@
                                             "designerId": "8fc9809b-b203-404c-9248-edad71ec4838"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f1a4@FontAwesome",
+                                        "itemId": "mItemMangueras",
+                                        "text": "Mangueras"
+                                    },
+                                    "configAlternates": {
+                                        "itemId": "string",
+                                        "text": "string",
+                                        "glyph": "auto"
+                                    },
+                                    "name": "MyMenuItem15",
+                                    "designerId": "e83b488a-6167-49e3-8492-484bcb04ab6e",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemManguerasClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.mangueraspanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemManguerasClick",
+                                            "designerId": "c5b27afd-bf20-4457-801e-e75df4b41561"
+                                        }
+                                    ]
                                 }
                             ]
                         },

@@ -1,0 +1,84 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mangueras.ManguerasReInsertarStore",
+        "model": "mangueras.ManguerasReInsertarModel",
+        "storeId": "mangueras.ManguerasReInsertarStore"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore",
+    "designerId": "9b63b176-85a5-4b2e-94b0-292d3569c3f0",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{",
+                    "read: 'api/Mangueras/readManguerasReInsertar'",
+                    "}"
+                ],
+                "timeout": 300000
+            },
+            "configAlternates": {
+                "api": "object",
+                "timeout": "number"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "1d3861f2-c50e-4828-a962-43d21a4fbf95",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "aa8c6f49-d807-40a7-997e-4da7e0821032"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "encode": true,
+                        "rootProperty": "records",
+                        "writeAllFields": true
+                    },
+                    "configAlternates": {
+                        "encode": "boolean",
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
+                    },
+                    "name": "MyJsonWriter",
+                    "designerId": "9f6c2845-8281-484c-a56e-465c5179b6d9"
+                }
+            ]
+        }
+    ]
+}

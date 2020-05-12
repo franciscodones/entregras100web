@@ -1,0 +1,1128 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "windownewmanguera",
+        "designer|userClassName": "WindowNewManguera",
+        "height": 590,
+        "modal": true,
+        "title": "Agregar manguera",
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyWindow",
+    "designerId": "e9f6d3fe-e5a3-4faf-97c0-5dfaa7b5d850",
+    "viewControllerInstanceId": "98c200cb-1e90-4b83-9b13-76a66ed6bfc7",
+    "viewModelInstanceId": "31e7a105-0ba0-4556-8fc4-280f691ef425",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "title": ""
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "title": "string"
+            },
+            "name": "MyForm",
+            "designerId": "f7c9c5c0-c79f-42dc-a726-b72689dd6b5e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nom_plaza",
+                        "fieldLabel": "Plaza",
+                        "itemId": "cmbPlaza",
+                        "layout|anchor": "100%",
+                        "name": "plaza_id",
+                        "queryMode": "local",
+                        "valueField": "id_plaza"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "queryMode": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox2",
+                    "designerId": "842bf1d6-fa82-4728-8a9a-e449d58ca465",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbPlazaChange",
+                                "implHandler": [
+                                    "if(oldValue !== null){",
+                                    "    this.getView().down('form').reset();",
+                                    "}",
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "var planta = Ext.getStore('PlantasStore');",
+                                    "planta.load({",
+                                    "    params:{",
+                                    "        plaza_id: newValue",
+                                    "    }, callback:function(){",
+                                    "        var clave = Ext.getStore('maeciasStore');",
+                                    "        clave.load({",
+                                    "            params:{",
+                                    "                plaza_id: newValue",
+                                    "            }, callback:function(){",
+                                    "                field.up('window').down('#cmbPlanta').setStore(planta);",
+                                    "                field.up('window').down('#cmbClave').setStore(clave);",
+                                    "                Ext.Msg.hide();",
+                                    "            }",
+                                    "        });",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbPlazaChange",
+                            "designerId": "92f93435-5f00-4591-90b8-a623d7b82c8f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nom_planta",
+                        "fieldLabel": "Planta",
+                        "itemId": "cmbPlanta",
+                        "layout|anchor": "100%",
+                        "name": "planta_id",
+                        "queryMode": "local",
+                        "valueField": "id_planta"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "queryMode": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox3",
+                    "designerId": "b89efcdb-3df2-48e7-b138-2f721e518f1c"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "clave",
+                        "fieldLabel": "Clave",
+                        "itemId": "cmbClave",
+                        "layout|anchor": "100%",
+                        "name": "cvecia_id",
+                        "queryMode": "local",
+                        "valueField": "id_cvecia"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "queryMode": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox4",
+                    "designerId": "bf575e03-69bb-4901-b951-e1fe4a1406e9"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nombre",
+                        "fieldLabel": "Canal de venta",
+                        "itemId": "cmbCanalVenta",
+                        "layout|anchor": "100%",
+                        "name": "rubro_venta_id",
+                        "queryMode": "local",
+                        "valueField": "id_rubro_venta"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "queryMode": "string",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox5",
+                    "designerId": "2d5333a4-e6f6-4d7d-809a-05d9f47706b3",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbCanalVentaChange",
+                                "implHandler": [
+                                    "var plaza_id = this.getView().down('#cmbPlaza').getValue(),",
+                                    "    planta_id = this.getView().down('#cmbPlanta').getValue();",
+                                    "var descripcion = this.getView().down('#txtDescripcion'),",
+                                    "    descripcion1 = this.getView().down('#descripcion1'),",
+                                    "    text1 = this.getView().down('#text1'),",
+                                    "    num1 = this.getView().down('#num1'),",
+                                    "    text2 = this.getView().down('#text2'),",
+                                    "    num2 = this.getView().down('#num2'),",
+                                    "    num_bascula =  this.getView().down('#txtNumBascula'),",
+                                    "    num_eco = this.getView().down('#txtNumEco'),",
+                                    "    num_estacion = this.getView().down('#txtNumEstacion'),",
+                                    "    num_red = this.getView().down('#txtNumRed'),",
+                                    "    num_bomba = this.getView().down('#txtNumBomba'),",
+                                    "    id_manguera = this.getView().down('#id_manguera'),",
+                                    "    sub_red = this.getView().down('#txtSubRed');",
+                                    "",
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "Ext.Ajax.request({",
+                                    "    url: 'api/Mangueras/ultimaManguera',",
+                                    "    params:{",
+                                    "        plaza_id : plaza_id,",
+                                    "        rubro_venta_id: newValue,",
+                                    "        planta_id: planta_id",
+                                    "    },",
+                                    "    headers:{",
+                                    "        Accept: 'application/json, */*'",
+                                    "    },",
+                                    "    success:function(response){",
+                                    "        try{",
+                                    "            var resp = JSON.parse(response.responseText);",
+                                    "            Ext.Msg.hide();",
+                                    "            if(resp.success){",
+                                    "                ultima_manguera = resp.records[0].ultimo;",
+                                    "",
+                                    "                if(newValue == 1){",
+                                    "                    descripcion.setValue('');",
+                                    "                    text1.setValue('');",
+                                    "                    num1.setValue('');",
+                                    "                    text2.setValue('');",
+                                    "                    num2.setValue('');",
+                                    "                    descripcion1.setHidden(true);",
+                                    "                    descripcion.setHidden(false);",
+                                    "                    num_bascula.setDisabled(false);",
+                                    "                    num_bascula.allowBlank = false;",
+                                    "                    num_eco.setDisabled(true);",
+                                    "                    num_estacion.setDisabled(true);",
+                                    "                    num_red.setDisabled(true);",
+                                    "                    sub_red.setDisabled(true);",
+                                    "                    num_bomba.setDisabled(true);",
+                                    "                }",
+                                    "                if(newValue == 2 || newValue == 4){",
+                                    "                    descripcion.setValue('');",
+                                    "                    descripcion.setHidden(true);",
+                                    "                    descripcion1.setHidden(false);",
+                                    "                    num_estacion.setDisabled(false);",
+                                    "                    num_estacion.allowBlank = false;",
+                                    "                    num_bomba.setDisabled(false);",
+                                    "                    num_bomba.allowBlank = false;",
+                                    "                    num_eco.setDisabled(true);",
+                                    "                    num_red.setDisabled(true);",
+                                    "                    sub_red.setDisabled(true);",
+                                    "                    num_bascula.setDisabled(true);",
+                                    "                }",
+                                    "                if(newValue == 3){",
+                                    "                    descripcion.setValue('');",
+                                    "                    text1.setValue('');",
+                                    "                    num1.setValue('');",
+                                    "                    text2.setValue('');",
+                                    "                    num2.setValue('');",
+                                    "                    descripcion.setHidden(false);",
+                                    "                    descripcion1.setHidden(true);",
+                                    "                    num_eco.setDisabled(false);",
+                                    "                    num_eco.allowBlank = false;",
+                                    "                    num_bascula.setDisabled(true);",
+                                    "                    num_estacion.setDisabled(true);",
+                                    "                    num_red.setDisabled(true);",
+                                    "                    sub_red.setDisabled(true);",
+                                    "                    num_bomba.setDisabled(true);",
+                                    "                }",
+                                    "                if(newValue == 5){",
+                                    "                    descripcion.setValue('');",
+                                    "                    text1.setValue('');",
+                                    "                    num1.setValue('');",
+                                    "                    text2.setValue('');",
+                                    "                    num2.setValue('');",
+                                    "                    descripcion.setHidden(true);",
+                                    "                    descripcion1.setHidden(false);",
+                                    "                    num_red.setDisabled(false);",
+                                    "                    sub_red.setDisabled(false);",
+                                    "                    num_red.allowBlank = false;",
+                                    "                    sub_red.allowBlank = false;",
+                                    "                    num_eco.setDisabled(true);",
+                                    "                    num_bascula.setDisabled(true);",
+                                    "                    num_estacion.setDisabled(true);",
+                                    "                    num_bomba.setDisabled(true);",
+                                    "                    descripcion.setHidden(true);",
+                                    "                }",
+                                    "                id_manguera.setValue(ultima_manguera);",
+                                    "",
+                                    "            }else{",
+                                    "                Ext.MessageBox.show({",
+                                    "                    title: '<center>Mensaje de Sistema</center>',",
+                                    "                    msg: resp.message,",
+                                    "                    icon: Ext.MessageBox.ERROR,",
+                                    "                    buttons: Ext.Msg.OK,",
+                                    "                    buttonText:{ok:\"Aceptar\"},",
+                                    "                    closable:false",
+                                    "                });",
+                                    "            }",
+                                    "        }catch(Exception){",
+                                    "            Ext.Msg.hide(",
+                                    "                null,",
+                                    "                function(){",
+                                    "                    Ext.MessageBox.show({",
+                                    "                        title: '<center>Mensaje de Sistema</center>',",
+                                    "                        msg: Exception,",
+                                    "                        closable:false,",
+                                    "                        buttons: Ext.Msg.OK,",
+                                    "                        buttonText:{ok:\"Aceptar\"},",
+                                    "                        icon: Ext.Msg.ERROR",
+                                    "                    });",
+                                    "                }",
+                                    "            );",
+                                    "        }",
+                                    "    },",
+                                    "    failure:function(response){",
+                                    "        Ext.MessageBox.show({",
+                                    "            title: '<center>Mensaje de Sistema</center>',",
+                                    "            msg: '<center>Fallo la conexión al servidor!</center>',",
+                                    "            icon: Ext.MessageBox.ERROR,",
+                                    "            buttons: Ext.Msg.OK,",
+                                    "            buttonText:{ok:\"Aceptar\"},",
+                                    "            closable:false",
+                                    "        });",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbCanalVentaChange",
+                            "designerId": "abb6f87d-7a43-4a46-b641-3e52904c3165"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Num. Eco",
+                        "itemId": "txtNumEco",
+                        "layout|anchor": "100%",
+                        "name": "num_eco"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "ba06a7d8-7b3e-4db3-8e50-f8167451447e",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtNumEcoChange",
+                                "implHandler": [
+                                    "this.getView().down('#txtNumBascula').setValue('');",
+                                    "this.getView().down('#txtNumRed').setValue('');",
+                                    "this.getView().down('#txtSubRed').setValue('');",
+                                    "this.getView().down('#txtNumBomba').setValue('');",
+                                    "this.getView().down('#txtDescripcion').setDisabled(false);",
+                                    "this.getView().down('#text1').setValue('');",
+                                    "this.getView().down('#num1').setValue('');",
+                                    "this.getView().down('#text2').setValue('');",
+                                    "this.getView().down('#num2').setValue('');",
+                                    "this.getView().down('#txtDescripcion').setValue('Num. Eco. '+newValue);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtNumEcoChange",
+                            "designerId": "e0a241d0-e538-478c-b41e-4c1a4220c838"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Num. Estación",
+                        "itemId": "txtNumEstacion",
+                        "layout|anchor": "100%",
+                        "name": "num_estacion"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "44b30b80-8720-4e53-a198-0f0d1eec10ea",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtNumEstacionChange",
+                                "implHandler": [
+                                    "this.getView().down('#txtDescripcion').setValue('');",
+                                    "// this.getView().down('#descripcion').setDisabled(true);",
+                                    "// this.getView().down('#descripcion').setHidden(true);",
+                                    "// this.getView().down('#descripcion1').setHidden(false);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtNumEstacionChange",
+                            "designerId": "8db15f4b-140b-4e31-99dc-946ea58d1aa8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Num. Bascula",
+                        "itemId": "txtNumBascula",
+                        "layout|anchor": "100%",
+                        "name": "num_bascula"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "a6039807-255a-4eaa-9710-ccab79603aee",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtNumBasculaChange",
+                                "implHandler": [
+                                    "this.getView().down('#txtNumEco').setValue('');",
+                                    "this.getView().down('#txtNumRed').setValue('');",
+                                    "this.getView().down('#txtSubRed').setValue('');",
+                                    "this.getView().down('#txtNumBomba').setValue('');",
+                                    "this.getView().down('#txtNumEstacion').setValue('');",
+                                    "// this.getView().down('#descripcion').setHidden(false);",
+                                    "this.getView().down('#txtDescripcion').setDisabled(false);",
+                                    "// this.getView().down('#descripcion1').setHidden(true);",
+                                    "this.getView().down('#text1').setValue('');",
+                                    "this.getView().down('#num1').setValue('');",
+                                    "this.getView().down('#text2').setValue('');",
+                                    "this.getView().down('#num2').setValue('');",
+                                    "this.getView().down('#txtDescripcion').setValue('Bascula '+newValue);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtNumBasculaChange",
+                            "designerId": "101f1a6f-5565-4ab5-bed2-6498c5e735e6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Num. Red",
+                        "itemId": "txtNumRed",
+                        "layout|anchor": "100%",
+                        "name": "num_red"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "abd86bb9-d1ee-462f-b1d7-4824d02dd0f8",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtNumRedChange",
+                                "implHandler": [
+                                    "this.getView().down('#txtNumBascula').setValue('');",
+                                    "this.getView().down('#txtNumEco').setValue('');",
+                                    "this.getView().down('#txtNumBomba').setValue('');",
+                                    "this.getView().down('#txtNumEstacion').setValue('');",
+                                    ""
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtNumRedChange",
+                            "designerId": "9590007d-f109-4b81-bef1-61fb1ba754c0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Sub-red",
+                        "itemId": "txtSubRed",
+                        "layout|anchor": "100%",
+                        "name": "sub_red"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "621ad20f-c605-4585-bf99-6a8e02c5fac5",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtSubRedChange",
+                                "implHandler": [
+                                    "var num_red = this.getView().down('#txtNumRed').getValue();",
+                                    "this.getView().down('#txtDescripcion').setValue('');",
+                                    "this.getView().down('#text1').setValue('Red ');",
+                                    "this.getView().down('#num1').setValue(num_red);",
+                                    "this.getView().down('#text2').setValue('Sub_red ');",
+                                    "this.getView().down('#num2').setValue(newValue);",
+                                    "// this.getView().down('#descripcion').setValue('Red '+num_red+', Sub_red '+ newValue);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtSubRedChange",
+                            "designerId": "196d04d2-b450-413d-9f4e-660cebfad073"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Num. Bomba",
+                        "itemId": "txtNumBomba",
+                        "layout|anchor": "100%",
+                        "name": "num_bomba"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "1e1d0fb8-9559-47ca-b968-3359c09866a3",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtNumBombaChange",
+                                "implHandler": [
+                                    "this.getView().down('#txtNumBascula').setValue('');",
+                                    "this.getView().down('#txtNumRed').setValue('');",
+                                    "this.getView().down('#txtSubRed').setValue('');",
+                                    "this.getView().down('#txtNumEco').setValue('');",
+                                    "// this.getView().down('#descripcion').setDisabled(false);",
+                                    "// this.getView().down('#descripcion1').setHidden(false);",
+                                    "this.getView().down('#txtDescripcion').setValue('');",
+                                    "this.getView().down('#text1').setValue('Dispensario ');",
+                                    "this.getView().down('#num1').setValue(newValue.substring(0,1));",
+                                    "this.getView().down('#text2').setValue('Bomba ');",
+                                    "this.getView().down('#num2').setValue(newValue);",
+                                    "// this.getView().down('#descripcion').setValue('Dispensario '+newValue.substring(0,1)+', Bomba '+newValue);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtNumBombaChange",
+                            "designerId": "e52c16af-daa6-49e0-b533-d244cec920f2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "fieldLabel": "Descripción",
+                        "itemId": "txtDescripcion",
+                        "layout|anchor": "100%",
+                        "name": "descrip_manguera"
+                    },
+                    "configAlternates": {
+                        "disabled": "boolean",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "068b3541-39cc-4926-bcac-cd1322a31043"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "id_manguera",
+                        "layout|anchor": "100%",
+                        "name": "num_manguera"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField11",
+                    "designerId": "eadb212d-8703-4fbd-a93b-fd2ad4810a11"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "itemId": "descripcion1",
+                        "layout": "column"
+                    },
+                    "configAlternates": {
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "3bed27cb-2e53-4f28-960d-01b773caeb41",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Descripción",
+                                "itemId": "text1",
+                                "width": 200
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField7",
+                            "designerId": "8c6825b6-5d1a-43f7-bb91-83f5a0204708"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "itemId": "num1",
+                                "width": 47
+                            },
+                            "configAlternates": {
+                                "editable": "boolean",
+                                "itemId": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField8",
+                            "designerId": "79b23f43-6509-4348-95af-4b5d73f681dc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "text2",
+                                "width": 80
+                            },
+                            "configAlternates": {
+                                "itemId": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField9",
+                            "designerId": "b1e1b6cf-5644-430e-8f59-ca99899bf34f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "itemId": "num2",
+                                "width": 47
+                            },
+                            "configAlternates": {
+                                "editable": "boolean",
+                                "itemId": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField10",
+                            "designerId": "987a71e0-0261-4a40-824d-8fd7d593b212"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "configAlternates": {
+                        "dock": "string"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "bff34313-45f0-4acf-8d10-a68912cf13a4",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer",
+                            "designerId": "dd0cecb7-0e5a-4f73-b2be-e9d54fb01fef"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Guardar",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "ui": "string",
+                                "glyph": "auto"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "4508d384-2078-4b4a-987b-9fa316c2dbec",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var win =  button.up('window'),",
+                                            "    form   = win.down('form'),",
+                                            "    record = form.getRecord(),",
+                                            "    values = form.getValues();",
+                                            "",
+                                            "var desc = this.getView().down('#descripcion1'),",
+                                            "    txt1 = this.getView().down('#text1').getValue(),",
+                                            "    num1 = this.getView().down('#num1').getValue(),",
+                                            "    txt2 = this.getView().down('#text2').getValue(),",
+                                            "    num2 = this.getView().down('#num2').getValue(),",
+                                            "    descripcion = txt1.concat(' '+num1+', '+txt2+' '+num2);",
+                                            "",
+                                            "Ext.each(desc.items.items,function(child){",
+                                            "    if(child.value !== \"\"){",
+                                            "        values['descrip_manguera'] = descripcion;",
+                                            "    }",
+                                            "});",
+                                            "",
+                                            "var plaza = this.getView().down('#cmbPlaza').rawValue,",
+                                            "    rubro_venta = this.getView().down('#cmbCanalVenta').selection.data.rubro_venta,",
+                                            "    descrip_rubro_venta = this.getView().down('#cmbCanalVenta').rawValue,",
+                                            "    planta = this.getView().down('#cmbPlanta').rawValue,",
+                                            "    num_manguera = this.getView().down('#id_manguera').getValue(),",
+                                            "    clave = this.getView().down('#cmbClave').selection.data.cvecia;",
+                                            "",
+                                            "",
+                                            "if(form.isValid()){",
+                                            "    Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                            "",
+                                            "    var record = Ext.create('Entregas100Web.model.mangueras.PlazasModel');",
+                                            "    record.set(values);",
+                                            "    record.set('plaza', plaza);",
+                                            "    record.set('descrip_rubro_venta', descrip_rubro_venta);",
+                                            "    record.set('rubro_venta', rubro_venta);",
+                                            "    record.set('nombre_planta',planta);",
+                                            "    record.set('cvecia', clave);",
+                                            "    window.store = store;",
+                                            "    var store = Ext.getStore('mangueras.ManguerasStore');",
+                                            "    store.add(record);",
+                                            "    if(store.needsSync){",
+                                            "        store.sync({",
+                                            "            success: function(batch,options){",
+                                            "                onSyncSucess();",
+                                            "                Ext.MessageBox.show({",
+                                            "                    title: '<center>Mensaje de Sistema</center>',",
+                                            "                    msg: '<center>Se agrego correctamente!</center>',",
+                                            "                    closable:false,",
+                                            "                    buttons: Ext.Msg.OK,",
+                                            "                    buttonText:{ok:\"Aceptar\"},",
+                                            "                    icon: Ext.MessageBox.INFO",
+                                            "                });",
+                                            "",
+                                            "            },",
+                                            "            failure:function(batch){",
+                                            "                store.rejectChanges();",
+                                            "                Ext.each(batch.exceptions, function(operation){",
+                                            "                    if(operation.error.statusText === \"\"){",
+                                            "                        Ext.Msg.hide();",
+                                            "                        Ext.MessageBox.show({",
+                                            "                            title: '<center>Mensaje de Sistema</center>',",
+                                            "                            msg: '<center>Fallo la conexión con el servidor!</center>',",
+                                            "                            closable:false,",
+                                            "                            buttons: Ext.Msg.OK,",
+                                            "                            buttonText:{ok:\"Aceptar\"},",
+                                            "                            icon: Ext.Msg.ERROR",
+                                            "                        });",
+                                            "                    }else{",
+                                            "                        Ext.Msg.hide();",
+                                            "                        var error = batch.getExceptions();",
+                                            "                        var error1 = error[0].getError();",
+                                            "                        Ext.MessageBox.show({",
+                                            "                            title: '<center>Mensaje de Sistema</center>',",
+                                            "                            msg: '<center>'+error1+'</center>',",
+                                            "                            closable:false,",
+                                            "                            buttons: Ext.Msg.OK,",
+                                            "                            buttonText:{ok:\"Aceptar\"},",
+                                            "                            icon: Ext.Msg.ERROR",
+                                            "                        });",
+                                            "                    }",
+                                            "                });",
+                                            "            }",
+                                            "        });",
+                                            "    }else{",
+                                            "        onSyncSucess();",
+                                            "    }",
+                                            "}else{",
+                                            "    console.log('entro');",
+                                            "    Ext.MessageBox.show({",
+                                            "        title: '<center>Mensaje de Sistema</center>',",
+                                            "        msg: '<center>¡Captura los campos que son requeridos!</center>',",
+                                            "        closable:false,",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        buttonText:{ok:\"Aceptar\"},",
+                                            "        icon: Ext.Msg.ERROR",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSucess() {",
+                                            "    Ext.Msg.hide();",
+                                            "    win.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "1471b523-6147-418c-96a5-376151850844"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnSalir",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Salir",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "ui": "string",
+                                "glyph": "auto"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "896e4d64-200f-4f76-b39e-cf5c6140d077",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnSalirClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "name": "string",
+                                        "scope": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "onBtnSalirClick",
+                                    "designerId": "72320fa6-2147-409e-809d-fdbcad3d5cfa"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer1",
+                            "designerId": "d8c5dacd-881b-4e28-948c-27299ec517ed"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

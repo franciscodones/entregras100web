@@ -1,0 +1,127 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mangueraspanel",
+        "designer|userClassName": "ManguerasPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "5422be9e-5946-4a3c-abea-367c4f8d011c",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "mangueras.PlazasModel",
+                "name": "localPlazasStore",
+                "type": "mangueras.plazasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore",
+            "designerId": "4f4c6eb1-f968-4203-b9a6-13ce0ff3db7e",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Filter",
+                    "reference": {
+                        "name": "filters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "property": "estatus",
+                        "value": "1"
+                    },
+                    "configAlternates": {
+                        "property": "string",
+                        "value": "regex"
+                    },
+                    "name": "MyFilter",
+                    "designerId": "a5d17948-921a-480a-b40c-eb5a1782261b"
+                },
+                {
+                    "type": "Ext.util.Sorter",
+                    "reference": {
+                        "name": "sorters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "property": "nom_plaza"
+                    },
+                    "configAlternates": {
+                        "property": "string"
+                    },
+                    "name": "MySorter",
+                    "designerId": "f6dde45b-4941-41f4-a15a-a78df1371eaa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "mangueras.RubrosVentasModel",
+                "name": "localRubrosVentasStore",
+                "type": "mangueras.rubrosventasstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore1",
+            "designerId": "2e30482a-f0a6-4c35-af2b-62a56abe7a41",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.util.Sorter",
+                    "reference": {
+                        "name": "sorters",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "property": "nombre"
+                    },
+                    "configAlternates": {
+                        "property": "string"
+                    },
+                    "name": "MySorter1",
+                    "designerId": "2f5d02d6-86f7-436a-8135-9dae4232fbe4"
+                }
+            ]
+        }
+    ]
+}
