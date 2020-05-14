@@ -41,6 +41,9 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('DashedRoute');
 
+Router::scope('/cron', ['prefix' => 'Cron'], function ($routes) {
+    $routes->fallbacks('DashedRoute');
+});
 Router::scope('/', function ($routes) {
     $routes->connect('/', array('controller' => 'Home', 'action' => 'index', ''));
     /**
