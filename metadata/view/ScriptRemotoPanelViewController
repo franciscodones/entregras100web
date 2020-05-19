@@ -1,0 +1,61 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "scriptremotopanel",
+        "designer|userClassName": "ScriptRemotoPanelViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "b4fd41c7-9bb1-4668-b252-f4f731c3bf8d",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "onScriptRemotoEliminarClick",
+                "implHandler": [
+                    "var me = this,",
+                    "    store = me.getStore(\"scriptRemotosStore\");",
+                    "",
+                    "Ext.Msg.confirm(",
+                    "    \"Mensaje del sistema\",",
+                    "    \"¿Desea eliminar el script?\",",
+                    "    function(result) {",
+                    "        if (result == \"yes\") {",
+                    "            store.remove(record);",
+                    "            store.sync();",
+                    "        }",
+                    "    }",
+                    ");"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onScriptRemotoEliminarClick",
+            "designerId": "19b82b0e-e22e-465d-bf36-b4befe8d53ec"
+        }
+    ]
+}

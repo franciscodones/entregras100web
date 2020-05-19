@@ -213,16 +213,25 @@ Ext.define('Entregas100Web.view.MainViewport', {
                             floating: false,
                             margin: 0,
                             width: 120,
-                            title: 'Reportes',
+                            title: 'Utilerias',
                             items: [
                                 {
                                     xtype: 'menuitem',
                                     permissionId: 58,
                                     itemId: 'mItemReportesAlarmas',
                                     glyph: 'f0f3@FontAwesome',
-                                    text: 'Alarmas',
+                                    text: 'Reporte de alarmas',
                                     listeners: {
                                         click: 'onMItemReportesAlarmasClick'
+                                    }
+                                },
+                                {
+                                    xtype: 'menuitem',
+                                    itemId: 'mItemScriptRemoto',
+                                    glyph: 'f3b9@PyansaFontAwesomeBrands',
+                                    text: 'Script remoto',
+                                    listeners: {
+                                        click: 'onMItemScriptRemotoClick'
                                     }
                                 }
                             ]
@@ -262,7 +271,7 @@ Ext.define('Entregas100Web.view.MainViewport', {
                     style: 'background: #007888; color: #fff;',
                     fieldLabel: 'Version',
                     labelStyle: 'color: #fff; padding-left: 10px;',
-                    value: '2.4',
+                    value: '2.5',
                     fieldStyle: 'color: #fff;'
                 }
             ]

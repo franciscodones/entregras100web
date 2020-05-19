@@ -172,6 +172,10 @@ Ext.define('Entregas100Web.view.MainViewportViewController', {
         me.abrirPanel("widget.reportesalarmaspanel");
     },
 
+    onMItemScriptRemotoClick: function(item, e, eOpts) {
+        this.abrirPanel("widget.scriptremotopanel");
+    },
+
     onMItemConfigurarCuentaClick: function(item, e, eOpts) {
         this.abrirPanel("widget.configurarcuentapanel");
     },

@@ -1,0 +1,136 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "crearscriptremotowindow",
+        "designer|userClassName": "CrearScriptRemotoWindowViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "ba9bba42-15df-4449-b5bd-e590b017609b",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "scriptsPrecodificadosStore"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyStore2",
+            "designerId": "311c0d82-bf14-4039-b966-07120764105f",
+            "cn": [
+                {
+                    "type": "Ext.data.field.String",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "id"
+                    },
+                    "configAlternates": {
+                        "name": "string"
+                    },
+                    "name": "MyString23",
+                    "designerId": "5b8169e1-0113-41ed-96e5-22e6ed630f50"
+                },
+                {
+                    "type": "Ext.data.field.String",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "content"
+                    },
+                    "configAlternates": {
+                        "name": "string"
+                    },
+                    "name": "MyString25",
+                    "designerId": "c3486db5-1df1-4587-8ffd-eb3953d25f3e"
+                },
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "api": [
+                            "{",
+                            "    read: \"api/scriptRemoto/readPrecodificados\"",
+                            "}"
+                        ]
+                    },
+                    "configAlternates": {
+                        "api": "object"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "a8966682-881a-4298-a564-ef736eec6efa",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "messageProperty": "message",
+                                "rootProperty": "records"
+                            },
+                            "configAlternates": {
+                                "messageProperty": "string",
+                                "rootProperty": "string"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "fd549b2f-15d8-4faa-bf3b-80120c8aac76"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "ScriptRemoto",
+                "name": "scriptRemotosStore",
+                "type": "scriptremotosstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore5",
+            "designerId": "472cf129-5347-4748-92ce-e33fb5e66aeb",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

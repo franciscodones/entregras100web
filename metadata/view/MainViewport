@@ -963,7 +963,7 @@
                                 "floating": false,
                                 "margin": 0,
                                 "permissionId": 57,
-                                "title": "Reportes",
+                                "title": "Utilerias",
                                 "width": 120
                             },
                             "configAlternates": {
@@ -995,7 +995,7 @@
                                         "glyph": "f0f3@FontAwesome",
                                         "itemId": "mItemReportesAlarmas",
                                         "permissionId": 58,
-                                        "text": "Alarmas"
+                                        "text": "Reporte de alarmas"
                                     },
                                     "configAlternates": {
                                         "glyph": "auto",
@@ -1038,6 +1038,52 @@
                                             },
                                             "name": "onMItemReportesAlarmasClick",
                                             "designerId": "b288c0f8-bbc9-494d-820a-7edd136299e0"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "glyph": "f3b9@PyansaFontAwesomeBrands",
+                                        "itemId": "mItemScriptRemoto",
+                                        "text": "Script remoto"
+                                    },
+                                    "configAlternates": {
+                                        "glyph": "auto",
+                                        "itemId": "string",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem16",
+                                    "designerId": "0928d4bb-4b5c-4abc-9628-5d5c9b7895f8",
+                                    "cn": [
+                                        {
+                                            "type": "viewcontrollereventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMItemScriptRemotoClick",
+                                                "implHandler": [
+                                                    "this.abrirPanel(\"widget.scriptremotopanel\");"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "configAlternates": {
+                                                "fn": "string",
+                                                "implHandler": "code",
+                                                "name": "string",
+                                                "scope": "string"
+                                            },
+                                            "name": "onMItemScriptRemotoClick",
+                                            "designerId": "a6c0bad7-f2cc-47dc-8d77-fa1f6f510f2c"
                                         }
                                     ]
                                 }
@@ -1187,7 +1233,7 @@
                         "height": 20,
                         "labelStyle": "color: #fff; padding-left: 10px;",
                         "style": "background: #007888; color: #fff;",
-                        "value": "2.4"
+                        "value": "2.5"
                     },
                     "configAlternates": {
                         "fieldLabel": "string",

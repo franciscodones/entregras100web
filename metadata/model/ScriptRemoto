@@ -1,0 +1,112 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ScriptRemoto",
+        "idProperty": "pathname"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
+    "name": "MyModel",
+    "designerId": "eb24d894-796c-4cc8-bc58-2c5ab68dc9bc",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "filename"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyString1",
+            "designerId": "a3cd298c-883e-44f0-b4e3-fc41150c8d2d"
+        },
+        {
+            "type": "Ext.data.field.Integer",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "size"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyInteger",
+            "designerId": "c7961b95-9922-4abb-949f-9f52d1238d64"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "dateFormat": "U",
+                "name": "last_modified"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean",
+                "dateFormat": "string"
+            },
+            "name": "MyDate",
+            "designerId": "49c293a8-7702-44b1-a99d-5f832c94f79b"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "content"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyString3",
+            "designerId": "9ec4037a-9687-479f-aa98-a40baf3b9c8f"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowNull": true,
+                "name": "pathname"
+            },
+            "configAlternates": {
+                "name": "string",
+                "allowNull": "boolean"
+            },
+            "name": "MyString4",
+            "designerId": "8b648076-5ff4-41ec-a42b-001c80575963"
+        }
+    ]
+}

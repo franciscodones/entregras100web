@@ -31,7 +31,8 @@
             "PlantasModel",
             "MaeciasModel",
             "mangueras.PlazasModel",
-            "mangueras.ManguerasReInsertarModel"
+            "mangueras.ManguerasReInsertarModel",
+            "ScriptRemoto"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -59,7 +60,8 @@
             "PlantasStore",
             "maeciasStore",
             "mangueras.PlazasStore",
-            "mangueras.ManguerasReInsertarStore"
+            "mangueras.ManguerasReInsertarStore",
+            "ScriptRemotosStore"
         ],
         "views": [
             "MainViewport",
@@ -98,7 +100,9 @@
             "ReportesAlarmasPanel",
             "ManguerasPanel",
             "WindowNewManguera",
-            "WindowReinsertarInformacionMangueras"
+            "WindowReinsertarInformacionMangueras",
+            "ScriptRemotoPanel",
+            "CrearScriptRemotoWindow"
         ]
     },
     "configAlternates": {

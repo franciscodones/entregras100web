@@ -1,0 +1,116 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "scriptremotopanel",
+        "designer|userClassName": "ScriptRemotoPanelViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "designerId": "8500a499-072a-4fbd-8115-af898e27801d",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "versionesStore"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyStore",
+            "designerId": "1c6f7c01-1999-44d1-9f6a-5564a920fb19",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "api/scriptRemoto/versiones"
+                    },
+                    "configAlternates": {
+                        "url": "string"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "09e7afd1-ef70-42e1-a1cd-51bb3a12ec05",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "messageProperty": "message",
+                                "rootProperty": "records"
+                            },
+                            "configAlternates": {
+                                "messageProperty": "string",
+                                "rootProperty": "string"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "64a1149d-71a1-4908-8592-94b2504084c7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.data.field.String",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "version"
+                    },
+                    "configAlternates": {
+                        "name": "string"
+                    },
+                    "name": "MyString",
+                    "designerId": "1ae8606d-9749-43d2-9a1d-a60d5134b740"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "model": "ScriptRemoto",
+                "name": "scriptRemotosStore",
+                "type": "scriptremotosstore"
+            },
+            "configAlternates": {
+                "model": "model",
+                "name": "string",
+                "type": "string"
+            },
+            "name": "MyStore1",
+            "designerId": "7a846e39-1d5d-4828-a100-236f5971debc",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

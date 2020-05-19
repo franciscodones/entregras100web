@@ -1,0 +1,467 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "constrain": true,
+        "designer|userAlias": "crearscriptremotowindow",
+        "designer|userClassName": "CrearScriptRemotoWindow",
+        "draggable": false,
+        "glyph": "f3b9@PyansaFontAwesomeBrands",
+        "height": 600,
+        "id": "crearScriptRemotoWindow",
+        "layout": "fit",
+        "modal": true,
+        "monitorResize": true,
+        "resizable": false,
+        "title": "Crear script remoto - Paso 1",
+        "width": 1024
+    },
+    "configAlternates": {
+        "constrain": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "draggable": "boolean",
+        "glyph": "auto",
+        "height": "auto",
+        "id": "string",
+        "layout": "string",
+        "modal": "boolean",
+        "monitorResize": "boolean",
+        "resizable": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyWindow",
+    "designerId": "7c20484f-c1fc-473f-9ee5-810b329d9797",
+    "viewControllerInstanceId": "54e4277b-3e8a-468f-b5cf-3c7d84871817",
+    "viewModelInstanceId": "ba9bba42-15df-4449-b5bd-e590b017609b",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 20,
+                "itemId": "pnlPaso1"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "itemId": "string"
+            },
+            "name": "MyPanel1",
+            "designerId": "f42c8a2c-e5c7-426f-82da-6c4dfedc266e",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "footer",
+                        "dock": "top",
+                        "ui": "footer"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "dock": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyToolbar2",
+                    "designerId": "26a1253a-99ec-4a35-a3cd-f66ccc6914ce",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f0a9@PyansaFontAwesomeSolid",
+                                "itemId": "btnSiguiente",
+                                "layout|flex": null,
+                                "text": "Siguiente"
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton",
+                            "designerId": "1bdec8d9-1083-4ff8-b607-8d0148ef8fe3",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnSiguienteClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    txtUnidad = me.view.down(\"#txtUnidad\"),",
+                                            "    txtContenido = me.view.down(\"#txtContenido\"),",
+                                            "    gridScripts = me.view.down(\"#gridScripts\"),",
+                                            "    filename;",
+                                            "",
+                                            "if (!txtUnidad.isValid() || gridScripts.getSelection().length === 0) {",
+                                            "    Ext.Msg.show({",
+                                            "        title: \"Mensaje del sistema\",",
+                                            "        message: \"Es necesario seleccionar una unidad y un script\",",
+                                            "        icon: Ext.Msg.ERROR,",
+                                            "        buttons: Ext.Msg.OK",
+                                            "    });",
+                                            "",
+                                            "    return;",
+                                            "}",
+                                            "",
+                                            "me.record.set(\"filename\", \"script-remoto-\" + Ext.String.leftPad(txtUnidad.getValue(), 3, \"0\") + \".js\");",
+                                            "txtContenido.setValue(gridScripts.getSelection()[0].get(\"content\"));",
+                                            "me.view.down(\"#pnlPaso1\").hide();",
+                                            "me.view.down(\"#pnlPaso2\").show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnSiguienteClick",
+                                    "designerId": "8c6628c1-ff8b-4619-a026-8e5281d4b8a5"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowDecimals": false,
+                        "fieldLabel": "Unidad",
+                        "hideTrigger": true,
+                        "itemId": "txtUnidad"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "allowDecimals": "boolean",
+                        "fieldLabel": "string",
+                        "hideTrigger": "boolean",
+                        "itemId": "string"
+                    },
+                    "name": "MyNumberField4",
+                    "designerId": "98f140d0-afff-4227-bcc8-72363df3fd9b"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Seleccciona un script pre-codificado o uno en blanco"
+                    },
+                    "configAlternates": {
+                        "text": "string"
+                    },
+                    "name": "MyLabel1",
+                    "designerId": "b743c77f-60b2-4527-861b-6995c36319cf"
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoLoad": true,
+                        "designer|uiInterfaceName": "default-framed",
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "enableColumnResize": false,
+                        "frame": true,
+                        "height": 400,
+                        "itemId": "gridScripts",
+                        "margin": "10 0 0 0",
+                        "scrollable": true,
+                        "store": [
+                            "{scriptsPrecodificadosStore}"
+                        ]
+                    },
+                    "configAlternates": {
+                        "store": "binding",
+                        "autoLoad": "boolean",
+                        "designer|uiInterfaceName": "string",
+                        "enableColumnHide": "boolean",
+                        "enableColumnMove": "boolean",
+                        "enableColumnResize": "boolean",
+                        "frame": "boolean",
+                        "height": "auto",
+                        "itemId": "string",
+                        "margin": "auto",
+                        "scrollable": "auto"
+                    },
+                    "name": "MyGridPanel1",
+                    "designerId": "f83350d8-b224-4c3c-8b66-dfc3789a8031",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "id",
+                                "flex": 1,
+                                "text": "Script"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyColumn7",
+                            "designerId": "b4b1d70e-42f0-439b-abdf-88e21cc3d6dd"
+                        },
+                        {
+                            "type": "Ext.view.Table",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyTable1",
+                            "designerId": "1903588b-21e1-42ec-85d2-bc5fdcdaa90d"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 20,
+                "hidden": true,
+                "itemId": "pnlPaso2",
+                "layout": "fit"
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "hidden": "boolean",
+                "itemId": "string",
+                "layout": "string"
+            },
+            "name": "MyPanel2",
+            "designerId": "19ebcc93-d4ca-4bc4-8593-cc48b1d599e4",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|uiInterfaceName": "footer",
+                        "dock": "top",
+                        "ui": "footer"
+                    },
+                    "configAlternates": {
+                        "designer|uiInterfaceName": "string",
+                        "dock": "string",
+                        "ui": "string"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "1fd5e899-5920-47b8-bbaa-21e6edab8736",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f0a8@PyansaFontAwesomeSolid",
+                                "itemId": "btnRegresar",
+                                "layout|flex": null,
+                                "text": "Regresar"
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "ae64c378-3e9f-4d30-9cf0-777a564f73f4",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnRegresarClick",
+                                        "implHandler": [
+                                            "var me = this;",
+                                            "",
+                                            "Ext.Msg.confirm(",
+                                            "    \"Mensaje del sistema\",",
+                                            "    \"Todos los cambios hechos en su script se perderan. ¿Desea regresar al paso 1?\",",
+                                            "    function(result) {",
+                                            "        if (result == \"yes\") {",
+                                            "            me.view.down(\"#pnlPaso2\").hide();",
+                                            "            me.view.down(\"#pnlPaso1\").show();",
+                                            "        }",
+                                            "    }",
+                                            ");"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnRegresarClick",
+                                    "designerId": "b529cc72-1066-4a91-a9a8-77b0350ef09e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "layout|flex": null,
+                                "text": "Guardar"
+                            },
+                            "configAlternates": {
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "381be3cc-4f99-437d-a3fa-b12527022993",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var me = this,",
+                                            "    store = me.getStore(\"scriptRemotosStore\"),",
+                                            "    txtContenido = me.view.down(\"#txtContenido\"),",
+                                            "    record = me.record;",
+                                            "",
+                                            "Ext.Msg.confirm(",
+                                            "    \"Mensaje del sistema\",",
+                                            "    \"¿Desea crear el guardar y crear el script remoto?\",",
+                                            "    function(result) {",
+                                            "        if (result == \"yes\") {",
+                                            "            record.set(\"content\", txtContenido.getValue());",
+                                            "            record.set(",
+                                            "                \"pathname\",",
+                                            "                record.get(\"pathname\") + \"\\\\webroot\\\\js\\\\\" + record.get(\"filename\")",
+                                            "            );",
+                                            "            // se marca como phantom para que se utilice el create en lugar del update al sync el store",
+                                            "            record.phantom = true;",
+                                            "            store.add(record);",
+                                            "            store.sync({",
+                                            "                success: function() {",
+                                            "                    me.view.destroy();",
+                                            "                    Ext.getCmp(\"scriptRemotoPanel\").down(\"#btnRefrescar\").click();",
+                                            "                },",
+                                            "                failure: function(batch) {",
+                                            "                    Ext.Msg.show({",
+                                            "                        title: \"Mensaje del sistema\",",
+                                            "                        message: \"Ha ocurrido un error al crear el script\",",
+                                            "                        icon: Ext.Msg.ERROR,",
+                                            "                        buttons: Ext.Msg.OK",
+                                            "                    });",
+                                            "                }",
+                                            "            });",
+                                            "        }",
+                                            "    }",
+                                            ");"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "6a9c181f-d9f5-4406-b9a8-e38af81d65ab"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "txtContenido"
+                    },
+                    "configAlternates": {
+                        "itemId": "string"
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "ddc637e9-0dd1-4856-a21f-07bd7102ddd7"
+                }
+            ]
+        }
+    ]
+}
