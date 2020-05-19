@@ -5949,6 +5949,7 @@
     font-family: PyansaFontAwesomeBrands !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/src/bootstrap/grid.scss:4 */
+.row.x-container.d-flex,
 .row.x-container > [class*="outerCt"] > [class*="innerCt"],
 .row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7610,6 +7611,7 @@
     }
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+.flex-row.x-container.d-flex,
 .flex-row.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7619,6 +7621,7 @@
     flex-direction: row !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+.flex-column.x-container.d-flex,
 .flex-column.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7628,6 +7631,7 @@
     flex-direction: column !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+.flex-row-reverse.x-container.d-flex,
 .flex-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7637,6 +7641,7 @@
     flex-direction: row-reverse !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+.flex-column-reverse.x-container.d-flex,
 .flex-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7646,6 +7651,7 @@
     flex-direction: column-reverse !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+.flex-wrap.x-container.d-flex,
 .flex-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7655,6 +7661,7 @@
     flex-wrap: wrap !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+.flex-nowrap.x-container.d-flex,
 .flex-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7664,6 +7671,7 @@
     flex-wrap: nowrap !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+.flex-wrap-reverse.x-container.d-flex,
 .flex-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
 .flex-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .flex-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7673,6 +7681,7 @@
     flex-wrap: wrap-reverse !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+.justify-content-start.x-container.d-flex,
 .justify-content-start.x-container > [class*="outerCt"] > [class*="innerCt"],
 .justify-content-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .justify-content-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7682,6 +7691,7 @@
     justify-content: flex-start !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+.justify-content-end.x-container.d-flex,
 .justify-content-end.x-container > [class*="outerCt"] > [class*="innerCt"],
 .justify-content-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .justify-content-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7691,6 +7701,7 @@
     justify-content: flex-end !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+.justify-content-center.x-container.d-flex,
 .justify-content-center.x-container > [class*="outerCt"] > [class*="innerCt"],
 .justify-content-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .justify-content-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7700,6 +7711,7 @@
     justify-content: center !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+.justify-content-between.x-container.d-flex,
 .justify-content-between.x-container > [class*="outerCt"] > [class*="innerCt"],
 .justify-content-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .justify-content-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7709,6 +7721,7 @@
     justify-content: space-between !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+.justify-content-around.x-container.d-flex,
 .justify-content-around.x-container > [class*="outerCt"] > [class*="innerCt"],
 .justify-content-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .justify-content-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7718,6 +7731,7 @@
     justify-content: space-around !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+.align-items-start.x-container.d-flex,
 .align-items-start.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-items-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-items-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7727,6 +7741,7 @@
     align-items: flex-start !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+.align-items-end.x-container.d-flex,
 .align-items-end.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-items-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-items-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7736,6 +7751,7 @@
     align-items: flex-end !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+.align-items-center.x-container.d-flex,
 .align-items-center.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-items-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-items-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7745,6 +7761,7 @@
     align-items: center !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+.align-items-baseline.x-container.d-flex,
 .align-items-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-items-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-items-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7754,6 +7771,7 @@
     align-items: baseline !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+.align-items-stretch.x-container.d-flex,
 .align-items-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-items-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-items-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7763,6 +7781,7 @@
     align-items: stretch !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+.align-content-start.x-container.d-flex,
 .align-content-start.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7772,6 +7791,7 @@
     align-content: flex-start !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+.align-content-end.x-container.d-flex,
 .align-content-end.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7781,6 +7801,7 @@
     align-content: flex-end !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+.align-content-center.x-container.d-flex,
 .align-content-center.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7790,6 +7811,7 @@
     align-content: center !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+.align-content-between.x-container.d-flex,
 .align-content-between.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7799,6 +7821,7 @@
     align-content: space-between !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+.align-content-around.x-container.d-flex,
 .align-content-around.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7808,6 +7831,7 @@
     align-content: space-around !important;
 }
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+.align-content-stretch.x-container.d-flex,
 .align-content-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
 .align-content-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
 .align-content-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7863,6 +7887,7 @@
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
 @media (min-width: 320px) {
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+    .flex-xs-row.x-container.d-flex,
     .flex-xs-row.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7872,6 +7897,7 @@
         flex-direction: row !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+    .flex-xs-column.x-container.d-flex,
     .flex-xs-column.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7881,6 +7907,7 @@
         flex-direction: column !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+    .flex-xs-row-reverse.x-container.d-flex,
     .flex-xs-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7890,6 +7917,7 @@
         flex-direction: row-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+    .flex-xs-column-reverse.x-container.d-flex,
     .flex-xs-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7899,6 +7927,7 @@
         flex-direction: column-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+    .flex-xs-wrap.x-container.d-flex,
     .flex-xs-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7908,6 +7937,7 @@
         flex-wrap: wrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+    .flex-xs-nowrap.x-container.d-flex,
     .flex-xs-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7917,6 +7947,7 @@
         flex-wrap: nowrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+    .flex-xs-wrap-reverse.x-container.d-flex,
     .flex-xs-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-xs-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-xs-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7926,6 +7957,7 @@
         flex-wrap: wrap-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+    .justify-content-xs-start.x-container.d-flex,
     .justify-content-xs-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-xs-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-xs-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7935,6 +7967,7 @@
         justify-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+    .justify-content-xs-end.x-container.d-flex,
     .justify-content-xs-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-xs-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-xs-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7944,6 +7977,7 @@
         justify-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+    .justify-content-xs-center.x-container.d-flex,
     .justify-content-xs-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-xs-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-xs-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7953,6 +7987,7 @@
         justify-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+    .justify-content-xs-between.x-container.d-flex,
     .justify-content-xs-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-xs-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-xs-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7962,6 +7997,7 @@
         justify-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+    .justify-content-xs-around.x-container.d-flex,
     .justify-content-xs-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-xs-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-xs-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7971,6 +8007,7 @@
         justify-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+    .align-items-xs-start.x-container.d-flex,
     .align-items-xs-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-xs-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-xs-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7980,6 +8017,7 @@
         align-items: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+    .align-items-xs-end.x-container.d-flex,
     .align-items-xs-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-xs-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-xs-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7989,6 +8027,7 @@
         align-items: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+    .align-items-xs-center.x-container.d-flex,
     .align-items-xs-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-xs-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-xs-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -7998,6 +8037,7 @@
         align-items: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+    .align-items-xs-baseline.x-container.d-flex,
     .align-items-xs-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-xs-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-xs-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8007,6 +8047,7 @@
         align-items: baseline !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+    .align-items-xs-stretch.x-container.d-flex,
     .align-items-xs-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-xs-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-xs-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8016,6 +8057,7 @@
         align-items: stretch !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+    .align-content-xs-start.x-container.d-flex,
     .align-content-xs-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8025,6 +8067,7 @@
         align-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+    .align-content-xs-end.x-container.d-flex,
     .align-content-xs-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8034,6 +8077,7 @@
         align-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+    .align-content-xs-center.x-container.d-flex,
     .align-content-xs-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8043,6 +8087,7 @@
         align-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+    .align-content-xs-between.x-container.d-flex,
     .align-content-xs-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8052,6 +8097,7 @@
         align-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+    .align-content-xs-around.x-container.d-flex,
     .align-content-xs-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8061,6 +8107,7 @@
         align-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+    .align-content-xs-stretch.x-container.d-flex,
     .align-content-xs-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-xs-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-xs-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8117,6 +8164,7 @@
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
 @media (min-width: 540px) {
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+    .flex-sm-row.x-container.d-flex,
     .flex-sm-row.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8126,6 +8174,7 @@
         flex-direction: row !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+    .flex-sm-column.x-container.d-flex,
     .flex-sm-column.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8135,6 +8184,7 @@
         flex-direction: column !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+    .flex-sm-row-reverse.x-container.d-flex,
     .flex-sm-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8144,6 +8194,7 @@
         flex-direction: row-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+    .flex-sm-column-reverse.x-container.d-flex,
     .flex-sm-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8153,6 +8204,7 @@
         flex-direction: column-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+    .flex-sm-wrap.x-container.d-flex,
     .flex-sm-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8162,6 +8214,7 @@
         flex-wrap: wrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+    .flex-sm-nowrap.x-container.d-flex,
     .flex-sm-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8171,6 +8224,7 @@
         flex-wrap: nowrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+    .flex-sm-wrap-reverse.x-container.d-flex,
     .flex-sm-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-sm-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-sm-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8180,6 +8234,7 @@
         flex-wrap: wrap-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+    .justify-content-sm-start.x-container.d-flex,
     .justify-content-sm-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-sm-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-sm-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8189,6 +8244,7 @@
         justify-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+    .justify-content-sm-end.x-container.d-flex,
     .justify-content-sm-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-sm-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-sm-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8198,6 +8254,7 @@
         justify-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+    .justify-content-sm-center.x-container.d-flex,
     .justify-content-sm-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-sm-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-sm-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8207,6 +8264,7 @@
         justify-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+    .justify-content-sm-between.x-container.d-flex,
     .justify-content-sm-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-sm-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-sm-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8216,6 +8274,7 @@
         justify-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+    .justify-content-sm-around.x-container.d-flex,
     .justify-content-sm-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-sm-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-sm-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8225,6 +8284,7 @@
         justify-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+    .align-items-sm-start.x-container.d-flex,
     .align-items-sm-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-sm-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-sm-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8234,6 +8294,7 @@
         align-items: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+    .align-items-sm-end.x-container.d-flex,
     .align-items-sm-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-sm-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-sm-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8243,6 +8304,7 @@
         align-items: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+    .align-items-sm-center.x-container.d-flex,
     .align-items-sm-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-sm-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-sm-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8252,6 +8314,7 @@
         align-items: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+    .align-items-sm-baseline.x-container.d-flex,
     .align-items-sm-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-sm-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-sm-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8261,6 +8324,7 @@
         align-items: baseline !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+    .align-items-sm-stretch.x-container.d-flex,
     .align-items-sm-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-sm-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-sm-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8270,6 +8334,7 @@
         align-items: stretch !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+    .align-content-sm-start.x-container.d-flex,
     .align-content-sm-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8279,6 +8344,7 @@
         align-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+    .align-content-sm-end.x-container.d-flex,
     .align-content-sm-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8288,6 +8354,7 @@
         align-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+    .align-content-sm-center.x-container.d-flex,
     .align-content-sm-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8297,6 +8364,7 @@
         align-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+    .align-content-sm-between.x-container.d-flex,
     .align-content-sm-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8306,6 +8374,7 @@
         align-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+    .align-content-sm-around.x-container.d-flex,
     .align-content-sm-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8315,6 +8384,7 @@
         align-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+    .align-content-sm-stretch.x-container.d-flex,
     .align-content-sm-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-sm-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-sm-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8371,6 +8441,7 @@
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
 @media (min-width: 720px) {
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+    .flex-md-row.x-container.d-flex,
     .flex-md-row.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8380,6 +8451,7 @@
         flex-direction: row !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+    .flex-md-column.x-container.d-flex,
     .flex-md-column.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8389,6 +8461,7 @@
         flex-direction: column !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+    .flex-md-row-reverse.x-container.d-flex,
     .flex-md-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8398,6 +8471,7 @@
         flex-direction: row-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+    .flex-md-column-reverse.x-container.d-flex,
     .flex-md-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8407,6 +8481,7 @@
         flex-direction: column-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+    .flex-md-wrap.x-container.d-flex,
     .flex-md-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8416,6 +8491,7 @@
         flex-wrap: wrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+    .flex-md-nowrap.x-container.d-flex,
     .flex-md-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8425,6 +8501,7 @@
         flex-wrap: nowrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+    .flex-md-wrap-reverse.x-container.d-flex,
     .flex-md-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-md-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-md-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8434,6 +8511,7 @@
         flex-wrap: wrap-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+    .justify-content-md-start.x-container.d-flex,
     .justify-content-md-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-md-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-md-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8443,6 +8521,7 @@
         justify-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+    .justify-content-md-end.x-container.d-flex,
     .justify-content-md-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-md-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-md-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8452,6 +8531,7 @@
         justify-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+    .justify-content-md-center.x-container.d-flex,
     .justify-content-md-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-md-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-md-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8461,6 +8541,7 @@
         justify-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+    .justify-content-md-between.x-container.d-flex,
     .justify-content-md-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-md-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-md-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8470,6 +8551,7 @@
         justify-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+    .justify-content-md-around.x-container.d-flex,
     .justify-content-md-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-md-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-md-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8479,6 +8561,7 @@
         justify-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+    .align-items-md-start.x-container.d-flex,
     .align-items-md-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-md-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-md-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8488,6 +8571,7 @@
         align-items: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+    .align-items-md-end.x-container.d-flex,
     .align-items-md-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-md-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-md-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8497,6 +8581,7 @@
         align-items: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+    .align-items-md-center.x-container.d-flex,
     .align-items-md-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-md-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-md-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8506,6 +8591,7 @@
         align-items: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+    .align-items-md-baseline.x-container.d-flex,
     .align-items-md-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-md-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-md-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8515,6 +8601,7 @@
         align-items: baseline !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+    .align-items-md-stretch.x-container.d-flex,
     .align-items-md-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-md-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-md-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8524,6 +8611,7 @@
         align-items: stretch !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+    .align-content-md-start.x-container.d-flex,
     .align-content-md-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8533,6 +8621,7 @@
         align-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+    .align-content-md-end.x-container.d-flex,
     .align-content-md-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8542,6 +8631,7 @@
         align-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+    .align-content-md-center.x-container.d-flex,
     .align-content-md-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8551,6 +8641,7 @@
         align-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+    .align-content-md-between.x-container.d-flex,
     .align-content-md-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8560,6 +8651,7 @@
         align-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+    .align-content-md-around.x-container.d-flex,
     .align-content-md-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8569,6 +8661,7 @@
         align-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+    .align-content-md-stretch.x-container.d-flex,
     .align-content-md-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-md-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-md-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8625,6 +8718,7 @@
 /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
 @media (min-width: 1024px) {
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
+    .flex-lg-row.x-container.d-flex,
     .flex-lg-row.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8634,6 +8728,7 @@
         flex-direction: row !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
+    .flex-lg-column.x-container.d-flex,
     .flex-lg-column.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8643,6 +8738,7 @@
         flex-direction: column !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
+    .flex-lg-row-reverse.x-container.d-flex,
     .flex-lg-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8652,6 +8748,7 @@
         flex-direction: row-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
+    .flex-lg-column-reverse.x-container.d-flex,
     .flex-lg-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8661,6 +8758,7 @@
         flex-direction: column-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
+    .flex-lg-wrap.x-container.d-flex,
     .flex-lg-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8670,6 +8768,7 @@
         flex-wrap: wrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
+    .flex-lg-nowrap.x-container.d-flex,
     .flex-lg-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8679,6 +8778,7 @@
         flex-wrap: nowrap !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
+    .flex-lg-wrap-reverse.x-container.d-flex,
     .flex-lg-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
     .flex-lg-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .flex-lg-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8688,6 +8788,7 @@
         flex-wrap: wrap-reverse !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
+    .justify-content-lg-start.x-container.d-flex,
     .justify-content-lg-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-lg-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-lg-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8697,6 +8798,7 @@
         justify-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
+    .justify-content-lg-end.x-container.d-flex,
     .justify-content-lg-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-lg-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-lg-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8706,6 +8808,7 @@
         justify-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
+    .justify-content-lg-center.x-container.d-flex,
     .justify-content-lg-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-lg-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-lg-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8715,6 +8818,7 @@
         justify-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
+    .justify-content-lg-between.x-container.d-flex,
     .justify-content-lg-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-lg-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-lg-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8724,6 +8828,7 @@
         justify-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
+    .justify-content-lg-around.x-container.d-flex,
     .justify-content-lg-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .justify-content-lg-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .justify-content-lg-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8733,6 +8838,7 @@
         justify-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
+    .align-items-lg-start.x-container.d-flex,
     .align-items-lg-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-lg-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-lg-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8742,6 +8848,7 @@
         align-items: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
+    .align-items-lg-end.x-container.d-flex,
     .align-items-lg-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-lg-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-lg-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8751,6 +8858,7 @@
         align-items: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
+    .align-items-lg-center.x-container.d-flex,
     .align-items-lg-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-lg-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-lg-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8760,6 +8868,7 @@
         align-items: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
+    .align-items-lg-baseline.x-container.d-flex,
     .align-items-lg-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-lg-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-lg-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8769,6 +8878,7 @@
         align-items: baseline !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
+    .align-items-lg-stretch.x-container.d-flex,
     .align-items-lg-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-items-lg-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-items-lg-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8778,6 +8888,7 @@
         align-items: stretch !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
+    .align-content-lg-start.x-container.d-flex,
     .align-content-lg-start.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8787,6 +8898,7 @@
         align-content: flex-start !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
+    .align-content-lg-end.x-container.d-flex,
     .align-content-lg-end.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8796,6 +8908,7 @@
         align-content: flex-end !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
+    .align-content-lg-center.x-container.d-flex,
     .align-content-lg-center.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8805,6 +8918,7 @@
         align-content: center !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
+    .align-content-lg-between.x-container.d-flex,
     .align-content-lg-between.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8814,6 +8928,7 @@
         align-content: space-between !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
+    .align-content-lg-around.x-container.d-flex,
     .align-content-lg-around.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8823,6 +8938,7 @@
         align-content: space-around !important;
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
+    .align-content-lg-stretch.x-container.d-flex,
     .align-content-lg-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
     .align-content-lg-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
     .align-content-lg-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
@@ -8873,260 +8989,6 @@
     }
     /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:14 */
     .align-self-lg-stretch {
-        align-self: stretch !important;
-    }
-}
-/* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/breakpoints.scss:34 */
-@media (min-width: 1280px) {
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:20 */
-    .flex-xl-row.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-row.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-direction: row !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:21 */
-    .flex-xl-column.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-column.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-direction: column !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:22 */
-    .flex-xl-row-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-row-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-row-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-direction: row-reverse !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:23 */
-    .flex-xl-column-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-column-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-column-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-direction: column-reverse !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:25 */
-    .flex-xl-wrap.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-wrap.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-wrap: wrap !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:26 */
-    .flex-xl-nowrap.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-nowrap.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-nowrap.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-nowrap.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-nowrap.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-wrap: nowrap !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:27 */
-    .flex-xl-wrap-reverse.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap-reverse.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap-reverse.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .flex-xl-wrap-reverse.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .flex-xl-wrap-reverse.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        flex-wrap: wrap-reverse !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:29 */
-    .justify-content-xl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        justify-content: flex-start !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:30 */
-    .justify-content-xl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        justify-content: flex-end !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:31 */
-    .justify-content-xl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        justify-content: center !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:32 */
-    .justify-content-xl-between.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-between.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-between.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        justify-content: space-between !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:33 */
-    .justify-content-xl-around.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .justify-content-xl-around.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .justify-content-xl-around.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        justify-content: space-around !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:35 */
-    .align-items-xl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-items: flex-start !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:36 */
-    .align-items-xl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-items: flex-end !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:37 */
-    .align-items-xl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-items: center !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:38 */
-    .align-items-xl-baseline.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-baseline.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-baseline.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-baseline.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-baseline.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-items: baseline !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:39 */
-    .align-items-xl-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-items-xl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-items-xl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-items: stretch !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:41 */
-    .align-content-xl-start.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-start.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-start.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-start.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: flex-start !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:42 */
-    .align-content-xl-end.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-end.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-end.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-end.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: flex-end !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:43 */
-    .align-content-xl-center.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-center.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-center.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-center.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: center !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:44 */
-    .align-content-xl-between.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-between.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-between.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-between.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-between.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: space-between !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:45 */
-    .align-content-xl-around.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-around.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-around.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-around.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-around.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: space-around !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:46 */
-    .align-content-xl-stretch.x-container > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-stretch.x-container > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-stretch.x-panel > .x-panel-bodyWrap > .x-panel-body > [data-ref="outerCt"] > [data-ref="innerCt"],
-    .align-content-xl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [class*="outerCt"] > [class*="innerCt"],
-    .align-content-xl-stretch.x-window > .x-window-bodyWrap > .x-window-body > [data-ref="outerCt"] > [data-ref="innerCt"] {
-        align-content: stretch !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:3 */
-    .flex-xl-fill {
-        flex: 1 1 auto !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:4 */
-    .flex-xl-grow-0 {
-        flex-grow: 0 !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:5 */
-    .flex-xl-grow-1 {
-        flex-grow: 1 !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:6 */
-    .flex-xl-shrink-0 {
-        flex-shrink: 0 !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:7 */
-    .flex-xl-shrink-1 {
-        flex-shrink: 1 !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:9 */
-    .align-self-xl-auto {
-        align-self: auto !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:10 */
-    .align-self-xl-start {
-        align-self: flex-start !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:11 */
-    .align-self-xl-end {
-        align-self: flex-end !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:12 */
-    .align-self-xl-center {
-        align-self: center !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:13 */
-    .align-self-xl-baseline {
-        align-self: baseline !important;
-    }
-    /* C:/xampp/htdocs/packages/pyansa-ux/packages/local/pyansa-ux/sass/var/bootstrap/flex.scss:14 */
-    .align-self-xl-stretch {
         align-self: stretch !important;
     }
 }

@@ -71,5 +71,30 @@ Ext.define('Pyansa.overrides.grid.column.Column', {
         }
 
         me.callParent(arguments);
+    },
+
+    /**
+     * Sobreescritura de la funcion appltSorter.
+     * Se corrige el funcionamiento para que en caso que el store ligado al grid sea Ext.data.BufferedStore
+     * el sorter de la columna se haga remoto y no local
+     *
+     * @param {Function|String|Objest|Ext.util.Sorter} sorter
+     * @return {Function|String|Objest|Ext.util.Sorter}
+     */
+    applySorter: function (sorter) {
+        var me = this,
+            sorterFn = sorter ? sorter.sorterFn : null,
+            tablepanel, ret;
+
+        tablepanel = me.getRootHeaderCt().up('tablepanel');
+        if (tablepanel.store instanceof Ext.data.BufferedStore) {
+            ret = new Ext.util.Sorter(sorter);
+            ret.methodName = sorterFn;
+            ret.column = me;
+        } else {
+            ret = me.callParent([sorter]);
+        }
+
+        return ret;
     }
 });

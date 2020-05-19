@@ -1853,6 +1853,17 @@ Ext.baseCSSPrefix, 'column-vertical-header\x3c/tpl\x3e', '\x3ctpl if\x3d"empty"\
     me.height = Math.max(suggestedHeight, me.height || suggestedHeight);
   }
   me.callParent(arguments);
+}, applySorter:function(sorter) {
+  var me = this, sorterFn = sorter ? sorter.sorterFn : null, tablepanel, ret;
+  tablepanel = me.getRootHeaderCt().up('tablepanel');
+  if (tablepanel.store instanceof Ext.data.BufferedStore) {
+    ret = new Ext.util.Sorter(sorter);
+    ret.methodName = sorterFn;
+    ret.column = me;
+  } else {
+    ret = me.callParent([sorter]);
+  }
+  return ret;
 }});
 Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {override:'Ext.grid.filters.filter.Boolean', requires:['Ext.grid.column.Boolean'], constructor:function(config) {
   var me = this;
@@ -1860,6 +1871,16 @@ Ext.define('Pyansa.overrides.grid.filters.filter.Boolean', {override:'Ext.grid.f
   if (me.column instanceof Ext.grid.column.Boolean) {
     me.yesText = me.column.trueText;
     me.noText = me.column.falseText;
+  }
+}});
+Ext.define('Pyansa.overrides.grid.filters.Filters', {override:'Ext.grid.filters.Filters', initColumns:function() {
+  var me = this, grid = me.grid, store = grid.getStore();
+  if (store.getRemoteFilter()) {
+    store.suppressNextFilter = true;
+    me.callParent();
+    store.suppressNextFilter = false;
+  } else {
+    me.callParent();
   }
 }});
 Ext.define('Pyansa.overrides.grid.plugin.RowEditing', {override:'Ext.grid.plugin.RowEditing', syncAfterEdit:false, completeEdit:function(config) {

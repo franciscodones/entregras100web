@@ -16,7 +16,6 @@ Ext.define('Pyansa.overrides.data.request.Ajax', {
         var ret = Ajax.$$parseStatus(status, response),
             type = response.responseType;
 
-        console.log(response);
         if (status === 0 && (type === 'json' || type === 'document') && (!response.responseURL)) {
             ret.success = false;
         }
