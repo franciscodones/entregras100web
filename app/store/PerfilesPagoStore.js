@@ -42,10 +42,16 @@ Ext.define('Entregas100Web.store.PerfilesPagoStore', {
                     update: 'api/perfilesPago/update'
                 },
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    messageProperty: 'message',
+                    rootProperty: 'records'
                 },
                 writer: {
-                    type: 'json'
+                    type: 'json',
+                    writeAllFields: true,
+                    allowSingle: false,
+                    encode: true,
+                    rootProperty: 'records'
                 }
             }
         }, cfg)]);

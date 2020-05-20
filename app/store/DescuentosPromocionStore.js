@@ -43,10 +43,16 @@ Ext.define('Entregas100Web.store.DescuentosPromocionStore', {
                     destroy: 'api/descuentosPromocion/destroy'
                 },
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    messageProperty: 'message',
+                    rootProperty: 'records'
                 },
                 writer: {
-                    type: 'json'
+                    type: 'json',
+                    writeAllFields: true,
+                    allowSingle: false,
+                    encode: true,
+                    rootProperty: 'records'
                 }
             }
         }, cfg)]);

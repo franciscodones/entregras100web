@@ -35,7 +35,9 @@ Ext.define('Entregas100Web.store.EmpresasStore', {
                     read: 'api/empresas/read'
                 },
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    messageProperty: 'message',
+                    rootProperty: 'records'
                 }
             }
         }, cfg)]);

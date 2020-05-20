@@ -47,6 +47,10 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",

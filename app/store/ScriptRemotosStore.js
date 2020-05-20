@@ -44,6 +44,7 @@ Ext.define('Entregas100Web.store.ScriptRemotosStore', {
                 },
                 writer: {
                     type: 'json',
+                    writeAllFields: true,
                     allowSingle: false,
                     encode: true,
                     rootProperty: 'records'

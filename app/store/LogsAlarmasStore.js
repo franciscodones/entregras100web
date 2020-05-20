@@ -33,7 +33,9 @@ Ext.define('Entregas100Web.store.LogsAlarmasStore', {
                 type: 'ajax',
                 url: 'api/logsAlarmas/read',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    messageProperty: 'message',
+                    rootProperty: 'records'
                 }
             }
         }, cfg)]);

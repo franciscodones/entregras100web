@@ -43,6 +43,14 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
+                    "configAlternates": {
+                        "messageProperty": "string",
+                        "rootProperty": "string"
+                    },
                     "name": "MyJsonReader",
                     "designerId": "470ed02d-6d5a-48bf-867d-2e97213ca3da"
                 }

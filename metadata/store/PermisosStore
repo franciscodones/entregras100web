@@ -57,6 +57,10 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "records"
+                    },
                     "configAlternates": {
                         "messageProperty": "string",
                         "metaProperty": "string",
@@ -72,6 +76,12 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "allowSingle": false,
+                        "encode": true,
+                        "rootProperty": "records",
+                        "writeAllFields": true
+                    },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",

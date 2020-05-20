@@ -70,12 +70,14 @@
                     "userConfig": {
                         "allowSingle": false,
                         "encode": true,
-                        "rootProperty": "records"
+                        "rootProperty": "records",
+                        "writeAllFields": true
                     },
                     "configAlternates": {
                         "allowSingle": "boolean",
                         "encode": "boolean",
-                        "rootProperty": "string"
+                        "rootProperty": "string",
+                        "writeAllFields": "boolean"
                     },
                     "name": "MyJsonWriter",
                     "designerId": "abf93dd8-40df-437a-84af-ec61b0c65649"
