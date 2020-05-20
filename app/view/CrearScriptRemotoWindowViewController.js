@@ -70,7 +70,7 @@ Ext.define('Entregas100Web.view.CrearScriptRemotoWindowViewController', {
                 record.set("content", txtContenido.getValue());
                 record.set(
                 "pathname",
-                record.get("pathname") + "\\webroot\\js\\" + record.get("filename")
+                record.get("pathname") + "/webroot/js/" + record.get("filename")
                 );
                 // se marca como phantom para que se utilice el create en lugar del update al sync el store
                 record.phantom = true;
