@@ -204,6 +204,10 @@ Ext.define('Entregas100Web.view.ManguerasPanelViewController', {
                 ventana.show();
             }
         });
+    },
+
+    onMangueraspanelClose: function(panel, eOpts) {
+        Ext.getStore('mangueras.ManguerasStore').removeAll();
     }
 
 });

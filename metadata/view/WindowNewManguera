@@ -53,7 +53,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
-                        "displayField": "nom_plaza",
+                        "displayField": "nombre",
                         "fieldLabel": "Plaza",
                         "itemId": "cmbPlaza",
                         "layout|anchor": "100%",

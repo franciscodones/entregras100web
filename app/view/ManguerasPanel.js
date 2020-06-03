@@ -281,6 +281,9 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        close: 'onMangueraspanelClose'
+    }
 
 });

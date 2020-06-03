@@ -49,7 +49,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     fieldLabel: 'Plaza',
                     name: 'plaza_id',
                     allowBlank: false,
-                    displayField: 'nom_plaza',
+                    displayField: 'nombre',
                     queryMode: 'local',
                     valueField: 'id_plaza',
                     listeners: {
