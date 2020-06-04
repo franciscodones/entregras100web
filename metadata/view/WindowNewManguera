@@ -53,7 +53,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
-                        "displayField": "nombre",
+                        "displayField": "nom_plaza",
                         "fieldLabel": "Plaza",
                         "itemId": "cmbPlaza",
                         "layout|anchor": "100%",
@@ -159,7 +159,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
-                        "displayField": "clave",
+                        "displayField": "nom_cia",
                         "fieldLabel": "Clave",
                         "itemId": "cmbClave",
                         "layout|anchor": "100%",
