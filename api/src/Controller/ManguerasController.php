@@ -328,7 +328,7 @@ class ManguerasController extends AppController
                                     $manguerasReInsertar->begin();
                                         $rQuery = $value->query($query, [
                                             $records['plaza_id'],
-                                            substr($records['plaza'], 0, 2),//pendiente de verificar
+                                            $records['plaza'],//pendiente de verificar
                                             $records['cvecia'],
                                             $records['planta_id'],
                                             $records['rubro_venta_id'],
@@ -353,7 +353,7 @@ class ManguerasController extends AppController
                             } catch (Exception $e) {
                                 $rQuery = $manguerasReInsertar->query($sQuery, [
                                     $records['plaza_id'],
-                                    substr($records['plaza'], 0, 2),//pendiente de verificar
+                                    $records['plaza'],//pendiente de verificar
                                     $records['cvecia'],
                                     $records['planta_id'],
                                     $records['rubro_venta_id'],
@@ -446,7 +446,7 @@ class ManguerasController extends AppController
                             $manguerasReInsertar->begin();
                             $rQuery = $value->query($query, [
                             $records['plaza_id'],
-                            substr($records['plaza'], 0, 2),//pendiente de verificar
+                            $records['plaza'],//pendiente de verificar
                             $records['cvecia'],
                             $records['planta_id'],
                             $records['rubro_venta_id'],
@@ -470,7 +470,7 @@ class ManguerasController extends AppController
                         } catch (Exception $e) {
                             $rQuery = $manguerasReInsertar->query($sQuery, [
                             $records['plaza_id'],
-                            substr($records['plaza'], 0, 2),//pendiente de verificar
+                            $records['plaza'],//pendiente de verificar
                             $records['cvecia'],
                             $records['planta_id'],
                             $records['rubro_venta_id'],
@@ -573,7 +573,7 @@ class ManguerasController extends AppController
                     VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $rQuery = $cone->query($query, [
                     $value['plaza_id'],
-                    substr($value['plaza'], 0, 2),//pendiente de verificar
+                    $value['plaza'],//pendiente de verificar
                     $value['cvecia'],
                     $value['planta_id'],
                     $value['rubro_venta_id'],

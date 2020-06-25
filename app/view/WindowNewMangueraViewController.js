@@ -268,7 +268,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             }
         });
 
-        var plaza = this.getView().down('#cmbPlaza').rawValue,
+        var plaza = this.getView().down('#cmbPlaza').selection.data.plaza,
             rubro_venta = this.getView().down('#cmbCanalVenta').selection.data.rubro_venta,
             descrip_rubro_venta = this.getView().down('#cmbCanalVenta').rawValue,
             planta = this.getView().down('#cmbPlanta').rawValue,
