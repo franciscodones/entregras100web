@@ -629,7 +629,7 @@ class ManguerasController extends AppController
      */
     public function destroy()
     {
-        $oConexion = $this->getConexion();
+        $oConexion = $this->getConexion('mangueras');
         $records = json_decode($_REQUEST["records"], true);
         $records = $records[0];
         $success = "";
