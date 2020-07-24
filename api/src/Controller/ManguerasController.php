@@ -313,8 +313,9 @@ class ManguerasController extends AppController
                     ]);
 
                     if (empty($rQuery)) {
-                            $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, num_bascula, num_red, 
-                        num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja) 
+                            $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
+                            rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, num_bascula, 
+                            num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja) 
                         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                             $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
@@ -336,11 +337,11 @@ class ManguerasController extends AppController
                                             $records['num_manguera'],
                                             $records['descrip_manguera'],
                                             $records['descrip_rubro_venta'],
-                                            (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                                            (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
                                             (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                                            (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                                            (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
                                             (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                                            (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                                            (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
                                             (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
                                             date("Y-m-d"),
                                             '0000-00-00'
