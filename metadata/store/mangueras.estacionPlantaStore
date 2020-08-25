@@ -1,0 +1,64 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"id\": \"1\",",
+            "        \"nombre\": \"Estación\"",
+            "    },",
+            "    {",
+            "        \"id\": \"2\",",
+            "        \"nombre\": \"Planta\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "mangueras.estacionPlantaStore",
+        "storeId": "mangueras.estacionPlantaStore"
+    },
+    "configAlternates": {
+        "data": "array",
+        "designer|userClassName": "string",
+        "storeId": "string"
+    },
+    "designerId": "e42d2c73-d719-4d06-b517-b5ebc34495b5",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField15",
+            "designerId": "5b7b1881-26b6-45e9-96ea-83c45a2d13ce"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombre"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField16",
+            "designerId": "ff1b83fc-ec9d-460d-9cda-dd08f804e104"
+        }
+    ]
+}

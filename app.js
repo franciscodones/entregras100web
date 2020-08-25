@@ -46,7 +46,8 @@ Ext.application({
         'MaeciasModel',
         'mangueras.PlazasModel',
         'mangueras.ManguerasReInsertarModel',
-        'ScriptRemoto'
+        'ScriptRemoto',
+        'mangueras.PermisosModel'
     ],
     stores: [
         'PlazasStore',
@@ -74,7 +75,9 @@ Ext.application({
         'maeciasStore',
         'mangueras.PlazasStore',
         'mangueras.ManguerasReInsertarStore',
-        'ScriptRemotosStore'
+        'ScriptRemotosStore',
+        'mangueras.estacionPlantaStore',
+        'mangueras.PermisosStore'
     ],
     views: [
         'MainViewport',
@@ -115,7 +118,8 @@ Ext.application({
         'WindowNewManguera',
         'WindowReinsertarInformacionMangueras',
         'ScriptRemotoPanel',
-        'CrearScriptRemotoWindow'
+        'CrearScriptRemotoWindow',
+        'windowNewPermisos'
     ],
     name: 'Entregas100Web',
 

@@ -22,9 +22,9 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
         'Entregas100Web.view.WindowNewMangueraViewController',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
+        'Ext.button.Button',
         'Ext.toolbar.Toolbar',
-        'Ext.toolbar.Spacer',
-        'Ext.button.Button'
+        'Ext.toolbar.Spacer'
     ],
 
     controller: 'windownewmanguera',
@@ -32,8 +32,8 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
         type: 'windownewmanguera'
     },
     modal: true,
-    height: 590,
-    width: 400,
+    height: 628,
+    width: 403,
     title: 'Agregar manguera',
 
     items: [
@@ -115,10 +115,43 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     }
                 },
                 {
+                    xtype: 'container',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            disabled: true,
+                            id: 'txtPermisoManguera',
+                            itemId: 'txtPermisoManguera',
+                            width: 340,
+                            fieldLabel: 'Permiso',
+                            name: 'permiso',
+                            listeners: {
+                                focusleave: 'onTxtPermisoFocusleave'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            flex: 1,
+                            disabled: true,
+                            itemId: 'btnAddPermiso',
+                            iconCls: 'x-fa fa-plus',
+                            tooltip: 'Agregar Permiso',
+                            listeners: {
+                                click: 'onBtnAddPermisoClick'
+                            }
+                        }
+                    ]
+                },
+                {
                     xtype: 'textfield',
                     anchor: '100%',
                     disabled: true,
                     itemId: 'txtNumBascula',
+                    margin: '10 0 0 0',
                     fieldLabel: 'Num. Bascula',
                     name: 'num_bascula',
                     listeners: {
@@ -130,6 +163,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     anchor: '100%',
                     disabled: true,
                     itemId: 'txtNumRed',
+                    margin: '10 0 0 0',
                     fieldLabel: 'Num. Red',
                     name: 'num_red',
                     listeners: {
@@ -141,6 +175,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     anchor: '100%',
                     disabled: true,
                     itemId: 'txtSubRed',
+                    margin: '10 0 0 0',
                     fieldLabel: 'Sub-red',
                     name: 'sub_red',
                     listeners: {
@@ -152,6 +187,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     anchor: '100%',
                     disabled: true,
                     itemId: 'txtNumBomba',
+                    margin: '10 0 0 0',
                     fieldLabel: 'Num. Bomba',
                     name: 'num_bomba',
                     listeners: {
@@ -163,6 +199,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     anchor: '100%',
                     disabled: true,
                     itemId: 'txtDescripcion',
+                    margin: '10 0 0 0',
                     fieldLabel: 'Descripción',
                     name: 'descrip_manguera'
                 },
