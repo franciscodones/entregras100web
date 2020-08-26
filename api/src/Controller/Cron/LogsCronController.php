@@ -22,7 +22,7 @@ class LogsCronController extends AppController {
         $sQuery = "DELETE FROM logs_comunicacion " .
             "WHERE fecha < DATE_SUB(CURDATE(), INTERVAL ? DAY)";
         $aQueryParams = array(
-            2
+            7
         );
         $oConexion->query($sQuery, $aQueryParams);
 
@@ -30,7 +30,7 @@ class LogsCronController extends AppController {
         $sQuery = "DELETE FROM logs_error " .
             "WHERE fecha < DATE_SUB(CURDATE(), INTERVAL ? DAY)";
         $aQueryParams = array(
-            2
+            5
         );
         $oConexion->query($sQuery, $aQueryParams);
 
@@ -38,7 +38,7 @@ class LogsCronController extends AppController {
         $sQuery = "DELETE FROM logs_alarmas " .
             "WHERE fecha < DATE_SUB(CURDATE(), INTERVAL ? DAY)";
         $aQueryParams = array(
-            4
+            7
         );
         $oConexion->query($sQuery, $aQueryParams);
 

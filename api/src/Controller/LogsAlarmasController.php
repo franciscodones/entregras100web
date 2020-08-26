@@ -103,7 +103,7 @@ class LogsAlarmasController extends AppController {
         array_unshift(
             $aFiltros,
             array(
-                "value" => array("\"[1-8]\":[1-9][0-9]?", 5),
+                "value" => array("\"[1-8]\":[1-9][0-9]?", 0.01),
                 "query" => "(alarma REGEXP ? OR litros_no_autorizados >= ?)"
             )
         );
@@ -138,10 +138,9 @@ class LogsAlarmasController extends AppController {
         }, array());
 
         $aLogsAlarmas = $oConexion->query($sQuery, $aQueryParams);
-
         // procesa las alarmas
         foreach ($aLogsAlarmas as $key => $aLogAlarma) {
-            if ($aLogAlarma["litros_no_autorizados"]) {
+            if ($aLogAlarma["litros_no_autorizados"] > 0) {
                 $aLogsProcesados[] = array(
                     "alarma_id" => 0,
                     "alarma" => "LITROS NO AUTORIZADOS",

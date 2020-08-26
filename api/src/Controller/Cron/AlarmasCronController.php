@@ -19,191 +19,216 @@ class AlarmasCronController extends AppController {
             "josemaria@gaspasa.com.mx",
             "plantamz@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "CLN" => array(
+            "mariorubio@gaspasa.com.mx",
             "operacionescln@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "LCR" => array(
             "gerencialc@gaspasa.com.mx",
             "josemaria@gaspasa.com.mx",
             "plantalacruz@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "ESC" => array(
             "gpaes1@gaspasa.com.mx",
             "josemaria@gaspasa.com.mx",
             "plantaesc@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "SAL" => array(
             "jcuevas@diesgas.com.mx",
             "plantagdl@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "LPZ" => array(
             "jurias@caligas.com.mx",
             "plantalp@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "GVE" => array(
             "jorgezazueta@gaspasa.com.mx",
             "plantagve@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "GME" => array(
             "neubojorquez@gaspasa.com.mx",
             "plantagm@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "QRE" => array(
-            "ibojorquez@caligas.com.mx",
+            "juancossio@gaspasa.com.mx",
             "plantaqro@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "CYE" => array(
             "gilbertol@diesgas.com.mx",
             "avaldez@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "IRE" => array(
             "gerenciairapuato@diesgas.com.mx",
             "operacionirp@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "HME" => array(
-            "armandohiguera@diesgas.com.mx",
+            "nrodriguez@diesgas.com.mx",
             "plantahermosillo@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "LMS" => array(
             "javierapodaca@gaspasa.com.mx",
             "plantalm@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "OBR" => array(
-            "edgarquintero@gaspasa.com.mx",
+            "edgarquintero@diesgas.com.mx",
             "plantahq@diesgas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "NVJ" => array(
-            "administrativohq@gaspasa.com.mx",
+            "edgarquintero@diesgas.com.mx",
             "operacionesnav@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "SJC" => array(
             "smoreno@caligas.com.mx",
             "plantasj@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "SLE" => array(
             "smoreno@caligas.com.mx",
             "plantasl@caligas.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "SRE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "LOE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "CCE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "GNE" => array(
             "jurias@caligas.com.mx",
             "operacionesbcs@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "ENE" => array(
             "kfigueroa@gaspasa.com.mx",
             "operativoens@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         ),
         "TJE" => array(
+            "josegalaviz@gaspasa.com.mx",
             "luisrodriguez@gaspasa.com.mx",
-            "rquintero@gaspasa.com.mx",
+            "jimedina@alerta.com.mx",
             "b.venegas@pyansa.com.mx",
-            "rgalaviz@pyansa.com.mx"
+            "rgalaviz@pyansa.com.mx",
+            "inventarios1@alerta.com.mx"
         )
     );
 
     public function enviarEmailReporteAlarmas() {
         set_time_limit(300);
         $oConexion = $this->getConexion();
-        $dFechaAlarmas = new DateTime();
+        $dFechaAlarmas = isset($_GET['fecha']) ? DateTime::createFromFormat('Y-m-d', $_GET['fecha']) : new DateTime();
         $sRegexAlarma = "\"[1-8]\":[1-9][0-9]?";
         $aAlarmasPlaza = null;
         $aExcel = null;
@@ -365,7 +390,7 @@ class AlarmasCronController extends AppController {
 
             $aAlarmasArray = json_decode($aLogAlarma["alarma"], true);
             foreach ($aAlarmasArray as $index => $cantidad) {
-                if ($cantidad > 0) {
+                if ($cantidad > 0 && $index != 9) {
                     // Informacion para la pagina de resumen
                     $resumen[$aLogAlarma["unidad"]][$index] += $cantidad;
 
