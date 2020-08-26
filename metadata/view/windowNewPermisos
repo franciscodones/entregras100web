@@ -1,0 +1,560 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "windownewpermisos",
+        "designer|userClassName": "windowNewPermisos",
+        "height": 266,
+        "modal": true,
+        "title": "Agregar permiso",
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "modal": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyWindow",
+    "designerId": "fe019553-7122-47f5-88c6-e364898d9278",
+    "viewControllerInstanceId": "9728e2f6-0b47-4a94-aa88-7cb907e3aeb5",
+    "viewModelInstanceId": "f5a37004-8ec3-4fc9-a970-2bfc23ee876c",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "title": ""
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "title": "string"
+            },
+            "name": "MyForm1",
+            "designerId": "59f3d3f5-2a97-4691-89b6-dbc5e3c18836",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "Estación/Planta",
+                        "hidden": true,
+                        "itemId": "txtEstaPlanta",
+                        "layout|anchor": "100%"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "displayField": "datafield",
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "valueField": "datafield",
+                        "hidden": "boolean"
+                    },
+                    "name": "MyTextField22",
+                    "designerId": "9dcc2a32-b04e-4831-98d7-9f07f5823188",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtEstaPlantaChange",
+                                "implHandler": [
+                                    "if(newValue == 4){",
+                                    "    var valor = 'E';",
+                                    "    this.getView().down('#txtEstacionPlanta').setValue('');",
+                                    "    this.getView().down('#txtEstacionPlanta').setEditable(true);",
+                                    "    this.getView().down('#txtEstacionPlanta').allowBlank = false;",
+                                    "    this.getView().down('#txtPermiso').setValue('');",
+                                    "    this.getView().down('#txtPlaEst').setValue(valor);",
+                                    "",
+                                    "}else{",
+                                    "   var valor = 'P';",
+                                    "    this.getView().down('#txtPermiso').setValue('');",
+                                    "    this.getView().down('#txtPlaEst').setValue(valor);",
+                                    "    this.getView().down('#txtEstacionPlanta').allowBlank = true;",
+                                    "}"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtEstaPlantaChange",
+                            "designerId": "f1aa1ae6-b354-40bf-bbea-f3bb9c4c9ad3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Planta",
+                        "hidden": true,
+                        "itemId": "txtPlantaId",
+                        "layout|anchor": "100%",
+                        "name": "planta_id"
+                    },
+                    "configAlternates": {
+                        "allowBlank": "boolean",
+                        "disabled": "boolean",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "forceSelection": "boolean",
+                        "hidden": "boolean",
+                        "layout|anchor": "string",
+                        "valueField": "datafield",
+                        "itemId": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField15",
+                    "designerId": "b0ab8dfd-6abe-4014-b4ce-86f449b4981c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "txtPlaza",
+                        "layout|anchor": "100%",
+                        "name": "plaza"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField13",
+                    "designerId": "595d8921-2a2f-464d-9dbe-aa95c393eb6a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "txtPlaza_id",
+                        "layout|anchor": "100%",
+                        "name": "plaza_id"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField17",
+                    "designerId": "c32c8999-d040-48de-9236-ec9fd1b75813"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "txtNumEsta",
+                        "layout|anchor": "100%",
+                        "name": "num_estac"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField19",
+                    "designerId": "6abaf55a-5d82-480d-b1c3-57376b55f527"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "txtCvecia",
+                        "layout|anchor": "100%",
+                        "name": "cvecia"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField20",
+                    "designerId": "907c932d-b191-44a2-a257-5573dc44b96b"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "hidden": true,
+                        "itemId": "txtPlaEst",
+                        "layout|anchor": "100%",
+                        "name": "pla_est"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField21",
+                    "designerId": "7c17a162-84f0-411a-baf2-6c27ef62c7bd"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "Permiso",
+                        "itemId": "txtPermiso",
+                        "layout|anchor": "100%",
+                        "name": "permiso"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string",
+                        "allowBlank": "boolean",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextField16",
+                    "designerId": "d80b6c94-1be1-4889-9e7a-568d80d9e6fc"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Nombre Estación/Planta",
+                        "itemId": "txtEstacionPlanta",
+                        "layout|anchor": "100%",
+                        "name": "nompla_est"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "7c7f5ead-e6dc-4518-ac01-0beb32850008"
+                },
+                {
+                    "type": "Ext.form.CheckboxGroup",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Tiene permiso"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string"
+                    },
+                    "name": "MyCheckboxGroup",
+                    "designerId": "7487af7d-f8c2-4359-b90d-20a83bb58b0f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Si",
+                                "fieldLabel": null,
+                                "inputValue": "1",
+                                "name": "tiene_perm",
+                                "uncheckedValue": "0"
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "fieldLabel": "string",
+                                "inputValue": "string",
+                                "uncheckedValue": "string",
+                                "name": "string"
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "a78491c9-e982-40aa-a70b-7eb47b991697"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "configAlternates": {
+                        "dock": "string"
+                    },
+                    "name": "MyToolbar3",
+                    "designerId": "d6e79fd9-b27a-4eee-8c6d-d5186eeea730",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer2",
+                            "designerId": "9e36af59-d1f0-470f-8936-d78d8e51f5bc"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Guardar",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "03e9e54a-78b7-49b3-9918-76bf92dc1283",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "var win =  button.up('window'),",
+                                            "    form   = win.down('form'),",
+                                            "    record = form.getRecord(),",
+                                            "    values = form.getValues();",
+                                            "",
+                                            "if(form.isValid()){",
+                                            "    Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                            "",
+                                            "    var store = Ext.getStore('mangueras.PermisosStore');",
+                                            "    store.add({",
+                                            "        permiso: values.permiso,",
+                                            "        plaza_id: values.plaza_id,",
+                                            "        cvecia: values.cvecia,",
+                                            "        pla_est: values.pla_est,",
+                                            "        planta_id: values.planta_id,",
+                                            "        num_estac: values.num_estac,",
+                                            "        tiene_perm: values.tiene_perm,",
+                                            "        nompla_est: values.nompla_est,",
+                                            "        plaza: values.plaza,",
+                                            "        id:1",
+                                            "    });",
+                                            "    onSyncSucess();",
+                                            "    Ext.MessageBox.show({",
+                                            "        title: '<center>Mensaje de Sistema</center>',",
+                                            "        msg: '<center>Se agrego correctamente!</center>',",
+                                            "        closable:false,",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        buttonText:{ok:\"Aceptar\"},",
+                                            "        icon: Ext.MessageBox.INFO",
+                                            "    });",
+                                            "",
+                                            "}else{",
+                                            "    Ext.MessageBox.show({",
+                                            "        title: '<center>Mensaje de Sistema</center>',",
+                                            "        msg: '<center>¡Captura los campos que son requeridos!</center>',",
+                                            "        closable:false,",
+                                            "        buttons: Ext.Msg.OK,",
+                                            "        buttonText:{ok:\"Aceptar\"},",
+                                            "        icon: Ext.Msg.ERROR",
+                                            "    });",
+                                            "}",
+                                            "",
+                                            "function onSyncSucess() {",
+                                            "    Ext.getCmp('txtPermisoManguera').setValue(values.permiso);",
+                                            "    Ext.Msg.hide();",
+                                            "    win.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "eef2a063-6179-4b9e-bdb2-5b28d010904b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnSalir",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Salir",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "6c0e6140-f48c-4490-9c3c-234cff25a88f",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnSalirClick",
+                                        "implHandler": [
+                                            "this.view.close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnSalirClick",
+                                    "designerId": "2a582608-8d68-4d48-8594-bd7eb3dc0995"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer3",
+                            "designerId": "a2b1f408-423d-47f3-916f-4e376d23c0dc"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

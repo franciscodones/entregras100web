@@ -53,6 +53,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             num_bascula =  this.getView().down('#txtNumBascula'),
             num_eco = this.getView().down('#txtNumEco'),
             num_estacion = this.getView().down('#txtNumEstacion'),
+            permiso = this.getView().down('#txtPermisoManguera'),
             num_red = this.getView().down('#txtNumRed'),
             num_bomba = this.getView().down('#txtNumBomba'),
             id_manguera = this.getView().down('#id_manguera'),
@@ -88,6 +89,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_bascula.allowBlank = false;
                             num_eco.setDisabled(true);
                             num_estacion.setDisabled(true);
+                            permiso.setDisabled(true);
                             num_red.setDisabled(true);
                             sub_red.setDisabled(true);
                             num_bomba.setDisabled(true);
@@ -115,6 +117,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             descripcion1.setHidden(true);
                             num_eco.setDisabled(false);
                             num_eco.allowBlank = false;
+                            permiso.setDisabled(true);
                             num_bascula.setDisabled(true);
                             num_estacion.setDisabled(true);
                             num_red.setDisabled(true);
@@ -134,6 +137,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_red.allowBlank = false;
                             sub_red.allowBlank = false;
                             num_eco.setDisabled(true);
+                            permiso.setDisabled(true);
                             num_bascula.setDisabled(true);
                             num_estacion.setDisabled(true);
                             num_bomba.setDisabled(true);
@@ -182,6 +186,10 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
 
     onTxtNumEcoChange: function(field, newValue, oldValue, eOpts) {
         this.getView().down('#txtNumBascula').setValue('');
+        this.getView().down('#txtNumEstacion').setValue('');
+        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#btnAddPermiso').setDisabled(true);
+        this.getView().down('#btnAddPermiso').allowBlank = true;
         this.getView().down('#txtNumRed').setValue('');
         this.getView().down('#txtSubRed').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
@@ -195,9 +203,126 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
 
     onTxtNumEstacionChange: function(field, newValue, oldValue, eOpts) {
         this.getView().down('#txtDescripcion').setValue('');
+        this.getView().down('#txtPermisoManguera').setDisabled(false);
+        this.getView().down('#txtPermisoManguera').allowBlank = false;
+        // // this.getView().down('#descripcion').setDisabled(true);
+        // // this.getView().down('#descripcion').setHidden(true);
+        // // this.getView().down('#descripcion1').setHidden(false);
+
+
+    },
+
+    onTxtPermisoFocusleave: function(component, event, eOpts) {
+        this.getView().down('#txtDescripcion').setValue('');
+        var cmbPlaza = this.getView().down('#cmbPlaza').getValue(),
+            cmbClave = this.getView().down('#cmbClave').selection.data.cvecia,
+            permiso = this.getView().down('#txtPermisoManguera'),
+            value = component.value,
+            btnAgregarPermiso = this.getView().down('#btnAddPermiso');
+
         // this.getView().down('#descripcion').setDisabled(true);
         // this.getView().down('#descripcion').setHidden(true);
         // this.getView().down('#descripcion1').setHidden(false);
+
+
+        Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+        Ext.Ajax.request({
+            url: 'api/Mangueras/searchPermiso',
+            params:{
+                plaza_id : cmbPlaza,
+                cvecia: cmbClave,
+                permiso: value
+            },
+            headers:{
+                Accept: 'application/json, */*'
+            },
+            success:function(response){
+                try{
+                    var resp = JSON.parse(response.responseText);
+                    Ext.Msg.hide();
+                    if(resp.success){
+                        console.log(resp);
+                    }else{
+                        //                 numEstacion.setValue('');
+                        //                 Ext.MessageBox.show({
+                        //                     title: '<center>Mensaje de Sistema</center>',
+                        //                     msg: resp.message,
+                        //                     icon: Ext.MessageBox.ERROR,
+                        //                     buttons: Ext.Msg.OK,
+                        //                     buttonText:{ok:"Aceptar"},
+                        //                     closable:false
+                        //                 });
+                        Ext.Msg.confirm('Mensaje de Sistema','¿Quiere agregar un permiso?',function(btn){
+                            if(btn === 'yes'){
+                                permiso.setValue('');
+                                btnAgregarPermiso.setDisabled(false);
+                                //                         permiso.setValue();
+                            }else{
+                                permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
+                            }
+                        });
+                    }
+                }catch(Exception){
+                    Ext.Msg.hide(
+                    null,
+                    function(){
+                        Ext.MessageBox.show({
+                            title: '<center>Mensaje de Sistema</center>',
+                            msg: Exception,
+                            closable:false,
+                            buttons: Ext.Msg.OK,
+                            buttonText:{ok:"Aceptar"},
+                            icon: Ext.Msg.ERROR
+                        });
+                    }
+                    );
+                }
+            },
+            failure:function(response){
+                Ext.MessageBox.show({
+                    title: '<center>Mensaje de Sistema</center>',
+                    msg: '<center>Fallo la conexión al servidor!</center>',
+                    icon: Ext.MessageBox.ERROR,
+                    buttons: Ext.Msg.OK,
+                    buttonText:{ok:"Aceptar"},
+                    closable:false
+                });
+            }
+        });
+    },
+
+    onBtnAddPermisoClick: function(button, e, eOpts) {
+        var window = this;
+        Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+        var ventana = Ext.create('widget.windownewpermisos');
+
+        var nombrePlanta = this.getView().down('#cmbPlanta').rawValue,
+            planta_id = this.getView().down('#cmbPlanta').getValue(),
+            clave = this.getView().down('#cmbClave').selection.data.cvecia,
+            plaza_id = this.getView().down('#cmbPlaza').getValue(),
+            num_estacion = this.getView().down('#txtNumEstacion').getValue(),
+            rubroVenta = this.getView().down('#cmbCanalVenta').getValue(),
+            plaza = this.getView().down('#cmbPlaza').selection.data.plaza;
+
+        if(rubroVenta == 4){
+            ventana.down('#txtPlaza_id').setValue(plaza_id);
+            ventana.down('#txtNumEsta').setValue(num_estacion);
+            //     ventana.down('#txtPlantaId').setValue(planta_id);
+            ventana.down('#txtCvecia').setValue(clave);
+            ventana.down('#txtPlaza').setValue(plaza);
+        }else if(rubroVenta == 2){
+            ventana.down('#txtPlaza_id').setValue(plaza_id);
+            ventana.down('#txtEstacionPlanta').setValue(nombrePlanta);
+            ventana.down('#txtNumEsta').setValue(num_estacion);
+            ventana.down('#txtEstacionPlanta').setEditable(false);
+            ventana.down('#txtPlantaId').setValue(planta_id);
+            ventana.down('#txtCvecia').setValue(clave);
+            ventana.down('#txtPlaza').setValue(plaza);
+        }
+        ventana.down('#txtEstaPlanta').setValue(rubroVenta);
+
+        Ext.Msg.hide();
+        ventana.show();
     },
 
     onTxtNumBasculaChange: function(field, newValue, oldValue, eOpts) {
@@ -206,6 +331,9 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#txtSubRed').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
         this.getView().down('#txtNumEstacion').setValue('');
+        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#btnAddPermiso').setDisabled(true);
+        this.getView().down('#btnAddPermiso').allowBlank = true;
         // this.getView().down('#descripcion').setHidden(false);
         this.getView().down('#txtDescripcion').setDisabled(false);
         // this.getView().down('#descripcion1').setHidden(true);
@@ -220,11 +348,16 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#txtNumBascula').setValue('');
         this.getView().down('#txtNumEco').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
-        this.getView().down('#txtNumEstacion').setValue('');
+        this.getView().down('#txtNumEstacion').setValue('');this.getView().down('#txtPermiso').setValue('');
+        this.getView().down('#btnAddPermisoManguera').setDisabled(true);
+        this.getView().down('#btnAddPermisoManguera').allowBlank = true;
 
     },
 
     onTxtSubRedChange: function(field, newValue, oldValue, eOpts) {
+        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#btnAddPermiso').setDisabled(true);
+        this.getView().down('#btnAddPermiso').allowBlank = true;
         var num_red = this.getView().down('#txtNumRed').getValue();
         this.getView().down('#txtDescripcion').setValue('');
         this.getView().down('#text1').setValue('Red ');
@@ -255,6 +388,8 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             record = form.getRecord(),
             values = form.getValues();
 
+        var records = [];
+
         var desc = this.getView().down('#descripcion1'),
             txt1 = this.getView().down('#text1').getValue(),
             num1 = this.getView().down('#num1').getValue(),
@@ -268,75 +403,179 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             }
         });
 
-        var plaza = this.getView().down('#cmbPlaza').rawValue,
+        var plaza = this.getView().down('#cmbPlaza').selection.data.plaza,
+            plaza_id = this.getView().down('#cmbPlaza').getValue(),
             rubro_venta = this.getView().down('#cmbCanalVenta').selection.data.rubro_venta,
+            rubro_venta_id = this.getView().down('#cmbCanalVenta').getValue(),
             descrip_rubro_venta = this.getView().down('#cmbCanalVenta').rawValue,
             planta = this.getView().down('#cmbPlanta').rawValue,
             num_manguera = this.getView().down('#id_manguera').getValue(),
             clave = this.getView().down('#cmbClave').selection.data.cvecia;
 
+        var store = Ext.getStore('mangueras.PermisosStore').data.items;
+
+
 
         if(form.isValid()){
             Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+            if (store != ""){
+                var json = "";
+                Ext.Array.each(store, function(data,i){
+                    if(Ext.isEmpty(json)){
+                        json = Ext.JSON.encode(data.data);
+                    }else{
+                        json +=','+Ext.JSON.encode(data.data);
+                    }
+                });
 
-            var record = Ext.create('Entregas100Web.model.mangueras.PlazasModel');
-            record.set(values);
-            record.set('plaza', plaza);
-            record.set('descrip_rubro_venta', descrip_rubro_venta);
-            record.set('rubro_venta', rubro_venta);
-            record.set('nombre_planta',planta);
-            record.set('cvecia', clave);
-            window.store = store;
-            var store = Ext.getStore('mangueras.ManguerasStore');
-            store.add(record);
-            if(store.needsSync){
-                store.sync({
-                    success: function(batch,options){
-                        onSyncSucess();
-                        Ext.MessageBox.show({
-                            title: '<center>Mensaje de Sistema</center>',
-                            msg: '<center>Se agrego correctamente!</center>',
-                            closable:false,
-                            buttons: Ext.Msg.OK,
-                            buttonText:{ok:"Aceptar"},
-                            icon: Ext.MessageBox.INFO
-                        });
+                values['plaza'] = plaza;
+                values['descrip_rubro_venta'] = descrip_rubro_venta;
+                values['rubro_venta'] = rubro_venta;
+                values['nombre_planta'] = planta;
+                values['cvecia'] = clave;
 
+                Ext.Ajax.request({
+                    url:'api/Mangueras/insert',
+                    timeout:600000,
+                    params:{
+                        info: json,
+                        records: Ext.JSON.encode(values)
                     },
-                    failure:function(batch){
-                        store.rejectChanges();
-                        Ext.each(batch.exceptions, function(operation){
-                            if(operation.error.statusText === ""){
-                                Ext.Msg.hide();
+                    success:function(response){
+                        try{
+                            var resp = JSON.parse(response.responseText);
+                            Ext.Msg.hide();
+                            if(resp.success){
                                 Ext.MessageBox.show({
                                     title: '<center>Mensaje de Sistema</center>',
-                                    msg: '<center>Fallo la conexión con el servidor!</center>',
-                                    closable:false,
+                                    msg: resp.message,
+                                    icon: Ext.MessageBox.INFO,
                                     buttons: Ext.Msg.OK,
                                     buttonText:{ok:"Aceptar"},
-                                    icon: Ext.Msg.ERROR
+                                    closable:false
                                 });
+                                win.close();
+                                var store = Ext.getStore('mangueras.ManguerasStore');
+                                store.add({
+                                    plaza: plaza,
+                                    descrip_rubro_venta: descrip_rubro_venta,
+                                    num_manguera: num_manguera,
+                                    descrip_manguera: values.descrip_manguera,
+                                    num_bascula: values.num_bascula,
+                                    num_bomba: values.num_bomba,
+                                    num_eco: values.num_eco,
+                                    num_estacion: values.num_estacion,
+                                    num_red: values.num_red,
+                                    sub_red: values.sub_red,
+                                    id:1
+                                });
+                                //                         Ext.getStore('mangueras.ManguerasStore').load({
+                                //                             params:{
+                                //                                 plaza_id: plaza_id,
+                                //                                 rubro_venta_id: rubro_venta_id
+                                //                             },
+                                //                             callback: function(){
+                                //                                 win.close();
+                                //                             }
+                                //                         });
                             }else{
                                 Ext.Msg.hide();
-                                var error = batch.getExceptions();
-                                var error1 = error[0].getError();
                                 Ext.MessageBox.show({
                                     title: '<center>Mensaje de Sistema</center>',
-                                    msg: '<center>'+error1+'</center>',
+                                    msg: resp.message,
+                                    icon: Ext.MessageBox.ERROR,
+                                    buttons: Ext.Msg.OK,
+                                    buttonText:{ok:"Aceptar"},
+                                    closable:false
+                                });
+                            }
+                        }catch(Exception){
+                            Ext.Msg.hide(
+                            null,
+                            function(){
+                                Ext.MessageBox.show({
+                                    title: '<center>Mensaje de Sistema</center>',
+                                    msg: Exception,
                                     closable:false,
                                     buttons: Ext.Msg.OK,
                                     buttonText:{ok:"Aceptar"},
                                     icon: Ext.Msg.ERROR
                                 });
                             }
+                            );
+                        }
+                    },
+                    failure:function(error){
+                        Ext.MessageBox.show({
+                            title: '<center>Mensaje de Sistema</center>',
+                            msg: '<center>Fallo la conexión al servidor</center>',
+                            icon: Ext.MessageBox.ERROR,
+                            buttons: Ext.Msg.OK,
+                            buttonText:{ok:"Aceptar"},
+                            closable:false
                         });
                     }
                 });
             }else{
-                onSyncSucess();
+
+                var record = Ext.create('Entregas100Web.model.mangueras.PlazasModel');
+                record.set(values);
+                record.set('plaza', plaza);
+                record.set('descrip_rubro_venta', descrip_rubro_venta);
+                record.set('rubro_venta', rubro_venta);
+                record.set('nombre_planta',planta);
+                record.set('cvecia', clave);
+                window.store = store;
+                var store = Ext.getStore('mangueras.ManguerasStore');
+                store.add(record);
+                if(store.needsSync){
+                    store.sync({
+                        success: function(batch,options){
+                            onSyncSucess();
+                            Ext.MessageBox.show({
+                                title: '<center>Mensaje de Sistema</center>',
+                                msg: '<center>Se agrego correctamente!</center>',
+                                closable:false,
+                                buttons: Ext.Msg.OK,
+                                buttonText:{ok:"Aceptar"},
+                                icon: Ext.MessageBox.INFO
+                            });
+
+                        },
+                        failure:function(batch){
+                            store.rejectChanges();
+                            Ext.each(batch.exceptions, function(operation){
+                                if(operation.error.statusText === ""){
+                                    Ext.Msg.hide();
+                                    Ext.MessageBox.show({
+                                        title: '<center>Mensaje de Sistema</center>',
+                                        msg: '<center>Fallo la conexión con el servidor!</center>',
+                                        closable:false,
+                                        buttons: Ext.Msg.OK,
+                                        buttonText:{ok:"Aceptar"},
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                }else{
+                                    Ext.Msg.hide();
+                                    var error = batch.getExceptions();
+                                    var error1 = error[0].getError();
+                                    Ext.MessageBox.show({
+                                        title: '<center>Mensaje de Sistema</center>',
+                                        msg: '<center>'+error1+'</center>',
+                                        closable:false,
+                                        buttons: Ext.Msg.OK,
+                                        buttonText:{ok:"Aceptar"},
+                                        icon: Ext.Msg.ERROR
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    onSyncSucess();
+                }
             }
         }else{
-            console.log('entro');
             Ext.MessageBox.show({
                 title: '<center>Mensaje de Sistema</center>',
                 msg: '<center>¡Captura los campos que son requeridos!</center>',

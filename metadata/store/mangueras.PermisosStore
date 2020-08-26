@@ -1,0 +1,19 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mangueras.PermisosStore",
+        "model": "mangueras.PermisosModel",
+        "storeId": "mangueras.PermisosStore"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "designerId": "7e21b6b2-11f1-48fc-905d-fcb5a4c66927"
+}

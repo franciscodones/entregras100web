@@ -45,7 +45,6 @@ Ext.define('Entregas100Web.store.mangueras.ManguerasStore', {
                 writer: {
                     type: 'json',
                     writeAllFields: true,
-                    allowSingle: false,
                     encode: true,
                     rootProperty: 'records'
                 }

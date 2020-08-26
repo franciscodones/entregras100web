@@ -68,7 +68,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "allowSingle": false,
                         "encode": true,
                         "rootProperty": "records",
                         "writeAllFields": true
