@@ -47,7 +47,7 @@ class PadronCronController extends AppController
                     $aPlaza["plaza"],
                     [
                         "host" => $aPlaza["ip_te"],
-                        "user" => $aPlaza["usuario_te"],
+                        "username" => $aPlaza["usuario_te"],
                         "password" => $aPlaza["password_te"],
                         "database" => $aPlaza["base_te"]
                     ]
