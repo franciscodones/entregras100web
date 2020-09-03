@@ -405,6 +405,150 @@
                             "designerId": "53dbf4e0-bbd5-4e65-b739-41db9438d3a4"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "hbox",
+                        "layout|flex": null,
+                        "margin": "0 0 0 20",
+                        "title": "Estatus Permisos"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "title": "string"
+                    },
+                    "name": "MyFieldSet",
+                    "designerId": "f3a1efa5-68be-44a8-aa01-50709c58ff8a",
+                    "cn": [
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "layout": "hbox"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string"
+                            },
+                            "name": "MyContainer2",
+                            "designerId": "1a9a625b-c5ee-4523-b2e9-bb9fbc6fe8a6",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "Propio",
+                                        "width": 80
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyLabel",
+                                    "designerId": "a6a0a404-fb87-48fd-a0bf-ecf1c95e5812"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 25,
+                                        "style": "background-color:  #00FF00;",
+                                        "width": 50
+                                    },
+                                    "configAlternates": {
+                                        "height": "auto",
+                                        "style": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyLabel1",
+                                    "designerId": "930b7c31-16ed-4e67-ac04-8f4084442850"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "layout": "hbox",
+                                "margin": "0 0 0 20"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "margin": "auto"
+                            },
+                            "name": "MyContainer3",
+                            "designerId": "35d2aadf-ced0-40fd-9dbb-cdec4460e788",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "Provisional ",
+                                        "width": 80
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyLabel3",
+                                    "designerId": "ae80efc0-4255-49cf-9f7f-d16206c32275"
+                                },
+                                {
+                                    "type": "Ext.form.Label",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 25,
+                                        "style": "background-color:  #F00;",
+                                        "width": 50
+                                    },
+                                    "configAlternates": {
+                                        "height": "auto",
+                                        "style": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyLabel2",
+                                    "designerId": "5edea4c2-ca8f-4d60-9312-cdbde709911a"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -609,7 +753,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "plaza",
+                        "dataIndex": "plazas",
                         "text": "Plazas",
                         "width": 138
                     },
@@ -651,7 +795,7 @@
                     "userConfig": {
                         "dataIndex": "num_manguera",
                         "text": "Manguera",
-                        "width": 128
+                        "width": 115
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -731,7 +875,7 @@
                     "userConfig": {
                         "dataIndex": "num_bascula",
                         "text": "Num. Bascula",
-                        "width": 134
+                        "width": 130
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -751,7 +895,7 @@
                     "userConfig": {
                         "dataIndex": "num_red",
                         "text": "Num. Red",
-                        "width": 134
+                        "width": 115
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -771,7 +915,7 @@
                     "userConfig": {
                         "dataIndex": "sub_red",
                         "text": "Sub red",
-                        "width": 134
+                        "width": 115
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -791,7 +935,7 @@
                     "userConfig": {
                         "dataIndex": "num_bomba",
                         "text": "Num. Bomba",
-                        "width": 134
+                        "width": 125
                     },
                     "configAlternates": {
                         "dataIndex": "datafield",
@@ -802,6 +946,62 @@
                     "designerId": "efbdfeac-da16-42b7-8bf1-037015ff43f8"
                 },
                 {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "tiene_perm",
+                        "text": "",
+                        "width": 70
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn10",
+                    "designerId": "8f136acb-bc3a-4a4c-94bf-ca189eb746db",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if(value === 0){",
+                                    "    metaData.style = \"background-color:  #F00;\";",
+                                    "}else if(value === 1){",
+                                    "    metaData.style = \"background-color:  #00FF00;\";",
+                                    "}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "f7991482-36d6-4ed0-bc50-797b0016040c"
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.view.Table",
                     "reference": {
                         "name": "viewConfig",
@@ -810,6 +1010,115 @@
                     "codeClass": null,
                     "name": "MyTable",
                     "designerId": "2e3e3948-5bdf-41ea-a83c-fdb417d6a61d"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "center",
+                        "width": 50
+                    },
+                    "configAlternates": {
+                        "align": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyActionColumn1",
+                    "designerId": "92e9aee1-fe96-42d1-a3d9-4092d3729452",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "MyActionColumnItem1",
+                            "designerId": "07a17e2c-38e4-4da3-8416-52da698dc666",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                            "var ventana = Ext.create('widget.windoweditmanguera',{",
+                                            "    title:'Editar cliente',",
+                                            "    glyph:'f044@fontAwesome',",
+                                            "    iconCls:''",
+                                            "});",
+                                            "",
+                                            "ventana.down('form').loadRecord(record);",
+                                            "",
+                                            "Ext.Msg.hide();",
+                                            "ventana.show();"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "c75e5bf6-1cb4-4eb0-b742-5b445f6f6cf2"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "if(record.data.tiene_perm === 0){",
+                                    "    glyph = 'f044@fontAwesome';",
+                                    "    tooltip = 'Editar';",
+                                    "    this.items[0].tooltip = tooltip;",
+                                    "    this.items[0].glyph = glyph;",
+                                    "    return value; ",
+                                    "}",
+                                    ""
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "9dcd28b6-d6a7-4b6b-8646-99ebe70257c6"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.grid.column.Action",
@@ -971,6 +1280,38 @@
                             },
                             "name": "renderer",
                             "designerId": "a5d3db0a-8fb8-465e-a193-1dda35067464"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.RowExpander",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowExpanderPlugin",
+                    "designerId": "6007972b-efa8-48b7-8ffe-8a87175ce1c9",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "rowBodyTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "rowBodyTpl",
+                                "implHandler": [
+                                    "<b>Permiso:</b> {permiso}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|displayName": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "rowBodyTpl",
+                            "designerId": "0b5e9280-14f0-4b2a-970c-95d1ce95d140"
                         }
                     ]
                 }

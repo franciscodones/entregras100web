@@ -27,8 +27,15 @@ class ManguerasController extends AppController
 
         // obtiene la informacion pedida por el usuario
         if ($rubro_venta_id == 0) {
-                $sQuery = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plaza,
-                rubros_ventas.nombre AS rubro_venta,
+                $sQuery = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plazas,
+                rubros_ventas.nombre AS rubro_venta, 
+                IF(mangueras.rubro_venta_id = 4,(SELECT nom_estac FROM estaciones 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS nom_estac,
+                IF(mangueras.rubro_venta_id = 4,(SELECT permiso FROM estaciones 
+                    LEFT JOIN permisos ON permisos.id_permiso = estaciones.permiso_id 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS permiso,
+                    IF(mangueras.rubro_venta_id = 4,(SELECT tiene_perm FROM estaciones 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS tiene_perm,
                 IF(mangueras.rubro_venta_id = 1,CONCAT('B-',LPAD(mangueras.id_manguera,3,'0')),
                 IF(mangueras.rubro_venta_id = 2,CONCAT('P-',LPAD(mangueras.id_manguera,3,'0')),
                 IF(mangueras.rubro_venta_id = 3,CONCAT('A-',LPAD(mangueras.id_manguera,3,'0')),
@@ -43,8 +50,15 @@ class ManguerasController extends AppController
                     $plaza_id
                 ]);
         } else {
-            $sQuery = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plaza,
-                    rubros_ventas.nombre AS rubro_venta,
+            $sQuery = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plazas,
+                    rubros_ventas.nombre AS rubro_venta, 
+                    IF(mangueras.rubro_venta_id = 4,(SELECT nom_estac FROM estaciones 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS nom_estac,
+                    IF(mangueras.rubro_venta_id = 4,(SELECT permiso FROM estaciones 
+                    LEFT JOIN permisos ON permisos.id_permiso = estaciones.permiso_id 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS permiso,
+                    IF(mangueras.rubro_venta_id = 4,(SELECT tiene_perm FROM estaciones 
+                    WHERE estaciones.num_estac = mangueras.num_estacion),'') AS tiene_perm,
                     IF(mangueras.rubro_venta_id = 1,CONCAT('B-',LPAD(mangueras.id_manguera,3,'0')),
                     IF(mangueras.rubro_venta_id = 2,CONCAT('P-',LPAD(mangueras.id_manguera,3,'0')),
                     IF(mangueras.rubro_venta_id = 3,CONCAT('A-',LPAD(mangueras.id_manguera,3,'0')),
@@ -85,7 +99,7 @@ class ManguerasController extends AppController
         // $plaza_id = $_REQUEST['plaza_id'];
 
         // obtiene la informacion pedida por el usuario
-        $query = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plaza,
+        $query = "SELECT mangueras.*, permisos.nompla_est AS nombre_planta, plazas.nom_plaza AS plazas,
             IF(mangueras.rubro_venta_id = 1,CONCAT('B-',LPAD(mangueras.id_manguera,3,'0')),
             IF(mangueras.rubro_venta_id = 2,CONCAT('P-',LPAD(mangueras.id_manguera,3,'0')),
             IF(mangueras.rubro_venta_id = 3,CONCAT('A-',LPAD(mangueras.id_manguera,3,'0')),
@@ -220,6 +234,35 @@ class ManguerasController extends AppController
         ));
     }
 
+     /**
+    * Carga la informacion de permisos dependiendo la planta seleccionada
+    * @return JsonResponse
+    */
+    public function Permisos()
+    {
+        $oConexion = $this->getConexion('mangueras');
+        $planta_id = $_REQUEST['planta_id'];
+
+        // obtiene todas las plazas
+        $sQuery = "SELECT * FROM permisos WHERE planta_id = ?";
+        $rQuery = $oConexion->query($sQuery, [
+            $planta_id
+        ]);
+
+        // if (count($rQuery) > 0) {
+            $records = $rQuery;
+        // }
+
+        return $this->asJson(array(
+            "success" => true,
+            "message" => "Catalogo de Permisos",
+            "records" => $records,
+            "metadata" => array(
+                "total_registros" => count($records)
+            )
+        ));
+    }
+
     public function ultimaManguera()
     {
         $oConexion = $this->getConexion('mangueras');
@@ -260,26 +303,20 @@ class ManguerasController extends AppController
         $oConexion = $this->getConexion('mangueras');
         $success = "";
         $msg = "";
-        $plaza_id = $_REQUEST['plaza_id'];
-        $cvecia = $_REQUEST['cvecia'];
+        // $plaza_id = $_REQUEST['plaza_id'];
+        // $cvecia = $_REQUEST['cvecia'];
         $permiso = $_REQUEST['permiso'];
 
-        // Verifica si existe la Estacion
-        $sQuery = "SELECT * FROM permisos WHERE plaza_id = ? AND cvecia = ? AND permiso = ?";
+        // Verifica si existe el permiso
+        $sQuery = "SELECT * FROM permisos WHERE permiso = ?";
         $rQuery = $oConexion->query($sQuery, [
-            $plaza_id,
-            $cvecia,
             $permiso
         ]);
 
         if (count($rQuery) > 0) {
-            $msg = "Existe el permiso!";
+            $msg = "Existe el permiso, verifique por favor!";
             $records = $rQuery;
             $success = true;
-        } else {
-            $msg = "No existe ningun permiso en la información seleccionada, agregue el permiso o verifique por favor!";
-            $success = false;
-            $records = [];
         }
 
         return $this->asJson(array(
@@ -298,12 +335,9 @@ class ManguerasController extends AppController
      */
     public function insert()
     {
-        // try {
+        try {
             $records = json_decode($_REQUEST['records'], true);
             // $records = $records[0];
-            // dump($records);
-            // dump($info);
-            // exit;
             $success = false;
 
             $oConexion = $this->getConexion('mangueras');
@@ -314,11 +348,386 @@ class ManguerasController extends AppController
             $aQueryParams = array($records['plaza_id']);
             $aResultado = $oConexion->query($con, $aQueryParams);
 
+            if (count($aResultado) <= 0) {
+                throw new Exception("Error al obtener los datos de conexion a la plaza");
+            }
+
+            $cont = 1;
+            foreach ($aResultado as $key => $value) {
+                $var = 'conexion'.$cont;
+                $cone = preg_replace('/\s+/', '', strtolower($value['nom_servidor']));
+                $$var = $this->getConexion(
+                    $cone,
+                    array(
+                    "host" => $value["ip"],
+                    "username" => $value["usuario"],
+                    "password" => $value["password"],
+                    "database" => $value["base"]
+                    )
+                );
+
+                $conexiones[$value['nom_servidor']] = $$var;
+                $cont++;
+            }
+
+            set_time_limit(600);
+
+            if (array_key_exists('num_estacion', $records)) {
+                // $permisos = json_decode($_REQUEST['info'], true);
+
+                $query = "SELECT * FROM mangueras WHERE num_estacion = ? AND planta_id = ? AND mangueras.estatus = 1";
+                $rQuery = $oConexion->query($query, [
+                $records['num_estacion'],
+                $records['planta_id']
+                ]);
+
+                if (empty($rQuery)) {
+                    $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
+                    AND num_estacion = ? AND num_bomba = ? AND mangueras.estatus = 1";
+                    $rQuery = $oConexion->query($query, [
+                        $records['plaza_id'],
+                        $records['planta_id'],
+                        $records['rubro_venta_id'],
+                        $records['num_estacion'],
+                        $records['num_bomba']
+                    ]);
+
+                    if (empty($rQuery)) {
+                            $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
+                        rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, num_bascula, 
+                        num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, estatus) 
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+                            $permi = "INSERT INTO permisos (permiso, plaza_id, plaza, cvecia, pla_est, planta_id, estac_id, 
+                        num_estac, tiene_perm, nompla_est, direccion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+                            $updatePermiso = "UPDATE permisos SET estac_id = ? WHERE id_permiso = ?";
+
+                            $estacion = "INSERT INTO estaciones (empres_id, plaza_id, plaza, cvecia, num_estac, nom_estac, 
+                        tiene_perm, permiso_id, planta_id, estatus) VALUES (?,?,?,?,?,?,?,?,?,?)";
+
+                            $folio = "INSERT INTO folio_servicios (plaza_id, plaza, cvecia, rubro_venta, num_Estacion,
+                        folio_servicio) VALUES (?,?,?,?,?,?)";
+
+                            $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
+                            cvecia_id, rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, 
+                            num_bascula, num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, servidor)
+                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+                        if (empty($_REQUEST['info']) == false) {
+                            $permisos = json_decode($_REQUEST['info'], true);
+                        }
+
+                        $querySelect = "SELECT empresa_id, empresas.* FROM plazas 
+                        LEFT JOIN empresas ON empresas.id_empresa = plazas.empresa_id
+                        WHERE plazas.id_plaza = ? AND empresas.activa = 1";
+                        $rQueryS = $oConexion->query($querySelect, [
+                            $records['plaza_id']
+                        ]);
+                        if (!empty($rQueryS)) {
+                                $empresa_id = $rQueryS[0]['empresa_id'];
+
+                            foreach ($conexiones as $key => $value) {
+                                try {
+                                        $value->begin();
+                                        $manguerasReInsertar->begin();
+
+                                    if (isset($permisos) != false) {
+                                        $sQuery = $value->query($permi, [
+                                        $permisos['permiso'],
+                                        $permisos['plaza_id'],
+                                        $permisos['plaza'],
+                                        $permisos['cvecia'],
+                                        $permisos['pla_est'],
+                                        $permisos['planta_id'],
+                                        "",
+                                        $permisos['num_estac'],
+                                        $permisos['tiene_perm'],
+                                        $permisos['nompla_est'],
+                                        ""
+                                        ]);
+
+                                        $id_permiso = $oConexion->lastInsertId();
+                                    }
+
+                                        $eQuery = $value->query($estacion, [
+                                            $empresa_id,
+                                            $records['plaza_id'],
+                                            $records['plaza'],
+                                            $records['cvecia'],
+                                            $records['num_estacion'],
+                                            (isset($records['nom_estac']) == true ? $records['nom_estac'] : $permisos['nompla_est']),
+                                            (isset($records['tiene_perm']) == true ? $records['tiene_perm'] : $permisos['tiene_perm']),
+                                            (isset($records['permiso_id']) == true ? $records['permiso_id'] : $id_permiso),
+                                            $records['planta_id'],
+                                            "1"
+                                        ]);
+
+                                        $id_estacion = $oConexion->lastInsertId();
+
+                                    if (isset($permisos) != false) {
+                                            $rUpdate = $value->query($updatePermiso, [
+                                                $id_estacion,
+                                                $id_permiso
+                                            ]);
+                                    }
+
+                                    if ($key != "mangueras") {
+                                        $qP = "SELECT MAX(id_permiso)AS id_permiso FROM permisos";
+                                        $rP = $oConexion->query($qP);
+
+                                        $qE = "SELECT MAX(id_estac)AS id_estacion FROM estaciones";
+                                        $rE = $oConexion->query($qE);
+
+                                        $uP = "UPDATE permisos SET id_permiso = ?, estac_id = ? WHERE num_estac = ?";
+                                        $rUp = $value->query($uP, [
+                                        $rP[0]['id_permiso'],
+                                        $rE[0]['id_estacion'],
+                                        $records['num_estacion']
+                                        ]);
+
+                                        $uE = "UPDATE estaciones SET id_estac = ?, permiso_id = ?
+                                        WHERE num_estac = ?";
+                                        $rUe = $value->query($uE, [
+                                        $rE[0]['id_estacion'],
+                                        $rP[0]['id_permiso'],
+                                        $records['num_estacion']
+                                        ]);
+                                    }
+
+                                        $fQuery = $value->query($folio, [
+                                            $records['plaza_id'],
+                                            $records['plaza'],
+                                            $records['cvecia'],
+                                            $records['rubro_venta'],
+                                            $records['num_estacion'],
+                                            "0"
+                                        ]);
+                                
+                                        $rQuery = $value->query($query, [
+                                            $records['plaza_id'],
+                                            $records['plaza'],//pendiente de verificar
+                                            $records['cvecia'],
+                                            $records['planta_id'],
+                                            $records['rubro_venta_id'],
+                                            $records['rubro_venta'],
+                                            $records['num_manguera'],
+                                            $records['descrip_manguera'],
+                                            $records['descrip_rubro_venta'],
+                                            (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                                            (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                                            (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                                            (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                                            (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                                            (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                                            date("Y-m-d"),
+                                            '0000-00-00',
+                                            1
+                                        ]);
+
+                                        // $records['clientId'] = $records['id_manguera'];
+                                        // $records['id_manguera'] = $oConexion->lastInsertId();
+                                        // $records['estatus'] = 1;
+                                    // $data = [$data];
+                                } catch (Exception $e) {
+                                    $rQuery = $manguerasReInsertar->query($sQuery, [
+                                    $records['plaza_id'],
+                                    $records['plaza'],//pendiente de verificar
+                                    $records['cvecia'],
+                                    $records['planta_id'],
+                                    $records['rubro_venta_id'],
+                                    $records['cvecia_id'],
+                                    $records['rubro_venta'],
+                                    $records['num_manguera'],
+                                    $records['descrip_manguera'],
+                                    $records['descrip_rubro_venta'],
+                                    (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                                    (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                                    (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                                    (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                                    (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                                    (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                                    date("Y-m-d"),
+                                    '0000-00-00',
+                                    $key
+                                    ]);
+
+                                    // $records['clientId'] = $records['id_manguera'];
+                                    // $records['id_manguera'] = $manguerasReInsertar->lastInsertId();
+                                    // $records['estatus'] = 1;
+                                    // $data = [$data];
+                                }
+
+                                $value->commit();
+                                $manguerasReInsertar->commit();
+                            }
+                                // $records = [$records];
+
+                                $msg = "<center>Se agrego correctamente!</center>";
+                                $success = true;
+                        } else {
+                            $msg = "<center>La empresa se encuentra desactivada, verifique porfavor</center>";
+                            $success = false;
+                        }
+                    } else {
+                        $msg = "<center>Ya existe la bomba <b>".$records['num_bomba']." </b> en la estación <b>
+                        ".$records['num_estacion']." </b>, verifique porfavor</center>";
+                        $success = false;
+                    }
+                } else {
+                    $msg = "<center>Ya existe el numero de estación <b>".$records['num_estacion']." </b> en la Planta <b>"
+                    .$records['nombre_planta']."</b>, verifique porfavor</center>";
+                    $success = false;
+                }
+            } else {
+                if ($records['rubro_venta_id'] == 1) {
+                    $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
+                     AND num_bascula = ? AND mangueras.estatus = 1";
+                    $rQuery = $oConexion->query($query, [
+                    $records['plaza_id'],
+                    $records['planta_id'],
+                    $records['rubro_venta_id'],
+                    $records['num_bascula']
+                    ]);
+                }
+                if ($records['rubro_venta_id'] == 3) {
+                    $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
+                    AND num_eco = ? AND mangueras.estatus = 1";
+                    $rQuery = $oConexion->query($query, [
+                    $records['plaza_id'],
+                    $records['planta_id'],
+                    $records['rubro_venta_id'],
+                    $records['num_eco']
+                    ]);
+                }
+                if ($records['rubro_venta_id'] == 5) {
+                    $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
+                    AND num_red = ? AND sub_red = ? AND mangueras.estatus = 1";
+                    $rQuery = $oConexion->query($query, [
+                    $records['plaza_id'],
+                    $records['planta_id'],
+                    $records['rubro_venta_id'],
+                    $records['num_red'],
+                    $records['sub_red']
+                    ]);
+                }
+
+                if (empty($rQuery)) {
+                    $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta, 
+                    num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion, 
+                    num_red, sub_red, fecha_alta, fecha_baja) 
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+                    $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta, 
+                    num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion, 
+                    num_red, sub_red, fecha_alta, fecha_baja, servidor) 
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        
+                    foreach ($conexiones as $key => $value) {
+                        try {
+                            $value->begin();
+                            $manguerasReInsertar->begin();
+                            $rQuery = $value->query($query, [
+                            $records['plaza_id'],
+                            $records['plaza'],//pendiente de verificar
+                            $records['cvecia'],
+                            $records['planta_id'],
+                            $records['rubro_venta_id'],
+                            $records['rubro_venta'],
+                            $records['num_manguera'],
+                            $records['descrip_manguera'],
+                            $records['descrip_rubro_venta'],
+                            (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                            (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                            (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                            (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                            (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                            (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                            date("Y-m-d"),
+                            '0000-00-00'
+                            ]);
+
+                            $records['clientId'] = $records['id_manguera'];
+                            $records['id_manguera'] = $oConexion->lastInsertId();
+                            $records['estatus'] = 1;
+                        } catch (Exception $e) {
+                            $rQuery = $manguerasReInsertar->query($sQuery, [
+                            $records['plaza_id'],
+                            $records['plaza'],//pendiente de verificar
+                            $records['cvecia'],
+                            $records['planta_id'],
+                            $records['rubro_venta_id'],
+                            $records['rubro_venta'],
+                            $records['num_manguera'],
+                            $records['descrip_manguera'],
+                            $records['descrip_rubro_venta'],
+                            (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                            (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                            (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                            (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                            (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                            (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                            date("Y-m-d"),
+                            '0000-00-00',
+                            $key
+                            ]);
+                            
+                            $records['clientId'] = $records['id_manguera'];
+                            $records['id_manguera'] = $manguerasReInsertar->lastInsertId();
+                            $records['estatus'] = 1;
+                        }
+                        $value->commit();
+                        $manguerasReInsertar->commit();
+                    }
+
+                    // $data['clientId'] = $data['id_manguera'];
+                    // $data['id_manguera'] = $oLink->lastInsertId();
+                    // $data['estatus'] = 1;
+                    $records = [$records];
+
+                    $msg = "<center>Se agrego correctamente!</center>";
+                    $success = true;
+                } else {
+                    $msg = "<center>Ya existe la información, verifique porfavor</center>";
+                    $success = false;
+                }
+            }
+        } catch (Exception $e) {
+            $success = "false";
+            $records = "";
+            if (strpos($e->getMessage(), '1451')) {
+                $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
+            } elseif (strpos($e->getMessage(), '1052')) {
+                $msg = "Existen nombres de columna ambiguos en la consulta.";
+            } else {
+                $msg = "Contiene un error en el servidor!";
+            }
+        }
+            return $this->asJson([
+                "success" => $success,
+                "message" => $msg,
+                "records" => $records
+            ]);
+    }
+
+    /*Actualizara la información de permisos*/
+    public function update()
+    {
+        $records  = json_decode($_REQUEST['records'], true);
+
+        $oConexion = $this->getConexion('mangueras');
+        $manguerasReInsertar = $this->getConexion('manguerasReInsertar');
+        $conexiones = array('mangueras'=> $oConexion);
+        $conne = array();
+        $con = "SELECT * FROM conexion WHERE plaza_id = ?";
+        $aQueryParams = array($records['plaza_id']);
+        $aResultado = $oConexion->query($con, $aQueryParams);
+
         if (count($aResultado) <= 0) {
             throw new Exception("Error al obtener los datos de conexion a la plaza");
         }
 
-            $cont = 1;
+        $cont = 1;
         foreach ($aResultado as $key => $value) {
             $var = 'conexion'.$cont;
             $cone = preg_replace('/\s+/', '', strtolower($value['nom_servidor']));
@@ -336,305 +745,108 @@ class ManguerasController extends AppController
             $cont++;
         }
 
-            set_time_limit(600);
+        set_time_limit(600);
 
-        if (array_key_exists('num_estacion', $records)) {
-            $permisos = json_decode($_REQUEST['info'], true);
+        foreach ($conexiones as $key => $value) {
+            try {
+                $value->begin();
+                $manguerasReInsertar->begin();
+                $iPermiso = "INSERT INTO permisos (permiso, plaza_id, plaza, cvecia, pla_est, planta_id, estac_id,
+                    num_estac, tiene_perm, nompla_est, direccion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
-            $query = "SELECT * FROM mangueras WHERE num_estacion = ? AND planta_id = ? AND mangueras.estatus = 1";
-            $rQuery = $oConexion->query($query, [
-            $records['num_estacion'],
-            $records['planta_id']
-            ]);
+                $uEstacion = "UPDATE estaciones SET tiene_perm = ?, permiso_id = ? WHERE num_estac = ?";
 
-            if (empty($rQuery)) {
-                $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
-                    AND num_estacion = ? AND num_bomba = ? AND mangueras.estatus = 1";
-                $rQuery = $oConexion->query($query, [
-                    $records['plaza_id'],
-                    $records['planta_id'],
-                    $records['rubro_venta_id'],
-                    $records['num_estacion'],
-                    $records['num_bomba']
+                $uFolio = "UPDATE folio_servicios SET folio_servicio = ? WHERE num_Estacion = ?";
+
+                $uPermiso = "UPDATE permisos SET id_permiso = ? WHERE num_estac = ?";
+
+                if ($records['rubro_venta_id'] == 4) {
+                    $rubro_venta = 'E';
+                }
+
+                $qE = "SELECT id_estac FROM estaciones WHERE num_estac = ?";
+                $rE = $oConexion->query($qE, [
+                    $records['num_estacion']
                 ]);
 
-                if (empty($rQuery)) {
-                    $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
-                            rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, num_bascula, 
-                            num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, estatus) 
-                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                //verificar cuando se agregue una planta.
+                $rPermiso = $value->query($iPermiso, [
+                    $records['permiso'],
+                    $records['plaza_id'],
+                    $records['plaza'],
+                    $records['cvecia'],
+                    $rubro_venta,
+                    '0',
+                    $rE[0]['id_estac'],
+                    $records['num_estacion'],
+                    "1",
+                    $records['nom_estac'],
+                    ""
+                ]);
 
-                    $permi = "INSERT INTO permisos (permiso, plaza_id, plaza, cvecia, pla_est, planta_id, estac_id, 
-                        num_estac, tiene_perm, nompla_est, direccion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                $id_permiso = $oConexion->lastInsertId();
 
-                    $estacion = "INSERT INTO estaciones (empres_id, plaza_id, plaza, cvecia, num_estac, nom_estac, 
-                        tiene_perm, permiso_id, planta_id, estatus) VALUES (?,?,?,?,?,?,?,?,?,?)";
+                $rEstacion = $value->query($uEstacion, [
+                    '1',
+                    $id_permiso,
+                    $records['num_estacion']
+                ]);
 
-                    $folio = "INSERT INTO folio_servicios (plaza_id, plaza, cvecia, rubro_venta, num_Estacion,
-                        folio_servicio) VALUES (?,?,?,?,?,?)";
+                if ($key != "mangueras") {
+                    $qP = "SELECT MAX(id_permiso)AS id_permiso FROM permisos";
+                    $rP = $oConexion->query($qP);
 
-                    $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
-                            cvecia_id, rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, 
-                            num_bascula, num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, servidor)
-                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-                    $querySelect = "SELECT empresa_id, empresas.* FROM plazas 
-                        LEFT JOIN empresas ON empresas.id_empresa = plazas.empresa_id
-                        WHERE plazas.id_plaza = ? AND empresas.activa = 1";
-                    $rQueryS = $oConexion->query($querySelect, [
-                        $permisos['plaza_id']
+                    $rUp = $value->query($uPermiso, [
+                        $rP[0]['id_permiso'],
+                        $records['num_estacion']
                     ]);
 
-                    if (!empty($rQueryS)) {
-                        $empresa_id = $rQueryS[0]['empresa_id'];
-
-                        foreach ($conexiones as $key => $value) {
-                            try {
-                                $value->begin();
-                                $manguerasReInsertar->begin();
-                                $rQuery = $value->query($query, [
-                                    $records['plaza_id'],
-                                    $records['plaza'],//pendiente de verificar
-                                    $records['cvecia'],
-                                    $records['planta_id'],
-                                    $records['rubro_venta_id'],
-                                    $records['rubro_venta'],
-                                    $records['num_manguera'],
-                                    $records['descrip_manguera'],
-                                    $records['descrip_rubro_venta'],
-                                    (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                                    (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                                    (isset($records['num_red']) == true ? $records['num_red'] : 0),
-                                    (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
-                                    (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
-                                    (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
-                                    date("Y-m-d"),
-                                    '0000-00-00',
-                                    1
-                                ]);
-
-                                    $sQuery = $value->query($permi, [
-                                        $permisos['permiso'],
-                                        $permisos['plaza_id'],
-                                        $permisos['plaza'],
-                                        $permisos['cvecia'],
-                                        $permisos['pla_est'],
-                                        $permisos['planta_id'],
-                                        "",
-                                        $permisos['num_estac'],
-                                        $permisos['tiene_perm'],
-                                        $permisos['nompla_est'],
-                                        ""
-                                    ]);
-
-                                    $ultimo_id = $oConexion->lastInsertId();
-
-                                    $eQuery = $value->query($estacion, [
-                                        $empresa_id,
-                                        $records['plaza_id'],
-                                        $records['plaza'],
-                                        $records['cvecia'],
-                                        $permisos['num_estac'],
-                                        $permisos['nompla_est'],
-                                        $permisos['tiene_perm'],
-                                        $ultimo_id,
-                                        $records['planta_id'],
-                                        "1"
-                                    ]);
-
-                                    $fQuery = $value->query($folio, [
-                                        $records['plaza_id'],
-                                        $records['plaza'],
-                                        $records['cvecia'],
-                                        $records['rubro_venta'],
-                                        $permisos['num_estac'],
-                                        "0"
-                                    ]);
-
-
-                                // $records['clientId'] = $records['id_manguera'];
-                                // $records['id_manguera'] = $oConexion->lastInsertId();
-                                // $records['estatus'] = 1;
-                            // $data = [$data];
-                            } catch (Exception $e) {
-                                $rQuery = $manguerasReInsertar->query($sQuery, [
-                                $records['plaza_id'],
-                                $records['plaza'],//pendiente de verificar
-                                $records['cvecia'],
-                                $records['planta_id'],
-                                $records['rubro_venta_id'],
-                                $records['cvecia_id'],
-                                $records['rubro_venta'],
-                                $records['num_manguera'],
-                                $records['descrip_manguera'],
-                                $records['descrip_rubro_venta'],
-                                (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                                (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                                (isset($records['num_red']) == true ? $records['num_red'] : 0),
-                                (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
-                                (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
-                                (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
-                                date("Y-m-d"),
-                                '0000-00-00',
-                                $key
-                                ]);
-
-                                // $records['clientId'] = $records['id_manguera'];
-                                // $records['id_manguera'] = $manguerasReInsertar->lastInsertId();
-                                // $records['estatus'] = 1;
-                                // $data = [$data];
-                            }
-
-                            $value->commit();
-                            $manguerasReInsertar->commit();
-                        }
-                    // $records = [$records];
-
-                        $msg = "<center>Se agrego correctamente!</center>";
-                        $success = true;
-                    } else {
-                        $msg = "<center>La empresa se encuentra desactivada, verifique porfavor</center>";
-                        $success = false;
-                    }
-                } else {
-                    $msg = "<center>Ya existe la bomba <b>".$records['num_bomba']." </b> en la estación <b>
-                        ".$records['num_estacion']." </b>, verifique porfavor</center>";
-                    $success = false;
-                }
-            } else {
-                $msg = "<center>Ya existe el numero de estación <b>".$records['num_estacion']." </b> en la Planta <b>"
-                .$records['nombre_planta']."</b>, verifique porfavor</center>";
-                $success = false;
-            }
-        } else {
-            if ($records['rubro_venta_id'] == 1) {
-                $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
-                     AND num_bascula = ? AND mangueras.estatus = 1";
-                $rQuery = $oConexion->query($query, [
-                $records['plaza_id'],
-                $records['planta_id'],
-                $records['rubro_venta_id'],
-                $records['num_bascula']
-                ]);
-            }
-            if ($records['rubro_venta_id'] == 3) {
-                $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
-                    AND num_eco = ? AND mangueras.estatus = 1";
-                $rQuery = $oConexion->query($query, [
-                $records['plaza_id'],
-                $records['planta_id'],
-                $records['rubro_venta_id'],
-                $records['num_eco']
-                ]);
-            }
-            if ($records['rubro_venta_id'] == 5) {
-                $query = "SELECT * FROM mangueras WHERE plaza_id = ? AND planta_id = ? AND rubro_venta_id = ? 
-                    AND num_red = ? AND sub_red = ? AND mangueras.estatus = 1";
-                $rQuery = $oConexion->query($query, [
-                $records['plaza_id'],
-                $records['planta_id'],
-                $records['rubro_venta_id'],
-                $records['num_red'],
-                $records['sub_red']
-                ]);
-            }
-
-            if (empty($rQuery)) {
-                $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta, 
-                    num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion, 
-                    num_red, sub_red, fecha_alta, fecha_baja) 
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-                $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta, 
-                    num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion, 
-                    num_red, sub_red, fecha_alta, fecha_baja, servidor) 
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                        
-                foreach ($conexiones as $key => $value) {
-                    try {
-                        $value->begin();
-                        $manguerasReInsertar->begin();
-                        $rQuery = $value->query($query, [
-                        $records['plaza_id'],
-                        $records['plaza'],//pendiente de verificar
-                        $records['cvecia'],
-                        $records['planta_id'],
-                        $records['rubro_venta_id'],
-                        $records['rubro_venta'],
-                        $records['num_manguera'],
-                        $records['descrip_manguera'],
-                        $records['descrip_rubro_venta'],
-                        (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                        (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
-                        (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                        (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
-                        (isset($records['num_red']) == true ? $records['num_red'] : 0),
-                        (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
-                        date("Y-m-d"),
-                        '0000-00-00'
-                        ]);
-
-                        $records['clientId'] = $records['id_manguera'];
-                        $records['id_manguera'] = $oConexion->lastInsertId();
-                        $records['estatus'] = 1;
-                    } catch (Exception $e) {
-                        $rQuery = $manguerasReInsertar->query($sQuery, [
-                        $records['plaza_id'],
-                        $records['plaza'],//pendiente de verificar
-                        $records['cvecia'],
-                        $records['planta_id'],
-                        $records['rubro_venta_id'],
-                        $records['rubro_venta'],
-                        $records['num_manguera'],
-                        $records['descrip_manguera'],
-                        $records['descrip_rubro_venta'],
-                        (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                        (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
-                        (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                        (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
-                        (isset($records['num_red']) == true ? $records['num_red'] : 0),
-                        (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
-                        date("Y-m-d"),
-                        '0000-00-00',
-                        $key
-                        ]);
-                            
-                        $records['clientId'] = $records['id_manguera'];
-                        $records['id_manguera'] = $manguerasReInsertar->lastInsertId();
-                        $records['estatus'] = 1;
-                    }
-                    $value->commit();
-                    $manguerasReInsertar->commit();
+                    $uE = "UPDATE estaciones SET tiene_perm = ?, permiso_id = ? WHERE num_estac = ?";
+                    $rUe = $value->query($uE, [
+                        '1',
+                        $rP[0]['id_permiso'],
+                        $records['num_estacion']
+                    ]);
                 }
 
-                // $data['clientId'] = $data['id_manguera'];
-                // $data['id_manguera'] = $oLink->lastInsertId();
-                // $data['estatus'] = 1;
-                $records = [$records];
-
-                $msg = "<center>Se agrego correctamente!</center>";
-                $success = true;
-            } else {
-                $msg = "<center>Ya existe la información, verifique porfavor</center>";
-                $success = false;
+                $rFolioServicio = $value->query($uFolio, [
+                    '0',
+                    $records['num_estacion']
+                ]);
+            } catch (Exception $e) {
+                $rQuery = $manguerasReInsertar->query($sQuery, [
+                $records['plaza_id'],
+                $records['plaza'],//pendiente de verificar
+                $records['cvecia'],
+                $records['planta_id'],
+                $records['rubro_venta_id'],
+                $records['rubro_venta'],
+                $records['num_manguera'],
+                $records['descrip_manguera'],
+                $records['descrip_rubro_venta'],
+                (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                date("Y-m-d"),
+                '0000-00-00',
+                $key
+                ]);
             }
+            $value->commit();
+            $manguerasReInsertar->commit();
         }
-        // } catch (Exception $e) {
-        //     $success = "false";
-        //     $records = "";
-        //     if (strpos($e->getMessage(), '1451')) {
-        //         $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
-        //     } elseif (strpos($e->getMessage(), '1052')) {
-        //         $msg = "Existen nombres de columna ambiguos en la consulta.";
-        //     } else {
-        //         $msg = "Contiene un error en el servidor!";
-        //     }
-        // }
-            return $this->asJson([
-                "success" => $success,
-                "message" => $msg,
-                "records" => $records
-            ]);
+
+        $success = true;
+        $msg = "<center>Se actualizo correctamente</center>";
+
+        return $this->asJson([
+            "success" => $success,
+            "message" => $msg,
+            "records" => $records
+        ]);
     }
 
     public function insertManguerasReInsertar()
@@ -944,7 +1156,9 @@ class ManguerasController extends AppController
             ->setCellValue('G4', 'Num. Bascula')
             ->setCellValue('H4', 'Num. Red')
             ->setCellValue('I4', 'Sub-red')
-            ->setCellValue('J4', 'Num. Bomba');
+            ->setCellValue('J4', 'Num. Bomba')
+            ->setCellValue('K4', 'Permiso')
+            ;
 
         $a_result = json_decode($_REQUEST['records'], true);
         $n_celda = 5;
@@ -964,7 +1178,8 @@ class ManguerasController extends AppController
                     ->setCellValue('G' . $n_celda, $a_key['num_bascula'])
                     ->setCellValue('H' . $n_celda, $a_key['num_red'])
                     ->setCellValue('I' . $n_celda, $a_key['sub_red'])
-                    ->setCellValue('J' . $n_celda, $a_key['num_bomba']);
+                    ->setCellValue('J' . $n_celda, $a_key['num_bomba'])
+                    ->setCellValue('K' . $n_celda, $a_key['permiso']);
 
                 $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosL, 'A'. $n_celda);
                 $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosL, 'B'. $n_celda);
@@ -976,6 +1191,7 @@ class ManguerasController extends AppController
                 $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosR, 'H'. $n_celda);
                 $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosR, 'I'. $n_celda);
                 $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosR, 'J'. $n_celda);
+                $objPHPExcel->getActiveSheet()->setSharedStyle($o_textitosL, 'K'. $n_celda);
                 $objPHPExcel->getActiveSheet()->getStyle('F'.$n_celda)->getNumberFormat()->setFormatCode('#,##');
 
                 $n_celda++;
@@ -992,6 +1208,7 @@ class ManguerasController extends AppController
         $objPHPExcel->getActiveSheet()->getColumnDimension('H')->setWidth(15);
         $objPHPExcel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
         $objPHPExcel->getActiveSheet()->getColumnDimension('J')->setWidth(15);
+        $objPHPExcel->getActiveSheet()->getColumnDimension('K')->setWidth(25);
 
         $objPHPExcel->setActiveSheetIndex(0);
         $objPHPExcel->removeSheetByIndex($objPHPExcel->getSheetCount() - 1);

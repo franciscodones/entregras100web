@@ -32,7 +32,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
         type: 'windownewmanguera'
     },
     modal: true,
-    height: 628,
+    height: 680,
     width: 403,
     title: 'Agregar manguera',
 
@@ -111,8 +111,26 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     fieldLabel: 'Num. Estación',
                     name: 'num_estacion',
                     listeners: {
-                        change: 'onTxtNumEstacionChange'
+                        change: 'onTxtNumEstacionChange',
+                        focusleave: 'onTxtNumEstacionFocusleave'
                     }
+                },
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    disabled: true,
+                    itemId: 'txtNombreEstacion',
+                    fieldLabel: 'Nombre estación',
+                    name: 'nom_estac'
+                },
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    disabled: true,
+                    hidden: true,
+                    itemId: 'txtTienePerm',
+                    fieldLabel: 'Label',
+                    name: 'tiene_perm'
                 },
                 {
                     xtype: 'container',
@@ -122,13 +140,17 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     },
                     items: [
                         {
-                            xtype: 'textfield',
+                            xtype: 'combobox',
                             disabled: true,
-                            id: 'txtPermisoManguera',
-                            itemId: 'txtPermisoManguera',
+                            id: 'cmbPermisoManguera',
+                            itemId: 'cmbPermisoManguera',
                             width: 340,
                             fieldLabel: 'Permiso',
-                            name: 'permiso',
+                            name: 'permiso_id',
+                            displayField: 'permiso',
+                            forceSelection: true,
+                            queryMode: 'local',
+                            valueField: 'id_permiso',
                             listeners: {
                                 focusleave: 'onTxtPermisoFocusleave'
                             }

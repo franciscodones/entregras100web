@@ -53,7 +53,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             num_bascula =  this.getView().down('#txtNumBascula'),
             num_eco = this.getView().down('#txtNumEco'),
             num_estacion = this.getView().down('#txtNumEstacion'),
-            permiso = this.getView().down('#txtPermisoManguera'),
+            permiso = this.getView().down('#cmbPermisoManguera'),
             num_red = this.getView().down('#txtNumRed'),
             num_bomba = this.getView().down('#txtNumBomba'),
             id_manguera = this.getView().down('#id_manguera'),
@@ -202,93 +202,143 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
     },
 
     onTxtNumEstacionChange: function(field, newValue, oldValue, eOpts) {
+        // Ext.Msg.confirm('Mensaje de Sistema','¿La estación cuenta con permiso propio?',function(btn){
+        //     if(btn === 'yes'){
+
+        //         //         permiso.setValue('');
+
+        //         btnAgregarPermiso.setDisabled(false);
+        //     }else{
+        // //         this.get
+        //         Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+        //         var planta_id = this.getView().down('#cmbPlanta').getValue(),
+        //             store = Ext.getStore('mangueras.comboPermisosStore');
+        //         store.load({
+        //             params:{
+        //                 planta_id: planta_id
+        //             },callback:function(){
+        //                 field.up('window').down('#cmbPermisoManguera').setStore(store);
+        //                 this.getView().down('#cmbPermisoManguera').setDisabled(false);
+        //                 this.getView().down('#cmbPermisoManguera').allowBlank = false;
+        //                 Ext.Msg.hide();
+        //             }
+        //         });
+        //         //         permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
+        //         //         btnAgregarPermiso.setDisabled(true);
+        //     }
+        // });
+
+        // this.getView().down('#txtDescripcion').setValue('');
+        // // this.getView().down('#txtPermisoManguera').setDisabled(false);
+        // // this.getView().down('#txtPermisoManguera').allowBlank = false;
+    },
+
+    onTxtNumEstacionFocusleave: function(component, event, eOpts) {
+        var planta_id = this.getView().down('#cmbPlanta').getValue(),
+            cmbPermiso = this.getView().down('#cmbPermisoManguera'),
+            btnAgregarPermiso = this.getView().down('#btnAddPermiso'),
+            nombreEstacion = this.getView().down('#txtNombreEstacion'),
+            tienePerm = this.getView().down('#txtTienePerm');
+
+        Ext.Msg.confirm('Mensaje de Sistema','¿La Estación cuenta con permiso propio?',function(btn){
+            if(btn === 'yes'){
+                cmbPermiso.setDisabled(true);
+                cmbPermiso.setValue('');
+                btnAgregarPermiso.setDisabled(false);
+                nombreEstacion.setValue('');
+                nombreEstacion.setDisabled(true);
+                tienePerm.setDisabled(true);
+            }else{
+                Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+
+                var store = Ext.getStore('mangueras.comboPermisosStore');
+                store.load({
+                    params:{
+                        planta_id: planta_id
+                    },callback:function(){
+                        nombreEstacion.setDisabled(false);
+                        tienePerm.setDisabled(false);
+                        nombreEstacion.allowBlank = false;
+                        cmbPermiso.setStore(store);
+                        btnAgregarPermiso.setDisabled(true);
+                        cmbPermiso.setDisabled(false);
+                        cmbPermiso.allowBlank = false;
+                        Ext.Msg.hide();
+                    }
+                });
+                //         permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
+                //         btnAgregarPermiso.setDisabled(true);
+            }
+        });
+
         this.getView().down('#txtDescripcion').setValue('');
-        this.getView().down('#txtPermisoManguera').setDisabled(false);
-        this.getView().down('#txtPermisoManguera').allowBlank = false;
-        // // this.getView().down('#descripcion').setDisabled(true);
-        // // this.getView().down('#descripcion').setHidden(true);
-        // // this.getView().down('#descripcion1').setHidden(false);
-
-
+        // this.getView().down('#txtPermisoManguera').setDisabled(false);
+        // this.getView().down('#txtPermisoManguera').allowBlank = false;
     },
 
     onTxtPermisoFocusleave: function(component, event, eOpts) {
-        this.getView().down('#txtDescripcion').setValue('');
-        var cmbPlaza = this.getView().down('#cmbPlaza').getValue(),
-            cmbClave = this.getView().down('#cmbClave').selection.data.cvecia,
-            permiso = this.getView().down('#txtPermisoManguera'),
-            value = component.value,
-            btnAgregarPermiso = this.getView().down('#btnAddPermiso');
+        // this.getView().down('#txtDescripcion').setValue('');
+        // var cmbPlaza = this.getView().down('#cmbPlaza').getValue(),
+        //     cmbClave = this.getView().down('#cmbClave').selection.data.cvecia,
+        //     permiso = this.getView().down('#txtPermisoManguera'),
+        //     value = component.value,
+        //     btnAgregarPermiso = this.getView().down('#btnAddPermiso');
 
-        // this.getView().down('#descripcion').setDisabled(true);
-        // this.getView().down('#descripcion').setHidden(true);
-        // this.getView().down('#descripcion1').setHidden(false);
-
-
-        Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
-        Ext.Ajax.request({
-            url: 'api/Mangueras/searchPermiso',
-            params:{
-                plaza_id : cmbPlaza,
-                cvecia: cmbClave,
-                permiso: value
-            },
-            headers:{
-                Accept: 'application/json, */*'
-            },
-            success:function(response){
-                try{
-                    var resp = JSON.parse(response.responseText);
-                    Ext.Msg.hide();
-                    if(resp.success){
-                        console.log(resp);
-                    }else{
-                        //                 numEstacion.setValue('');
-                        //                 Ext.MessageBox.show({
-                        //                     title: '<center>Mensaje de Sistema</center>',
-                        //                     msg: resp.message,
-                        //                     icon: Ext.MessageBox.ERROR,
-                        //                     buttons: Ext.Msg.OK,
-                        //                     buttonText:{ok:"Aceptar"},
-                        //                     closable:false
-                        //                 });
-                        Ext.Msg.confirm('Mensaje de Sistema','¿Quiere agregar un permiso?',function(btn){
-                            if(btn === 'yes'){
-                                permiso.setValue('');
-                                btnAgregarPermiso.setDisabled(false);
-                                //                         permiso.setValue();
-                            }else{
-                                permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
-                            }
-                        });
-                    }
-                }catch(Exception){
-                    Ext.Msg.hide(
-                    null,
-                    function(){
-                        Ext.MessageBox.show({
-                            title: '<center>Mensaje de Sistema</center>',
-                            msg: Exception,
-                            closable:false,
-                            buttons: Ext.Msg.OK,
-                            buttonText:{ok:"Aceptar"},
-                            icon: Ext.Msg.ERROR
-                        });
-                    }
-                    );
-                }
-            },
-            failure:function(response){
-                Ext.MessageBox.show({
-                    title: '<center>Mensaje de Sistema</center>',
-                    msg: '<center>Fallo la conexión al servidor!</center>',
-                    icon: Ext.MessageBox.ERROR,
-                    buttons: Ext.Msg.OK,
-                    buttonText:{ok:"Aceptar"},
-                    closable:false
-                });
-            }
-        });
+        // Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+        // Ext.Ajax.request({
+        //     url: 'api/Mangueras/searchPermiso',
+        //     params:{
+        //         plaza_id : cmbPlaza,
+        //         cvecia: cmbClave,
+        //         permiso: value
+        //     },
+        //     headers:{
+        //         Accept: 'application/json, */*'
+        //     },
+        //     success:function(response){
+        //         try{
+        //             var resp = JSON.parse(response.responseText);
+        //             Ext.Msg.hide();
+        //             if(resp.success){
+        //                 console.log(resp);
+        //             }else{
+        //                 Ext.Msg.confirm('Mensaje de Sistema','¿Quiere agregar un permiso?',function(btn){
+        //                     if(btn === 'yes'){
+        //                         permiso.setValue('');
+        //                         btnAgregarPermiso.setDisabled(false);
+        //                     }else{
+        //                         permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
+        //                         btnAgregarPermiso.setDisabled(true);
+        //                     }
+        //                 });
+        //             }
+        //         }catch(Exception){
+        //             Ext.Msg.hide(
+        //                 null,
+        //                 function(){
+        //                     Ext.MessageBox.show({
+        //                         title: '<center>Mensaje de Sistema</center>',
+        //                         msg: Exception,
+        //                         closable:false,
+        //                         buttons: Ext.Msg.OK,
+        //                         buttonText:{ok:"Aceptar"},
+        //                         icon: Ext.Msg.ERROR
+        //                     });
+        //                 }
+        //             );
+        //         }
+        //     },
+        //     failure:function(response){
+        //         Ext.MessageBox.show({
+        //             title: '<center>Mensaje de Sistema</center>',
+        //             msg: '<center>Fallo la conexión al servidor!</center>',
+        //             icon: Ext.MessageBox.ERROR,
+        //             buttons: Ext.Msg.OK,
+        //             buttonText:{ok:"Aceptar"},
+        //             closable:false
+        //         });
+        //     }
+        // });
     },
 
     onBtnAddPermisoClick: function(button, e, eOpts) {
@@ -414,8 +464,6 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
 
         var store = Ext.getStore('mangueras.PermisosStore').data.items;
 
-
-
         if(form.isValid()){
             Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
             if (store != ""){
@@ -467,6 +515,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                     num_estacion: values.num_estacion,
                                     num_red: values.num_red,
                                     sub_red: values.sub_red,
+                                    tiene_perm:1,
                                     id:1
                                 });
                                 //                         Ext.getStore('mangueras.ManguerasStore').load({
@@ -517,12 +566,15 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                     }
                 });
             }else{
-
+                var permiso_id = this.getView().down('#cmbPermisoManguera').getValue(),
+                    tiene_perm = this.getView().down('#txtTienePerm').getValue();
                 var record = Ext.create('Entregas100Web.model.mangueras.PlazasModel');
                 record.set(values);
                 record.set('plaza', plaza);
+                record.set('permiso_id', permiso_id);
                 record.set('descrip_rubro_venta', descrip_rubro_venta);
                 record.set('rubro_venta', rubro_venta);
+                record.set('tiene_perm',0);
                 record.set('nombre_planta',planta);
                 record.set('cvecia', clave);
                 window.store = store;

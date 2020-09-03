@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "windownewpermisos",
         "designer|userClassName": "windowNewPermisos",
-        "height": 266,
+        "height": 229,
         "modal": true,
         "title": "Agregar permiso",
         "width": 400
@@ -309,48 +309,6 @@
                     "designerId": "7c7f5ead-e6dc-4518-ac01-0beb32850008"
                 },
                 {
-                    "type": "Ext.form.CheckboxGroup",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Tiene permiso"
-                    },
-                    "configAlternates": {
-                        "fieldLabel": "string"
-                    },
-                    "name": "MyCheckboxGroup",
-                    "designerId": "7487af7d-f8c2-4359-b90d-20a83bb58b0f",
-                    "cn": [
-                        {
-                            "type": "Ext.form.field.Checkbox",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "boxLabel": "Si",
-                                "fieldLabel": null,
-                                "inputValue": "1",
-                                "name": "tiene_perm",
-                                "uncheckedValue": "0"
-                            },
-                            "configAlternates": {
-                                "boxLabel": "string",
-                                "fieldLabel": "string",
-                                "inputValue": "string",
-                                "uncheckedValue": "string",
-                                "name": "string"
-                            },
-                            "name": "MyCheckbox",
-                            "designerId": "a78491c9-e982-40aa-a70b-7eb47b991697"
-                        }
-                    ]
-                },
-                {
                     "type": "Ext.toolbar.Toolbar",
                     "reference": {
                         "name": "dockedItems",
@@ -436,7 +394,7 @@
                                             "        pla_est: values.pla_est,",
                                             "        planta_id: values.planta_id,",
                                             "        num_estac: values.num_estac,",
-                                            "        tiene_perm: values.tiene_perm,",
+                                            "        tiene_perm: 1,",
                                             "        nompla_est: values.nompla_est,",
                                             "        plaza: values.plaza,",
                                             "        id:1",
@@ -463,7 +421,7 @@
                                             "}",
                                             "",
                                             "function onSyncSucess() {",
-                                            "    Ext.getCmp('txtPermisoManguera').setValue(values.permiso);",
+                                            "//     Ext.getCmp('txtPermisoManguera').setValue(values.permiso);",
                                             "    Ext.Msg.hide();",
                                             "    win.close();",
                                             "}"

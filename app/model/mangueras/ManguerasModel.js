@@ -24,7 +24,7 @@ Ext.define('Entregas100Web.model.mangueras.ManguerasModel', {
 
     fields: [
         {
-            name: 'plaza'
+            name: 'plazas'
         },
         {
             name: 'rubro_venta'
@@ -58,6 +58,12 @@ Ext.define('Entregas100Web.model.mangueras.ManguerasModel', {
         },
         {
             name: 'sub_red'
+        },
+        {
+            name: 'tiene_perm'
+        },
+        {
+            name: 'plaza'
         }
     ]
 });
