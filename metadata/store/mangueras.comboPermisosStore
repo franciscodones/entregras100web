@@ -1,22 +1,21 @@
 {
-    "type": "jsonstore",
+    "type": "Ext.data.Store",
     "reference": {
         "name": "items",
         "type": "array"
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "mangueras.ManguerasStore",
-        "model": "mangueras.ManguerasModel",
-        "storeId": "mangueras.ManguerasStore"
+        "designer|userClassName": "mangueras.comboPermisosStore",
+        "model": "Mangueras.ComboPermisosModel",
+        "storeId": "mangueras.comboPermisosStore"
     },
     "configAlternates": {
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string"
     },
-    "name": "MyJsonStore",
-    "designerId": "a20665d8-11a9-4b37-b56f-63a1b8f5a1f6",
+    "designerId": "1a16e5f5-c701-4cc9-ae30-0577ae0a0a41",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -28,10 +27,7 @@
             "userConfig": {
                 "api": [
                     "{",
-                    "read: 'api/Mangueras/read',",
-                    "create: 'api/Mangueras/insert',",
-                    "update: 'api/Mangueras/update',",
-                    "destroy: 'api/Mangueras/destroy'",
+                    "read: 'api/Mangueras/Permisos'",
                     "}"
                 ],
                 "timeout": 300000
@@ -40,8 +36,8 @@
                 "api": "object",
                 "timeout": "number"
             },
-            "name": "MyAjaxProxy1",
-            "designerId": "0903a4d8-1671-49f3-8aa2-470ecbeda0b3",
+            "name": "MyAjaxProxy",
+            "designerId": "fefd1bf2-12c0-4452-880c-7551ca727dad",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -58,8 +54,8 @@
                         "messageProperty": "string",
                         "rootProperty": "string"
                     },
-                    "name": "MyJsonReader1",
-                    "designerId": "a09eeca7-4bbd-4dfb-8e44-bce8ef840df7"
+                    "name": "MyJsonReader",
+                    "designerId": "68c933c4-10bf-420a-a181-7e19f035ba5d"
                 },
                 {
                     "type": "Ext.data.writer.Json",
@@ -69,6 +65,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowSingle": false,
                         "encode": true,
                         "rootProperty": "records",
                         "writeAllFields": true
@@ -79,8 +76,8 @@
                         "rootProperty": "string",
                         "writeAllFields": "boolean"
                     },
-                    "name": "MyJsonWriter1",
-                    "designerId": "fd50433a-6cbb-4031-8f0d-e22c69a75c34"
+                    "name": "MyJsonWriter",
+                    "designerId": "4f73a6ca-154b-4e52-8a8e-d71280b27a9e"
                 }
             ]
         }

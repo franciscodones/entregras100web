@@ -24,7 +24,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "plaza"
+                "name": "plazas"
             },
             "configAlternates": {
                 "name": "string"
@@ -207,6 +207,38 @@
             },
             "name": "MyField11",
             "designerId": "31f11bd9-ea35-41fa-8219-e668a00cc2ac"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tiene_perm"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField15",
+            "designerId": "20e6d207-e732-44b3-ad91-507e48081e91"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "plaza"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField16",
+            "designerId": "577418c4-c1e3-41c0-99ce-86ef6bec5cfd"
         }
     ]
 }

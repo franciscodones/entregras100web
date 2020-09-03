@@ -33,7 +33,8 @@
             "mangueras.PlazasModel",
             "mangueras.ManguerasReInsertarModel",
             "ScriptRemoto",
-            "mangueras.PermisosModel"
+            "mangueras.PermisosModel",
+            "Mangueras.ComboPermisosModel"
         ],
         "name": "Entregas100Web",
         "stores": [
@@ -64,7 +65,8 @@
             "mangueras.ManguerasReInsertarStore",
             "ScriptRemotosStore",
             "mangueras.estacionPlantaStore",
-            "mangueras.PermisosStore"
+            "mangueras.PermisosStore",
+            "mangueras.comboPermisosStore"
         ],
         "views": [
             "MainViewport",
@@ -106,7 +108,8 @@
             "WindowReinsertarInformacionMangueras",
             "ScriptRemotoPanel",
             "CrearScriptRemotoWindow",
-            "windowNewPermisos"
+            "windowNewPermisos",
+            "windowEditManguera"
         ]
     },
     "configAlternates": {

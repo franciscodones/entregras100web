@@ -1,0 +1,440 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "windoweditmanguera",
+        "designer|userClassName": "windowEditManguera",
+        "height": 264,
+        "modal": true,
+        "resizable": false,
+        "title": "Editar mangueras",
+        "width": 400
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "modal": "boolean",
+        "resizable": "boolean",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyWindow",
+    "designerId": "ab71ea01-ffef-41dd-bff6-9111f4f6bbf2",
+    "viewControllerInstanceId": "9bfbe345-efe9-4eb5-bc92-82a1fe31ea47",
+    "viewModelInstanceId": "0f8212aa-c21b-40a7-8145-d22d56756fb2",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "title": ""
+            },
+            "configAlternates": {
+                "bodyPadding": "auto",
+                "title": "string"
+            },
+            "name": "MyForm2",
+            "designerId": "91efa49f-d886-4377-bb5c-f3d10dececc6",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "Num Estación",
+                        "layout|anchor": "100%",
+                        "name": "num_estacion"
+                    },
+                    "configAlternates": {
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField23",
+                    "designerId": "e8615d7f-61ff-43b4-9778-5acd88a8bf1f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Permiso",
+                        "itemId": "txtPermiso",
+                        "layout|anchor": "100%",
+                        "name": "permiso"
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField24",
+                    "designerId": "ae853364-b95a-4c15-bf1d-d383b0884025",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTextfieldFocusleave",
+                                "implHandler": [
+                                    "// this.getView().down('#txtDescripcion').setValue('');",
+                                    "var btnGuardar = this.getView().down('#btnGuardar'),",
+                                    "    permiso = this.getView().down('#txtPermiso');",
+                                    "",
+                                    "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                    "Ext.Ajax.request({",
+                                    "    url: 'api/Mangueras/searchPermiso',",
+                                    "    params:{",
+                                    "        permiso: component.value",
+                                    "    },",
+                                    "    headers:{",
+                                    "        Accept: 'application/json, */*'",
+                                    "    },",
+                                    "    success:function(response){",
+                                    "        try{",
+                                    "            var resp = JSON.parse(response.responseText);",
+                                    "            Ext.Msg.hide();",
+                                    "            if(resp.success){",
+                                    "                btnGuardar.setDisabled(true);",
+                                    "                Ext.MessageBox.show({",
+                                    "                    title: '<center>Mensaje de Sistema</center>',",
+                                    "                    msg: resp.message,",
+                                    "                    icon: Ext.MessageBox.ERROR,",
+                                    "                    buttons: Ext.Msg.OK,",
+                                    "                    buttonText:{ok:\"Aceptar\"},",
+                                    "                    closable:false",
+                                    "                });",
+                                    "                permiso.setValue('');",
+                                    "            }else{",
+                                    "               btnGuardar.setDisabled(false);",
+                                    "            }",
+                                    "        }catch(Exception){",
+                                    "            Ext.Msg.hide(",
+                                    "                null,",
+                                    "                function(){",
+                                    "                    Ext.MessageBox.show({",
+                                    "                        title: '<center>Mensaje de Sistema</center>',",
+                                    "                        msg: Exception,",
+                                    "                        closable:false,",
+                                    "                        buttons: Ext.Msg.OK,",
+                                    "                        buttonText:{ok:\"Aceptar\"},",
+                                    "                        icon: Ext.Msg.ERROR",
+                                    "                    });",
+                                    "                }",
+                                    "            );",
+                                    "        }",
+                                    "    },",
+                                    "    failure:function(response){",
+                                    "        Ext.MessageBox.show({",
+                                    "            title: '<center>Mensaje de Sistema</center>',",
+                                    "            msg: '<center>Fallo la conexión al servidor!</center>',",
+                                    "            icon: Ext.MessageBox.ERROR,",
+                                    "            buttons: Ext.Msg.OK,",
+                                    "            buttonText:{ok:\"Aceptar\"},",
+                                    "            closable:false",
+                                    "        });",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "focusleave",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTextfieldFocusleave",
+                            "designerId": "0c9277a2-db39-4030-a154-68b32f6aa31d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "Nombre estación",
+                        "layout|anchor": "100%",
+                        "name": "nom_estac"
+                    },
+                    "configAlternates": {
+                        "editable": "boolean",
+                        "fieldLabel": "string",
+                        "layout|anchor": "string",
+                        "name": "string"
+                    },
+                    "name": "MyTextField25",
+                    "designerId": "d20a46a3-7c97-4333-9b53-dcc0a8d2c547"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "configAlternates": {
+                        "dock": "string"
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "8126a829-5de9-4629-9586-cf9c36d22c5a",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer4",
+                            "designerId": "d9487aae-b00c-467b-a223-0eda58a61138"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "disabled": true,
+                                "glyph": "f058@FontAwesome",
+                                "itemId": "btnGuardar",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Guardar",
+                                "tooltip": "Guardar",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "disabled": "boolean",
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "tooltip": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "704a4b55-fd25-4561-8965-a3240e4a2afa",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarClick",
+                                        "implHandler": [
+                                            "",
+                                            "var win =  button.up('window'),",
+                                            "    form   = win.down('form'),",
+                                            "    record = form.getRecord(),",
+                                            "    values = form.getValues();",
+                                            "",
+                                            "var permiso = this.getView().down('#txtPermiso').getValue();",
+                                            "",
+                                            "Ext.Msg.confirm('Mensaje de Sistema','¿Esta correcta la información ingresada? Verifique antes de continuar!',function(btn){",
+                                            "    if(btn === 'yes'){",
+                                            "        if(form.isValid()){",
+                                            "            Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
+                                            "",
+                                            "            var store = Ext.getStore('mangueras.ManguerasStore');",
+                                            "            window.store = store;",
+                                            "            record.set('permiso', permiso);",
+                                            "            form.updateRecord();",
+                                            "            if(store.needsSync){",
+                                            "                store.sync({",
+                                            "                    success: function(batch,options){",
+                                            "                        Ext.MessageBox.show({",
+                                            "                            title: '<center>Mensaje de Sistema</center>',",
+                                            "                            msg: '<center>Se actualizo correctamente!</center>',",
+                                            "                            closable:false,",
+                                            "                            buttons: Ext.Msg.OK,",
+                                            "                            buttonText:{ok:\"Aceptar\"},",
+                                            "                            icon: Ext.MessageBox.INFO",
+                                            "                        });",
+                                            "                        onSyncSucess();",
+                                            "                    },",
+                                            "                    failure:function(batch){",
+                                            "                        store.rejectChanges();",
+                                            "                        Ext.each(batch.exceptions, function(operation){",
+                                            "                            if(operation.error.statusText === \"\"){",
+                                            "                                Ext.MessageBox.show({",
+                                            "                                    title: '<center>Mensaje de Sistema</center>',",
+                                            "                                    msg: '<center>Fallo la conexión con el servidor!</center>',",
+                                            "                                    closable:false,",
+                                            "                                    buttons: Ext.Msg.OK,",
+                                            "                                    buttonText:{ok:\"Aceptar\"},",
+                                            "                                    icon: Ext.Msg.ERROR",
+                                            "                                });",
+                                            "                            }else{",
+                                            "                                var error = batch.getExceptions();",
+                                            "                                var error1 = error[0].getError();",
+                                            "                                Ext.MessageBox.show({",
+                                            "                                    title: '<center>Mensaje de Sistema</center>',",
+                                            "                                    msg: '<center>'+error1+'</center>',",
+                                            "                                    closable:false,",
+                                            "                                    buttons: Ext.Msg.OK,",
+                                            "                                    buttonText:{ok:\"Aceptar\"},",
+                                            "                                    icon: Ext.Msg.ERROR",
+                                            "                                });",
+                                            "",
+                                            "                            }",
+                                            "                        });",
+                                            "                    }",
+                                            "                });",
+                                            "            }else{",
+                                            "                onSyncSucess();",
+                                            "            }",
+                                            "        }else{",
+                                            "            Ext.MessageBox.show({",
+                                            "                title : 'Mensaje del sistema',",
+                                            "                buttons : Ext.MessageBox.OK,",
+                                            "                msg : '<br>Ingrese todos los campos obligatorios</br>',",
+                                            "                icon : Ext.Msg.ERROR",
+                                            "            });",
+                                            "        }",
+                                            "",
+                                            "",
+                                            "    }else{",
+                                            "        console.log('revisar');",
+                                            "    }",
+                                            "});",
+                                            "",
+                                            "function onSyncSucess() {",
+                                            "    Ext.Msg.hide();",
+                                            "    win.close();",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnGuardarClick",
+                                    "designerId": "ea87184f-15ed-490f-9ee5-6d4454c1ecde"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|uiInterfaceName": "default-medium",
+                                "glyph": "f057@FontAwesome",
+                                "itemId": "btnSalir",
+                                "layout|flex": null,
+                                "scale": "medium",
+                                "text": "Salir",
+                                "tooltip": "Salir",
+                                "ui": "default-medium"
+                            },
+                            "configAlternates": {
+                                "designer|uiInterfaceName": "string",
+                                "glyph": "auto",
+                                "itemId": "string",
+                                "layout|flex": "number",
+                                "scale": "string",
+                                "text": "string",
+                                "tooltip": "string",
+                                "ui": "string"
+                            },
+                            "name": "MyButton10",
+                            "designerId": "973a79bf-2993-4546-b699-c3c59b90efe4",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnSalirClick",
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onBtnSalirClick",
+                                    "designerId": "4cfadc3a-69cf-48c1-89d9-cb437a2d897b"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.toolbar.Spacer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "MySpacer5",
+                            "designerId": "588c00f0-2ec9-4fc2-a272-62a58533db26"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

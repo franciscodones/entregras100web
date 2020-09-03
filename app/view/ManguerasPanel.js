@@ -23,9 +23,13 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
         'Ext.toolbar.Toolbar',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
+        'Ext.form.FieldSet',
+        'Ext.form.Label',
         'Ext.grid.Panel',
         'Ext.view.Table',
-        'Ext.grid.column.Action'
+        'Ext.grid.column.Action',
+        'Ext.grid.plugin.RowExpander',
+        'Ext.XTemplate'
     ],
 
     controller: 'mangueraspanel',
@@ -91,6 +95,58 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                     listeners: {
                         click: 'onBtnExcelClick'
                     }
+                },
+                {
+                    xtype: 'fieldset',
+                    margin: '0 0 0 20',
+                    title: 'Estatus Permisos',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'container',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'label',
+                                    width: 80,
+                                    text: 'Propio'
+                                },
+                                {
+                                    xtype: 'label',
+                                    height: 25,
+                                    style: 'background-color:  #00FF00;',
+                                    width: 50
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'container',
+                            margin: '0 0 0 20',
+                            layout: {
+                                type: 'hbox',
+                                align: 'stretch'
+                            },
+                            items: [
+                                {
+                                    xtype: 'label',
+                                    width: 80,
+                                    text: 'Provisional '
+                                },
+                                {
+                                    xtype: 'label',
+                                    height: 25,
+                                    style: 'background-color:  #F00;',
+                                    width: 50
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
@@ -136,7 +192,7 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                 {
                     xtype: 'gridcolumn',
                     width: 138,
-                    dataIndex: 'plaza',
+                    dataIndex: 'plazas',
                     text: 'Plazas'
                 },
                 {
@@ -147,7 +203,7 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 128,
+                    width: 115,
                     dataIndex: 'num_manguera',
                     text: 'Manguera'
                 },
@@ -171,27 +227,72 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 134,
+                    width: 130,
                     dataIndex: 'num_bascula',
                     text: 'Num. Bascula'
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 134,
+                    width: 115,
                     dataIndex: 'num_red',
                     text: 'Num. Red'
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 134,
+                    width: 115,
                     dataIndex: 'sub_red',
                     text: 'Sub red'
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 134,
+                    width: 125,
                     dataIndex: 'num_bomba',
                     text: 'Num. Bomba'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        if(value === 0){
+                            metaData.style = "background-color:  #F00;";
+                        }else if(value === 1){
+                            metaData.style = "background-color:  #00FF00;";
+                        }
+                    },
+                    width: 70,
+                    dataIndex: 'tiene_perm',
+                    text: ''
+                },
+                {
+                    xtype: 'actioncolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        if(record.data.tiene_perm === 0){
+                            glyph = 'f044@fontAwesome';
+                            tooltip = 'Editar';
+                            this.items[0].tooltip = tooltip;
+                            this.items[0].glyph = glyph;
+                            return value;
+                        }
+
+                    },
+                    width: 50,
+                    align: 'center',
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
+                                var ventana = Ext.create('widget.windoweditmanguera',{
+                                    title:'Editar cliente',
+                                    glyph:'f044@fontAwesome',
+                                    iconCls:''
+                                });
+
+                                ventana.down('form').loadRecord(record);
+
+                                Ext.Msg.hide();
+                                ventana.show();
+                            }
+                        }
+                    ]
                 },
                 {
                     xtype: 'actioncolumn',
@@ -277,6 +378,14 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                                 });
                             }
                         }
+                    ]
+                }
+            ],
+            plugins: [
+                {
+                    ptype: 'rowexpander',
+                    rowBodyTpl: [
+                        '<b>Permiso:</b> {permiso}'
                     ]
                 }
             ]

@@ -51,7 +51,7 @@ Ext.define('Entregas100Web.view.windowNewPermisosViewController', {
                 pla_est: values.pla_est,
                 planta_id: values.planta_id,
                 num_estac: values.num_estac,
-                tiene_perm: values.tiene_perm,
+                tiene_perm: 1,
                 nompla_est: values.nompla_est,
                 plaza: values.plaza,
                 id:1
@@ -78,7 +78,7 @@ Ext.define('Entregas100Web.view.windowNewPermisosViewController', {
         }
 
         function onSyncSucess() {
-            Ext.getCmp('txtPermisoManguera').setValue(values.permiso);
+            //     Ext.getCmp('txtPermisoManguera').setValue(values.permiso);
             Ext.Msg.hide();
             win.close();
         }

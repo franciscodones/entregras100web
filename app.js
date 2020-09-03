@@ -47,7 +47,8 @@ Ext.application({
         'mangueras.PlazasModel',
         'mangueras.ManguerasReInsertarModel',
         'ScriptRemoto',
-        'mangueras.PermisosModel'
+        'mangueras.PermisosModel',
+        'Mangueras.ComboPermisosModel'
     ],
     stores: [
         'PlazasStore',
@@ -77,7 +78,8 @@ Ext.application({
         'mangueras.ManguerasReInsertarStore',
         'ScriptRemotosStore',
         'mangueras.estacionPlantaStore',
-        'mangueras.PermisosStore'
+        'mangueras.PermisosStore',
+        'mangueras.comboPermisosStore'
     ],
     views: [
         'MainViewport',
@@ -119,7 +121,8 @@ Ext.application({
         'WindowReinsertarInformacionMangueras',
         'ScriptRemotoPanel',
         'CrearScriptRemotoWindow',
-        'windowNewPermisos'
+        'windowNewPermisos',
+        'windowEditManguera'
     ],
     name: 'Entregas100Web',
 
