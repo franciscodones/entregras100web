@@ -128,6 +128,15 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     anchor: '100%',
                     disabled: true,
                     hidden: true,
+                    itemId: 'txtEstacionExiste',
+                    fieldLabel: 'Label',
+                    name: 'est_existe'
+                },
+                {
+                    xtype: 'textfield',
+                    anchor: '100%',
+                    disabled: true,
+                    hidden: true,
                     itemId: 'txtTienePerm',
                     fieldLabel: 'Label',
                     name: 'tiene_perm'

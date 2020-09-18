@@ -243,7 +243,7 @@ class ManguerasController extends AppController
         $oConexion = $this->getConexion('mangueras');
         $planta_id = $_REQUEST['planta_id'];
 
-        // obtiene todas las plazas
+        // obtiene los permisos correspondientes
         $sQuery = "SELECT * FROM permisos WHERE planta_id = ?";
         $rQuery = $oConexion->query($sQuery, [
             $planta_id
@@ -293,6 +293,43 @@ class ManguerasController extends AppController
             )
         ));
     }
+
+    public function searchNumEstacion()
+    {
+        $oConexion = $this->getConexion('mangueras');
+        $numEstacion = $_REQUEST['num_estacion'];
+        $success = "";
+        $msg = "";
+
+        // Busca si existe la estacion
+        $sQuery = "SELECT estaciones.*, permisos.permiso 
+            FROM estaciones 
+            LEFT JOIN permisos ON permisos.id_permiso = estaciones.permiso_id
+            WHERE estaciones.num_estac = ? AND estatus = 1";
+        $rQuery = $oConexion->query($sQuery, [
+            $numEstacion
+        ]);
+
+        if (count($rQuery) > 0) {
+            $records = $rQuery;
+            $success = true;
+            $msg = "Existe el numero de estacion";
+        } else {
+            $records = [];
+            $success = false;
+            $msg = "No existe el numero de estacion";
+        }
+
+        return $this->asJson(array(
+            "success" => $success,
+            "message" => $msg,
+            "records" => $records,
+            "metadata" => array(
+                "total_registros" => count($records)
+            )
+        ));
+    }
+
 
     /**
     * Busca la estación en db2
@@ -424,6 +461,7 @@ class ManguerasController extends AppController
                         $rQueryS = $oConexion->query($querySelect, [
                             $records['plaza_id']
                         ]);
+
                         if (!empty($rQueryS)) {
                                 $empresa_id = $rQueryS[0]['empresa_id'];
 
@@ -450,6 +488,7 @@ class ManguerasController extends AppController
                                         $id_permiso = $oConexion->lastInsertId();
                                     }
 
+                                    if (isset($records['est_existe']) != true) {
                                         $eQuery = $value->query($estacion, [
                                             $empresa_id,
                                             $records['plaza_id'],
@@ -465,6 +504,17 @@ class ManguerasController extends AppController
 
                                         $id_estacion = $oConexion->lastInsertId();
 
+                                        $fQuery = $value->query($folio, [
+                                            $records['plaza_id'],
+                                            $records['plaza'],
+                                            $records['cvecia'],
+                                            $records['rubro_venta'],
+                                            $records['num_estacion'],
+                                            "0"
+                                        ]);
+                                    }
+
+                                        
                                     if (isset($permisos) != false) {
                                             $rUpdate = $value->query($updatePermiso, [
                                                 $id_estacion,
@@ -494,15 +544,6 @@ class ManguerasController extends AppController
                                         $records['num_estacion']
                                         ]);
                                     }
-
-                                        $fQuery = $value->query($folio, [
-                                            $records['plaza_id'],
-                                            $records['plaza'],
-                                            $records['cvecia'],
-                                            $records['rubro_venta'],
-                                            $records['num_estacion'],
-                                            "0"
-                                        ]);
                                 
                                         $rQuery = $value->query($query, [
                                             $records['plaza_id'],
@@ -952,26 +993,66 @@ class ManguerasController extends AppController
     {
         $oConexion = $this->getConexion('mangueras');
         $records = json_decode($_REQUEST["records"], true);
-        $records = $records[0];
         $success = "";
         $msg = "";
-        try {
-            $query = "UPDATE mangueras SET estatus = ?, fecha_baja = ? WHERE id_manguera = ?";
-            $rQuery = $oConexion->query($query, [
-                0,
-                date("Y-m-d"),
-                $records['id_manguera']
-            ]);
+        // $records = $records[0];
+        
+        $conexiones = array('mangueras'=> $oConexion);
+        $conne = array();
+        $con = "SELECT * FROM conexion WHERE plaza_id = ?";
+        $aQueryParams = array($records['plaza_id']);
+        $aResultado = $oConexion->query($con, $aQueryParams);
 
-            $success = true;
-            $msg = "<center>Se elimino correctamente!</center>";
-        } catch (Exception $e) {
-            if (strpos($e->getMessage(), '1451')) {
-                $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
-            } elseif (strpos($e->getMessage(), '1052')) {
-                $msg = "Existen nombres de columna ambiguos en la consulta.";
-            } else {
-                $msg = "Contiene un error";
+        if (count($aResultado) <= 0) {
+            throw new Exception("Error al obtener los datos de conexion a la plaza");
+        }
+
+        $cont = 1;
+        foreach ($aResultado as $key => $value) {
+            $var = 'conexion'.$cont;
+            $cone = preg_replace('/\s+/', '', strtolower($value['nom_servidor']));
+            $$var = $this->getConexion(
+                $cone,
+                array(
+                "host" => $value["ip"],
+                "username" => $value["usuario"],
+                "password" => $value["password"],
+                "database" => $value["base"]
+                )
+            );
+
+            $conexiones[$value['nom_servidor']] = $$var;
+            $cont++;
+        }
+
+        foreach ($conexiones as $key => $value) {
+            try {
+                $querySelect = "SELECT id_manguera FROM mangueras WHERE plaza_id = ? AND planta_id = ? 
+                    AND rubro_venta_id = ? AND num_manguera = ?";
+                $rQuerySelect = $value->query($querySelect, [
+                    $records['plaza_id'],
+                    $records['planta_id'],
+                    $records['rubro_venta_id'],
+                    $records['num_manguera']
+                ]);
+                 
+                $query = "UPDATE mangueras SET estatus = ?, fecha_baja = ? WHERE id_manguera = ?";
+                    $rQuery = $value->query($query, [
+                    '0',
+                    date("Y-m-d"),
+                    $rQuerySelect[0]['id_manguera']
+                    ]);
+
+                $success = true;
+                $msg = "<center>Se elimino correctamente!</center>";
+            } catch (Exception $e) {
+                if (strpos($e->getMessage(), '1451')) {
+                    $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
+                } elseif (strpos($e->getMessage(), '1052')) {
+                    $msg = "Existen nombres de columna ambiguos en la consulta.";
+                } else {
+                    $msg = "Contiene un error";
+                }
             }
         }
 
