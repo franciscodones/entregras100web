@@ -41,6 +41,10 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         });
     },
 
+    onCmbClaveChange: function(field, newValue, oldValue, eOpts) {
+        this.getView().down('#cmbCanalVenta').setDisabled(false);
+    },
+
     onCmbCanalVentaChange: function(field, newValue, oldValue, eOpts) {
         var plaza_id = this.getView().down('#cmbPlaza').getValue(),
             planta_id = this.getView().down('#cmbPlanta').getValue();
@@ -57,7 +61,9 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             num_red = this.getView().down('#txtNumRed'),
             num_bomba = this.getView().down('#txtNumBomba'),
             id_manguera = this.getView().down('#id_manguera'),
-            sub_red = this.getView().down('#txtSubRed');
+            sub_red = this.getView().down('#txtSubRed'),
+            nombre_estacion = this.getView().down('#txtNombreEstacion'),
+            btnAgregarPermiso = this.getView().down('#btnAddPermiso');
 
         Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
         Ext.Ajax.request({
@@ -93,6 +99,8 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_red.setDisabled(true);
                             sub_red.setDisabled(true);
                             num_bomba.setDisabled(true);
+                            nombre_estacion.setDisabled(true);
+                            btnAgregarPermiso.setDisabled(true);
                         }
                         if(newValue == 2 || newValue == 4){
                             descripcion.setValue('');
@@ -106,6 +114,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_red.setDisabled(true);
                             sub_red.setDisabled(true);
                             num_bascula.setDisabled(true);
+                            num_bascula.allowBlank = false;
                         }
                         if(newValue == 3){
                             descripcion.setValue('');
@@ -123,6 +132,8 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_red.setDisabled(true);
                             sub_red.setDisabled(true);
                             num_bomba.setDisabled(true);
+                            nombre_estacion.setDisabled(true);
+                            btnAgregarPermiso.setDisabled(true);
                         }
                         if(newValue == 5){
                             descripcion.setValue('');
@@ -142,6 +153,8 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                             num_estacion.setDisabled(true);
                             num_bomba.setDisabled(true);
                             descripcion.setHidden(true);
+                            nombre_estacion.setDisabled(true);
+                            tnAgregarPermiso.setDisabled(true);
                         }
                         id_manguera.setValue(ultima_manguera);
 
@@ -187,9 +200,12 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
     onTxtNumEcoChange: function(field, newValue, oldValue, eOpts) {
         this.getView().down('#txtNumBascula').setValue('');
         this.getView().down('#txtNumEstacion').setValue('');
-        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#txtNombreEstacion').setValue('');
+        this.getView().down('#txtNombreEstacion').setDisabled(true);
+        this.getView().down('#txtNombreEstacion').allowBlank = true;
+        this.getView().down('#cmbPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').allowBlank = true;
         this.getView().down('#btnAddPermiso').setDisabled(true);
-        this.getView().down('#btnAddPermiso').allowBlank = true;
         this.getView().down('#txtNumRed').setValue('');
         this.getView().down('#txtSubRed').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
@@ -202,35 +218,25 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
     },
 
     onTxtNumEstacionChange: function(field, newValue, oldValue, eOpts) {
-        // Ext.Msg.confirm('Mensaje de Sistema','¿La estación cuenta con permiso propio?',function(btn){
-        //     if(btn === 'yes'){
+        this.getView().down('#txtNumEco').setValue('');
+        this.getView().down('#txtNumEco').allowBlank = true;
+        this.getView().down('#txtNumBascula').setValue('');
+        this.getView().down('#txtNumBascula').allowBlank = true;
+        this.getView().down('#txtNumRed').setValue('');
+        this.getView().down('#txtNumRed').allowBlank = true;
+        this.getView().down('#txtSubRed').setValue('');
+        this.getView().down('#txtSubRed').allowBlank = true;
+        this.getView().down('#txtNumBomba').setValue('');
+        this.getView().down('#txtNumBomba').allowBlank = true;
+        this.getView().down('#txtNumBomba').setValue('');
+        this.getView().down('#txtNumBomba').allowBlank = true;
 
-        //         //         permiso.setValue('');
 
-        //         btnAgregarPermiso.setDisabled(false);
-        //     }else{
-        // //         this.get
-        //         Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
-        //         var planta_id = this.getView().down('#cmbPlanta').getValue(),
-        //             store = Ext.getStore('mangueras.comboPermisosStore');
-        //         store.load({
-        //             params:{
-        //                 planta_id: planta_id
-        //             },callback:function(){
-        //                 field.up('window').down('#cmbPermisoManguera').setStore(store);
-        //                 this.getView().down('#cmbPermisoManguera').setDisabled(false);
-        //                 this.getView().down('#cmbPermisoManguera').allowBlank = false;
-        //                 Ext.Msg.hide();
-        //             }
-        //         });
-        //         //         permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');
-        //         //         btnAgregarPermiso.setDisabled(true);
-        //     }
-        // });
-
-        // this.getView().down('#txtDescripcion').setValue('');
-        // // this.getView().down('#txtPermisoManguera').setDisabled(false);
-        // // this.getView().down('#txtPermisoManguera').allowBlank = false;
+        this.getView().down('#txtDescripcion').setValue('');
+        this.getView().down('#text1').setValue('');
+        this.getView().down('#num1').setValue('');
+        this.getView().down('#text2').setValue('');
+        this.getView().down('#num2').setValue('');
     },
 
     onTxtNumEstacionFocusleave: function(component, event, eOpts) {
@@ -273,12 +279,14 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                 btnAgregarPermiso.setDisabled(false);
                                 nombreEstacion.setValue('');
                                 nombreEstacion.setDisabled(true);
+                                nombreEstacion.allowBlank = false;
                                 tienePerm.setDisabled(true);
                             }else{
                                 Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
 
                                 nombreEstacion.setEditable(true);
                                 nombreEstacion.setDisabled(false);
+                                nombreEstacion.allowBlank = false;
                                 nombreEstacion.setValue('');
                                 var store = Ext.getStore('mangueras.comboPermisosStore');
                                 store.load({
@@ -434,7 +442,11 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#txtSubRed').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
         this.getView().down('#txtNumEstacion').setValue('');
-        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').allowBlank = true;
+        this.getView().down('#txtNombreEstacion').setValue('');
+        this.getView().down('#txtNombreEstacion').setDisabled(true);
+        this.getView().down('#txtNombreEstacion').allowBlank = true;
         this.getView().down('#btnAddPermiso').setDisabled(true);
         this.getView().down('#btnAddPermiso').allowBlank = true;
         // this.getView().down('#descripcion').setHidden(false);
@@ -451,14 +463,19 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#txtNumBascula').setValue('');
         this.getView().down('#txtNumEco').setValue('');
         this.getView().down('#txtNumBomba').setValue('');
-        this.getView().down('#txtNumEstacion').setValue('');this.getView().down('#txtPermiso').setValue('');
-        this.getView().down('#btnAddPermisoManguera').setDisabled(true);
-        this.getView().down('#btnAddPermisoManguera').allowBlank = true;
-
+        this.getView().down('#txtNumEstacion').setValue('');
+        this.getView().down('#cmbPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').allowBlank = true;
+        this.getView().down('#btnAddPermiso').setDisabled(true);
+        this.getView().down('#txtNombreEstacion').setValue('');
+        this.getView().down('#txtNombreEstacion').setDisabled(true);
+        this.getView().down('#txtNombreEstacion').allowBlank = true;
+        // this.getView().down('#btnAddPermisoManguera').allowBlank = true;
     },
 
     onTxtSubRedChange: function(field, newValue, oldValue, eOpts) {
-        this.getView().down('#txtPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').setValue('');
+        this.getView().down('#cmbPermisoManguera').allowBlank = true;
         this.getView().down('#btnAddPermiso').setDisabled(true);
         this.getView().down('#btnAddPermiso').allowBlank = true;
         var num_red = this.getView().down('#txtNumRed').getValue();
@@ -467,6 +484,9 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#num1').setValue(num_red);
         this.getView().down('#text2').setValue('Sub_red ');
         this.getView().down('#num2').setValue(newValue);
+        this.getView().down('#txtNombreEstacion').setValue('');
+        this.getView().down('#txtNombreEstacion').setDisabled(true);
+        this.getView().down('#txtNombreEstacion').allowBlank = true;
         // this.getView().down('#descripcion').setValue('Red '+num_red+', Sub_red '+ newValue);
     },
 
@@ -482,6 +502,11 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
         this.getView().down('#num1').setValue(newValue.substring(0,1));
         this.getView().down('#text2').setValue('Bomba ');
         this.getView().down('#num2').setValue(newValue);
+        // this.getView().down('#txtNombreEstacion').setValue('');
+        // this.getView().down('#txtNombreEstacion').setDisabled(true);
+        // this.getView().down('#txtNombreEstacion').allowBlank = true;
+        // this.getView().down('#cmbPermisoManguera').setValue('');
+        // this.getView().down('#cmbPermisoManguera').allowBlank = true;
         // this.getView().down('#descripcion').setValue('Dispensario '+newValue.substring(0,1)+', Bomba '+newValue);
     },
 
@@ -517,7 +542,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
             clave = this.getView().down('#cmbClave').selection.data.cvecia;
 
         var store = Ext.getStore('mangueras.PermisosStore').data.items;
-        console.log(nombre_plaza);
+
         if(form.isValid()){
             Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');
             if (store != ""){

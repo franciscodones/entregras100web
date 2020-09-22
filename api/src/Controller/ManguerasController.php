@@ -243,19 +243,27 @@ class ManguerasController extends AppController
         $oConexion = $this->getConexion('mangueras');
         $planta_id = $_REQUEST['planta_id'];
 
+        $msg = "";
+        $success = "";
+
         // obtiene los permisos correspondientes
         $sQuery = "SELECT * FROM permisos WHERE planta_id = ?";
         $rQuery = $oConexion->query($sQuery, [
             $planta_id
         ]);
-
-        // if (count($rQuery) > 0) {
+        
+        if (count($rQuery) > 0) {
             $records = $rQuery;
-        // }
+            $success = true;
+        } else {
+            $msg = "No contienen permisos la planta!";
+            $success = false;
+            $records = [];
+        }
 
         return $this->asJson(array(
-            "success" => true,
-            "message" => "Catalogo de Permisos",
+            "success" => $success,
+            "message" => $msg,
             "records" => $records,
             "metadata" => array(
                 "total_registros" => count($records)

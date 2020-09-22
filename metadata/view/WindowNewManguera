@@ -178,7 +178,33 @@
                         "valueField": "datafield"
                     },
                     "name": "MyComboBox4",
-                    "designerId": "bf575e03-69bb-4901-b951-e1fe4a1406e9"
+                    "designerId": "bf575e03-69bb-4901-b951-e1fe4a1406e9",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbClaveChange",
+                                "implHandler": [
+                                    "this.getView().down('#cmbCanalVenta').setDisabled(false);"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onCmbClaveChange",
+                            "designerId": "70431842-ce23-43d0-9fbe-acddab5e8045"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.ComboBox",
@@ -189,6 +215,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
+                        "disabled": true,
                         "displayField": "nombre",
                         "fieldLabel": "Canal de venta",
                         "itemId": "cmbCanalVenta",
@@ -205,7 +232,8 @@
                         "layout|anchor": "string",
                         "name": "string",
                         "queryMode": "string",
-                        "valueField": "datafield"
+                        "valueField": "datafield",
+                        "disabled": "boolean"
                     },
                     "name": "MyComboBox5",
                     "designerId": "2d5333a4-e6f6-4d7d-809a-05d9f47706b3",
@@ -235,7 +263,9 @@
                                     "    num_red = this.getView().down('#txtNumRed'),",
                                     "    num_bomba = this.getView().down('#txtNumBomba'),",
                                     "    id_manguera = this.getView().down('#id_manguera'),",
-                                    "    sub_red = this.getView().down('#txtSubRed');",
+                                    "    sub_red = this.getView().down('#txtSubRed'),",
+                                    "    nombre_estacion = this.getView().down('#txtNombreEstacion'),",
+                                    "    btnAgregarPermiso = this.getView().down('#btnAddPermiso');",
                                     "",
                                     "Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
                                     "Ext.Ajax.request({",
@@ -271,6 +301,8 @@
                                     "                    num_red.setDisabled(true);",
                                     "                    sub_red.setDisabled(true);",
                                     "                    num_bomba.setDisabled(true);",
+                                    "                    nombre_estacion.setDisabled(true);",
+                                    "                    btnAgregarPermiso.setDisabled(true);",
                                     "                }",
                                     "                if(newValue == 2 || newValue == 4){",
                                     "                    descripcion.setValue('');",
@@ -284,6 +316,7 @@
                                     "                    num_red.setDisabled(true);",
                                     "                    sub_red.setDisabled(true);",
                                     "                    num_bascula.setDisabled(true);",
+                                    "                    num_bascula.allowBlank = false;",
                                     "                }",
                                     "                if(newValue == 3){",
                                     "                    descripcion.setValue('');",
@@ -301,6 +334,8 @@
                                     "                    num_red.setDisabled(true);",
                                     "                    sub_red.setDisabled(true);",
                                     "                    num_bomba.setDisabled(true);",
+                                    "                    nombre_estacion.setDisabled(true);",
+                                    "                    btnAgregarPermiso.setDisabled(true);",
                                     "                }",
                                     "                if(newValue == 5){",
                                     "                    descripcion.setValue('');",
@@ -320,6 +355,8 @@
                                     "                    num_estacion.setDisabled(true);",
                                     "                    num_bomba.setDisabled(true);",
                                     "                    descripcion.setHidden(true);",
+                                    "                    nombre_estacion.setDisabled(true);",
+                                    "                    tnAgregarPermiso.setDisabled(true);",
                                     "                }",
                                     "                id_manguera.setValue(ultima_manguera);",
                                     "",
@@ -411,9 +448,12 @@
                                 "implHandler": [
                                     "this.getView().down('#txtNumBascula').setValue('');",
                                     "this.getView().down('#txtNumEstacion').setValue('');",
-                                    "this.getView().down('#txtPermisoManguera').setValue('');",
+                                    "this.getView().down('#txtNombreEstacion').setValue('');",
+                                    "this.getView().down('#txtNombreEstacion').setDisabled(true);",
+                                    "this.getView().down('#txtNombreEstacion').allowBlank = true;",
+                                    "this.getView().down('#cmbPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').allowBlank = true;",
                                     "this.getView().down('#btnAddPermiso').setDisabled(true);",
-                                    "this.getView().down('#btnAddPermiso').allowBlank = true;",
                                     "this.getView().down('#txtNumRed').setValue('');",
                                     "this.getView().down('#txtSubRed').setValue('');",
                                     "this.getView().down('#txtNumBomba').setValue('');",
@@ -450,6 +490,7 @@
                         "fieldLabel": "Num. Estación",
                         "itemId": "txtNumEstacion",
                         "layout|anchor": "100%",
+                        "maskRe": "/[0-9]/",
                         "name": "num_estacion"
                     },
                     "configAlternates": {
@@ -457,7 +498,8 @@
                         "fieldLabel": "string",
                         "itemId": "string",
                         "layout|anchor": "string",
-                        "name": "string"
+                        "name": "string",
+                        "maskRe": "regex"
                     },
                     "name": "MyTextField1",
                     "designerId": "44b30b80-8720-4e53-a198-0f0d1eec10ea",
@@ -472,35 +514,25 @@
                             "userConfig": {
                                 "fn": "onTxtNumEstacionChange",
                                 "implHandler": [
-                                    "// Ext.Msg.confirm('Mensaje de Sistema','¿La estación cuenta con permiso propio?',function(btn){",
-                                    "//     if(btn === 'yes'){",
+                                    "this.getView().down('#txtNumEco').setValue('');",
+                                    "this.getView().down('#txtNumEco').allowBlank = true;",
+                                    "this.getView().down('#txtNumBascula').setValue('');",
+                                    "this.getView().down('#txtNumBascula').allowBlank = true;",
+                                    "this.getView().down('#txtNumRed').setValue('');",
+                                    "this.getView().down('#txtNumRed').allowBlank = true;",
+                                    "this.getView().down('#txtSubRed').setValue('');",
+                                    "this.getView().down('#txtSubRed').allowBlank = true;",
+                                    "this.getView().down('#txtNumBomba').setValue('');",
+                                    "this.getView().down('#txtNumBomba').allowBlank = true;",
+                                    "this.getView().down('#txtNumBomba').setValue('');",
+                                    "this.getView().down('#txtNumBomba').allowBlank = true;",
                                     "",
-                                    "//         //         permiso.setValue('');",
                                     "",
-                                    "//         btnAgregarPermiso.setDisabled(false);",
-                                    "//     }else{",
-                                    "// //         this.get",
-                                    "//         Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
-                                    "//         var planta_id = this.getView().down('#cmbPlanta').getValue(),",
-                                    "//             store = Ext.getStore('mangueras.comboPermisosStore');",
-                                    "//         store.load({",
-                                    "//             params:{",
-                                    "//                 planta_id: planta_id",
-                                    "//             },callback:function(){",
-                                    "//                 field.up('window').down('#cmbPermisoManguera').setStore(store);",
-                                    "//                 this.getView().down('#cmbPermisoManguera').setDisabled(false);",
-                                    "//                 this.getView().down('#cmbPermisoManguera').allowBlank = false;",
-                                    "//                 Ext.Msg.hide();",
-                                    "//             }",
-                                    "//         });",
-                                    "//         //         permiso.markInvalid('No existe el permiso en la información seleccionada, agregue el permiso o verifique porfavor!');",
-                                    "//         //         btnAgregarPermiso.setDisabled(true);",
-                                    "//     }",
-                                    "// });",
-                                    "",
-                                    "// this.getView().down('#txtDescripcion').setValue('');",
-                                    "// // this.getView().down('#txtPermisoManguera').setDisabled(false);",
-                                    "// // this.getView().down('#txtPermisoManguera').allowBlank = false;"
+                                    "this.getView().down('#txtDescripcion').setValue('');",
+                                    "this.getView().down('#text1').setValue('');",
+                                    "this.getView().down('#num1').setValue('');",
+                                    "this.getView().down('#text2').setValue('');",
+                                    "this.getView().down('#num2').setValue('');"
                                 ],
                                 "name": "change",
                                 "scope": "me"
@@ -563,19 +595,21 @@
                                     "                        btnAgregarPermiso.setDisabled(false);",
                                     "                        nombreEstacion.setValue('');",
                                     "                        nombreEstacion.setDisabled(true);",
+                                    "                        nombreEstacion.allowBlank = false;",
                                     "                        tienePerm.setDisabled(true);",
                                     "                    }else{",
                                     "                        Ext.Msg.wait('<center>Cargando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
                                     "",
                                     "                        nombreEstacion.setEditable(true);",
                                     "                        nombreEstacion.setDisabled(false);",
+                                    "                        nombreEstacion.allowBlank = false;",
                                     "                        nombreEstacion.setValue('');",
                                     "                        var store = Ext.getStore('mangueras.comboPermisosStore');",
                                     "                        store.load({",
                                     "                            params:{",
                                     "                                planta_id: planta_id",
                                     "                            },callback:function(){",
-                                    "//                                 nombreEstacion.setDisabled(false);",
+                                    "                                //                                 nombreEstacion.setDisabled(false);",
                                     "                                tienePerm.setDisabled(false);",
                                     "                                nombreEstacion.allowBlank = false;",
                                     "                                cmbPermiso.setStore(store);",
@@ -736,6 +770,7 @@
                             "userConfig": {
                                 "disabled": true,
                                 "displayField": "permiso",
+                                "editable": false,
                                 "fieldLabel": "Permiso",
                                 "forceSelection": true,
                                 "id": "cmbPermisoManguera",
@@ -755,7 +790,8 @@
                                 "displayField": "datafield",
                                 "forceSelection": "boolean",
                                 "queryMode": "string",
-                                "valueField": "datafield"
+                                "valueField": "datafield",
+                                "editable": "boolean"
                             },
                             "name": "MyComboBox6",
                             "designerId": "13dda705-661a-41d2-b9f2-4ef466f048b4",
@@ -970,7 +1006,11 @@
                                     "this.getView().down('#txtSubRed').setValue('');",
                                     "this.getView().down('#txtNumBomba').setValue('');",
                                     "this.getView().down('#txtNumEstacion').setValue('');",
-                                    "this.getView().down('#txtPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').allowBlank = true;",
+                                    "this.getView().down('#txtNombreEstacion').setValue('');",
+                                    "this.getView().down('#txtNombreEstacion').setDisabled(true);",
+                                    "this.getView().down('#txtNombreEstacion').allowBlank = true;",
                                     "this.getView().down('#btnAddPermiso').setDisabled(true);",
                                     "this.getView().down('#btnAddPermiso').allowBlank = true;",
                                     "// this.getView().down('#descripcion').setHidden(false);",
@@ -1009,6 +1049,7 @@
                         "itemId": "txtNumRed",
                         "layout|anchor": "100%",
                         "margin": "10 0 0 0",
+                        "maskRe": "/[0-9]/",
                         "name": "num_red"
                     },
                     "configAlternates": {
@@ -1017,7 +1058,8 @@
                         "itemId": "string",
                         "layout|anchor": "string",
                         "name": "string",
-                        "margin": "auto"
+                        "margin": "auto",
+                        "maskRe": "regex"
                     },
                     "name": "MyTextField3",
                     "designerId": "abd86bb9-d1ee-462f-b1d7-4824d02dd0f8",
@@ -1035,10 +1077,14 @@
                                     "this.getView().down('#txtNumBascula').setValue('');",
                                     "this.getView().down('#txtNumEco').setValue('');",
                                     "this.getView().down('#txtNumBomba').setValue('');",
-                                    "this.getView().down('#txtNumEstacion').setValue('');this.getView().down('#txtPermiso').setValue('');",
-                                    "this.getView().down('#btnAddPermisoManguera').setDisabled(true);",
-                                    "this.getView().down('#btnAddPermisoManguera').allowBlank = true;",
-                                    ""
+                                    "this.getView().down('#txtNumEstacion').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').allowBlank = true;",
+                                    "this.getView().down('#btnAddPermiso').setDisabled(true);",
+                                    "this.getView().down('#txtNombreEstacion').setValue('');",
+                                    "this.getView().down('#txtNombreEstacion').setDisabled(true);",
+                                    "this.getView().down('#txtNombreEstacion').allowBlank = true;",
+                                    "// this.getView().down('#btnAddPermisoManguera').allowBlank = true;"
                                 ],
                                 "name": "change",
                                 "scope": "me"
@@ -1090,7 +1136,8 @@
                             "userConfig": {
                                 "fn": "onTxtSubRedChange",
                                 "implHandler": [
-                                    "this.getView().down('#txtPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').setValue('');",
+                                    "this.getView().down('#cmbPermisoManguera').allowBlank = true;",
                                     "this.getView().down('#btnAddPermiso').setDisabled(true);",
                                     "this.getView().down('#btnAddPermiso').allowBlank = true;",
                                     "var num_red = this.getView().down('#txtNumRed').getValue();",
@@ -1099,6 +1146,9 @@
                                     "this.getView().down('#num1').setValue(num_red);",
                                     "this.getView().down('#text2').setValue('Sub_red ');",
                                     "this.getView().down('#num2').setValue(newValue);",
+                                    "this.getView().down('#txtNombreEstacion').setValue('');",
+                                    "this.getView().down('#txtNombreEstacion').setDisabled(true);",
+                                    "this.getView().down('#txtNombreEstacion').allowBlank = true;",
                                     "// this.getView().down('#descripcion').setValue('Red '+num_red+', Sub_red '+ newValue);"
                                 ],
                                 "name": "change",
@@ -1162,6 +1212,11 @@
                                     "this.getView().down('#num1').setValue(newValue.substring(0,1));",
                                     "this.getView().down('#text2').setValue('Bomba ');",
                                     "this.getView().down('#num2').setValue(newValue);",
+                                    "// this.getView().down('#txtNombreEstacion').setValue('');",
+                                    "// this.getView().down('#txtNombreEstacion').setDisabled(true);",
+                                    "// this.getView().down('#txtNombreEstacion').allowBlank = true;",
+                                    "// this.getView().down('#cmbPermisoManguera').setValue('');",
+                                    "// this.getView().down('#cmbPermisoManguera').allowBlank = true;",
                                     "// this.getView().down('#descripcion').setValue('Dispensario '+newValue.substring(0,1)+', Bomba '+newValue);"
                                 ],
                                 "name": "change",
@@ -1429,7 +1484,7 @@
                                             "    clave = this.getView().down('#cmbClave').selection.data.cvecia;",
                                             "",
                                             "var store = Ext.getStore('mangueras.PermisosStore').data.items;",
-                                            "console.log(nombre_plaza);",
+                                            "",
                                             "if(form.isValid()){",
                                             "    Ext.Msg.wait('<center>Procesando Información, Espere un momento</center>','<center>Mensaje de Sistema</center>');",
                                             "    if (store != \"\"){",

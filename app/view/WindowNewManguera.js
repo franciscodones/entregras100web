@@ -76,11 +76,15 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     allowBlank: false,
                     displayField: 'nom_cia',
                     queryMode: 'local',
-                    valueField: 'id_cvecia'
+                    valueField: 'id_cvecia',
+                    listeners: {
+                        change: 'onCmbClaveChange'
+                    }
                 },
                 {
                     xtype: 'combobox',
                     anchor: '100%',
+                    disabled: true,
                     itemId: 'cmbCanalVenta',
                     fieldLabel: 'Canal de venta',
                     name: 'rubro_venta_id',
@@ -110,6 +114,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     itemId: 'txtNumEstacion',
                     fieldLabel: 'Num. Estación',
                     name: 'num_estacion',
+                    maskRe: /[0-9]/,
                     listeners: {
                         change: 'onTxtNumEstacionChange',
                         focusleave: 'onTxtNumEstacionFocusleave'
@@ -156,6 +161,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                             width: 340,
                             fieldLabel: 'Permiso',
                             name: 'permiso_id',
+                            editable: false,
                             displayField: 'permiso',
                             forceSelection: true,
                             queryMode: 'local',
@@ -197,6 +203,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
                     margin: '10 0 0 0',
                     fieldLabel: 'Num. Red',
                     name: 'num_red',
+                    maskRe: /[0-9]/,
                     listeners: {
                         change: 'onTxtNumRedChange'
                     }
