@@ -420,10 +420,12 @@ class ManguerasController extends AppController
             if (array_key_exists('num_estacion', $records)) {
                 // $permisos = json_decode($_REQUEST['info'], true);
 
-                $query = "SELECT * FROM mangueras WHERE num_estacion = ? AND planta_id = ? AND mangueras.estatus = 1";
+                $query = "SELECT * FROM mangueras WHERE num_estacion = ? AND num_bomba = ? AND planta_id = ? 
+                    AND mangueras.estatus = 1";
                 $rQuery = $oConexion->query($query, [
-                $records['num_estacion'],
-                $records['planta_id']
+                    $records['num_estacion'],
+                    $records['num_bomba'],
+                    $records['planta_id']
                 ]);
 
                 if (empty($rQuery)) {
@@ -624,7 +626,8 @@ class ManguerasController extends AppController
                         $success = false;
                     }
                 } else {
-                    $msg = "<center>Ya existe el numero de estación <b>".$records['num_estacion']." </b> en la Planta <b>"
+                    $msg = "<center>Ya existe el numero de estación <b>".$records['num_estacion']." </b> y el 
+                        numero de bomba <b>".$records['num_bomba']."</b> en la Planta <b>"
                     .$records['nombre_planta']."</b>, verifique porfavor</center>";
                     $success = false;
                 }
