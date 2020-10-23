@@ -582,8 +582,8 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                     closable:false
                                 });
                                 win.close();
-                                var store = Ext.getStore('mangueras.ManguerasStore');
-                                store.add({
+                                var sto = Ext.getStore('mangueras.ManguerasStore');
+                                sto.add({
                                     plazas: nombre_plaza,
                                     descrip_rubro_venta: descrip_rubro_venta,
                                     num_manguera: num_manguera,
@@ -598,6 +598,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                     id:1
                                 });
 
+                                Ext.getStore('mangueras.PermisosStore').removeAll();
                             }else{
                                 Ext.Msg.hide();
                                 Ext.MessageBox.show({
