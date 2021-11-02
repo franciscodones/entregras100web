@@ -25,6 +25,7 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
         'Ext.button.Button',
         'Ext.form.FieldSet',
         'Ext.form.Label',
+        'Ext.toolbar.Spacer',
         'Ext.grid.Panel',
         'Ext.view.Table',
         'Ext.grid.column.Action',
@@ -147,6 +148,14 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                             ]
                         }
                     ]
+                },
+                {
+                    xtype: 'tbspacer',
+                    flex: 1
+                },
+                {
+                    xtype: 'label',
+                    text: 'V.1.1'
                 }
             ]
         },
@@ -252,6 +261,7 @@ Ext.define('Entregas100Web.view.ManguerasPanel', {
                 {
                     xtype: 'gridcolumn',
                     renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        // console.log(value);
                         if(value === 0){
                             metaData.style = "background-color:  #F00;";
                         }else if(value === 1){

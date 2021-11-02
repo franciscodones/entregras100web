@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use DateTime;
@@ -11,6 +10,8 @@ use PHPExcel_Worksheet_PageSetup;
 use PHPExcel_Style;
 use PHPExcel_Style_Alignment;
 use PHPExcel_Style_Border;
+
+/*1.1 se modifico mangueras reinsertar por si ya existe el registro que se metio manual se borre de la base de datos de lo contrario que lo agregue, verifica si es estacion o es de diferente rubro, si es estacion obtiene la informacion sel centralizado e ingresa la informacion al local.*/
 
 class ManguerasController extends AppController
 {
@@ -458,7 +459,7 @@ class ManguerasController extends AppController
 
                             $sQuery = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, 
                             cvecia_id, rubro_venta, num_manguera, descrip_manguera, descrip_rubro_venta, num_eco, 
-                            num_bascula, num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, servidor)
+                            num_bascula, num_red, num_bomba, num_estacion, sub_red, fecha_alta, fecha_baja, estatus, servidor)
                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
                         if (empty($_REQUEST['info']) == false) {
@@ -598,27 +599,35 @@ class ManguerasController extends AppController
                                         '0000-00-00',
                                         1
                                     ]);
+
+                                    $msg = "<center>Se agrego correctamente!</center>";
+                                    $success = true;
                                 } catch (Exception $e) {
+                                    
+                                    $msg = "<center>Fallo el servidor ".$key.", dirijase al modulo de mangueras reinsertar y contacte a soporte por favor!</center>";
+                                    $success = false;
+
                                     $rQuery = $manguerasReInsertar->query($sQuery, [
-                                    $records['plaza_id'],
-                                    $records['plaza'],//pendiente de verificar
-                                    $records['cvecia'],
-                                    $records['planta_id'],
-                                    $records['rubro_venta_id'],
-                                    $records['cvecia_id'],
-                                    $records['rubro_venta'],
-                                    $records['num_manguera'],
-                                    $records['descrip_manguera'],
-                                    $records['descrip_rubro_venta'],
-                                    (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
-                                    (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
-                                    (isset($records['num_red']) == true ? $records['num_red'] : 0),
-                                    (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
-                                    (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
-                                    (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
-                                    date("Y-m-d"),
-                                    '0000-00-00',
-                                    $key
+                                        $records['plaza_id'],
+                                        $records['plaza'],//pendiente de verificar
+                                        $records['cvecia'],
+                                        $records['planta_id'],
+                                        $records['rubro_venta_id'],
+                                        $records['cvecia_id'],
+                                        $records['rubro_venta'],
+                                        $records['num_manguera'],
+                                        $records['descrip_manguera'],
+                                        $records['descrip_rubro_venta'],
+                                        (isset($records['num_eco']) == true ?  $records['num_eco'] : 0),
+                                        (isset($records['num_bascula'])== true ? $records['num_bascula'] : 0),
+                                        (isset($records['num_red']) == true ? $records['num_red'] : 0),
+                                        (isset($records['num_bomba']) == true ? $records['num_bomba'] : 0),
+                                        (isset($records['num_estacion']) == true  ? $records['num_estacion'] : 0),
+                                        (isset($records['sub_red']) == true ? $records['sub_red'] : 0),
+                                        date("Y-m-d"),
+                                        '0000-00-00',
+                                        '1',
+                                        $key
                                     ]);
 
                                     // $records['clientId'] = $records['id_manguera'];
@@ -632,8 +641,7 @@ class ManguerasController extends AppController
                             }
                                 // $records = [$records];
 
-                                $msg = "<center>Se agrego correctamente!</center>";
-                                $success = true;
+                                
                         } else {
                             $msg = "<center>La empresa se encuentra desactivada, verifique porfavor</center>";
                             $success = false;
@@ -956,56 +964,202 @@ class ManguerasController extends AppController
                 $conexiones[$servidor] = $cone;
             }
             try {
-                // $oLink->begin();
-                // $cone->begin();
-               
-                $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta,
-                    num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion,
-                    num_red, sub_red, fecha_alta, fecha_baja)
-                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-                $rQuery = $cone->query($query, [
-                    $value['plaza_id'],
-                    $value['plaza'],//pendiente de verificar
-                    $value['cvecia'],
-                    $value['planta_id'],
-                    $value['rubro_venta_id'],
-                    $value['rubro_venta'],
-                    $value['num_manguera'],
-                    $value['descrip_manguera'],
-                    $value['descrip_rubro_venta'],
-                    (isset($value['num_bascula'])== true ? $value['num_bascula'] : 0),
-                    (isset($value['num_bomba']) == true ? $value['num_bomba'] : 0),
-                    (isset($value['num_eco']) == true ?  $value['num_eco'] : 0),
-                    (isset($value['num_estacion']) == true  ? $value['num_estacion'] : 0),
-                    (isset($value['num_red']) == true ? $value['num_red'] : 0),
-                    (isset($value['sub_red']) == true ? $value['sub_red'] : 0),
-                    date("Y-m-d"),
-                    '0000-00-00'
-                ]);
 
-                if ($rQuery > 0) {
-                    $sQuery = "DELETE FROM mangueras WHERE id_manguera = ?";
-                    $rQuery = $oLink->query($sQuery, [
-                    $value['id_manguera']
+                $cone->begin();
+                //pregunta si es estacion de carburacion para obtener la informacion y agregar a la base de datos correspondiente
+                if ($value['rubro_venta_id'] == '4') {
+
+                    //hago consulta para verificar si se existe la informacion en la db centralizada de estaciones
+                    $queryEstacion = "SELECT * FROM estaciones WHERE plaza_id = ? AND cvecia = ? AND num_estac = ?";
+                    $rQueryEstacion = $oConexion->query($queryEstacion,[
+                        $value['plaza_id'],
+                        $value['cvecia'],
+                        $value['num_estacion']
                     ]);
+
+                    //verifica si no esta vacia, entra para agregar a las correspondientes
+                    if (!empty($rQueryEstacion)) {
+                        //agrega informacion en estaciones
+                        $qEInsert = "INSERT INTO estaciones (id_estac, empres_id, plaza_id, plaza, cvecia, num_estac, nom_estac, 
+                        tiene_perm, permiso_id, planta_id, estatus) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                        $rQEInsert = $cone->query($qEInsert,[
+                            $rQueryEstacion[0]['id_estac'],
+                            $rQueryEstacion[0]['empres_id'],
+                            $rQueryEstacion[0]['plaza_id'],
+                            $rQueryEstacion[0]['plaza'],
+                            $rQueryEstacion[0]['cvecia'],
+                            $rQueryEstacion[0]['num_estac'],
+                            $rQueryEstacion[0]['nom_estac'],
+                            $rQueryEstacion[0]['tiene_perm'],
+                            $rQueryEstacion[0]['permiso_id'],
+                            $rQueryEstacion[0]['planta_id'],
+                            $rQueryEstacion[0]['estatus']
+                        ]);
+
+                        //verifica si existe informacion en folio servicio
+                        $queryFolioServicio = "SELECT * FROM folio_servicios WHERE plaza_id = ? AND cvecia = ? AND rubro_venta = ? AND num_Estacion = ?;";
+                        $rQueryFolioServicio = $oConexion->query($queryFolioServicio,[
+                            $value['plaza_id'],
+                            $value['cvecia'],
+                            $value['rubro_venta'],
+                            $value['num_estacion']
+                        ]);
+
+                        //ingresa informacion en la base de datos local en la tabla folio_servicios
+                        $queryInsertFolioServicio = "INSERT INTO folio_servicios (plaza_id, plaza, cvecia, rubro_venta, num_Estacion, folio_servicio) VALUES (?,?,?,?,?,?)";
+                        $rQueryInsertFolioServicio = $cone->query($queryInsertFolioServicio,[
+                            $rQueryFolioServicio[0]['plaza_id'],
+                            $rQueryFolioServicio[0]['plaza'],
+                            $rQueryFolioServicio[0]['cvecia'],
+                            $rQueryFolioServicio[0]['rubro_venta'],
+                            $rQueryFolioServicio[0]['num_Estacion'],
+                            $rQueryFolioServicio[0]['folio_servicio']
+                        ]);
+
+                        //ingresa la informacion de mangueras a la db local.
+                        $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta,
+                        num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion,
+                        num_red, sub_red, fecha_alta, fecha_baja)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        $rQuery = $cone->query($query, [
+                            $value['plaza_id'],
+                            $value['plaza'],//pendiente de verificar
+                            $value['cvecia'],
+                            $value['planta_id'],
+                            $value['rubro_venta_id'],
+                            $value['rubro_venta'],
+                            $value['num_manguera'],
+                            $value['descrip_manguera'],
+                            $value['descrip_rubro_venta'],
+                            (isset($value['num_bascula'])== true ? $value['num_bascula'] : 0),
+                            (isset($value['num_bomba']) == true ? $value['num_bomba'] : 0),
+                            (isset($value['num_eco']) == true ?  $value['num_eco'] : 0),
+                            (isset($value['num_estacion']) == true  ? $value['num_estacion'] : 0),
+                            (isset($value['num_red']) == true ? $value['num_red'] : 0),
+                            (isset($value['sub_red']) == true ? $value['sub_red'] : 0),
+                            date("Y-m-d"),
+                            '0000-00-00'
+                        ]);
+
+                        //verifica si la estacion tiene permiso propio
+                        if ($rQueryEstacion[0]['tiene_perm'] == '1') {
+
+                            //en caso de tener permiso propio se hace una consulta para obtener el permiso
+                            $queryPermiso = "SELECT * FROM permisos WHERE plaza_id = ? AND cvecia = ? AND num_estac = ?";
+                            $rQueryPermiso = $oConexion->query($queryPermiso,[
+                                $value['plaza_id'],
+                                $value['cvecia'],
+                                $value['num_estacion']
+                            ]);
+
+                            //despues se agrega la informacion
+                            $qInsertPermiso = "INSERT INTO permisos (id_permiso, permiso, plaza_id, plaza, cvecia, pla_est, planta_id, estac_id, num_estac, tiene_perm, nompla_est, direccion) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+                            $rQueryInsertPermiso = $cone->query($qInsertPermiso,[
+                                $rQueryPermiso[0]['id_permiso'],
+                                $rQueryPermiso[0]['permiso'],
+                                $rQueryPermiso[0]['plaza_id'],
+                                $rQueryPermiso[0]['plaza'],
+                                $rQueryPermiso[0]['cvecia'],
+                                $rQueryPermiso[0]['pla_est'],
+                                $rQueryPermiso[0]['planta_id'],
+                                $rQueryPermiso[0]['estac_id'],
+                                $rQueryPermiso[0]['num_estac'],
+                                $rQueryPermiso[0]['tiene_perm'],
+                                $rQueryPermiso[0]['nompla_est'],
+                                $rQueryPermiso[0]['direccion']
+                            ]);
+                        }
+
+                        //una vez que se agrego la informacion en las tablas se elimina de la centralizada.
+                        if ($rQuery > 0) {
+                            $sQuery = "DELETE FROM mangueras WHERE id_manguera = ?";
+                            $rQuery = $oLink->query($sQuery, [
+                                $value['id_manguera']
+                            ]);
+                        }
+
+                    }else{
+                        //entra en caso que no exista la informacion en la db centralizada
+                        $msg = "<center>No se encontro la información, verifique por favor!</center>";
+                        $success = false;
+                    }
+
+                }else{
+
+                    //en caso de cualquier otro rubro de venta sigue todo el proceso normal, verifica si existe la informacion en la db local
+                    $qSelect = "SELECT * FROM mangueras WHERE plaza_id = ? AND cvecia = ? AND rubro_venta_id = ? AND num_manguera = ?;";
+                    $rQuery = $cone->query($qSelect,[
+                        $value['plaza_id'],
+                        $value['cvecia'],
+                        $value['rubro_venta_id'],
+                        $value['num_manguera']
+                    ]);
+
+                    //si esta vacio, osea no existe informacion en la local
+                    if (empty($rQuery)) {
+
+                        //ingresa la informacion
+                        $query = "INSERT INTO mangueras (plaza_id, plaza, cvecia, planta_id, rubro_venta_id, rubro_venta,
+                        num_manguera, descrip_manguera, descrip_rubro_venta, num_bascula, num_bomba, num_eco, num_estacion,
+                        num_red, sub_red, fecha_alta, fecha_baja)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        
+                        $rQuery = $cone->query($query, [
+                            $value['plaza_id'],
+                            $value['plaza'],//pendiente de verificar
+                            $value['cvecia'],
+                            $value['planta_id'],
+                            $value['rubro_venta_id'],
+                            $value['rubro_venta'],
+                            $value['num_manguera'],
+                            $value['descrip_manguera'],
+                            $value['descrip_rubro_venta'],
+                            (isset($value['num_bascula'])== true ? $value['num_bascula'] : 0),
+                            (isset($value['num_bomba']) == true ? $value['num_bomba'] : 0),
+                            (isset($value['num_eco']) == true ?  $value['num_eco'] : 0),
+                            (isset($value['num_estacion']) == true  ? $value['num_estacion'] : 0),
+                            (isset($value['num_red']) == true ? $value['num_red'] : 0),
+                            (isset($value['sub_red']) == true ? $value['sub_red'] : 0),
+                            date("Y-m-d"),
+                            '0000-00-00'
+                        ]);
+
+                        //verifica si se agrego exitosamente
+                        if ($rQuery > 0) {
+                            //elimina el registro del centralizado
+                            $sQuery = "DELETE FROM mangueras WHERE id_manguera = ?";
+                            $rQuery = $oLink->query($sQuery, [
+                                $value['id_manguera']
+                            ]);
+                        }
+                    }else{
+                        //elimina el registro del centralizado en caso de que ya exista.s
+                        $sQuery = "DELETE FROM mangueras WHERE id_manguera = ?";
+                        $rQuery = $oLink->query($sQuery, [
+                            $value['id_manguera']
+                        ]);
+                    }
                 }
+                        
+                $msg = "<center>Se agrego correctamente!</center>";
+                $success = true;
+                
                 // $oLink->commit();
-                // $cone->begin();
+                $cone->commit();
             } catch (Exception $e) {
-                $success = "false";
+                // pr('fallo el servidor');
+                $success = false;
+                $msg = "<center>Fallo el servidor ".$value['servidor']." contacte a soporte por favor!</center>";
                 $records = "";
-                if (strpos($e->getMessage(), '1451')) {
-                    $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
-                } elseif (strpos($e->getMessage(), '1052')) {
-                    $msg = "Existen nombres de columna ambiguos en la consulta.";
-                } else {
-                    $msg = "Contiene un error en el servidor!";
-                }
+                // if (strpos($e->getMessage(), '1451')) {
+                //     $msg = "El registro ya fue ligado por lo tanto no se puede eliminar.";
+                // } elseif (strpos($e->getMessage(), '1052')) {
+                //     $msg = "Existen nombres de columna ambiguos en la consulta.";
+                // } else {
+                //     $msg = "Contiene un error en el servidor!";
+                // }
             }
         }
-
-        $msg = "<center>Se agrego correctamente!</center>";
-        $success = true;
 
         return $this->asJson([
             "success" => $success,

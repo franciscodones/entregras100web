@@ -18,6 +18,8 @@ Ext.define('Entregas100Web.view.WindowReinsertarInformacionManguerasViewControll
     alias: 'controller.windowreinsertarinformacionmangueras',
 
     onBtnAgregarInformacionClick: function(button, e, eOpts) {
+        var win =  button.up('window');
+
         var data = [];
         var store = Ext.getStore('mangueras.ManguerasReInsertarStore');
         Ext.each(store.data.items, function(values){
@@ -38,6 +40,15 @@ Ext.define('Entregas100Web.view.WindowReinsertarInformacionManguerasViewControll
                     var resp = JSON.parse(response.responseText);
                     Ext.Msg.hide();
                     if(resp.success){
+                        Ext.MessageBox.show({
+                            title: '<center>Mensaje de Sistema</center>',
+                            msg: resp.message,
+                            icon: Ext.MessageBox.INFO,
+                            buttons: Ext.Msg.OK,
+                            buttonText:{ok:"Aceptar"},
+                            closable:false
+                        });
+                        win.close();
                         Ext.getStore('mangueras.ManguerasReInsertarStore').load();
 
                     }else{

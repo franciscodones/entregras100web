@@ -33,6 +33,7 @@ Ext.define('Entregas100Web.view.WindowReinsertarInformacionMangueras', {
     },
     modal: true,
     height: 400,
+    resizable: false,
     width: 1300,
     title: 'Información pendiente a agregar',
 

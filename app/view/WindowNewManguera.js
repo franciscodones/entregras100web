@@ -33,6 +33,7 @@ Ext.define('Entregas100Web.view.WindowNewManguera', {
     },
     modal: true,
     height: 680,
+    resizable: false,
     width: 403,
     title: 'Agregar manguera',
 

@@ -609,6 +609,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                     buttonText:{ok:"Aceptar"},
                                     closable:false
                                 });
+                                win.close();
                             }
                         }catch(Exception){
                             Ext.Msg.hide(
@@ -627,6 +628,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                         }
                     },
                     failure:function(error){
+                        console.log('3');
                         Ext.MessageBox.show({
                             title: '<center>Mensaje de Sistema</center>',
                             msg: '<center>Fallo la conexión al servidor</center>',
@@ -692,6 +694,7 @@ Ext.define('Entregas100Web.view.WindowNewMangueraViewController', {
                                         buttonText:{ok:"Aceptar"},
                                         icon: Ext.Msg.ERROR
                                     });
+                                    win.close();
                                 }
                             });
                         }
